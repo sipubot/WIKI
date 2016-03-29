@@ -12,7 +12,7 @@
 - Angular : 구글 느님이 만들어 뿌리신 js 프레임워크 이쪽이 원조인듯 함.. 이쪽은 정교한 맛이 있다 구글느님때문에 함수 api도 정갈한 편이지만 역시나 html 문법 이탈되는 부분이 있음. 넉아웃 백본 다음으로 추천해봄직 함
 * 왜 리액트는 안쓰냐고 묻냐면 어 그거 쓸바엔 앵귤러 그냥 쓰세요 백본도 좋고. (나는 페북을 싫어함.)
 
---이상 추천한 세가지 프레임워크 링크를 걸어둔다. 자세한 분석은 다시 추후에.
-[Knockout](http://knockoutjs.com/)
-[Angular](https://www.angularjs.org/)
-[Backbone](http://backbonejs.org/)
++ 이상 추천한 세가지 프레임워크 링크를 걸어둔다. 자세한 분석은 다시 추후에.
+- [Knockout](http://knockoutjs.com/)
+- [Angular](https://www.angularjs.org/)
+- [Backbone](http://backbonejs.org/)
