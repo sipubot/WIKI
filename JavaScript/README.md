@@ -1,8 +1,8 @@
 # javascript
-
-최근동향의 자바스크립트 프레임워크들 생각
+  자바스크립트 관련 공부한것이나 특별히 적어둘것들을 모아둔곳. 
 
 ##FrameWorks
+최근동향의 자바스크립트 프레임워크들 생각
 무작위 순서
 - Vue : json <-> html namespace  인데 워낙 이런 프레임 워크는 많아서. 글세...
 - Knockout : json <-> html namespace 이건 좀 재밌는게 data 속성값을 사용해버려서 html 자체의 오류는 없을것 같다. 차라리 이쪽을 추천하고 싶네
