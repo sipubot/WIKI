@@ -22,38 +22,74 @@ var SIPU = (function (SIPU, $, undefined) {
 var WIKI = (function (WIKI, $, undefined) {
 	"use strict";
 	//네임스페이스 트리 만들기. attribute 값을 이용한다.
-	
-  function getNode(tagName) {
+
+	function getNode(dataName) {
 		var temp = {};
 		var node = document.getElementsByTagName("*");
-		var datatag = tagName;
+		var datatag = dataName;
 		var attrValue = "None";
-		var tag = "";
 		for (var i = 0; i < node.length; i++) {
 			if (node[i].hasAttribute(datatag) || node[i].getAttribute(datatag) !== null) {
 				if (node[i].getAttribute(datatag).length > 0) {
 					attrValue = node[i].getAttribute(datatag);
 				}
-				tag = node[i].tagName;
-				if (!temp[tag]) {
-					temp[tag] = {};
+				if (!temp[attrValue]) {
+					temp[attrValue] = [];
 				}
-				if (!temp[tag][attrValue]) {
-					temp[tag][attrValue] = [];
-				}
-				temp[tag][attrValue].push(node[i]);
+				temp[attrValue].push(node[i]);
 			}
 		}
 		return temp;
 	}
-	var NODES = getNode("data-sipu");
 
+	function setNodeFunc(node) {
+		switch (node.tagName) {
+		case "A":
+			node.Set = function (address) {
+				node.setAttribute("href", address);
+			};
+			node.Get = function () {
+				return node.getAttribute("href");
+			};
+			break;
+		case "IMG":
+			node.Set = function (address) {
+				node.setAttribute("src", address);
+			};
+			node.Get = function () {
+				return node.getAttribute("src");
+			};
+			break;
+		default:
+			node.Set = function (args) {
+				node.innerHTML = args;
+			};
+			node.Get = function () {
+				return node.innerHTML;
+			};
+			break;
+		}
+	}
+
+	function nodeDefaultSet(nodes) {
+		for (var dataname in nodes) {
+			for (var idx in nodes[dataname]) {
+				setNodeFunc(nodes[dataname][idx]);
+			}
+		}
+	}
+
+	var NODES = getNode("data-sipu");
+	nodeDefaultSet(NODES);
+	console.log(NODES);
+	NODES.DIV.sefsef[2].Set("wefweew");
+	console.log(NODES.DIV.sefsef[2].Get());
 
 
 	//외부호출가능한 정의
 	WIKI.run = function () {
-    useCall();
-  };
+
+	};
 	return WIKI;
 })(window.WIKI || {}, jQuery);
 WIKI.run();
