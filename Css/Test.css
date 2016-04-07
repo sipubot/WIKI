@@ -1,0 +1,21 @@
+/**
+ * 일반적인 미디어 쿼리에 대한 설정법
+ * @param  {[type]} min-width: 700px         [description]
+ * @return {[type]}            [description]
+ */
+@media (min-width: 700px) and (orientation: landscape) {
+
+}
+/**
+ *  미디어 쿼리에 들어갈수 있는 값들
+ *
+ * 픽셀종횡비 (1:1, 1:1.3) 같이 min/max-aspect-ratio
+ * 기기화면종횡비   device-aspect-ratio
+ * device-height
+ * device-width
+ * grid
+ * monochrome
+ * orientation
+ * scan
+ *
+ */
