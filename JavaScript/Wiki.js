@@ -41,54 +41,63 @@ var WIKI = (function (WIKI, $, undefined) {
 		}
 		return temp;
 	}
-
-	function setNodeFunc(node) {
-		switch (node.tagName) {
-		case "A":
-			node.Set = function (address) {
-				node.setAttribute("href", address);
-			};
-			node.Get = function () {
-				return node.getAttribute("href");
-			};
-			break;
-		case "IMG":
-			node.Set = function (address) {
-				node.setAttribute("src", address);
-			};
-			node.Get = function () {
-				return node.getAttribute("src");
-			};
-			break;
-		default:
-			node.Set = function (args) {
-				node.innerHTML = args;
-			};
-			node.Get = function () {
-				return node.innerHTML;
-			};
-			break;
-		}
+	//특수문자변환
+	function escapeHtml(text) {
+		var map = {
+			'&': '&amp;',
+			'<': '&lt;',
+			'>': '&gt;',
+			'"': '&quot;',
+			"'": '&#039;'
+		};
+		return text.replace(/[&<>"']/g, function (m) {
+			return map[m];
+		});
 	}
 
-	function nodeDefaultSet(nodes) {
-		for (var dataname in nodes) {
-			for (var idx in nodes[dataname]) {
-				setNodeFunc(nodes[dataname][idx]);
+	function a() {
+		var k = 100;
+		var s = 0;
+		while (k>0) {
+			k = k*(k-1);
+		}
+		console.log(k);
+	}
+
+
+	function checksheep(n) {
+		var checkarr = [false,false,false,false,false,false,false,false,false,false];
+		var a, i, dd, s = 0;
+		var chk = true;
+		while (chk) {
+			s++;
+			a = s * n;
+			var k = a.toString();
+			k = k.split("");
+			for(var j = 0; j < k.length; j++) {
+				checkarr[parseInt(k[j])] = true;
+			}
+
+			dd = 0;
+			for(i = 0; i < checkarr.length; i++) {
+					if(checkarr[i] === true) {
+						dd++;
+					}
+			}
+			if (dd === 10) {
+				chk = false;
 			}
 		}
-	}
 
-	var NODES = getNode("data-sipu");
-	nodeDefaultSet(NODES);
-	console.log(NODES);
-	NODES.DIV.sefsef[2].Set("wefweew");
-	console.log(NODES.DIV.sefsef[2].Get());
+		return a;
+
+	}
 
 
 	//외부호출가능한 정의
 	WIKI.run = function () {
-
+		var a = checksheep(1692);
+		console.log(a);
 	};
 	return WIKI;
 })(window.WIKI || {}, jQuery);
