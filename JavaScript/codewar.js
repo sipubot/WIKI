@@ -216,8 +216,10 @@ var SipuCommons = (function(SipuCommons, undefined) {
         return re.join(""); // Fix this!
     }
 
+    /**
+      Title : Validate Sudoku with size `NxN`
+    */
     //스도쿠 체크하기. 생각하는 데로 바로 써내려갔는데 몇몇 버그가 많았.. 이것도 글쓰기랑 비슷해 생각을 도약하는 버릇을 줄여야지.
-
     var Sudoku = function(data) {
         //   Private methods
         // -------------------------
