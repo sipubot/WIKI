@@ -151,9 +151,67 @@ var SipuCommons = (function(SipuCommons, undefined) {
         return re;
     }
 
+    /**
+      정수 덧셈기. 이거 이전에도 했던거 같은데..
+
+    */
+    function add(a, b) {
+      var an = a.split("");
+      var bn = b.split("");
+      var i = 0;
+      var re = [];
+      an = toNum(an);
+      bn = toNum(bn);
+      console.log(a);
+      console.log(b);
+
+
+      if ( an.length >= bn.length ) {
+        toS(an, bn, re);
+      } else {
+        toS(an, bn, re);
+      }
+
+      re = toString(re);
+
+      function toNum (arr) {
+        for ( i = 0; i < arr.length; i++ ) {
+          arr[i] = Number(arr[i]);
+        }
+        return arr;
+      }
+      function toString (arr) {
+        for ( i = 0; i < arr.length; i++ ) {
+          arr[i] = arr[i].toString();
+        }
+        return arr;
+      }
+
+      function toS (arr, arr2, re) {
+
+        for ( i = 1; i < arr.length + 1; i++) {
+          if (arr2.length - i < 0) {
+            re.unshift(arr[arr.length - i]);
+          } else {
+            re.unshift(arr[arr.length - i] + arr2[arr2.length - i]);
+          }
+        }
+        for ( i = 1; i < re.length + 1; i++ ) {
+          if (re[re.length - i]  >= 10 ) {
+            re[re.length - i] = re[re.length - i] - 10;
+            if (re.length - i ===  0) {
+              re.unshift(1);
+            } else {
+              re[re.length - (i + 1)] = re[re.length - (i + 1)] + 1;
+            }
+          }
+        }
+      }
+      return re.join(""); // Fix this!
+    }
 
     SipuCommons.start = function() {
-      nextGen([[1,1],[1,1]]);
+
     };
     return SipuCommons;
 })(window.SipuCommons || {});
