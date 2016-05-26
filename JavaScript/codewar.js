@@ -10,79 +10,82 @@ var SipuCommons = (function(SipuCommons, undefined) {
     //처음 으로 3kyu 를 풀었는데. 역시난 단순해.
 
     var spiralize = function(size) {
-      // insert code here
-      console.log(size);
-      var re = [];
-      var posx = 0, posy = 0;
-      var direct = "right";
-      var i = 0, z = 0;
-      for (i = 0; i < size; i++) {
-        var add = [];
-        for (z = 0; z < size; z++) {
-          add.push(0);
+        // insert code here
+        console.log(size);
+        var re = [];
+        var posx = 0,
+            posy = 0;
+        var direct = "right";
+        var i = 0,
+            z = 0;
+        for (i = 0; i < size; i++) {
+            var add = [];
+            for (z = 0; z < size; z++) {
+                add.push(0);
+            }
+            re.push(add);
         }
-        re.push(add);
-      }
-      function go() {
-        switch (direct)  {
-          case "right" :
-            posy++;
-            break;
-          case "down" :
-            posx++;
-            break;
-          case "left" :
-            posy--;
-            break;
-          case "up" :
-            posx--;
-            break;
-        }
-        re[posx][posy] = 1;
-      }
-      re[0][0] = 1;
-      var mid = false;
-      while(!mid) {
-        if (posx === 0 && posy === 0) {
-          direct = "right";
-        }
-        if (posx === 0 && posy === re.length - 1) {
-          direct = "down";
-        }
-        if (posx === re.length - 1 && posy === re.length - 1) {
-          direct = "left";
-        }
-        if (posx === re.length - 1 && posy === 0) {
-          direct = "up";
-        }
-        if (1 < posx && size - 2 > posx &&  size - 2 > posy)  {
-          if (direct === "up" && re[posx - 2][posy] === 1) {
-            direct = "right";
-          }
-          if (direct === "right" && re[posx][posy + 2] === 1) {
-            direct = "down";
-          }
-          if (direct === "down" && re[posx + 2][posy] === 1) {
-            direct = "left";
-          }
-          if (direct === "left" && re[posx][posy - 2] === 1) {
-            direct = "up";
-          }
-          if (re[posx][posy - 2] === 1 && re[posx][posy + 2] === 1 && re[posx + 2][posy] === 1 && re[posx - 2][posy] === 1) {
-            mid = true;
-          }
-        }
-        if (size % 2 === 0) {
-          if ((size / 2) === posx && (size / 2) === posy) {
-            mid = true;
-          }
-        }
-        if (!mid) {
-          go();
-        }
-      }
 
-      return re;
+        function go() {
+            switch (direct) {
+                case "right":
+                    posy++;
+                    break;
+                case "down":
+                    posx++;
+                    break;
+                case "left":
+                    posy--;
+                    break;
+                case "up":
+                    posx--;
+                    break;
+            }
+            re[posx][posy] = 1;
+        }
+        re[0][0] = 1;
+        var mid = false;
+        while (!mid) {
+            if (posx === 0 && posy === 0) {
+                direct = "right";
+            }
+            if (posx === 0 && posy === re.length - 1) {
+                direct = "down";
+            }
+            if (posx === re.length - 1 && posy === re.length - 1) {
+                direct = "left";
+            }
+            if (posx === re.length - 1 && posy === 0) {
+                direct = "up";
+            }
+            if (1 < posx && size - 2 > posx && size - 2 > posy) {
+                if (direct === "up" && re[posx - 2][posy] === 1) {
+                    direct = "right";
+                }
+                if (direct === "right" && re[posx][posy + 2] === 1) {
+                    direct = "down";
+                }
+                if (direct === "down" && re[posx + 2][posy] === 1) {
+                    direct = "left";
+                }
+                if (direct === "left" && re[posx][posy - 2] === 1) {
+                    direct = "up";
+                }
+                if (re[posx][posy - 2] === 1 && re[posx][posy + 2] === 1 && re[posx + 2][posy] === 1 && re[posx - 2][posy] === 1) {
+                    mid = true;
+                }
+            }
+            if (size % 2 === 0) {
+                if ((size / 2) === posx && (size / 2) === posy) {
+                    mid = true;
+                }
+            }
+            if (!mid) {
+                go();
+            }
+        }
+
+        return re;
     };
 
     /**
@@ -114,6 +117,7 @@ var SipuCommons = (function(SipuCommons, undefined) {
                 re[i][z] = liveorDie(i, z);
             }
         }
+
         function liveorDie(y, x) {
             var count = 0;
             count += cellchk(y - 1, x);
@@ -141,6 +145,7 @@ var SipuCommons = (function(SipuCommons, undefined) {
             }
 
         }
+
         function cellchk(y, x) {
             if (-1 < y && cells.length > y && -1 < x && cells[y].length > x) {
                 return cells[y][x];
@@ -156,59 +161,167 @@ var SipuCommons = (function(SipuCommons, undefined) {
 
     */
     function add(a, b) {
-      var an = a.split("");
-      var bn = b.split("");
-      var i = 0;
-      var re = [];
-      an = toNum(an);
-      bn = toNum(bn);
-      console.log(a);
-      console.log(b);
+        var an = a.split("");
+        var bn = b.split("");
+        var i = 0;
+        var re = [];
+        an = toNum(an);
+        bn = toNum(bn);
+        console.log(a);
+        console.log(b);
 
 
-      if ( an.length >= bn.length ) {
-        toS(an, bn, re);
-      } else {
-        toS(an, bn, re);
-      }
-
-      re = toString(re);
-
-      function toNum (arr) {
-        for ( i = 0; i < arr.length; i++ ) {
-          arr[i] = Number(arr[i]);
+        if (an.length >= bn.length) {
+            toS(an, bn, re);
+        } else {
+            toS(an, bn, re);
         }
-        return arr;
-      }
-      function toString (arr) {
-        for ( i = 0; i < arr.length; i++ ) {
-          arr[i] = arr[i].toString();
-        }
-        return arr;
-      }
 
-      function toS (arr, arr2, re) {
+        re = toString(re);
 
-        for ( i = 1; i < arr.length + 1; i++) {
-          if (arr2.length - i < 0) {
-            re.unshift(arr[arr.length - i]);
-          } else {
-            re.unshift(arr[arr.length - i] + arr2[arr2.length - i]);
-          }
-        }
-        for ( i = 1; i < re.length + 1; i++ ) {
-          if (re[re.length - i]  >= 10 ) {
-            re[re.length - i] = re[re.length - i] - 10;
-            if (re.length - i ===  0) {
-              re.unshift(1);
-            } else {
-              re[re.length - (i + 1)] = re[re.length - (i + 1)] + 1;
+        function toNum(arr) {
+            for (i = 0; i < arr.length; i++) {
+                arr[i] = Number(arr[i]);
             }
-          }
+            return arr;
         }
-      }
-      return re.join(""); // Fix this!
+
+        function toString(arr) {
+            for (i = 0; i < arr.length; i++) {
+                arr[i] = arr[i].toString();
+            }
+            return arr;
+        }
+
+        function toS(arr, arr2, re) {
+
+            for (i = 1; i < arr.length + 1; i++) {
+                if (arr2.length - i < 0) {
+                    re.unshift(arr[arr.length - i]);
+                } else {
+                    re.unshift(arr[arr.length - i] + arr2[arr2.length - i]);
+                }
+            }
+            for (i = 1; i < re.length + 1; i++) {
+                if (re[re.length - i] >= 10) {
+                    re[re.length - i] = re[re.length - i] - 10;
+                    if (re.length - i === 0) {
+                        re.unshift(1);
+                    } else {
+                        re[re.length - (i + 1)] = re[re.length - (i + 1)] + 1;
+                    }
+                }
+            }
+        }
+        return re.join(""); // Fix this!
     }
+
+    //스도쿠 체크하기. 생각하는 데로 바로 써내려갔는데 몇몇 버그가 많았.. 이것도 글쓰기랑 비슷해 생각을 도약하는 버릇을 줄여야지.
+
+    var Sudoku = function(data) {
+        //   Private methods
+        // -------------------------
+        var i = 0;
+        var chkarr = new Array(data.length);
+
+        function checkArraySize() {
+            for (i = 0; i < data.length; i++) {
+                if (data.length !== data[i].length) {
+                    return false;
+                }
+            }
+        }
+
+        function ckArray(arr) {
+            function sortNumber(a, b) {
+                return a - b;
+            }
+            var re = true;
+            arr.sort(sortNumber);
+            for (i = 0; i < arr.length; i++) {
+                if ((i + 1) !== arr[i]) {
+                    re = false;
+                }
+            }
+            return re;
+        }
+
+        function checkHorizon() {
+            var count = 0,
+                rea = true;
+            for (i = 0; i < data.length; i++) {
+                for (var z = 0; z < data.length; z++) {
+                    if (typeof data[i][z] !== "number") {
+                        rea = false;
+                    }
+                    chkarr[z] = data[i][z];
+                }
+                if (!ckArray(chkarr)) {
+                    rea = false;
+                }
+            }
+            return rea;
+        }
+
+        function checkVerti() {
+            var count = 0,
+                rea = true;
+            for (i = 0; i < data.length; i++) {
+                for (var z = 0; z < data.length; z++) {
+                    chkarr[z] = data[z][i];
+                }
+                if (!ckArray(chkarr)) {
+                    rea = false;
+                }
+            }
+            return rea;
+        }
+
+        function checkBox() {
+            var count = 0,
+                rea = true;
+            var sq = Math.sqrt(data.length);
+            var x = 0,
+                y = 0;
+            for (i = 0; i < data.length; i++) {
+                y = Math.floor(i / sq) * sq;
+                x = (i % sq) * sq;
+                count = 0;
+                for (var z = 0; z < sq; z++) {
+                    for (var zz = 0; zz < sq; zz++) {
+                        chkarr[count] = data[y + z][x + zz];
+                        count++;
+                    }
+                }
+                if (!ckArray(chkarr)) {
+                    rea = false;
+                }
+
+            }
+            return rea;
+        }
+
+        //   Public methods
+        // -------------------------
+        return {
+            isValid: function() {
+                // YOUR SOLUTION
+                if (checkArraySize() === false) {
+                    return false;
+                }
+                if (checkHorizon() === false) {
+                    return false;
+                }
+                if (checkVerti() === false) {
+                    return false;
+                }
+                if (checkBox() === false) {
+                    return false;
+                }
+                return true;
+            }
+        };
+    };
 
     SipuCommons.start = function() {
 
