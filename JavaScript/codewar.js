@@ -325,6 +325,51 @@ var SipuCommons = (function(SipuCommons, undefined) {
         };
     };
 
+    /**
+      Title : Point in Polygon
+      0, 초과 이상의 중요함... 여쨌든 풀었다. 조르당의 원리 (세상에 배워놓고 까먹는 인간..)
+    */
+
+    function pointInPoly(poly, point) {
+        var r = poly.length;
+        var i = 0;
+        var crossPoint = [];
+        checkCross();
+
+        function checkCross() {
+            for (i = 0; i < r; i++) {
+                if (i === r - 1) {
+                    crossY([poly[i][0] - point[0], poly[i][1] - point[1]], [poly[0][0] - point[0], poly[0][1] - point[1]]);
+                } else {
+                    crossY([poly[i][0] - point[0], poly[i][1] - point[1]], [poly[i + 1][0] - point[0], poly[i + 1][1] - point[1]]);
+                }
+            }
+        }
+
+        function crossY(p1, p2) {
+            if ((p1[1] >= 0 && p2[1] < 0) || (p1[1] <= 0 && p2[1] > 0)) {
+                var xpoint = 0;
+                var ratio = (p2[1] - p1[1]) / (p2[0] - p1[0]);
+                if (p1[0] - p2[0] === 0) {
+                    xpoint = p1[0];
+                } else {
+                    xpoint = -(p1[1] / ratio - p1[0]);
+                }
+                if (xpoint >= 0) {
+                    if (crossPoint.indexOf(xpoint) === -1) {
+                        crossPoint.push(xpoint);
+                    }
+                }
+            }
+        }
+        if (crossPoint.length % 2 === 1) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+
     SipuCommons.start = function() {
 
     };
