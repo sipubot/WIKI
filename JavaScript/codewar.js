@@ -369,9 +369,217 @@ var SipuCommons = (function(SipuCommons, undefined) {
         }
     }
 
+    //snail
+    var snail = function(array) {
+        // enjoy
+
+        console.log(array);
+        var y = array.length;
+        var x = array[0].length;
+        if (y === 0 || x === 0) {
+            return [];
+        }
+        if (y === 1 || x === 1) {
+            return [array[0][0]];
+        }
+
+        var i = 0,
+            j = 0,
+            xx = 0,
+            yy = 0;
+        var re = [];
+        var dir = "right";
+        var n = true;
+        while (n) {
+            if (array[yy][xx] === false || array[yy][xx] === undefined) {
+                n = false;
+            } else {
+                re.push(array[yy][xx]);
+                array[yy][xx] = false;
+                move();
+            }
+        }
+
+        function move() {
+            console.log(xx);
+            console.log(yy);
+            switch (dir) {
+                case "right":
+                    if (xx === x - 1 || array[yy][xx + 1] === false) {
+                        dir = "down";
+                        yy++;
+                    } else {
+                        xx++;
+                    }
+                    break;
+                case "down":
+                    if (yy === y - 1 || array[yy + 1][xx] === false) {
+                        dir = "left";
+                        xx--;
+                    } else {
+                        yy++;
+                    }
+                    break;
+                case "left":
+                    if (xx === 0 || array[yy][xx - 1] === false) {
+                        dir = "up";
+                        yy--;
+                    } else {
+                        xx--;
+                    }
+                    break;
+                case "up":
+                    if (yy === 0 || array[yy - 1][xx] === false) {
+                        dir = "right";
+                        xx++;
+                    } else {
+                        yy--;
+                    }
+                    break;
+            }
+        }
+        console.log(re);
+        return re;
+    };
+
+
+    function Dictionary(words) {
+        this.words = words;
+    }
+
+    Dictionary.prototype.findMostSimilar = function(term) {
+        // TODO: this is your task ;)
+        var i = 0;
+        var pointlist = [];
+        console.log(this.words);
+        //console.log(term);
+
+        for (i = 0; i < this.words.length; i++) {
+            pointlist.push([i, chk(this.words[i], term)]);
+        }
+
+        function same(a, b, aindex, bindex, count) {
+            var count = count || 0;
+            //console.log(aindex);
+            //console.log(bindex);
+            if (typeof b[bindex] === "string" && typeof a[aindex] === "string") {
+                if (a[aindex] === b[bindex]) {
+                    same(a, b, aindex + 1, bindex + 1, count + 1);
+                } else {
+                    console.log(count);
+                    return count;
+                }
+            } else {
+                console.log(count);
+                return count;
+            }
+        }
+
+        function chk(a, b) {
+            console.log(a);
+            console.log(b);
+            var cc = 0;
+            var aa = a.split("");
+            var bb = b.split("");
+            for (var j = 0; j < bb.length; j++) {
+                if (a.split(bb[j] + bb[j + 1]).length > 1) {
+                    var add = 2;
+                    cc = cc + add;
+                    j = j + add - 1;
+                }
+            }
+            console.log(cc);
+            return (1 - (cc / aa.length) + (bb.length - cc));
+        }
+        pointlist.sort(function(a, b) {
+            return a[1] - b[1];
+        });
+        console.log(pointlist);
+        return this.words[pointlist[0][0]];
+    };
+
+    function undoRedo(object) {
+        function Temp() {
+            this.key = "";
+            this.value = "";
+            this.status = "new";
+            this.lastdoing = "";
+        }
+        return {
+            set: function(key, value) {
+                Temp.lastdoing = "set";
+                Temp.key = key;
+                if (object.key === "undefined") {
+                    Temp.status = "new";
+                    Temp.value = value;
+                } else {
+                    Temp.status = "old";
+                    Temp.value = object[key];
+                }
+                object[key] = value;
+            },
+            get: function(key) {
+                return object[key];
+            },
+            del: function(key) {
+                if (object[key] !== "undefined") {
+                    Temp.lastdoing = "del";
+                    Temp.key = key;
+                    Temp.value = object[key];
+                    delete object[key];
+                }
+            },
+            undo: function() {
+                switch (Temp.lastdoing) {
+                    case "set":
+                        if (Temp.status === "new") {
+                            delete object[Temp.key];
+                        } else {
+                            var temp = Temp.value;
+                            Temp.value = object[Temp.key];
+                            object[Temp.key] = temp;
+                        }
+                        Temp.lastdoing = "undoset";
+                        break;
+                    case "del":
+                        object[Temp.key] = Temp.value;
+                        Temp.lastdoing = "undodel";
+                        break;
+                    default:
+                        throw "error";
+                }
+            },
+            redo: function() {
+                switch (Temp.lastdoing) {
+                    case "undoset":
+                        Temp.lastdoing = "set";
+                        if (object.key === "undefined") {
+                            Temp.status = "new";
+                            object[Temp.key] = Temp.value;
+                        } else {
+                            Temp.status = "old";
+                            var temp = object[Temp.key];
+                            object[Temp.key] = Temp.value;
+                            Temp.value = temp;
+                        }
+                        break;
+                    case "undodel":
+                        Temp.lastdoing = "del";
+                        delete object[Temp.key];
+                        break;
+                    case "get":
+                        return object[Temp.key];
+                    default:
+                        throw "error";
+                }
+            }
+        };
+    }
+
+
 
     SipuCommons.start = function() {
-
+        
     };
     return SipuCommons;
 })(window.SipuCommons || {});
