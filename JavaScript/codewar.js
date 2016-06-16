@@ -604,7 +604,7 @@ var SipuCommons = (function(SipuCommons, undefined) {
     return a;
 
   }
-  //메모제이션 기초 
+  //메모제이션 기초
   var sum_pairs = function(ints, s) {
     //your code here
     var a = {};
@@ -617,7 +617,7 @@ var SipuCommons = (function(SipuCommons, undefined) {
     }
     return undefined;
   };
-
+  
 
   SipuCommons.start = function() {
     sum_pairs([3,4,4,2,12,3,3,423,4,4,2,342,4,32,42,3,42,4,2,342,34,0,44,3,4,32,4,23,42,342,4,31,23,12,31,3,3,23,12,12,32,32],24);
