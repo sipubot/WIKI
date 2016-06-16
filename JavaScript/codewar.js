@@ -577,9 +577,36 @@ var SipuCommons = (function(SipuCommons, undefined) {
     }
 
 
+    	function checksheep(n) {
+    		var checkarr = [false,false,false,false,false,false,false,false,false,false];
+    		var a, i, dd, s = 0;
+    		var chk = true;
+    		while (chk) {
+    			s++;
+    			a = s * n;
+    			var k = a.toString();
+    			k = k.split("");
+    			for(var j = 0; j < k.length; j++) {
+    				checkarr[parseInt(k[j])] = true;
+    			}
+
+    			dd = 0;
+    			for(i = 0; i < checkarr.length; i++) {
+    					if(checkarr[i] === true) {
+    						dd++;
+    					}
+    			}
+    			if (dd === 10) {
+    				chk = false;
+    			}
+    		}
+
+    		return a;
+
+    	}
+
 
     SipuCommons.start = function() {
-        
     };
     return SipuCommons;
 })(window.SipuCommons || {});

@@ -55,45 +55,6 @@ var WIKI = (function (WIKI, $, undefined) {
 		});
 	}
 
-	function a() {
-		var k = 100;
-		var s = 0;
-		while (k>0) {
-			k = k*(k-1);
-		}
-		console.log(k);
-	}
-
-
-	function checksheep(n) {
-		var checkarr = [false,false,false,false,false,false,false,false,false,false];
-		var a, i, dd, s = 0;
-		var chk = true;
-		while (chk) {
-			s++;
-			a = s * n;
-			var k = a.toString();
-			k = k.split("");
-			for(var j = 0; j < k.length; j++) {
-				checkarr[parseInt(k[j])] = true;
-			}
-
-			dd = 0;
-			for(i = 0; i < checkarr.length; i++) {
-					if(checkarr[i] === true) {
-						dd++;
-					}
-			}
-			if (dd === 10) {
-				chk = false;
-			}
-		}
-
-		return a;
-
-	}
-
-
 	//외부호출가능한 정의
 	WIKI.run = function () {
 		var a = checksheep(1692);
