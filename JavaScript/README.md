@@ -11,9 +11,17 @@
 - BackBone : 이 프레임워크의 시조격인거 같은데 엄청난수의 예제와 실사용.... 언더스코어 제이쿼리등의 호환성... 이놈은 jsp asp 문법을 꽤 많이 차용함.. 또하나의 장점이 있다면 역시나. api 호출에 최적화 시켜놔서 데이터 바인딩이 무지하게 편리해 보임.. (물론 이놈도 html 5 기본 문법에는 어긋나 있음.) 편하게 하고 싶으면 이거 추천하고 싶네... 나는 물론 안씀.
 - Angular : 구글 느님이 만들어 뿌리신 js 프레임워크 이쪽이 원조인듯 함.. 이쪽은 정교한 맛이 있다 구글느님때문에 함수 api도 정갈한 편이지만 역시나 html 문법 이탈되는 부분이 있음. 넉아웃 백본 다음으로 추천해봄직 함
   - 왜 리액트는 안쓰냐고 묻냐면 어 그거 쓸바엔 앵귤러 그냥 쓰세요 백본도 좋고. (나는 페북을 싫어함.)
-  
+
 ----------
 - 이상 추천한 세가지 프레임워크 링크를 걸어둔다. 자세한 분석은 다시 추후에.
   - [Knockout](http://knockoutjs.com/)
   - [Angular](https://www.angularjs.org/)
   - [Backbone](http://backbonejs.org/)
+
+
+### Object.prototype.valueOf()
+Overriding valueOf for custom objects
+You can create a function to be called in place of the default valueOf method. Your function must take no arguments.
+Suppose you have an object type myNumberType and you want to create a valueOf method for it. The following code assigns a user-defined function to the object's valueOf method:
+myNumberType.prototype.value
+ 메소드 체이닝 할때 유용하다. 커링 할때도 쓰고.  
