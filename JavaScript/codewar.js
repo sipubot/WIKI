@@ -608,7 +608,7 @@ var SipuCommons = (function(SipuCommons, undefined) {
   var sum_pairs = function(ints, s) {
     //your code here
     var a = {};
-    for (var i = 0;i <ints.length;i++) {
+    for (var i = 0; i < ints.length; i++) {
       if (a[s - ints[i]]) {
         return [s - ints[i], ints[i]];
       } else {
@@ -617,11 +617,50 @@ var SipuCommons = (function(SipuCommons, undefined) {
     }
     return undefined;
   };
-  
 
-  SipuCommons.start = function() {
-    sum_pairs([3,4,4,2,12,3,3,423,4,4,2,342,4,32,42,3,42,4,2,342,34,0,44,3,4,32,4,23,42,342,4,31,23,12,31,3,3,23,12,12,32,32],24);
-  };
+  //실전에 쓸만하다고 나온 쿼리 to 맵... 다른사람의 정답지를 가져옴 잘 만들었다. 리듀스를 잘써야 되는데
+  // Converts a URL Query String into an object map
+  function convertQueryToMap(query) {
+    var obj = {};
+    query.split('&').map(function(params) {
+      var parts = params.split('=');
+      if (!parts[1]) return {};
+      parts[0].split('.').reduce(function(cur, next, i, arr) {
+        if (!cur[next]) cur[next] = {};
+        if (i === arr.length - 1) cur[next] = decodeURIComponent(parts[1]);
+        return cur[next];
+      }, obj);
+    });
+    return obj;
+  }
+
+  //응용 풀이 최초 성공
+  function permutations(string) {
+    var permArr = [],
+      usedChars = [];
+    return permute(string.split(""));
+
+    function permute(input) {
+      var i, ch;
+      for (i = 0; i < input.length; i++) {
+        ch = input.splice(i, 1)[0];
+        usedChars.push(ch);
+        if (input.length === 0) {
+          if (permArr.indexOf(usedChars.join('')) === -1) {
+            permArr.push(usedChars.join(''));
+          }
+        }
+        permute(input);
+        input.splice(i, 0, ch);
+        usedChars.pop();
+      }
+      return permArr;
+    }
+
+
+  }
+
+  SipuCommons.start = function() {};
   return SipuCommons;
 })(window.SipuCommons || {});
 SipuCommons.start();
