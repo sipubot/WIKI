@@ -660,7 +660,8 @@ var SipuCommons = (function(SipuCommons, undefined) {
 
   }
 
-  SipuCommons.start = function() {};
+  SipuCommons.start = function() {
+  };
   return SipuCommons;
 })(window.SipuCommons || {});
 SipuCommons.start();
