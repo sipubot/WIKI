@@ -1,7 +1,7 @@
 # javascript
   자바스크립트 관련 공부한것이나 특별히 적어둘것들을 모아둔곳.
-  -[이슈&버그]()
-  -[스펙정리]()
+  - [스펙정리](https://github.com/sipubot/WIKI/blob/master/JavaScript%26DOM/SPEC.md)
+  - [이슈&버그](https://github.com/sipubot/WIKI/blob/master/JavaScript%26DOM/ISSUE%26BUG.md)
 
 ##FrameWorks
 최근동향의 자바스크립트 프레임워크들 생각
