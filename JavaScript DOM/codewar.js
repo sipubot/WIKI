@@ -659,8 +659,103 @@ var SipuCommons = (function(SipuCommons, undefined) {
 
 
   }
+  //find num
+  function removeNb (n) {
+    var re = [];
+    for (var i = 0; i < n + 1; i++) {
+      var k = (n * (1 + n) - 2 * i) / (2* i + 2);
+      if (k % 1 === 0 && k <= n &&  k !== i) {
+        re.push([i, k]);
+      }
+    }
+    return re;
+  }
+
+  function anagrams(word, words) {
+  var word_arr = word.split('');
+  //console.log(words);
+  //console.log(word_arr);
+  var re = [];
+  for (var i = 0; i < words.length ; i++) {
+    var a = words[i].split('');
+    //console.log(a);
+    //console.log(word_arr);
+    if (a.length === word_arr.length) {
+      for (var z = 0; z < word_arr.length; z++) {
+        if (a.indexOf(word_arr[z]) > -1) {
+          delete a[a.indexOf(word_arr[z])];
+        }
+      }
+      //console.log(a);
+      if (a.join('') === "") {
+        re.push(words[i]);
+      }
+      //console.log(words[i]);
+    }
+  }
+  //console.log(re);
+  return re;
+}
+
+// complete the function so that it returns the fastest route
+function navigate(numberOfIntersections, roads, start, finish) {
+  var distan = [], chker = [], i = 0;
+  console.log(roads);
+  console.log(start,finish);
+  //return [0,1,3,2,4];
+  for(i =0;i < numberOfIntersections; i++) {
+    distan.push([[],Infinity]);
+    chker.push([i,Infinity,false]);
+  }
+  //start
+  //distan[start][0].push(start);
+  distan[start][1] = 0;
+  aka(start, 0);
+  seeing(start);
+
+  function aka(ind, dis) {
+    for (var aa in chker) {
+      if (chker[aa][0] === ind) {
+        chker[aa][1] = dis;
+      }
+    }
+  }
+  function chk(ind){
+    for (var aa in chker) {
+      if (chker[aa][0] === ind) {
+        chker[aa][2] = true;
+      }
+    }
+  }
+  function seeing (i) {
+    for (var obj in roads) {
+      if (roads[obj].from === i) {
+        if(distan[roads[obj].to][1]  > distan[i][1] + roads[obj].drivingTime) {
+          distan[roads[obj].to][1] = distan[i][1] + roads[obj].drivingTime;
+          distan[roads[obj].to][0] = distan[i][0].slice(0);
+          distan[roads[obj].to][0].push(roads[obj].to);
+          aka(roads[obj].to, distan[roads[obj].to][1]);
+        }
+      }
+    }
+    chk(i);
+    chker.sort(sorta);
+    for (var aa in chker) {
+      if (chker[aa][2] === false) {
+        return seeing(chker[aa][0]);
+      }
+    }
+
+  }
+  function sorta(a, b) {
+    return a[1] - b[1];
+  }
+  console.log(distan[finish][0]);
+  return distan[finish][0];
+}
 
   SipuCommons.start = function() {
+    
   };
   return SipuCommons;
 })(window.SipuCommons || {});

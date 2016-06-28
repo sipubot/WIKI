@@ -29,6 +29,77 @@
   }
   ```
 
+## 다익스트라 알고리즘 (dijkstra 네덜란드인이므로 데이크스트라라고 명하는게 맞을듯)
+평면상에서 어떤 위치에서 다른 위치까지 이동할때 각 지점간의 이동가중치 최소경로를 찾는 알고리즘 (쉽게 말하자면 네비게이션 최단경로 찾기 알고리즘)
+  - 동작원리
+    - 각지점에서 다른지점으로의 이동방법은 무조건 한가지이다.(중복될경우 최소경로만 인정)
+    - 각 지점간의 이동 가중치를 자료구조화 한다 (배열이 되었든 오브젝트가 되었던간 사용하기 쉽게 재가공)
+    - 출발점과 종료지점을 정한다
+    - 출발점에서 종료지점까지 거치는 모든 지점을 선택한다
+    - 각 노드의 이동 가중치합을 비교하며 경로 선택을 시킨다
+    - 종료 최소 경로와 가중치를 찾는다.
+    
+```javascript
+// complete the function so that it returns the fastest route
+function navigate(numberOfIntersections, roads, start, finish) {
+  var distan = [], chker = [], i = 0;
+  console.log(roads);
+  console.log(start,finish);
+  //return [0,1,3,2,4];
+  for(i =0;i < numberOfIntersections; i++) {
+    distan.push([[],Infinity]);
+    chker.push([i,Infinity,false]);
+  }
+  //start
+  //distan[start][0].push(start);
+  distan[start][1] = 0;
+  aka(start, 0);
+  seeing(start);
+
+  function aka(ind, dis) {
+    for (var aa in chker) {
+      if (chker[aa][0] === ind) {
+        chker[aa][1] = dis;
+      }
+    }
+  }
+  function chk(ind){
+    for (var aa in chker) {
+      if (chker[aa][0] === ind) {
+        chker[aa][2] = true;
+      }
+    }
+  }
+  function seeing (i) {
+    for (var obj in roads) {
+      if (roads[obj].from === i) {
+        if(distan[roads[obj].to][1]  > distan[i][1] + roads[obj].drivingTime) {
+          distan[roads[obj].to][1] = distan[i][1] + roads[obj].drivingTime;
+          distan[roads[obj].to][0] = distan[i][0].slice(0);
+          distan[roads[obj].to][0].push(roads[obj].to);
+          aka(roads[obj].to, distan[roads[obj].to][1]);
+        }
+      }
+    }
+    chk(i);
+    chker.sort(sorta);
+    for (var aa in chker) {
+      if (chker[aa][2] === false) {
+        return seeing(chker[aa][0]);
+      }
+    }
+
+  }
+  function sorta(a, b) {
+    return a[1] - b[1];
+  }
+  console.log(distan[finish][0]);
+  return distan[finish][0];
+}
+
+```
+
+
 ## 지금은 알아둘(써먹을) 필요는 없지만 어딘가에서 항상 살아숨쉬고 있는 알고리즘들.
 
 - 물론 언젠가 코어개발자가 된다면 혹은 새로운 차원 변환 알고리즘들이 쏟아진다면 이것들은 내다버리고 그걸로 갈아타야... (음...)
