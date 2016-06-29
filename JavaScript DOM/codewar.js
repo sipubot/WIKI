@@ -660,11 +660,11 @@ var SipuCommons = (function(SipuCommons, undefined) {
 
   }
   //find num
-  function removeNb (n) {
+  function removeNb(n) {
     var re = [];
     for (var i = 0; i < n + 1; i++) {
-      var k = (n * (1 + n) - 2 * i) / (2* i + 2);
-      if (k % 1 === 0 && k <= n &&  k !== i) {
+      var k = (n * (1 + n) - 2 * i) / (2 * i + 2);
+      if (k % 1 === 0 && k <= n && k !== i) {
         re.push([i, k]);
       }
     }
@@ -672,90 +672,212 @@ var SipuCommons = (function(SipuCommons, undefined) {
   }
 
   function anagrams(word, words) {
-  var word_arr = word.split('');
-  //console.log(words);
-  //console.log(word_arr);
-  var re = [];
-  for (var i = 0; i < words.length ; i++) {
-    var a = words[i].split('');
-    //console.log(a);
+    var word_arr = word.split('');
+    //console.log(words);
     //console.log(word_arr);
-    if (a.length === word_arr.length) {
-      for (var z = 0; z < word_arr.length; z++) {
-        if (a.indexOf(word_arr[z]) > -1) {
-          delete a[a.indexOf(word_arr[z])];
-        }
-      }
+    var re = [];
+    for (var i = 0; i < words.length; i++) {
+      var a = words[i].split('');
       //console.log(a);
-      if (a.join('') === "") {
-        re.push(words[i]);
+      //console.log(word_arr);
+      if (a.length === word_arr.length) {
+        for (var z = 0; z < word_arr.length; z++) {
+          if (a.indexOf(word_arr[z]) > -1) {
+            delete a[a.indexOf(word_arr[z])];
+          }
+        }
+        //console.log(a);
+        if (a.join('') === "") {
+          re.push(words[i]);
+        }
+        //console.log(words[i]);
       }
-      //console.log(words[i]);
     }
+    //console.log(re);
+    return re;
   }
-  //console.log(re);
-  return re;
-}
 
-// complete the function so that it returns the fastest route
-function navigate(numberOfIntersections, roads, start, finish) {
-  var distan = [], chker = [], i = 0;
-  console.log(roads);
-  console.log(start,finish);
-  //return [0,1,3,2,4];
-  for(i =0;i < numberOfIntersections; i++) {
-    distan.push([[],Infinity]);
-    chker.push([i,Infinity,false]);
-  }
-  //start
-  //distan[start][0].push(start);
-  distan[start][1] = 0;
-  aka(start, 0);
-  seeing(start);
+  // complete the function so that it returns the fastest route
+  function navigate(numberOfIntersections, roads, start, finish) {
+    var distan = [],
+      chker = [],
+      i = 0;
+    console.log(roads);
+    console.log(start, finish);
+    //return [0,1,3,2,4];
+    for (i = 0; i < numberOfIntersections; i++) {
+      distan.push([
+        [], Infinity
+      ]);
+      chker.push([i, Infinity, false]);
+    }
+    //start
+    //distan[start][0].push(start);
+    distan[start][1] = 0;
+    aka(start, 0);
+    seeing(start);
 
-  function aka(ind, dis) {
-    for (var aa in chker) {
-      if (chker[aa][0] === ind) {
-        chker[aa][1] = dis;
-      }
-    }
-  }
-  function chk(ind){
-    for (var aa in chker) {
-      if (chker[aa][0] === ind) {
-        chker[aa][2] = true;
-      }
-    }
-  }
-  function seeing (i) {
-    for (var obj in roads) {
-      if (roads[obj].from === i) {
-        if(distan[roads[obj].to][1]  > distan[i][1] + roads[obj].drivingTime) {
-          distan[roads[obj].to][1] = distan[i][1] + roads[obj].drivingTime;
-          distan[roads[obj].to][0] = distan[i][0].slice(0);
-          distan[roads[obj].to][0].push(roads[obj].to);
-          aka(roads[obj].to, distan[roads[obj].to][1]);
+    function aka(ind, dis) {
+      for (var aa in chker) {
+        if (chker[aa][0] === ind) {
+          chker[aa][1] = dis;
         }
       }
     }
-    chk(i);
-    chker.sort(sorta);
-    for (var aa in chker) {
-      if (chker[aa][2] === false) {
-        return seeing(chker[aa][0]);
+
+    function chk(ind) {
+      for (var aa in chker) {
+        if (chker[aa][0] === ind) {
+          chker[aa][2] = true;
+        }
       }
     }
 
+    function seeing(i) {
+      for (var obj in roads) {
+        if (roads[obj].from === i) {
+          if (distan[roads[obj].to][1] > distan[i][1] + roads[obj].drivingTime) {
+            distan[roads[obj].to][1] = distan[i][1] + roads[obj].drivingTime;
+            distan[roads[obj].to][0] = distan[i][0].slice(0);
+            distan[roads[obj].to][0].push(roads[obj].to);
+            aka(roads[obj].to, distan[roads[obj].to][1]);
+          }
+        }
+      }
+      chk(i);
+      chker.sort(sorta);
+      for (var aa in chker) {
+        if (chker[aa][2] === false) {
+          return seeing(chker[aa][0]);
+        }
+      }
+
+    }
+
+    function sorta(a, b) {
+      return a[1] - b[1];
+    }
+    console.log(distan[finish][0]);
+    return distan[finish][0];
   }
-  function sorta(a, b) {
-    return a[1] - b[1];
+
+  function simplify(poly) {
+    //your code here
+    var i = 0,
+      k = 0;
+    var arr = poly.split('');
+    var a_re = [];
+
+    var tem_a = [];
+    var tem_as = "";
+    var tem_n = [];
+    var tem_z = [];
+
+    for (i = arr.length - 1; i > -1; --i) {
+      if (chek("al",arr[i])) {
+        tem_a.unshift(arr[i]);
+      }
+      if (chek("num",arr[i])) {
+        tem_n.unshift(arr[i]);
+      }
+      if (chek("+-",arr[i])) {
+        tem_z.push([]);
+        tem_z[tem_z.length -1].push(tem_a.sort().join(''));
+        if (tem_n.length === 0) {
+          tem_n = [1];
+        }
+
+        tem_z[tem_z.length -1].push(Number(arr[i] + tem_n.join('')));
+        console.log(tem_z[tem_z.length -1]);
+        tem_a = [];
+        tem_n = [];
+      }
+      if (i === 0 && !chek("+-",arr[i])) {
+        tem_z.push([]);
+        tem_z[tem_z.length -1].push(tem_a.sort().join(''));
+        if (tem_n.length === 0) {
+          tem_n = [1];
+        }
+        tem_z[tem_z.length -1].push(Number(tem_n.join('')));
+      }
+    }
+
+    for (i = 0; i < tem_z.length; i++) {
+      for (k = 0; k < tem_z.length; k++) {
+        if (i !== k && tem_z[i][0] === tem_z[k][0]) {
+          tem_z[i][1] = Number(tem_z[i][1]) + Number(tem_z[k][1]);
+          tem_z[k][1] = false;
+        }
+      }
+      console.log(tem_z[i]);
+      if (a_rechk(tem_z[i][0]) && tem_z[i][1] !== 0 && tem_z[i][1] !== false) {
+        a_re.push([tem_z[i][0],tem_z[i][1]]);
+      }
+    }
+    a_re.sort(so);
+    a_re.sort(so2);
+    console.log(a_re);
+    var restring = "";
+    for (i = 0; i < a_re.length ; i++) {
+      if(a_re[i][1] === -1) {
+        a_re[i][1] = "-";
+      }
+      if(a_re[i][1] === 1) {
+        if (i === 0) {
+          a_re[i][1] = "";
+        } else {
+          a_re[i][1] = "+";
+        }
+      }
+      if (a_re[i][1] > 0 && i > 0) {
+        a_re[i][1] = "+" + a_re[i][1];
+      }
+      restring = restring + a_re[i][1].toString() + a_re[i][0];
+    }
+    return restring;
+
+    function a_rechk(str) {
+      var re = true;
+      for (var zz = 0; zz < a_re.length ; zz++) {
+        if (a_re[zz][0] === str) {
+          re = false;
+        }
+      }
+      return  re;
+    }
+
+    function so (a, b) {
+      return a[0] - b[0];
+    }
+
+    function so2 (a, b) {
+      return a[0].length - b[0].length;
+    }
+
+    function chek(ty, value) {
+      var re;
+      switch (ty) {
+        case "al":
+          re = /^[a-zA-Z]+$/.test(value);
+          break;
+        case "num":
+          re = /^[0-9]+$/.test(value);
+          break;
+        case "+-":
+          if (value === "+" || value === "-") {
+            re = true;
+          } else {
+            re = false;
+          }
+          break;
+      }
+      return re;
+    }
   }
-  console.log(distan[finish][0]);
-  return distan[finish][0];
-}
+
 
   SipuCommons.start = function() {
-    
+    console.log(simplify("-15cb-12cb-0c+7cb"));
   };
   return SipuCommons;
 })(window.SipuCommons || {});

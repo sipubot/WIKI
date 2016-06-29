@@ -99,7 +99,7 @@ function navigate(numberOfIntersections, roads, start, finish) {
 
 ```
 
-## 유클리드 호제법
+## 유클리드 호제법 O(n)
 두 수나 다항식의 최대 공약수를 구하는 알고리즘
  - 입력으로 두 수 m,n(m>n)이 들어온다.
  - n이 0이라면, m을 출력하고 알고리즘을 종료한다.
