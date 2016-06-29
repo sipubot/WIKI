@@ -38,7 +38,7 @@
     - 출발점에서 종료지점까지 거치는 모든 지점을 선택한다
     - 각 노드의 이동 가중치합을 비교하며 경로 선택을 시킨다
     - 종료 최소 경로와 가중치를 찾는다.
-    
+
 ```javascript
 // complete the function so that it returns the fastest route
 function navigate(numberOfIntersections, roads, start, finish) {
@@ -99,6 +99,29 @@ function navigate(numberOfIntersections, roads, start, finish) {
 
 ```
 
+## 유클리드 호제법
+두 수나 다항식의 최대 공약수를 구하는 알고리즘
+ - 입력으로 두 수 m,n(m>n)이 들어온다.
+ - n이 0이라면, m을 출력하고 알고리즘을 종료한다.
+ - n이 m을 나누어 떨어지면, n을 출력하고 알고리즘을 종료한다.
+ - 그렇지 않으면, m을 n으로 나눈 나머지를 새롭게 m에 대입하고, m과 n을 바꾸고 윗것으로 반복
+```c
+int gcd(int a, int b)
+{
+	return b ? gcd(b, a%b) : a;
+}
+```
+```python
+def gcd(m,n):
+	if m < n:
+		m, n = n, m
+	if n == 0:
+		return m
+	if m % n == 0:
+		return n
+	else:
+		return gcd(n, m%n)
+```
 
 ## 지금은 알아둘(써먹을) 필요는 없지만 어딘가에서 항상 살아숨쉬고 있는 알고리즘들.
 
