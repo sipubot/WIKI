@@ -774,31 +774,31 @@ var SipuCommons = (function(SipuCommons, undefined) {
     var tem_z = [];
 
     for (i = arr.length - 1; i > -1; --i) {
-      if (chek("al",arr[i])) {
+      if (chek("al", arr[i])) {
         tem_a.unshift(arr[i]);
       }
-      if (chek("num",arr[i])) {
+      if (chek("num", arr[i])) {
         tem_n.unshift(arr[i]);
       }
-      if (chek("+-",arr[i])) {
+      if (chek("+-", arr[i])) {
         tem_z.push([]);
-        tem_z[tem_z.length -1].push(tem_a.sort().join(''));
+        tem_z[tem_z.length - 1].push(tem_a.sort().join(''));
         if (tem_n.length === 0) {
           tem_n = [1];
         }
 
-        tem_z[tem_z.length -1].push(Number(arr[i] + tem_n.join('')));
-        console.log(tem_z[tem_z.length -1]);
+        tem_z[tem_z.length - 1].push(Number(arr[i] + tem_n.join('')));
+        console.log(tem_z[tem_z.length - 1]);
         tem_a = [];
         tem_n = [];
       }
-      if (i === 0 && !chek("+-",arr[i])) {
+      if (i === 0 && !chek("+-", arr[i])) {
         tem_z.push([]);
-        tem_z[tem_z.length -1].push(tem_a.sort().join(''));
+        tem_z[tem_z.length - 1].push(tem_a.sort().join(''));
         if (tem_n.length === 0) {
           tem_n = [1];
         }
-        tem_z[tem_z.length -1].push(Number(tem_n.join('')));
+        tem_z[tem_z.length - 1].push(Number(tem_n.join('')));
       }
     }
 
@@ -811,18 +811,18 @@ var SipuCommons = (function(SipuCommons, undefined) {
       }
       console.log(tem_z[i]);
       if (a_rechk(tem_z[i][0]) && tem_z[i][1] !== 0 && tem_z[i][1] !== false) {
-        a_re.push([tem_z[i][0],tem_z[i][1]]);
+        a_re.push([tem_z[i][0], tem_z[i][1]]);
       }
     }
     a_re.sort(so);
     a_re.sort(so2);
     console.log(a_re);
     var restring = "";
-    for (i = 0; i < a_re.length ; i++) {
-      if(a_re[i][1] === -1) {
+    for (i = 0; i < a_re.length; i++) {
+      if (a_re[i][1] === -1) {
         a_re[i][1] = "-";
       }
-      if(a_re[i][1] === 1) {
+      if (a_re[i][1] === 1) {
         if (i === 0) {
           a_re[i][1] = "";
         } else {
@@ -838,19 +838,19 @@ var SipuCommons = (function(SipuCommons, undefined) {
 
     function a_rechk(str) {
       var re = true;
-      for (var zz = 0; zz < a_re.length ; zz++) {
+      for (var zz = 0; zz < a_re.length; zz++) {
         if (a_re[zz][0] === str) {
           re = false;
         }
       }
-      return  re;
+      return re;
     }
 
-    function so (a, b) {
+    function so(a, b) {
       return a[0] - b[0];
     }
 
-    function so2 (a, b) {
+    function so2(a, b) {
       return a[0].length - b[0].length;
     }
 
@@ -874,10 +874,118 @@ var SipuCommons = (function(SipuCommons, undefined) {
       return re;
     }
   }
+  function addll() {
+    //implement
+    var a = arguments,
+      upnum = [],
+      downnum = [],
+      upMax = 0,
+      downMax = 0;
+      console.log(a);
+    for (var i in a) {
+      var k = a[i].toString().split('.');
+      if (k.length > 2 || k.length === 0) {
+        return NaN;
+      }
+      if (k[0] === "") {
+        k[0] = "0";
+      }
+      if (k[1] === "" || k[1] === undefined) {
+        k[1] = "0";
+      }
+      if (upMax < k[0].split('').length) {
+        upMax = k[0].split('').length;
+      }
+      if (downMax < k[1].split('').length) {
+        downMax = k[1].split('').length;
+      }
+      upnum.push(k[0]);
+      downnum.push(k[1]);
+    }
+    var re = [
+      [],
+      []
+    ];
+    re[0] = insert0left(re[0], upMax);
+    re[1] = insert0right(re[1], downMax);
+    for (var e = 0; e < upnum.length; e++) {
+      var add = 0;
+
+      upnum[e] = upnum[e].split('');
+      downnum[e] = downnum[e].split('');
+
+      upnum[e] = insert0left(upnum[e], upMax);
+      downnum[e] = insert0right(downnum[e], downMax);
+      for (var kka = downMax - 1; kka > -1; kka--) {
+        re[1][kka] = re[1][kka] + parseInt(downnum[e][kka]);
+        if (re[1][kka] > 9) {
+          if (typeof re[1][kka - 1] === "number") {
+            re[1][kka] = re[1][kka] - 10;
+            re[1][kka - 1] = re[1][kka - 1] + 1;
+          } else {
+            re[1][kka] = re[1][kka] - 10;
+            re[0][upMax - 1] = re[0][upMax - 1] + 1;
+          }
+        }
+      }
+      for (var kkz = upMax - 1; kkz > -1; kkz--) {
+        re[0][kkz] = re[0][kkz] + parseInt(upnum[e][kkz]);
+        if (re[0][kkz] > 9) {
+          if (typeof re[0][kkz - 1] === "number") {
+            re[0][kkz] = re[0][kkz] - 10;
+            re[0][kkz - 1] = re[0][kkz - 1] + 1;
+          }
+        }
+      }
+    }
+    for (var ll = re[1].length - 1; ll > -1; ll--) {
+      if (re[1][ll] === 0) {
+        delete re[1][ll];
+      } else {
+        break;
+      }
+    }
+    if (parseInt(re[1].join('')) > 0) {
+
+      return parseInt(re[0].join('')).toString() + "." + re[1].join('').toString();
+    } else {
+      return parseInt(re[0].join('')).toString();
+    }
+
+    function insert0left(arr, max) {
+      var d = max - arr.length;
+      for (var zk = 0; zk < d; zk++) {
+        arr.unshift(0);
+      }
+      return arr;
+    }
+
+    function insert0right(arr, max) {
+      var d = max - arr.length;
+      for (var zk = 0; zk < d; zk++) {
+        arr.push(0);
+      }
+      return arr;
+    }
+
+    function chknum(arr) {
+      var p = 0;
+      for (var z in arr) {
+        if (arr[z] === '.') {
+          p++;
+        }
+      }
+      if (p > 1) {
+        return false;
+      } else {
+        return true;
+      }
+    }
+  }
 
 
   SipuCommons.start = function() {
-    console.log(simplify("-15cb-12cb-0c+7cb"));
+    console.log(addll("1","2","3","4","5"));
   };
   return SipuCommons;
 })(window.SipuCommons || {});
