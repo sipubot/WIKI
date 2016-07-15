@@ -874,6 +874,7 @@ var SipuCommons = (function(SipuCommons, undefined) {
       return re;
     }
   }
+
   function addll() {
     //implement
     var a = arguments,
@@ -881,7 +882,7 @@ var SipuCommons = (function(SipuCommons, undefined) {
       downnum = [],
       upMax = 0,
       downMax = 0;
-      console.log(a);
+    console.log(a);
     for (var i in a) {
       var k = a[i].toString().split('.');
       if (k.length > 2 || k.length === 0) {
@@ -983,9 +984,54 @@ var SipuCommons = (function(SipuCommons, undefined) {
     }
   }
 
+  function jonnann() {
+    function john(n) {
+      // your code
+      var re = [];
+      re.push(0);
+      re.push(0);
+      for (var i = 0; i < n - 1; i++) {
+        if (i > 0) {
+          re.push(i - Math.floor(i / 3));
+        }
+      }
+      return re;
+    }
+    console.log(john(11));
+    function ann(n) {
+      // your code
+      var re = [];
+      re.push(1);
+      for (var i = 0; i < n - 1; i++) {
+        re.push(Math.ceil(i / 2) + 1);
+      }
+      return re;
+    }
+    console.log(ann(6));
+    function sumJohn(n) {
+      // your code
+    }
+
+    function sumAnn(n) {
+      // your code
+      var a = ann(n);
+      console.log(a.reduce(function (a,b){return a+b;}));
+      return a.reduce(function (a,b){return a+b;});
+
+      console.log(n);
+      if (n % 2 === 0) {
+        return (n / 2) * (1 + (n / 2));
+      } else {
+        n--;
+        return (n / 2) * (1 + (n / 2)) + (n / 2) + 1;
+      }
+    }
+    console.log(sumAnn(115));
+
+  }
 
   SipuCommons.start = function() {
-    console.log(addll("1","2","3","4","5"));
+    jonnann();
   };
   return SipuCommons;
 })(window.SipuCommons || {});
