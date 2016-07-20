@@ -998,6 +998,7 @@ var SipuCommons = (function(SipuCommons, undefined) {
       return re;
     }
     console.log(john(11));
+
     function ann(n) {
       // your code
       var re = [];
@@ -1008,6 +1009,7 @@ var SipuCommons = (function(SipuCommons, undefined) {
       return re;
     }
     console.log(ann(6));
+
     function sumJohn(n) {
       // your code
     }
@@ -1015,8 +1017,12 @@ var SipuCommons = (function(SipuCommons, undefined) {
     function sumAnn(n) {
       // your code
       var a = ann(n);
-      console.log(a.reduce(function (a,b){return a+b;}));
-      return a.reduce(function (a,b){return a+b;});
+      console.log(a.reduce(function(a, b) {
+        return a + b;
+      }));
+      return a.reduce(function(a, b) {
+        return a + b;
+      });
 
       console.log(n);
       if (n % 2 === 0) {
@@ -1029,9 +1035,205 @@ var SipuCommons = (function(SipuCommons, undefined) {
     console.log(sumAnn(115));
 
   }
+  /**
+    Title : 로비 로봇
+    길찾기 2뀨.. 이런거 두개만 더풀면 될텐데...
+  */
+
+  function robbyrobot() {
+    function getCommands(field, power) {
+      // insert awesome code here
+      var fieldarr = field.split('');
+      var map = makeMap(fieldarr);
+      var seArr = startNend(map);
+      var path = findPath(map, seArr, power);
+      var shotpatharr = shotpathfind(path);
+      if (shotpatharr.length > power) {
+        return [];
+      }
+      return shotpatharr;
+    }
+
+    function makeMap(arr) {
+      var len = Math.sqrt(arr.length);
+      var re = [];
+      for (var i = 0; i < len; i++) {
+        var w = [];
+        for (var z = 0; z < len; z++) {
+          w.push(arr[i * len + z]);
+        }
+        re.push(w);
+      }
+      return re;
+    }
+
+    function startNend(arr) {
+      //[y,x]
+      var start = [0, 0];
+      var end = [0, 0];
+      for (var i = 0; i < arr.length; i++) {
+        for (var z = 0; z < arr[i].length; z++) {
+          if (arr[i][z] === "S") {
+            start = [i, z];
+          }
+          if (arr[i][z] === "T") {
+            end = [i, z];
+          }
+        }
+      }
+      return [start, end];
+    }
+
+    function findPath(map, point, power) {
+      //return array
+      var Path = {};
+      var alldone = false;
+
+      Path[point[0].join('') + ":"] = {};
+      Path[point[0].join('') + ":"]["position"] = point[0];
+      Path[point[0].join('') + ":"]["finding"] = false;
+      Path[point[0].join('') + ":"]["direction"] = "top";
+      Path[point[0].join('') + ":"]["moving"] = "";
+
+      for (var k = 0; k < power; k++) {
+        for (var key in Path) {
+          if (Path.hasOwnProperty(key)) {
+            if (!Path[key].finding) {
+              var movepath = next(Path[key].position, map, key);
+              for (var ne = 0; ne < movepath.length; ne++) {
+                Path[key + movepath[ne].join('') + ":"] = {};
+                Path[key + movepath[ne].join('') + ":"]["position"] = movepath[ne];
+                if (map[movepath[ne][0], movepath[ne][1]] === "T") {
+                  Path[key + movepath[ne].join('') + ":"]["finding"] = true;
+                } else {
+                  Path[key + movepath[ne].join('') + ":"]["finding"] = false;
+                }
+                Path[key + movepath[ne].join('') + ":"]["direction"] = position(Path[key].position, movepath[ne]);
+                Path[key + movepath[ne].join('') + ":"]["moving"] = Path[key].moving + dirstring(Path[key].direction, position(Path[key].position, movepath[ne])) + "f";
+              }
+              Path[key].finding = true;
+            }
+          }
+        }
+      }
+      for (var key in Path) {
+        if (Path[key].position.join('') !== point[1].join('')) {
+          delete Path[key];
+        }
+      }
+
+      function next(pos, map, key) {
+        var y = pos[0];
+        var x = pos[1];
+        var all = [
+          [y + 1, x],
+          [y - 1, x],
+          [y, x + 1],
+          [y, x - 1]
+        ];
+        var re = [];
+        for (var i = 0; i < all.length; i++) {
+          if (typeof map[all[i][0]] !== 'undefined' && typeof map[all[i][0]][all[i][1]] !== 'undefined') {
+            if (key.indexOf(all[i].join('')) === -1 && map[all[i][0]][all[i][1]] !== "#") {
+              re.push(all[i]);
+            }
+          }
+        }
+        return re;
+      }
+
+      function position(before, after) {
+        if (before[0] - after[0] === -1) {
+          return "down";
+        }
+        if (before[0] - after[0] === 1) {
+          return "top";
+        }
+        if (before[1] - after[1] === -1) {
+          return "right";
+        }
+        if (before[1] - after[1] === 1) {
+          return "left";
+        }
+      }
+
+      function dirstring(dir1, dir2) {
+        switch (dir1) {
+          case "top":
+            switch (dir2) {
+              case "top":
+                return "";
+              case "right":
+                return "r";
+              case "left":
+                return "l";
+              case "down":
+                return "rr";
+            }
+            break;
+          case "right":
+            switch (dir2) {
+              case "top":
+                return "l";
+              case "right":
+                return "";
+              case "down":
+                return "r";
+            }
+            break;
+          case "down":
+            switch (dir2) {
+              case "right":
+                return "l";
+              case "down":
+                return "";
+              case "left":
+                return "r";
+            }
+            break;
+          case "left":
+            switch (dir2) {
+              case "top":
+                return "r";
+              case "down":
+                return "l";
+              case "left":
+                return "";
+            }
+        }
+      }
+      return Path;
+    }
+
+    function shotpathfind(path) {
+      if (isEmpty(path)) {
+        return [];
+      }
+      var firstKey;
+      for (firstKey in path) break;
+      var short = path[firstKey].moving.split('');
+
+      for (var key in path) {
+        if (short.length > path[key].moving.split('').length) {
+          short = path[key].moving.split('');
+        }
+      }
+      return short;
+    }
+
+    function isEmpty(map) {
+      for (var key in map) {
+        if (map.hasOwnProperty(key)) {
+          return false;
+        }
+      }
+      return true;
+    }
+    console.log(getCommands('S.......T', 10));
+  }
 
   SipuCommons.start = function() {
-    jonnann();
+    robbyrobot();
   };
   return SipuCommons;
 })(window.SipuCommons || {});
