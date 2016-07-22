@@ -1232,8 +1232,101 @@ var SipuCommons = (function(SipuCommons, undefined) {
     console.log(getCommands('S.......T', 10));
   }
 
+  var dim = function() {
+      var th = this;
+      var params = Array.prototype.slice.call(arguments);
+
+      console.log(params)
+      console.log(typeof params)
+      if (params.length === 2) {
+        console.log('last');
+        var p = [];
+        for (var i = 0; i < params[0]; i++) {
+          var aaa;
+          if (typeof params[params.length - 1] === 'function') {
+            aaa = params[params.length - 1].aplly();
+          } else if (typeof params[params.length - 1] === 'object') {
+            aaa = params[params.length - 1].slice(0);
+          } else {
+            aaa = params[params.length - 1];
+          }
+          p.push(aaa);
+        }
+        console.log(p.toString());
+
+        return p;
+      }
+      if (params.length > 2) {
+        var p = [];
+        for (var i = 0; i < params[params.length - 2]; i++) {
+          var aaa;
+          if (typeof params[params.length - 1] === 'function') {
+            aaa = params[params.length - 1].aplly();
+          } else if (typeof params[params.length - 1] === 'object') {
+            aaa = params[params.length - 1].slice(0);
+          } else {
+            aaa = params[params.length - 1];
+          }
+          p.push(aaa);
+        }
+        params.pop();
+        params.pop();
+        params.push(p);
+        dim.apply(null, params);
+      }
+    }
+    //마지막 숫자 구하기 메소드
+  var lastDigit = function(str1, str2) {
+    var a = parseInt(str1.split('').pop());
+    var b = str2.split(),
+      tmp;
+    if (b[0] === "0") return 1;
+    for (var i = 0; i < b.length; i++) {
+      tmp += b.charAt(i);
+      r = tmp % a;
+      tmp = r.toString(10);
+    }
+
+    var lastpattern = [
+      [0, 0, 0, 0],
+      [6, 2, 4, 8],
+      [1, 3, 9, 7],
+      [6, 4, 6, 4],
+      [5, 5, 5, 5],
+      [6, 6, 6, 6],
+      [1, 7, 9, 3],
+      [6, 8, 4, 2],
+      [1, 9, 1, 9],
+    ];
+
+    return lastpattern[a][b];
+
+  };
+  var lastDigit = function(str1, str2) {
+    var a = parseInt(str1.split('').pop());
+    var tmp, r;
+    if (str2 === "0") return 1;
+    for (var i = 0; i < str2.length; i++) {
+      tmp += str2.charAt(i);
+      r = tmp % a;
+      tmp = r.toString(10);
+    }
+
+    var lastpattern = [
+      [0, 0, 0, 0],
+      [6, 2, 4, 8],
+      [1, 3, 9, 7],
+      [6, 4, 6, 4],
+      [5, 5, 5, 5],
+      [6, 6, 6, 6],
+      [1, 7, 9, 3],
+      [6, 8, 4, 2],
+      [1, 9, 1, 9],
+    ];
+    return lastpattern[a][b];
+  };
   SipuCommons.start = function() {
-    robbyrobot();
+    var d1 = dim(5, 3, "x");
   };
   return SipuCommons;
 })(window.SipuCommons || {});
