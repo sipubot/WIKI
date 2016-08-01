@@ -1276,29 +1276,37 @@ var SipuCommons = (function(SipuCommons, undefined) {
       }
     }
     //마지막 숫자 구하기 메소드
-    var lastDigit = function(str1, str2) {
-      var a = parseInt(str1.split('').pop());
-      var tmp = 0;
-      if (str2 === "0") return 1;
-      for (var i = 0; i < str2.length; i++) {
-        tmp += str2.charAt(i);
-        tmp = (Number(tmp) % 4).toString(10);
-      }
-      var lastpattern = [
-        [0,0,0,0],
-        [1,1,1,1],
-        [6,2,4,8],
-        [1,3,9,7],
-        [6,4,6,4],
-        [5,5,5,5],
-        [6,6,6,6],
-        [1,7,9,3],
-        [6,8,4,2],
-        [1,9,1,9],
-      ];
-      return lastpattern[a][tmp];
-    };
+  var lastDigit = function(str1, str2) {
+    var a = parseInt(str1.split('').pop());
+    var tmp = 0;
+    if (str2 === "0") return 1;
+    for (var i = 0; i < str2.length; i++) {
+      tmp += str2.charAt(i);
+      tmp = (Number(tmp) % 4).toString(10);
+    }
+    var lastpattern = [
+      [0, 0, 0, 0],
+      [1, 1, 1, 1],
+      [6, 2, 4, 8],
+      [1, 3, 9, 7],
+      [6, 4, 6, 4],
+      [5, 5, 5, 5],
+      [6, 6, 6, 6],
+      [1, 7, 9, 3],
+      [6, 8, 4, 2],
+      [1, 9, 1, 9],
+    ];
+    return lastpattern[a][tmp];
+  };
 
+
+  function solve(map, miner, exit) {
+    // TODO
+    console.log(map);
+    console.log(miner);
+    console.log(exit);
+    return [];
+  }
 
   SipuCommons.start = function() {
     var d1 = lastDigit("3453453", "345345");
