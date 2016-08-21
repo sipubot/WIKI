@@ -1090,10 +1090,10 @@ var SipuCommons = (function(SipuCommons, undefined) {
       var alldone = false;
 
       Path[point[0].join('') + ":"] = {};
-      Path[point[0].join('') + ":"]["position"] = point[0];
-      Path[point[0].join('') + ":"]["finding"] = false;
-      Path[point[0].join('') + ":"]["direction"] = "top";
-      Path[point[0].join('') + ":"]["moving"] = "";
+      Path[point[0].join('') + ":"].position = point[0];
+      Path[point[0].join('') + ":"].finding = false;
+      Path[point[0].join('') + ":"].direction = "top";
+      Path[point[0].join('') + ":"].moving = "";
 
       for (var k = 0; k < power; k++) {
         for (var key in Path) {
@@ -1102,14 +1102,14 @@ var SipuCommons = (function(SipuCommons, undefined) {
               var movepath = next(Path[key].position, map, key);
               for (var ne = 0; ne < movepath.length; ne++) {
                 Path[key + movepath[ne].join('') + ":"] = {};
-                Path[key + movepath[ne].join('') + ":"]["position"] = movepath[ne];
-                if (map[movepath[ne][0], movepath[ne][1]] === "T") {
-                  Path[key + movepath[ne].join('') + ":"]["finding"] = true;
+                Path[key + movepath[ne].join('') + ":"].position = movepath[ne];
+                if (map[movepath[ne][0]][movepath[ne][1]] === "T") {
+                  Path[key + movepath[ne].join('') + ":"].finding = true;
                 } else {
-                  Path[key + movepath[ne].join('') + ":"]["finding"] = false;
+                  Path[key + movepath[ne].join('') + ":"].finding = false;
                 }
-                Path[key + movepath[ne].join('') + ":"]["direction"] = position(Path[key].position, movepath[ne]);
-                Path[key + movepath[ne].join('') + ":"]["moving"] = Path[key].moving + dirstring(Path[key].direction, position(Path[key].position, movepath[ne])) + "f";
+                Path[key + movepath[ne].join('') + ":"].direction = position(Path[key].position, movepath[ne]);
+                Path[key + movepath[ne].join('') + ":"].moving = Path[key].moving + dirstring(Path[key].direction, position(Path[key].position, movepath[ne])) + "f";
               }
               Path[key].finding = true;
             }
@@ -1300,16 +1300,33 @@ var SipuCommons = (function(SipuCommons, undefined) {
   };
 
 
-  function solve(map, miner, exit) {
-    // TODO
-    console.log(map);
-    console.log(miner);
-    console.log(exit);
-    return [];
+  function bomb() {
+    var aa = function ( obj ){
+      //console.log(obj);
+      console.log(( obj < 10 ));
+      console.log(( obj > 10 ));
+      zz( ( obj < 10 ) && ( obj > 10 ) );
+    };
+    function zz(bool) {
+      if (bool) {
+        console.log("done");
+      }
+    }
+    aa.cl = function () {
+      var og = 6;
+      return function () {
+        og = og + 3;
+        return og;
+      };
+    };
+    aa.val = aa.cl();
+    var ob = eval("console.log('')");
+    aa(ob);
   }
 
+
   SipuCommons.start = function() {
-    var d1 = lastDigit("3453453", "345345");
+    bomb();
   };
   return SipuCommons;
 })(window.SipuCommons || {});
