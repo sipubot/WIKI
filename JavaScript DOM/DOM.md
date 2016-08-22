@@ -33,7 +33,7 @@ _외국의 개발자들이 dom을 욕하니 그저 따라서 욕하고 있다고
 
 ### Element (노드 DOM API)
 > 노드에 있는 각종 속성값들을 처리하는 메소스 생각 보다 훨씬 많은 메소드들을 제공하고 있다. DOM4 버전으로 넘어오면서 기존의 메소드들을 다 통합해서 쓰는거 같음
- 많은 메소드들이 사라졌다. JQuery를 쓰지 않아도 될만큼 체계적으로 변화중이다.
+ 많은 메소드들이 사라졌다. JQuery를 쓰지 않아도 될만큼 체계적으로 변화중이다. 브라우저별 지원 하는 부분이 많이 달라서 문게가 많은 부분 .
 
 
        - attributes : 해당노드의 속성값을 NamedNodeMap 객체로 돌려줌 [네임노드맵 객체](https://hunskorea.com/docs/ko/jre/api/plugin/dom/org/w3c/dom/NamedNodeMap.html)
@@ -48,4 +48,6 @@ _외국의 개발자들이 dom을 욕하니 그저 따라서 욕하고 있다고
        - innerHTML : 노드 안의 내부 노드를 리스트로 리턴
        - nextElementSibling : 여러개의 노드들의 차례대로 선택 (거의 쓸모는 없어 보인다)
        - outerHTML : 부모 노드가 없을 경우 에러가 나옴 innerHTML과 다르게 자신을 포함한 노드 전체를 수정하게 된다.
-       
+       - prefix  : 노드의 접두사를 확인한다.
+       - scrollHeight : 화면에 나오지 않는 전체 영역에 대한 높이값
+       - tagName : Returns a String with the name of the tag for the given element.
