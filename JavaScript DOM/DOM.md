@@ -31,5 +31,21 @@ _외국의 개발자들이 dom을 욕하니 그저 따라서 욕하고 있다고
         - warn() : 로그와 비슷
         쓸만한 것들은 assert, log, dir, time, trace  log를 쓰기 보다는 dir를 쓰는것이 좋겠다.
 
-### Attr (속성)
-> 노드에 있는 각종 속성값들을 처리하는 메소스 생각 보다 훨씬 많은 메소드들을 제공하고 있다.
+### Element (노드 DOM API)
+> 노드에 있는 각종 속성값들을 처리하는 메소스 생각 보다 훨씬 많은 메소드들을 제공하고 있다. DOM4 버전으로 넘어오면서 기존의 메소드들을 다 통합해서 쓰는거 같음
+ 많은 메소드들이 사라졌다. JQuery를 쓰지 않아도 될만큼 체계적으로 변화중이다.
+
+
+       - attributes : 해당노드의 속성값을 NamedNodeMap 객체로 돌려줌 [네임노드맵 객체](https://hunskorea.com/docs/ko/jre/api/plugin/dom/org/w3c/dom/NamedNodeMap.html)
+       - classList : 클래스 속성값을 리스트로 뽑아 준다. 제이쿼리의 addclass 함수를 생각하면 편할듯.
+          디테일한 부분에서는 다르긴 함. 자세한 것은 [링크](https://developer.mozilla.org/en-US/docs/Web/API/Element/classList)
+       - className : 클래스 속성값을 스트링 리턴
+       - clientHeight : 보더 마진 값 제외한 노드의 실제 높이를 숫자로 리턴
+       - clientLeft : 보더 마진 포함 노드의 좌측 값 숫자 리턴
+       - clientTop : 보더 마진 포함 노드의 상방향 값 숫자 리턴
+       - clientWidth : 보더 마진 값 제외한 노드의 실제 너비를 숫자로 리턴
+       - id : id값 스트링 리턴
+       - innerHTML : 노드 안의 내부 노드를 리스트로 리턴
+       - nextElementSibling : 여러개의 노드들의 차례대로 선택 (거의 쓸모는 없어 보인다)
+       - outerHTML : 부모 노드가 없을 경우 에러가 나옴 innerHTML과 다르게 자신을 포함한 노드 전체를 수정하게 된다.
+       
