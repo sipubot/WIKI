@@ -34,7 +34,8 @@ _외국의 개발자들이 dom을 욕하니 그저 따라서 욕하고 있다고
 ### Element (노드 DOM API)
 > 노드에 있는 각종 속성값들을 처리하는 메소스 생각 보다 훨씬 많은 메소드들을 제공하고 있다. DOM4 버전으로 넘어오면서 기존의 메소드들을 다 통합해서 쓰는거 같음
  많은 메소드들이 사라졌다. JQuery를 쓰지 않아도 될만큼 체계적으로 변화중이다. 브라우저별 지원 하는 부분이 많이 달라서 문게가 많은 부분 .
-
+브라우저별 호환성을 체크하기 위한 링크
+[링크]https://developer.mozilla.org/ko/docs/Web/API/Element
 
        - attributes : 해당노드의 속성값을 NamedNodeMap 객체로 돌려줌 [네임노드맵 객체](https://hunskorea.com/docs/ko/jre/api/plugin/dom/org/w3c/dom/NamedNodeMap.html)
        - classList : 클래스 속성값을 리스트로 뽑아 준다. 제이쿼리의 addclass 함수를 생각하면 편할듯.
@@ -51,3 +52,21 @@ _외국의 개발자들이 dom을 욕하니 그저 따라서 욕하고 있다고
        - prefix  : 노드의 접두사를 확인한다.
        - scrollHeight : 화면에 나오지 않는 전체 영역에 대한 높이값
        - tagName : Returns a String with the name of the tag for the given element.
+       - addEventListener(type, listener, [options]) : 노드에 이벤트 추가하기.
+       - dispatchEvent() : Dispatches an Event at the specified EventTarget, invoking the affected EventListeners in the appropriate order. The normal event processing rules (including the capturing and optional bubbling phase) also apply to events dispatched manually with dispatchEvent()
+       - closest(selectors) :  method returns the closest ancestor of the current element (or the current element itself) which matches the selectors given in parameter. If there isn't such an ancestor, it returns null. //jquery find랑 비슷하다. 하지만 낮은 버전의 브라우저들에서 지원하지 않은 익스플로러 지원하지 않음
+       - getAttributeNS(namespace, name) : getAttributeNS returns the string value of the attribute with the specified namespace and name. If the named attribute does not exist, the value returned will either be null or "" (the empty string); see Notes for details.
+       - getBoundingClientRect() :  the size of an element and its position relative to the viewport.
+       - getClientRects() :  collection of rectangles that indicate the bounding rectangles for each box in a client.
+       - getElementsByClassName(names) :  live HTMLCollection containing all child elements which have all of the given class names. When called on the document object, the complete document is searched, including the root node.
+       - getElementsByTagName(tagName) :  live HTMLCollection of elements with the given tag name. The subtree underneath the specified element is searched, excluding the element itself. The returned list is live, meaning that it updates itself with the DOM tree automatically. Consequently, there is no need to call several times Element.getElementsByTagName() with the same element and arguments.
+       - getElementsByTagNameNS(namespaceURI, localName) :  live HTMLCollection of elements with the given tag name belonging to the given namespace. It is similar to Document.getElementsByTagNameNS, except that its search is restricted to descendants of the specified element.
+       - hasAttribute(attName) :  Boolean value indicating whether the specified element has the specified attribute or not.
+       - hasAttributeNS(namespace, localName) :
+       - matches(selectorString) :  returns true if the element would be selected by the specified selector string; otherwise, returns false.
+       - querySelector(selectors) : ex> var el = document.body.querySelector("style[type='text/css'], style:not([type])");
+       - querySelectorAll(selectors) : ex> let matches = document.body.querySelectorAll('p');
+       - remove() : method removes the object from the tree it belongs to.
+       - removeAttribute(attrName) : 속성값 제거.
+       - removeEventListener(type, listener[, options]) : ex> clickTarget.removeEventListener('click', makeBackgroundYellow, false);
+       - setAttribute(name, value) : 속성값 설정
