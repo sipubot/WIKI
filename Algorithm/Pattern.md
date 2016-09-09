@@ -1,6 +1,7 @@
 # 패턴
 
 메소드나 추상화 기법들.
+[디자인패턴 위키](https://ko.wikipedia.org/wiki/%EB%B6%84%EB%A5%98:%EB%94%94%EC%9E%90%EC%9D%B8_%ED%8C%A8%ED%84%B4)
 
 ## 메모이제이션 기법
 
