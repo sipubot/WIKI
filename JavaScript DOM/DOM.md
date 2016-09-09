@@ -72,18 +72,7 @@ _외국의 개발자들이 dom을 욕하니 그저 따라서 욕하고 있다고
        - setAttribute(name, value) : 속성값 설정
 
 ###Meta programming
-> ECMA 6 시작된 이후로 자바스크립트에 메타 프로그래밍이 대세로 전환 됨 함수형 프로그래밍으로 지원
+> ECMA 6 시작된 이후로 자바스크립트에 메타 프로그래밍이 대세로 전환 됨 함수형 프로그래밍으로 가기 위한 변화들이 있었다.
+  디자인 패턴을 참조할것.
 
-[링크]https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Meta_programming#Reflection
-
-        - Proxies : Introduced in ECMAScript 6, Proxy objects allow you to intercept certain operations and to implement custom behaviors. For example getting a property on an object:
-        ```JavaScript
-        var handler = {
-          get: function(target, name){
-            return name in target ? target[name] : 42;
-          }};
-        var p = new Proxy({}, handler);
-        p.a = 1;
-        console.log(p.a, p.b); // 1, 42
-        ```
-        The Proxy object defines a target (an object here) and a handler object in which a get trap is implemented. Here, an object that is proxied will not return undefined when getting undefined properties, but will instead return the number 42.
+[링크]https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Meta_programming
