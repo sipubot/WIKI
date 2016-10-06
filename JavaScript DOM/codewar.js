@@ -1301,20 +1301,21 @@ var SipuCommons = (function(SipuCommons, undefined) {
 
 
   function bomb() {
-    var aa = function ( obj ){
+    var aa = function(obj) {
       //console.log(obj);
-      console.log(( obj < 10 ));
-      console.log(( obj > 10 ));
-      zz( ( obj < 10 ) && ( obj > 10 ) );
+      console.log((obj < 10));
+      console.log((obj > 10));
+      zz((obj < 10) && (obj > 10));
     };
+
     function zz(bool) {
       if (bool) {
         console.log("done");
       }
     }
-    aa.cl = function () {
+    aa.cl = function() {
       var og = 6;
-      return function () {
+      return function() {
         og = og + 3;
         return og;
       };
@@ -1324,9 +1325,34 @@ var SipuCommons = (function(SipuCommons, undefined) {
     aa(ob);
   }
 
+  function fac() {
+    function processData(input) {
+      //Enter your code here
+      return capacity(input);
+    }
+    processData();
+    function capacity(n) {
+      var a = 0;
+      for (var i = n; i > 0; i--) {
+        var aa = factorial(i) / factorial(i - 1);
+
+        a = a + aa;
+      }
+      return a;
+    }
+
+    function factorial(n) {
+      if (n <= 1) {
+        return 1;
+      } else {
+        return factorial(n-1) * n;
+      }
+    }
+
+  }
 
   SipuCommons.start = function() {
-    bomb();
+    fac();
   };
   return SipuCommons;
 })(window.SipuCommons || {});
