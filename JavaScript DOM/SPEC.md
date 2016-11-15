@@ -2,7 +2,8 @@
 
 ## Object.prototype.valueOf()
 
-Overriding valueOf for custom objects You can create a function to be called in place of the default valueOf method. Your function must take no arguments. Suppose you have an object type myNumberType and you want to create a valueOf method for it. The following code assigns a user-defined function to the object's valueOf method: myNumberType.prototype.value 메소드 체이닝 할때 유용하다. 커링 할때도 쓰고.
+Overriding valueOf for custom objects You can create a function to be called in place of the default valueOf method. Your function must take no arguments. Suppose you have an object type myNumberType and you want to create a valueOf method for it. The following code assigns a user-defined function to the object's valueOf method: myNumberType.prototype.value
+메소드 체이닝 할때 유용하다. 커링 할때도 쓰고.
 
 ## Array.prototype.reduce() ***
 
@@ -10,15 +11,18 @@ reduce() 메서드는 누산기(accumulator) 및 배열의 각 값(좌에서 우
 
 ## String.prototype.charCodeAt()
 
-문자를 해당 아스키 코드로 리턴해준다. [스펙문서](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/charCodeAt)
+문자를 해당 아스키 코드로 리턴해준다.
+[스펙문서](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/charCodeAt)
 
 ## String.prototype.fromCharCode()
 
-아스키 코드를 해당 문자로 리턴해준다. [스펙문서](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/fromCharCode)
+아스키 코드를 해당 문자로 리턴해준다.
+[스펙문서](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/fromCharCode)
 
 ## Array.prototype.filter() ***
 
-arr.filter(callback[, thisArg]) [스펙문서](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/filter)
+arr.filter(callback[, thisArg])
+[스펙문서](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/filter)
 
 ```javascript
   function isBigEnough(value) {
@@ -30,15 +34,18 @@ arr.filter(callback[, thisArg]) [스펙문서](https://developer.mozilla.org/ko/
 
 ## Array.prototype.concat() *
 
-배열을 연결해서 하나의 배열로 리턴 해준다. [스펙문서](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/concat)
+배열을 연결해서 하나의 배열로 리턴 해준다.
+[스펙문서](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/concat)
 
 ## Array.prototype.toLocalString()
 
-지역에 맞는 값으로 리턴 [스펙문서](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/toLocaleString)
+지역에 맞는 값으로 리턴
+[스펙문서](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/toLocaleString)
 
 ## Array.prototype.lastIndexOf()
 
-인덱스 오브의 반대 [스펙문서](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/lastIndexOf)
+인덱스 오브의 반대
+[스펙문서](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/lastIndexOf)
 
 ## Array.prototype.forEach() ***
 있는걸 잘안써서 적어둔다.
@@ -61,3 +68,21 @@ arr.filter(callback[, thisArg]) [스펙문서](https://developer.mozilla.org/ko/
 ## Object.create() **
 기존 오브젝트와 동일한 오브젝트를 만든다. (new object와 비슷하다고 볼수 있다.);
 [관련문서](https://developer.mozilla.org/ko/docs/Web/JavaScript/Guide/Inheritance_and_the_prototype_chain)
+
+
+#저수준에서의 동작관련(내부동작제어)
+
+## ArrayBuffer *
+자바스크립트 저수준 배열제어  메모리영역 엑세스를 지원함
+[관련문서](https://developer.mozilla.org/ko/docs/Web/JavaScript/Typed_arrays)
+[파일제어](https://developer.mozilla.org/ko/docs/Web/API/FileReader#readAsArrayBuffer())
+[이미지제어](https://developer.mozilla.org/ko/docs/Web/API/ImageData)
+
+## 메모리 생존 **
+메모리 생존 주기에 대한 정보
+null값을 대입하면 가비지 콜렉터가 작동한다.
+[관련문서](https://developer.mozilla.org/ko/docs/Web/JavaScript/Memory_Management)
+
+## 스택과 큐 **
+관련문서를 꼼꼼히 읽자.
+[관련문서](https://developer.mozilla.org/ko/docs/Web/JavaScript/EventLoop)
