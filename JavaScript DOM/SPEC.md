@@ -74,11 +74,40 @@ charCodeAt과 유사하지만 리턴값이 다르다.
 [문서](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/trim)
 ## String.prototype.anchor()
 하이퍼링크 객체를 생성시킨다. (DOM 연동)
-
-
 ## String.prototype.fromCharCode()
 아스키 코드를 해당 문자로 리턴해준다.
 [스펙문서](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/fromCharCode)
+-----------------------------
+# Boolean
+
+## Boolean.prototype.toString()
+문자열로 바꿔줌
+## 불런에 대한 사용 문제
+[참조문서](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
+
+-----------------------------
+# Function
+함수관련 문서들은 반드시 봐야한다.
+
+## Function.prototype.apply()
+[문서](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Function/apply)
+## Function.prototype.call()
+[문서](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Function/call)
+## Function.prototype.bind()
+[문서](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Function/bind)
+-----------------------------
+# Object
+
+## Object.prototype.valueOf()
+
+Overriding valueOf for custom objects You can create a function to be called in place of the default valueOf method. Your function must take no arguments. Suppose you have an object type myNumberType and you want to create a valueOf method for it. The following code assigns a user-defined function to the object's valueOf method: myNumberType.prototype.value
+메소드 체이닝 할때 유용하다. 커링 할때도 쓰고.
+
+## Object.create() **
+기존 오브젝트와 동일한 오브젝트를 만든다. (new object와 비슷하다고 볼수 있다.);
+[관련문서](https://developer.mozilla.org/ko/docs/Web/JavaScript/Guide/Inheritance_and_the_prototype_chain)
+
+
 -----------------------------
 # Array
 
@@ -134,17 +163,7 @@ arr.filter(callback[, thisArg])
 오브젝트나 배열의 전체를 순회하여 계산혹은 결과 값의 오브젝트나 배열을 리턴한다.
 [스펙문서](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/some)
 
-
-## Object.prototype.valueOf()
-
-Overriding valueOf for custom objects You can create a function to be called in place of the default valueOf method. Your function must take no arguments. Suppose you have an object type myNumberType and you want to create a valueOf method for it. The following code assigns a user-defined function to the object's valueOf method: myNumberType.prototype.value
-메소드 체이닝 할때 유용하다. 커링 할때도 쓰고.
-
-## Object.create() **
-기존 오브젝트와 동일한 오브젝트를 만든다. (new object와 비슷하다고 볼수 있다.);
-[관련문서](https://developer.mozilla.org/ko/docs/Web/JavaScript/Guide/Inheritance_and_the_prototype_chain)
-
-
+---------------------------------------
 #저수준에서의 동작관련(내부동작제어)
 
 ## ArrayBuffer *
