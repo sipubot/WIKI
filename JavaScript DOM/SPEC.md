@@ -103,13 +103,13 @@
   메소드 체이닝 할때 유용하다. 커링 할때도 쓰고.
 ### Object.create() **
   기존 오브젝트와 동일한 오브젝트를 만든다. (new object와 비슷하다고 볼수 있다.);
-[관련문서](https://developer.mozilla.org/ko/docs/Web/JavaScript/Guide/Inheritance_and_the_prototype_chain)
+  [관련문서](https://developer.mozilla.org/ko/docs/Web/JavaScript/Guide/Inheritance_and_the_prototype_chain)
 ### Object.defineProperty()  
   기본적으로 prototype 과 비슷하지만 약간 다르다 문서 참조할것
-[관련문서](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty)
+  [관련문서](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty)
 ### Object.freeeze(obj)
   객체를 고정 시킨다.
-[관련문서](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Object/freeze)
+  [관련문서](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Object/freeze)
 ### Object.getOwnPropertyDescriptor()
   객체의 속성 설명을 리턴
 ### Object.getPrototypeOf(obj)
