@@ -36,7 +36,7 @@ arr.filter(callback[, thisArg]) [스펙문서](https://developer.mozilla.org/ko/
 
 지역에 맞는 값으로 리턴 [스펙문서](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/toLocaleString)
 
-## Array.prototype.lastIndexOf() 
+## Array.prototype.lastIndexOf()
 
 인덱스 오브의 반대 [스펙문서](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/lastIndexOf)
 
@@ -57,3 +57,7 @@ arr.filter(callback[, thisArg]) [스펙문서](https://developer.mozilla.org/ko/
 ## Array.prototype.map() **
 오브젝트나 배열의 전체를 순회하여 계산혹은 결과 값의 오브젝트나 배열을 리턴한다.
 [스펙문서](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/some)
+
+## Object.create() **
+기존 오브젝트와 동일한 오브젝트를 만든다. (new object와 비슷하다고 볼수 있다.);
+[관련문서](https://developer.mozilla.org/ko/docs/Web/JavaScript/Guide/Inheritance_and_the_prototype_chain)
