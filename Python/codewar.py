@@ -43,3 +43,64 @@ def line(idx,x,n):
         st = st + " "
 
     return st
+
+
+def mixed_fraction(s):
+    def gcd(m,n):
+        print(m,n)
+        try :
+          if m < n:
+            m, n = n, m
+          if n == 0:
+            return m
+          if m % n == 0:
+            return n
+          else:
+            return gcd(n, m%n)
+
+        except Exception, e:
+             print(e)
+
+    input = s.split('/')
+    a = int(input[0])
+    b = int(input[1])
+    if b == 0 and b == -0:
+        raise ZeroDivisionError()
+    elif a == 0 :
+        return "0"
+    else :
+        if a % b == 0 :
+            return str(a / b)
+        else :
+            re = ''
+            div = 1
+            rem = 1
+            h = 1
+            #
+            if a < 0 and b < 0 :
+                a = -a
+                b = -b
+                div = int(round(a / b))
+                rem = a % b
+                h = gcd(rem, b)
+            elif a > 0 and b > 0 :
+                div = int(round(a / b))
+                rem = a % b
+                h = gcd(rem, b)
+            elif a < 0 and b > 0 :
+                a = -a
+                div = int(round(a / b))
+                rem = a % b
+                h = gcd(rem, b)
+                re = '-'
+            elif a > 0 and b < 0 :
+                b = -b
+                div = int(round(a / b))
+                rem = a % b
+                h = gcd(rem, b)
+                re = '-'
+
+            if div != 0 :
+                re = re + str(div) + ' '
+            re = re + str(int(rem / h)) + '/' + str(b / h)
+            return re
