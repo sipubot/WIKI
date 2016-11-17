@@ -1331,6 +1331,7 @@ var SipuCommons = (function(SipuCommons, undefined) {
       return capacity(input);
     }
     processData();
+
     function capacity(n) {
       var a = 0;
       for (var i = n; i > 0; i--) {
@@ -1345,15 +1346,70 @@ var SipuCommons = (function(SipuCommons, undefined) {
       if (n <= 1) {
         return 1;
       } else {
-        return factorial(n-1) * n;
+        return factorial(n - 1) * n;
       }
     }
 
   }
 
-  SipuCommons.start = function() {
-    fac();
-  };
+  function maxRot(n) {
+    // your code
+    var ns = n.toString().split('');
+    var re = [];
+    var temp;
+    re.push(parseInt(ns.join('')));
+    ns.forEach(function(o, i) {
+      //console.log(i);
+      temp = ns.splice(i, 1);
+      ns.push(temp.join(''));
+      re.push(parseInt(ns.join('')));
+    });
+    return re.sort(function(a, b) {
+      return b - a;
+    })[0];
+  }
+
+  function accum(s) {
+    // your code
+    var ss = s.split('');
+    var re = '';
+    var count = 0;
+    ss.forEach(function(o, i) {
+      count++;
+      for (var ii = 0; ii < count; ii++) {
+        if (ii === 0) {
+          re = re + o.toUpperCase();
+        } else {
+          re = re + o.toLowerCase();
+        }
+      }
+      if (i < ss.length) {
+        re = re + '-';
+      }
+    });
+    return re;
+  }
+
+  function persistence(num) {
+    //code me
+    var persistencetime = 0;
+    while(num > 9) {
+      num = perci(num);
+      persistencetime++;
+    }
+    return persistencetime;
+
+    function perci(n) {
+      return n.toString().split('').map(function(o, i) {
+        return parseInt(o);
+      }).reduce(function(a, b) {
+        return a * b;
+      });
+    }
+  }
+
+
+  SipuCommons.start = function() {};
   return SipuCommons;
 })(window.SipuCommons || {});
 SipuCommons.start();
