@@ -4,7 +4,58 @@
 [링크](https://en.wikipedia.org/wiki/List_of_algorithms)
 일단 정리 된것들 부터 하나씩 번역해가며 보는게 좋지 않을까.
 
-## 콘웨이의 생명게임
+## 위키 정리
+
+### 브렌츠(함수 참조사이에서), 플로이드(데이터 리스트에서) 알고리즘
+싱글링크드리스트의 순환(사이클)을 찾아내는 알고리즘 이라고 해석하면 되는건가. 토끼와 거북이 알고리즘으로 많이들 해석하고 있군
+[위키](https://en.wikipedia.org/wiki/Cycle_detection)
+[자바스크립트](https://gist.github.com/borgar/3317728)
+[번역](http://egloos.zum.com/minjang/v/1687021)
+
+### Stable marriage problem (SMP)
+안정적인 결합에 관한 알고리즘
+    최악을 제거하면서 안정도를 늘리는 방법이다. (따라서 최상의 커플이 나올수도 안나올수도 있다.) 소모시간은 O(n^2) 으로 논문이 나와있음
+[위키](https://en.wikipedia.org/wiki/Stable_marriage_problem)
+[번역](http://cubistkang.tistory.com/62)
+[파이선](https://github.com/suwon419/cubist/blob/etc/src/python/etc/marriage.py)
+
+### 난수 생성 알고리즘
+(정말 많군)
+[위키](https://namu.wiki/w/%EB%82%9C%EC%88%98%EC%83%9D%EC%84%B1)
+
+### 지도 색칠 알고리즘
+[위키](https://ko.wikipedia.org/wiki/%EA%B7%B8%EB%9E%98%ED%94%84_%EC%83%89%EC%B9%A0)
+
+### 헝가리안 알고리즘
+Hopcroft–Karp algorithm 이라고 이것의 탐색시간을 줄인것도 존재 한다. 구현이 복잡해서 잘쓰지 않는듯.
+최적화 관련 메소드라고 해도되고 알고리즘이라고 해도 되고
+[위키](https://en.wikipedia.org/wiki/Hungarian_algorithm)
+[참조위키](http://wiki.yonseics.net/index.php/%ED%97%9D%EA%B0%80%EB%A6%AC%EC%95%88_%EB%A9%94%EC%86%8C%EB%93%9C)
+[번역](http://kin.naver.com/qna/detail.nhn?d1id=1&dirId=1040101&docId=64696783&qb=x%20uwobiuvsgguN680rXl)
+[씨](https://github.com/maandree/hungarian-algorithm-n3/blob/master/hungarian.c)
+[파이선](https://github.com/tdedecko/hungarian-algorithm)
+[자바스크립트](https://github.com/addaleax/munkres-js)
+
+### 위상 정렬
+한국어 위키에는 개념만 있고 자세한 알고리즘 소개가 없다.
+[위키](https://en.wikipedia.org/wiki/Topological_sorting)
+
+### Force-directed graph drawing
+요즘 한창 비주얼로 뜨고 있는 것
+d3에 내장되어 있는 기능이라 개념만 알아도 괜찮을듯 싶다.
+json을 이용해서 트리를 그래프로 변환시켜줌 문제는 응집도를 볼때 쓰는 것이라 구체적인 데이터를 보여주는데는 쓰면 안된다. (물론... 한국은 안그렇다.)
+[위키](https://en.wikipedia.org/wiki/Force-directed_graph_drawing)
+
+### pageRank 알고리즘
+워낙 유명하니.. 위키에도 자세히 나와있다. 개념만 알아두는것이 좋다. 물론 영어위키를 참조하길...(한글 위키는 정말 부실해.)
+[위키](https://en.wikipedia.org/wiki/PageRank)
+
+-- 추가 네트워크 이론 부터 볼것
+
+
+## 퀴즈 풀면서 눈여겨본 알고리즘
+
+### 콘웨이의 생명게임
 
 특정 좌표를 하나의 점으로 두고 이 점이 어떤 조건하에서 주기적인 변화를 가지게 될때 이것의 변화가 패턴을 가지거나 혹은 유지 발산 소멸되는 것.
 
@@ -31,7 +82,7 @@
   }
   ```
 
-## 다익스트라 알고리즘 (dijkstra 네덜란드인이므로 데이크스트라라고 명하는게 맞을듯)
+### 다익스트라 알고리즘 (dijkstra 네덜란드인이므로 데이크스트라라고 명하는게 맞을듯)
 평면상에서 어떤 위치에서 다른 위치까지 이동할때 각 지점간의 이동가중치 최소경로를 찾는 알고리즘 (쉽게 말하자면 네비게이션 최단경로 찾기 알고리즘)
   - 동작원리
     - 각지점에서 다른지점으로의 이동방법은 무조건 한가지이다.(중복될경우 최소경로만 인정)
@@ -101,7 +152,7 @@ function navigate(numberOfIntersections, roads, start, finish) {
 
 ```
 
-## 유클리드 호제법 O(n)
+### 유클리드 호제법 O(n)
 두 수나 다항식의 최대 공약수를 구하는 알고리즘
  - 입력으로 두 수 m,n(m>n)이 들어온다.
  - n이 0이라면, m을 출력하고 알고리즘을 종료한다.
