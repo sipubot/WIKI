@@ -50,7 +50,12 @@ json을 이용해서 트리를 그래프로 변환시켜줌 문제는 응집도�
 워낙 유명하니.. 위키에도 자세히 나와있다. 개념만 알아두는것이 좋다. 물론 영어위키를 참조하길...(한글 위키는 정말 부실해.)
 [위키](https://en.wikipedia.org/wiki/PageRank)
 
--- 추가 네트워크 이론 부터 볼것
+### 유량 알고리즘들  (네트워크 부하 분산 관련에서 쓰일듯 하지만 아직 이런 알고리즘을 쓸만큼 코어 개발쪽은 해본적이 없다. 아쉽네.)
+[Dinic's algorithm](https://en.wikipedia.org/wiki/Dinic%27s_algorithm)
+[Edmonds–Karp algorithm](https://en.wikipedia.org/wiki/Edmonds%E2%80%93Karp_algorithm)
+[Ford–Fulkerson algorithm](https://en.wikipedia.org/wiki/Ford%E2%80%93Fulkerson_algorithm)
+...
+
 
 
 ## 퀴즈 풀면서 눈여겨본 알고리즘
