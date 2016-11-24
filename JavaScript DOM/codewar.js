@@ -18,16 +18,14 @@ function persistence(num) {
   //code me
   var persistencetime = 0;
   while (num > 9) {
-    num = perci(num);
+    num = persist(num);
     persistencetime++;
   }
   return persistencetime;
 
-  function perci(n) {
-    return n.toString().split('').map(function(o, i) {
-      return parseInt(o);
-    }).reduce(function(a, b) {
-      return a * b;
-    });
+  function persist(n) {
+    return n.toString().split('').reduce(function(a, b) {
+      return a * parseInt(b);
+    },1);
   }
 }
