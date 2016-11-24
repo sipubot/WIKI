@@ -50,6 +50,10 @@
   언어간 비교. (다른 랭귀지를 잘 모르니 의미는 없...)
 ### String.prototype.match() **
   정규표현식 체크
+  ```javascript
+    // ||[] 을 사용할 경우에 다음과 같이 편리하게 배열로 만들수 있다.
+    str.match(/(NORTH|SOUTH|EAST|WEST)/g)||[];
+  ```
 ### String.prototype.normalize() **
   문자열을 유니코드로 치환
 ### String.prototype.repeat(times) *

@@ -26,6 +26,75 @@ function persistence(num) {
   function persist(n) {
     return n.toString().split('').reduce(function(a, b) {
       return a * parseInt(b);
-    },1);
+    }, 1);
   }
+}
+
+//gcd 최대공약수 함수
+function gcd(a, b) {
+  return a === 0 ? b : gcd(b % a, a);
+}
+
+//Simple fraction to mixed number converter
+// https://www.codewars.com/kata/simple-fraction-to-mixed-number-converter/javascript
+
+function mixedFraction(s) {
+  //your code here
+  var re = [];
+  var c = parseInt(s.split('/')[0]);
+  var m = parseInt(s.split('/')[1]);
+  var bool = c * m < 0 ? "-" : "";
+
+  if (m === 0) {
+    throw new Error('Invalid dividend');
+  }
+  if (c / m === 0) {
+    return "0";
+  }
+  c = Math.abs(c);
+  m = Math.abs(m);
+  if (Math.floor(c / m) !== 0) {
+    re.push(Math.floor(c / m).toString());
+  }
+  if (c % m > 0) {
+    var g = gcd(m, c % m);
+    re.push(((c % m) / g).toString() + "/" + (m / g).toString());
+  }
+  return bool + re.join(' ');
+}
+
+// https://www.codewars.com/kata/58068479c27998b11900056e
+// Sorting on planet Twisted-3-7
+
+function sortTwisted37(array) {
+  function twisting(arr) {
+    return arr.map(function(v, i) {
+      var a = v.toString().split('');
+      a = a.map(function(vv, i) {
+        if (vv === '3') {
+          return '7';
+        } else if (vv === '7') {
+          return '3';
+        } else {
+          return vv;
+        }
+      });
+      return parseInt(a.join(''));
+    });
+  }
+  array = twisting(array);
+  array.sort(function(a, b) {
+    return a - b;
+  });
+  array = twisting(array);
+  return array;
+}
+
+// https://www.codewars.com/kata/directions-reduction/train/javascript
+// 방향줄이기
+
+function dirReduc(arr) {
+  var str = arr.join(''), pattern = /NORTHSOUTH|EASTWEST|SOUTHNORTH|WESTEAST/;
+  while (pattern.test(str)) str = str.replace(pattern,'');
+  return str.match(/(NORTH|SOUTH|EAST|WEST)/g)||[];
 }
