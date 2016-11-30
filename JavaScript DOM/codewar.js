@@ -98,3 +98,27 @@ function dirReduc(arr) {
   while (pattern.test(str)) str = str.replace(pattern,'');
   return str.match(/(NORTH|SOUTH|EAST|WEST)/g)||[];
 }
+
+// http://www.codewars.com/kata/convert-number-to-reversed-array-of-digits/train/javascript
+//역배열 숫자
+function digitize(n) {
+  //code here
+  return n.toString().split('').reverse().map(function (a,i){ return parseInt(a);});
+}
+
+// http://www.codewars.com/kata/playing-with-digits/train/javascript
+// 숫자놀이
+function digPow(n, p){
+  // ...
+  var sum = n.toString().split('').reduce(function (a, b, i){return a + Math.pow(Number(b),i+p);},0);
+  return sum % n === 0 ? sum / n : -1;
+}
+
+// https://www.codewars.com/kata/word-a10n-abbreviation/train/javascript
+//문자놀이
+//정규표현식 문자 \w 인것 알아둘것
+function abbreviate(string) {
+  return string.replace(/\w{4,}/g, function(word) {
+    return word[0] + (word.length - 2) + word.slice(-1);
+  });
+}
