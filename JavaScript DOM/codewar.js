@@ -122,3 +122,12 @@ function abbreviate(string) {
     return word[0] + (word.length - 2) + word.slice(-1);
   });
 }
+
+// https://www.codewars.com/kata/52ea928a1ef5cfec800003ee
+//ip주소 치환 (의미는 있겠냐만..)
+function ipToInt32(ip){
+  ip = ip.split('.');
+  return  ((ip[0] << 24) + (ip[1] << 16) + (ip[2] << 8) + (ip[3] << 0))>>>0;
+}
+
+//
