@@ -94,23 +94,28 @@ function sortTwisted37(array) {
 // 방향줄이기
 
 function dirReduc(arr) {
-  var str = arr.join(''), pattern = /NORTHSOUTH|EASTWEST|SOUTHNORTH|WESTEAST/;
-  while (pattern.test(str)) str = str.replace(pattern,'');
-  return str.match(/(NORTH|SOUTH|EAST|WEST)/g)||[];
+  var str = arr.join(''),
+    pattern = /NORTHSOUTH|EASTWEST|SOUTHNORTH|WESTEAST/;
+  while (pattern.test(str)) str = str.replace(pattern, '');
+  return str.match(/(NORTH|SOUTH|EAST|WEST)/g) || [];
 }
 
 // http://www.codewars.com/kata/convert-number-to-reversed-array-of-digits/train/javascript
 //역배열 숫자
 function digitize(n) {
   //code here
-  return n.toString().split('').reverse().map(function (a,i){ return parseInt(a);});
+  return n.toString().split('').reverse().map(function(a, i) {
+    return parseInt(a);
+  });
 }
 
 // http://www.codewars.com/kata/playing-with-digits/train/javascript
 // 숫자놀이
-function digPow(n, p){
+function digPow(n, p) {
   // ...
-  var sum = n.toString().split('').reduce(function (a, b, i){return a + Math.pow(Number(b),i+p);},0);
+  var sum = n.toString().split('').reduce(function(a, b, i) {
+    return a + Math.pow(Number(b), i + p);
+  }, 0);
   return sum % n === 0 ? sum / n : -1;
 }
 
@@ -125,9 +130,20 @@ function abbreviate(string) {
 
 // https://www.codewars.com/kata/52ea928a1ef5cfec800003ee
 //ip주소 치환 (의미는 있겠냐만..)
-function ipToInt32(ip){
+function ipToInt32(ip) {
   ip = ip.split('.');
-  return  ((ip[0] << 24) + (ip[1] << 16) + (ip[2] << 8) + (ip[3] << 0))>>>0;
+  return ((ip[0] << 24) + (ip[1] << 16) + (ip[2] << 8) + (ip[3] << 0)) >>> 0;
 }
 
-//
+// https://www.codewars.com/kata/recursion-number-1-factorial
+// 재귀함수 연습
+function factorial (n) {
+  return  n < 2 ? 1 : factorial(n - 1) * n;
+}
+
+//https://www.codewars.com/kata/autocomplete-yay/
+// 자동완성 하기
+function autocomplete(input, dictionary){
+  var r = new RegExp('^' + input.replace(/[^a-z]/gi,''), 'i');
+  return dictionary.filter(function(w){ return r.test(w); }).slice(0, 5);
+}
