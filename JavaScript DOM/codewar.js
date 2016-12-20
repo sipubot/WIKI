@@ -165,9 +165,8 @@ function order(words){
 function WhatIsTheTime(timeInMirror)
 {
   var tm = timeInMirror.split(':');
-  tm.map(function (a, i){
-    return a = parseInt(a);
-  });
+  tm[0] = parseInt(tm[0]);
+  tm[1] = parseInt(tm[1]);
   tm[1] = tm[1] > 0 ? 60 - tm[1] : 0;
   if (tm[1] === 0) {
     tm[0] = tm[0] < 12 ? 12 - tm[0] : 12;
@@ -179,5 +178,5 @@ function WhatIsTheTime(timeInMirror)
       tm[0] = tm[0] < 12 ? 12 - tm[0] : 12;
     }
   }
-  return tm.map(function (a) { return a = a < 10 ? "0" + a : ""+a;}).join(':');
+  return tm.map(function (a) { return (a = a < 10 ? "0" + a : ""+a);}).join(':');
 }
