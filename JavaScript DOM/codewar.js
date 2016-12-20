@@ -147,3 +147,37 @@ function autocomplete(input, dictionary){
   var r = new RegExp('^' + input.replace(/[^a-z]/gi,''), 'i');
   return dictionary.filter(function(w){ return r.test(w); }).slice(0, 5);
 }
+
+//
+function reverseWords(str) {
+  // Go for it
+  return str.split(' ').map(function (a, i){ return a.split('').reverse().join('');}).join(' ');
+}
+
+// https://www.codewars.com/kata/your-order-please/
+// 순서바꾸기 소트함수 사용
+function order(words){
+  return words.split(' ').sort(function(a, b){ return a.match(/\d/) - b.match(/\d/);}).join(' ');
+}
+
+// https://www.codewars.com/kata/56548dad6dae7b8756000037
+// 거울 시계
+function WhatIsTheTime(timeInMirror)
+{
+  var tm = timeInMirror.split(':');
+  tm.map(function (a, i){
+    return a = parseInt(a);
+  });
+  tm[1] = tm[1] > 0 ? 60 - tm[1] : 0;
+  if (tm[1] === 0) {
+    tm[0] = tm[0] < 12 ? 12 - tm[0] : 12;
+  } else {
+    tm[0]++;
+    if (tm[0] > 12) {
+      tm[0] = 11;
+    } else {
+      tm[0] = tm[0] < 12 ? 12 - tm[0] : 12;
+    }
+  }
+  return tm.map(function (a) { return a = a < 10 ? "0" + a : ""+a;}).join(':');
+}
