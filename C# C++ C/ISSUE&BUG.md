@@ -1,5 +1,15 @@
 # 정리
 
+##aspx
+
+### 시작 메소드는 자체정의되어있음
+  ```
+  protected void Page_Load(object sender, EventArgs e)
+  {
+  }
+  ```
+
+
 ## 비주얼 스튜디오 내장 mvc 프레임워크 관련 (아마도 nuget 이야기가 대부분이겠지.)
 
 ### cors 관련 (jsonp) nuget 설치
