@@ -6,13 +6,17 @@
  *
 var SIPU = (function (SIPU, $, undefined) {
    	"use strict";
-     //내부호출만 가능
-     function AAA(){
+    //내부접근 변수
+    var CloseValue = "inner"
 
-     }
+    //내부호출만 가능
+    function AAA(){
 
+    }
    	//외부호출가능한 정의
    	SIPU.run = function () {
+      //내부변수 접근 가능하게 메서드 만들기.
+      CloseValue = "new Value"
    	};
    	return SIPU;
    })(window.SIPU || {}, jQuery);
