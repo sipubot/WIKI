@@ -54,6 +54,84 @@ json을 이용해서 트리를 그래프로 변환시켜줌 문제는 응집도�
 [Dinic's algorithm](https://en.wikipedia.org/wiki/Dinic%27s_algorithm)
 [Edmonds–Karp algorithm](https://en.wikipedia.org/wiki/Edmonds%E2%80%93Karp_algorithm)
 [Ford–Fulkerson algorithm](https://en.wikipedia.org/wiki/Ford%E2%80%93Fulkerson_algorithm)
+
+### 최적해 찾기 알고리즘
+시스템의 성능과 최적값 사이의 문제 (그래픽 엔진의 경우에 자주 쓰일듯 함)
+
+[가우스 소거 Gaussian elimination](https://ko.wikipedia.org/wiki/%EA%B0%80%EC%9A%B0%EC%8A%A4_%EC%86%8C%EA%B1%B0%EB%B2%95)
+[github](https://github.com/itsravenous/gaussian-elimination/blob/master/gauss.js)
+
+```javascript
+var abs = Math.abs;
+function array_fill(i, n, v) {
+    var a = [];
+    for (; i < n; i++) {
+        a.push(v);
+    }
+    return a;
+}
+
+/**
+ * Gaussian elimination
+ * @param  array A matrix
+ * @param  array x vector
+ * @return array x solution vector
+ */
+function gauss(A, x) {
+    var i, k, j;
+    // Just make a single matrix
+    for (i=0; i < A.length; i++) {
+        A[i].push(x[i]);
+    }
+
+    var n = A.length;
+    for (i=0; i < n; i++) {
+        // Search for maximum in this column
+        var maxEl = abs(A[i][i]),
+            maxRow = i;
+        for (k=i+1; k < n; k++) {
+            if (abs(A[k][i]) > maxEl) {
+                maxEl = abs(A[k][i]);
+                maxRow = k;
+            }
+        }
+        // Swap maximum row with current row (column by column)
+        for (k=i; k < n+1; k++) {
+            var tmp = A[maxRow][k];
+            A[maxRow][k] = A[i][k];
+            A[i][k] = tmp;
+        }
+        // Make all rows below this one 0 in current column
+        for (k=i+1; k < n; k++) {
+            var c = -A[k][i]/A[i][i];
+            for (j=i; j < n+1; j++) {
+                if (i===j) {
+                    A[k][j] = 0;
+                } else {
+                    A[k][j] += c * A[i][j];
+                }
+            }
+        }
+    }
+    // Solve equation Ax=b for an upper triangular matrix A
+    x = array_fill(0, n, 0);
+    for (i=n-1; i > -1; i--) {
+        x[i] = A[i][n]/A[i][i];
+        for (k=i-1; k > -1; k--) {
+            A[k][n] -= A[k][i] * x[i];
+        }
+    }
+
+    return x;
+}
+```
+
+[경사하강 gradient descent](https://ko.wikipedia.org/wiki/%EA%B2%BD%EC%82%AC_%ED%95%98%EA%B0%95%EB%B2%95)
+  - [example](https://jsfiddle.net/littlegustv/rw9bbehc/)
+  - [참고자료](http://darkpgmr.tistory.com/133)
+
+[켤레기울기 Conjugate Gradient](https://ko.wikipedia.org/wiki/%EC%BC%A4%EB%A0%88%EA%B8%B0%EC%9A%B8%EA%B8%B0%EB%B2%95)
+
 ...
 
 
