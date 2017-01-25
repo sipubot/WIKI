@@ -191,3 +191,18 @@ function WhatIsTheTime(timeInMirror)
 function reverser(sentence) {
   return sentence.split(" ").map(function(a) {return a.split("").reverse().join("");}).join(" ");
 }
+
+// http://www.codewars.com/kata/gap-in-primes?utm_source=newsletter
+//prime gap
+function gap(g, m, n) {
+    var lastPrime = 0;
+    var isPrime = function(x) { for (var i=2; i*i<=x; i++) { if (x % i === 0) return false; } return true; };
+
+    for(var i = m; i <= n; i++)
+        if(isPrime(i)) {
+            if(i - lastPrime == g) return [lastPrime, i];
+            else lastPrime = i;
+        }
+
+    return null;
+}
