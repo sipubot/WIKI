@@ -24,7 +24,7 @@
 
   모든것이 정상적으로 진행 되었을 경우
   cert1.pem,  chain1.pem,  fullchain1.pem,  privkey1.pem
-  파일이 자동으로 생성되는데 이파일을 변환 해야 한다.
+  파일이 자동으로 생성되는데 이파일을 변환 해야 한다. (경우에 따라 다른 이름으로 생성되기도 함 번호가 달라진다던가 없다던가)
   ```shell
     openssl pkcs12 -export -in fullchain1.pem -inkey privkey1.pem -out fullchain_and_key.p12 -name tomcat
 
