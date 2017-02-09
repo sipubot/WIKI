@@ -29,6 +29,8 @@
     openssl pkcs12 -export -in fullchain1.pem -inkey privkey1.pem -out fullchain_and_key.p12 -name tomcat
 
     keytool -importkeystore -deststorepass 패스워드(jks) -destkeypass 패스워드(인증서) -destkeystore 생성파일명.jks -srckeystore fullchain_and_key.p12 -srcstoretype PKCS12 -srcstorepass 패스워드(p12) -alias tomcat
+    keytool -import -trustcacerts -alias root -file chain1.pem -keystore 생성파일명.jks    
+
   ```
 
   여기서 생성된 jks 파일을 톰캣 설정에 추가 시켜준다.
