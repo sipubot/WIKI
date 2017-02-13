@@ -39,3 +39,5 @@
   ```
 
   서버 재실행 이후 수동 발급시 입력한 이메일로 확인 링크가 나오니 링크를 누르면 설정 완료.
+  - 윈도우실행 인증 [링크](https://github.com/Lone-Coder/letsencrypt-win-simple/releases) 테스트해보지 않았음
+  - 윈도우실행 인증 api 설명 [링크](https://github.com/Lone-Coder/letsencrypt-win-simple/wiki/How-to-Run) 테스트해보지 않았음
