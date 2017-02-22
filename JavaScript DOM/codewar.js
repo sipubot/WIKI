@@ -142,33 +142,38 @@ function ipToInt32(ip) {
 
 // https://www.codewars.com/kata/recursion-number-1-factorial
 // 재귀함수 연습
-function factorial (n) {
-  return  n < 2 ? 1 : factorial(n - 1) * n;
+function factorial(n) {
+  return n < 2 ? 1 : factorial(n - 1) * n;
 }
 
 //https://www.codewars.com/kata/autocomplete-yay/
 // 자동완성 하기
-function autocomplete(input, dictionary){
-  var r = new RegExp('^' + input.replace(/[^a-z]/gi,''), 'i');
-  return dictionary.filter(function(w){ return r.test(w); }).slice(0, 5);
+function autocomplete(input, dictionary) {
+  var r = new RegExp('^' + input.replace(/[^a-z]/gi, ''), 'i');
+  return dictionary.filter(function(w) {
+    return r.test(w);
+  }).slice(0, 5);
 }
 
 //
 function reverseWords(str) {
   // Go for it
-  return str.split(' ').map(function (a, i){ return a.split('').reverse().join('');}).join(' ');
+  return str.split(' ').map(function(a, i) {
+    return a.split('').reverse().join('');
+  }).join(' ');
 }
 
 // https://www.codewars.com/kata/your-order-please/
 // 순서바꾸기 소트함수 사용
-function order(words){
-  return words.split(' ').sort(function(a, b){ return a.match(/\d/) - b.match(/\d/);}).join(' ');
+function order(words) {
+  return words.split(' ').sort(function(a, b) {
+    return a.match(/\d/) - b.match(/\d/);
+  }).join(' ');
 }
 
 // https://www.codewars.com/kata/56548dad6dae7b8756000037
 // 거울 시계
-function WhatIsTheTime(timeInMirror)
-{
+function WhatIsTheTime(timeInMirror) {
   var tm = timeInMirror.split(':');
   tm[0] = parseInt(tm[0]);
   tm[1] = parseInt(tm[1]);
@@ -183,26 +188,210 @@ function WhatIsTheTime(timeInMirror)
       tm[0] = tm[0] < 12 ? 12 - tm[0] : 12;
     }
   }
-  return tm.map(function (a) { return (a = a < 10 ? "0" + a : ""+a);}).join(':');
+  return tm.map(function(a) {
+    return (a = a < 10 ? "0" + a : "" + a);
+  }).join(':');
 }
 
 // https://www.codewars.com/kata/57ebdf944cde58f973000405
 // reverse the letters in the sentence
 function reverser(sentence) {
-  return sentence.split(" ").map(function(a) {return a.split("").reverse().join("");}).join(" ");
+  return sentence.split(" ").map(function(a) {
+    return a.split("").reverse().join("");
+  }).join(" ");
 }
 
 // http://www.codewars.com/kata/gap-in-primes?utm_source=newsletter
 //prime gap
 function gap(g, m, n) {
-    var lastPrime = 0;
-    var isPrime = function(x) { for (var i=2; i*i<=x; i++) { if (x % i === 0) return false; } return true; };
+  var lastPrime = 0;
+  var isPrime = function(x) {
+    for (var i = 2; i * i <= x; i++) {
+      if (x % i === 0) return false;
+    }
+    return true;
+  };
 
-    for(var i = m; i <= n; i++)
-        if(isPrime(i)) {
-            if(i - lastPrime == g) return [lastPrime, i];
-            else lastPrime = i;
-        }
+  for (var i = m; i <= n; i++)
+    if (isPrime(i)) {
+      if (i - lastPrime == g) return [lastPrime, i];
+      else lastPrime = i;
+    }
 
-    return null;
+  return null;
+}
+
+//https://www.codewars.com/kata/580878d5d27b84b64c000b51/solutions/javascript
+//Sum of Triangular Numbers
+//삼각수의 합의 적분은 사면체 (이미 공식이 있으므로 공식을 쓰자.)
+function sumTriangularNumbers(n) {
+  return n < 0 ? 0 : n * (n + 1) * (n + 2) / 6;
+}
+
+
+// https://www.codewars.com/kata/54bb6f887e5a80180900046b/solutions/javascript
+// 가장긴 회문 찾기
+longestPalindrome = function(s) {
+  //your code here
+  var sc = s.slice(0);
+  var ret = false,
+    lengthv = 0;
+  sc = sc.split('').reverse();
+  for (var i = 0; i < sc.length; i++) {
+    for (var z = sc.length - i; z <= sc.length; z++) {
+      var st = sc.slice(z - (sc.length - i), z);
+      if (s.indexOf(st.join('')) > -1 && st.join('') === st.reverse().join('')) {
+        lengthv = st.length;
+        ret = true;
+      }
+    }
+    if (ret) {
+      break;
+    }
+  }
+  return lengthv;
+};
+
+// https://www.codewars.com/kata/string-incrementer/train/javascript
+// vincrementString
+function incrementString(input) {
+  if (isNaN(parseInt(input[input.length - 1]))) return input + '1';
+  return input.replace(/(0*)([0-9]+$)/, function(match, p1, p2) {
+    var up = parseInt(p2) + 1;
+    return up.toString().length > p2.length ? p1.slice(0, -1) + up : p1 + up;
+  });
+}
+
+// https://www.codewars.com/kata/rectangle-into-squares/train/javascript
+function sqInRect(lng, wdth) {
+  //your code here
+  if (lng === wdth) return null;
+  var com = [lng, wdth],
+    re = [];
+  while (com[0] !== 0) {
+    com = com.sort(function(a, b) {
+      return a - b;
+    });
+    re.push(com[0]);
+    com[1] = com[1] - com[0];
+  }
+  re.pop();
+  return re;
+}
+
+// https://www.codewars.com/kata/maximum-subarray-sum/train/javascript
+//maximun-subarray
+var maxSequence = function(arr) {
+  // ...
+  var ans = 0;
+  var sum = 0;
+  for (var i = 0; i < arr.length; i++) {
+
+    ans = Math.max(0, ans + arr[i]);
+    sum = Math.max(sum, ans);
+  }
+  return sum;
+};
+
+// https://www.codewars.com/kata/count-the-smiley-faces/train/javascript
+function countSmileys(arr) {
+  var nose = ['-', '~'];
+  var mouse = [')', 'D'];
+  var eyes = [':', ';'];
+  var count = 0;
+  arr.map(function(a) {
+    var aa = a.split('');
+    if (aa.length < 2 || aa.length > 3) {
+      return false;
+    }
+    if (aa.length === 3) {
+      if (nose.indexOf(aa[1]) === -1) {
+        return false;
+      }
+    }
+    if (eyes.indexOf(aa[0]) > -1 && mouse.indexOf(aa[aa.length - 1]) > -1) {
+      count++;
+    }
+  });
+  return count;
+}
+
+// https://www.codewars.com/kata/sort-the-odd/train/javascript
+function sortArray(array) {
+  // Return a sorted array.
+  var oddnum = [];
+  var oddinx = [];
+  array.map(function(a, i) {
+    if (a === 1 || (a - 1) % 2 === 0) {
+      oddnum.push(a);
+      oddinx.push(i);
+    }
+  });
+  oddnum.sort(function(a, b) {
+    return a - b;
+  });
+  oddinx.map(function(a, i) {
+    array[a] = oddnum[i];
+  });
+  return array;
+}
+
+// https://www.codewars.com/kata/58223370aef9fc03fd000071/solutions/javascript
+function dashatize(num) {
+  return String(num)
+    .replace(/([13579])/g, "-$1-")
+    .replace(/--+/g, "-")
+    .replace(/(^-|-$)/g, "");
+}
+
+//  https://www.codewars.com/kata/product-of-consecutive-fib-numbers/train/javascript
+function productFib(prod) {
+  // ...
+  var z = 1;
+  var fib1, fib2;
+  while (prod >= fib1 * fib2) {
+    z++;
+    fib1 = fibonacci(z);
+    fib2 = fibonacci(z + 1);
+  }
+  if (fib1 * fib2 === prod) {
+    return [fib1, fib2, true];
+  } else {
+    return [fib1, fib2, false];
+  }
+
+  function fibonacci(n) {
+    return n < 1 ? 0 :
+      n <= 2 ? 1 :
+      fibonacci(n - 1) + fibonacci(n - 2);
+  }
+}
+// https://www.codewars.com/kata/integers-recreation-one/train/javascript
+//
+function listSquared(m, n) {
+    // your code
+    var re = [];
+    for ( var i = m; i<=n; i++) {
+      if (chkDiver(i) !== undefined) {
+        re.push(chkDiver(i));
+      }
+    }
+  return re;
+}
+
+function chkDiver(n) {
+  var re = {};
+  for( var i=1; i<=n; i++){
+    if(n%i===0) {
+      re[i] = 'di';
+    }
+  }
+  var sum = 0, last = 0;
+  Object.keys(re).map(function (d){
+    sum = sum + Number(d) * Number(d);
+    last = Number(d);
+  });
+  if (Math.sqrt(sum) % 1 === 0) {
+    return [last, sum];
+  }
 }
