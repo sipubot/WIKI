@@ -2,7 +2,7 @@
  - [OS 관련](https://github.com/sipubot/WIKI/blob/master/ETC/OSSYSTEM.md)
  - [네트워크 관련](https://github.com/sipubot/WIKI/blob/master/ETC/NETWORKSYSTEM.md)
  - [사이트 보안설정](https://github.com/sipubot/WIKI/blob/master/ETC/LETSENCRYPT.md)
- 
+ - [서비스 분산](http://bcho.tistory.com/948)
 # 기타
  - [빅데이터 구인광고 퀴즈문제를 보고](https://github.com/sipubot/WIKI/blob/master/ETC/(BIG)DATA-interviewQuestion.md)
  - [시작하는방법](https://github.com/sipubot/WIKI/blob/master/ETC/Small.md)
