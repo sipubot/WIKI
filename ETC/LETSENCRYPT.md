@@ -20,11 +20,16 @@
   ```shell
     ./letsencrypt-auto certonly --manual
   ```
+  인증서 리뉴얼을 수동으로 진행
+  ```shell
+    ./letsencrypt-auto renew --manual
+  ```
   이때 서버로 특정 주소를 입력하여 특정 스트링을 반환하라는 지시가 나오는데 자신의 서버를 잘 설정하여 만들것. (서버에 따라 다르므로 이부분은 생략하겠다.)
 
   모든것이 정상적으로 진행 되었을 경우
   cert1.pem,  chain1.pem,  fullchain1.pem,  privkey1.pem
   파일이 자동으로 생성되는데 이파일을 변환 해야 한다. (경우에 따라 다른 이름으로 생성되기도 함 번호가 달라진다던가 없다던가)
+  경로> etc/letsencrypt/archive/{domain}
   ```shell
     openssl pkcs12 -export -in fullchain1.pem -inkey privkey1.pem -out fullchain_and_key.p12 -name tomcat
 
@@ -38,6 +43,8 @@
   <Connector port="8443" protocol="org.apache.coyote.http11.Http11Protocol" URIEncoding="UTF-8" maxThreads="150" SSLEnabled="true" scheme="https" secure="true" clientAuth="false" sslProtocol="TLS" keystoreFile="jks 파일위치" keystorePass="jks패스워드" keyAlias="tomcat" keyPass="인증서패스워드"/>
   ```
 
-  서버 재실행 이후 수동 발급시 입력한 이메일로 확인 링크가 나오니 링크를 누르면 설정 완료.
+  서버 재실행 이후 수동 발급시 입력한 이메일로 확인 링크가 나오니 링크를 누르면 설정 완료. 
   - 윈도우실행 인증 [링크](https://github.com/Lone-Coder/letsencrypt-win-simple/releases) 테스트해보지 않았음
   - 윈도우실행 인증 api 설명 [링크](https://github.com/Lone-Coder/letsencrypt-win-simple/wiki/How-to-Run) 테스트해보지 않았음
+
+자동화 툴들이 나와있으나  아닐경우 도움이 안되므로 참고할것
