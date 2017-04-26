@@ -47,4 +47,4 @@
   - 윈도우실행 인증 [링크](https://github.com/Lone-Coder/letsencrypt-win-simple/releases) 테스트해보지 않았음
   - 윈도우실행 인증 api 설명 [링크](https://github.com/Lone-Coder/letsencrypt-win-simple/wiki/How-to-Run) 테스트해보지 않았음
 
-자동화 툴들이 나와있으나  아닐경우 도움이 안되므로 참고할것
+자동화 툴들이 나와있으나 해당 시스템이 아닐경우 도움이 안되므로 참고할것
