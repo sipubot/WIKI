@@ -395,3 +395,14 @@ function chkDiver(n) {
     return [last, sum];
   }
 }
+
+//Remove duplicates from list javascript
+//  Set -> array to Object
+function distinct(a) {
+  return Array.from(new Set(a));
+}
+
+function domainName(url){
+  //your code here
+  return url.match(/(?:http(?:s)?:\/\/)?(?:w{3}\.)?([^\.]+)/i)[1];
+}
