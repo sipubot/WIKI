@@ -406,3 +406,12 @@ function domainName(url){
   //your code here
   return url.match(/(?:http(?:s)?:\/\/)?(?:w{3}\.)?([^\.]+)/i)[1];
 }
+
+//문자열 리버스
+function reverse (str) {
+    if (str === "") {
+        return "";
+    } else {
+        return reverse(str.substr(1)) + str.charAt(0);
+    }
+}
