@@ -438,4 +438,71 @@ var heapSort = (function () {
      }
      return array;
    };
+ });
+```
+
+### 팩토리얼
+```javascript
+//for memoization
+var f = [];
+function factorial (n) {
+  if (n == 0 || n == 1)
+    return 1;
+  if (f[n] > 0)
+    return f[n];
+  return f[n] = factorial(n-1) * n;
+}
+
+```
+
+### 조합
+
+```javascript
+  var f = [];
+  function factorial (n) {
+    if (n == 0 || n == 1)
+      return 1;
+    if (f[n] > 0)
+      return f[n];
+    return f[n] = factorial(n-1) * n;
+  }
+  /**
+    Make Combination Array 
+    using factorial
+  */
+  function combination (arr, k) {
+    var leng = arr.length;
+    var genarr = [];
+    var temparr = [];
+    var Maxi = factorial(leng) / (factorial(leng - k) * factorial(k));
+
+
+    for (var i = 0; i < k; i++) {
+      temparr.push(i);
+    }
+
+    for (var i = 0; i < Maxi; i++) {
+      genarr.push(temparr.slice(0));
+      temparr[k-1] = temparr[k-1] + 1;
+      //addorder
+      for (var add = k-1; add > 0; add--) {
+        if (temparr[add] > leng - (k-add)) {
+          temparr[add-1] = temparr[add-1] + 1;
+          temparr[add] = -1;
+        }
+      }
+      for (var add = 1; add < k; add++) {
+        if (temparr[add] === -1) {
+          temparr[add] = temparr[add-1] + 1;
+        }
+      }
+    }
+    genarr = genarr.map((a,i)=>{
+      return a.map((b,z)=>{
+        return arr[b];
+      });
+    });
+
+    return genarr;
+  }
 ```
