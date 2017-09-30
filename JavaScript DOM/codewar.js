@@ -415,3 +415,8 @@ function reverse (str) {
         return reverse(str.substr(1)) + str.charAt(0);
     }
 }
+
+// replace with regular express
+function replace(s){
+  return s.replace(/[aeoiu]/ig, '!');
+}
