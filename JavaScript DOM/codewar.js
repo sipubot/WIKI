@@ -369,25 +369,26 @@ function productFib(prod) {
 // https://www.codewars.com/kata/integers-recreation-one/train/javascript
 //
 function listSquared(m, n) {
-    // your code
-    var re = [];
-    for ( var i = m; i<=n; i++) {
-      if (chkDiver(i) !== undefined) {
-        re.push(chkDiver(i));
-      }
+  // your code
+  var re = [];
+  for (var i = m; i <= n; i++) {
+    if (chkDiver(i) !== undefined) {
+      re.push(chkDiver(i));
     }
+  }
   return re;
 }
 
 function chkDiver(n) {
   var re = {};
-  for( var i=1; i<=n; i++){
-    if(n%i===0) {
+  for (var i = 1; i <= n; i++) {
+    if (n % i === 0) {
       re[i] = 'di';
     }
   }
-  var sum = 0, last = 0;
-  Object.keys(re).map(function (d){
+  var sum = 0,
+    last = 0;
+  Object.keys(re).map(function(d) {
     sum = sum + Number(d) * Number(d);
     last = Number(d);
   });
@@ -402,41 +403,41 @@ function distinct(a) {
   return Array.from(new Set(a));
 }
 
-function domainName(url){
+function domainName(url) {
   //your code here
   return url.match(/(?:http(?:s)?:\/\/)?(?:w{3}\.)?([^\.]+)/i)[1];
 }
 
 //문자열 리버스
-function reverse (str) {
-    if (str === "") {
-        return "";
-    } else {
-        return reverse(str.substr(1)) + str.charAt(0);
-    }
+function reverse(str) {
+  if (str === "") {
+    return "";
+  } else {
+    return reverse(str.substr(1)) + str.charAt(0);
+  }
 }
 
 // replace with regular express
-function replace(s){
+function replace(s) {
   return s.replace(/[aeoiu]/ig, '!');
 }
 
 //https://www.codewars.com/kata/vasya-clerk/train/javascript
-function tickets(peopleInLine){
+function tickets(peopleInLine) {
   // 25 50 100
   var Change = [0, 0, 0];
-  
+
   var fail = false;
-  peopleInLine.map((a,i)=>{
+  peopleInLine.map((a, i) => {
     switch (a) {
-      case 25 : 
+      case 25:
         Change[0]++;
         break;
-      case 50 : 
+      case 50:
         Change[1]++;
         Change[0]--;
         break;
-      case 100 : 
+      case 100:
         if (Change[1] > 0) {
           Change[1]--;
           Change[0]--;
@@ -445,36 +446,36 @@ function tickets(peopleInLine){
           Change[0]--;
           Change[0]--;
         }
-          Change[2]++;
+        Change[2]++;
         break;
     }
-    Change.map((a)=>{
+    Change.map((a) => {
       if (a < 0) {
         fail = true;
       }
     });
   });
-  
+
   return fail ? 'NO' : 'YES';
 }
 
 //https://www.codewars.com/kata/58dea43ff98a7e2124000169
-function divideStrings(a,b) {
+function divideStrings(a, b) {
   // 0 div return;
-  function MinusAB ( numa, numb ) {
+  function MinusAB(numa, numb) {
     var temp = numa.slice();
     var re = [true, temp];
 
     if (numa.length < numb.length) return [false, temp];
 
-    numb.map((a,i)=>{ 
+    numb.map((a, i) => {
       if (numb[i] > temp[i]) {
-        if (temp.length - 1 === i) { 
-          re[0] = false; 
+        if (temp.length - 1 === i) {
+          re[0] = false;
         } else {
           temp[i] = temp[i] - numb[i] + 10;
-          var done = false;          
-          for (var z = i+1; z < temp.length; z++) {
+          var done = false;
+          for (var z = i + 1; z < temp.length; z++) {
             if (temp[z] === 0) {
               temp[z] = 9;
             } else {
@@ -483,14 +484,13 @@ function divideStrings(a,b) {
               z = numa.length;
             }
           }
-          if (done === false) {
-          }
+          if (done === false) {}
         }
       } else {
         temp[i] = temp[i] - numb[i];
       }
     });
-    while (temp[temp.length -1] === 0) {
+    while (temp[temp.length - 1] === 0) {
       temp.pop();
     }
     if (re[0]) {
@@ -498,19 +498,19 @@ function divideStrings(a,b) {
     }
     return re;
   }
-  
-  function diffAB ( numa, numb ) { 
+
+  function diffAB(numa, numb) {
     var temp = numb.slice(0);
     if (numa.length >= temp.length) {
-      var d = numa.length - temp.length; 
+      var d = numa.length - temp.length;
       for (var i = 0; i < d; i++) {
         temp.unshift(0);
-      } 
+      }
       if (MinusAB(numa.slice(0), temp)[0]) {
-        return [true,d+1];
+        return [true, d + 1];
       } else {
         if (d > 0) {
-          return [true,d];
+          return [true, d];
         } else {
           return [false, -1];
         }
@@ -521,24 +521,27 @@ function divideStrings(a,b) {
   }
 
   //for the cal reverse
-  var AA = Array.from(a+'').reverse().map((a)=>Number(a));
-  var BB = Array.from(b+'').reverse().map((a)=>Number(a));
+  var AA = Array.from(a + '').reverse().map((a) => Number(a));
+  var BB = Array.from(b + '').reverse().map((a) => Number(a));
+
   function main() {
     // 0...
-    if (AA.length === 1 && AA[0] === 0) return ['0','0'];
+    if (AA.length === 1 && AA[0] === 0) return ['0', '0'];
     //
-    var l = diffAB(AA,BB); 
-    if (l[0] === false) { 
-      return ['0', AA.reverse().map((a)=>String(a)).join('')];
+    var l = diffAB(AA, BB);
+    if (l[0] === false) {
+      return ['0', AA.reverse().map((a) => String(a)).join('')];
     }
     //add 0
-    for (var i = 1; i < l[1]; i++) { BB.unshift(0); }
+    for (var i = 1; i < l[1]; i++) {
+      BB.unshift(0);
+    }
     var re = (new Array(l[1])).fill(0);
-    var temp = [true,[]];
-    re.map((a,i)=>{
+    var temp = [true, []];
+    re.map((a, i) => {
       for (var z = 0; z < 9; z++) {
         //console.log(AA, BB);
-        temp = MinusAB(AA,BB); 
+        temp = MinusAB(AA, BB);
         //console.log(temp);
         if (temp[0]) {
           AA = temp[1];
@@ -552,8 +555,8 @@ function divideStrings(a,b) {
       }
       BB.shift();
     });
-    
-    return [re.map((a)=> String(a)).join(''), AA.length === 0 ? '0' : AA.reverse().map(a => String(a)).join('')];
+
+    return [re.map((a) => String(a)).join(''), AA.length === 0 ? '0' : AA.reverse().map(a => String(a)).join('')];
   }
   return main()
   //return [Math.floor(+a / +b).toString(), (+a % +b).toString()];  // This doesn't work on big numbers!
