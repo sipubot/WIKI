@@ -13,3 +13,4 @@
  - [안드로이드 통신사앱 제거](http://forum.xda-developers.com/android/software/debloater-remove-carrier-bloat-t2998294) 구차하게 이렇게 까지 해야하는 슬픔.
  - [배민 코드테스트 리팩토링](https://github.com/sipubot/WIKI/blob/master/ETC/wooah.md) 후기겸 리팩토링하고 싶어서 남기기
  
+ - [코드워 다시 랭킹 진입](https://www.codewars.com/users/leaderboard) 뭐 얼마 안가 다시 또 떨어질 랭킹이다만..

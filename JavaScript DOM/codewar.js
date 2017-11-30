@@ -2,7 +2,6 @@
   요즘 한줄 메서드 작성하는게 재미있다. 특히나 배열 관련같은경우는 2차원 구조 연마에 도움이.
 */
 
-
 // https://www.codewars.com/kata/5503013e34137eeeaa001648
 // Give me a Diamond
 function GivemeaDiamond(n) {
@@ -70,7 +69,6 @@ function mixedFraction(s) {
 
 // https://www.codewars.com/kata/58068479c27998b11900056e
 // Sorting on planet Twisted-3-7
-
 function sortTwisted37(array) {
   function twisting(arr) {
     return arr.map(function(v, i) {
