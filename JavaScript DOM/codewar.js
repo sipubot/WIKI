@@ -559,3 +559,31 @@ function divideStrings(a, b) {
   return main()
   //return [Math.floor(+a / +b).toString(), (+a % +b).toString()];  // This doesn't work on big numbers!
 }
+
+// hex to Char  Char to hex
+var Converter = {
+  toAscii: function (hex) {
+    //... 이부분을 좀더 쉽게 하는 방법
+    var re = '';
+    var m = hex.slice(0);
+    while(m.length !== 0) {
+      var char = m[0]+m[1];
+      m = m.slice(2);
+      re += String.fromCharCode(parseInt(char, 16));
+    }
+    return re;
+  },
+  toHex: function (ascii) {
+    //...
+    return ascii.split('').map(a=>a.charCodeAt(0).toString(16)).join('');
+  }
+};
+
+var Converter2 = {
+  toAscii : (hex) =>{
+    return hex.replace(/../g, h=> String.fromCharCode(parseInt(h,16)));
+  },
+  toHex : (ascii)=>{
+    return ascii.replace(/./g, (a) => a.charCodeAt().toString(16)));
+  }
+};
