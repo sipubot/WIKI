@@ -587,3 +587,12 @@ var Converter2 = {
     return ascii.replace(/./g, (a) => a.charCodeAt().toString(16)));
   }
 };
+
+//https://www.codewars.com/kata/54b679eaac3d54e6ca0008c9/
+//반복 함수 만들기
+var createIterator = function (func, n) {
+  return function(v) {
+    for(var i = 0; i < n; i++) v = func(v);
+    return v;
+  };
+};
