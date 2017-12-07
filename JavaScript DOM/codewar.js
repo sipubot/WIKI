@@ -620,3 +620,8 @@ function letterFrequency(text){
   }
   return st;
 }
+
+//한글자씩 변환할때 regex 활용 replace 활용
+function encrypt(text, rule) {
+  return text.replace(/./g, c => String.fromCharCode((c.charCodeAt() + rule) & 255))
+}
