@@ -633,3 +633,13 @@ function lucasnum(n){
     Math.pow(((1+Math.sqrt(5))*0.5),n) + Math.pow(((1-Math.sqrt(5))*0.5),n)
   );
 }
+
+// object create effect
+// http://www.codewars.com/kata/mirror-mirror
+function evilTwin(obj) {
+  return Object.create(obj, {
+    hasGoatee: {
+      value: true
+    }
+  });
+}
