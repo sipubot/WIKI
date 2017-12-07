@@ -625,3 +625,11 @@ function letterFrequency(text){
 function encrypt(text, rule) {
   return text.replace(/./g, c => String.fromCharCode((c.charCodeAt() + rule) & 255))
 }
+
+//Lucas number
+function lucasnum(n){
+  //Good Luck!
+  return Math.round(
+    Math.pow(((1+Math.sqrt(5))*0.5),n) + Math.pow(((1-Math.sqrt(5))*0.5),n)
+  );
+}
