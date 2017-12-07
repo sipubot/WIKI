@@ -596,3 +596,27 @@ var createIterator = function (func, n) {
     return v;
   };
 };
+
+// http://www.codewars.com/kata/character-frequency-1/train/javascript
+// 소팅 문제. (정렬이 잘되지 않는다.)
+function letterFrequency(text){
+  //your code here
+  var str = {}, max =0;
+  text.toLowerCase().replace(/[^a-z]/gi,"").split('').sort().map(a=>{
+    if (str[a]=== undefined) { 
+      str[a] = 1;
+      if (str[a] > max) max = str[a];
+    } else {
+      str[a]++;
+      if (str[a] > max) max = str[a];
+    }
+  });
+  var re = [];
+  Object.keys(str).map(k=>{ re.push([k,str[k]]) });
+  var st = [];
+  while(max > 0) {
+    re.filter(a=>a[1] === max).map(a=>st.push(a));
+    max--;
+  }
+  return st;
+}
