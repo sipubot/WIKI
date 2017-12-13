@@ -676,3 +676,15 @@ function LCS( xstr, ystr ) {
       
   return (lcs1.length > lcs2.length) ? lcs1 : lcs2;
 }
+
+//float to bin
+var float2bin = function(input) {
+  var
+    n0 = +input,
+    n = Math.abs(n0),
+    e = Math.floor(Math.log(n) / Math.LN2),
+    f = n * Math.pow(2, 23 - e) & ~(1 << 23);
+  return (n0 >= 0 ? "0" : "1") +
+    ("00000000" + (e + 127).toString(2)).slice(-8) +
+    ("00000000000000000000000" + f.toString(2)).slice(-23);
+};
