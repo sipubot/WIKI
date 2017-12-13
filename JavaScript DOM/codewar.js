@@ -688,3 +688,10 @@ var float2bin = function(input) {
     ("00000000" + (e + 127).toString(2)).slice(-8) +
     ("00000000000000000000000" + f.toString(2)).slice(-23);
 };
+
+//array flatten
+function flatten(){
+  return [].slice.call(arguments).reduce(function(a,b){              
+    return a.concat(Array.isArray(b) ? flatten.apply(null,b) : b);
+  },[]);
+}
