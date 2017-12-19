@@ -584,7 +584,7 @@ var Converter2 = {
     return hex.replace(/../g, h=> String.fromCharCode(parseInt(h,16)));
   },
   toHex : (ascii)=>{
-    return ascii.replace(/./g, (a) => a.charCodeAt().toString(16)));
+    return ascii.replace(/./g, (a) => a.charCodeAt().toString(16));
   }
 };
 
@@ -642,7 +642,7 @@ function evilTwin(obj) {
       value: true
     }
   });
-}/
+}
 
 //type checker
 var typer = (function() {
