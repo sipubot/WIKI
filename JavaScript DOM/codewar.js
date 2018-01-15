@@ -695,3 +695,13 @@ function flatten(){
     return a.concat(Array.isArray(b) ? flatten.apply(null,b) : b);
   },[]);
 }
+
+// https://www.codewars.com/kata/5a58ca28e626c55ae000018a/
+function areaOfPolygonInsideCircle(circleRadius, numberOfSides) {
+  // Your code here
+  
+  var h = Math.cos(Math.PI/numberOfSides) * circleRadius;
+  var w = Math.sin(Math.PI/numberOfSides) * circleRadius;
+  
+  return Math.round((h * w) * numberOfSides * 1000 ) / 1000;
+}
