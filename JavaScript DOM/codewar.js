@@ -705,3 +705,30 @@ function areaOfPolygonInsideCircle(circleRadius, numberOfSides) {
   
   return Math.round((h * w) * numberOfSides * 1000 ) / 1000;
 }
+
+//https://www.codewars.com/kata/5964d7e633b908e172000046/
+function recover(str){
+  //have fun ^.^
+  var ls = ["ZERO","ONE","TWO","THREE","FOUR","FIVE","SIX","SEVEN","EIGHT","NINE"];
+  var re = [];
+  var ss = false;
+  while(str.length > 2) {
+    ss = false;
+    ls.map((a,i)=>{
+      var s1 = a.split('');
+      var s2 = str.slice(0,s1.length).split('');
+      s2.map(z=>{
+        s1[s1.indexOf(z)] = '';
+      })
+      if (s1.join('')==='') {
+        re.push(i);
+        str = str.slice(1);
+        ss = true;
+      }
+    });
+    if (ss === false) {
+        str = str.slice(1);
+    }
+  }
+  return re.length ===0 ? 'No digits found': re.join('')
+}
