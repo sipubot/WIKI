@@ -732,3 +732,31 @@ function recover(str){
   }
   return re.length ===0 ? 'No digits found': re.join('')
 }
+
+// https://www.codewars.com/kata/island-count/
+function countIslands (mapStr) {
+  var map = mapStr.split('\n').map(a=>a.split(''));
+  var count = 0;
+  function checkMap(x,y,n) {
+    if (x > -1 && x < map[0].length && y > -1 && y < map.length) {
+      if (map[y][x] === '0') {
+        map[y][x] = ''+n;
+        checkMap(x,y-1,n);
+        checkMap(x,y+1,n);
+        checkMap(x-1,y,n);
+        checkMap(x+1,y,n);
+      }
+    }
+  }
+  
+  for (var yy = 0 ; yy < map.length; yy++) {
+    for (var xx = 0; xx <map[0].length; xx++) {
+      if (map[yy][xx] === '0') {
+        count++;
+        checkMap(xx,yy,count);
+        console.log(map)
+      }
+    }
+  }
+  return count
+}
