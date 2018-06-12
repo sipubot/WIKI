@@ -507,17 +507,27 @@ function factorial (n) {
   }
 ```
 재귀 활용
-```
-function kSubsetPermutations(set, k, partial) {
-    if (!partial) partial = [];                 // set default value on first call
-    for (var element in set) {
-        if (k > 1) {
-            var set_copy = set.slice();         // slice() creates copy of array
-            set_copy.splice(element, 1);        // splice() removes element from array
-            kSubsetPermutations(set_copy, k - 1, partial.concat([set[element]]));
-        }                                       // a.concat(b) appends b to copy of a
-        else document.write("[" + partial.concat([set[element]]) + "] ");
+``` javascript
+//rojetta code
+function combinations(arr, k){
+    var i,
+    subI,
+    ret = [],
+    sub,
+    next;
+    for(i = 0; i < arr.length; i++){
+        if(k === 1){
+            ret.push( [ arr[i] ] );
+        }else{
+            sub = combinations(arr.slice(i+1, arr.length), k-1);
+            for(subI = 0; subI < sub.length; subI++ ){
+                next = sub[subI];
+                next.unshift(arr[i]);
+                ret.push( next );
+            }
+        }
     }
+    return ret;
 }
 kSubsetPermutations([1,2,3,4,5], 3);
 ```
