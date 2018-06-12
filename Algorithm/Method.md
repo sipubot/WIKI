@@ -506,3 +506,18 @@ function factorial (n) {
     return genarr;
   }
 ```
+재귀 활용
+```
+function kSubsetPermutations(set, k, partial) {
+    if (!partial) partial = [];                 // set default value on first call
+    for (var element in set) {
+        if (k > 1) {
+            var set_copy = set.slice();         // slice() creates copy of array
+            set_copy.splice(element, 1);        // splice() removes element from array
+            kSubsetPermutations(set_copy, k - 1, partial.concat([set[element]]));
+        }                                       // a.concat(b) appends b to copy of a
+        else document.write("[" + partial.concat([set[element]]) + "] ");
+    }
+}
+kSubsetPermutations([1,2,3,4,5], 3);
+```
