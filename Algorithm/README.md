@@ -1,6 +1,23 @@
-#문서들
-  관련 공부한것이나 특별히 적어둘것들을 모아둔곳.
-  - [메소드](/Algorithm/Method.md)
-  - [패턴](/Inerpreter/JavaScript%26DOM/Pattern.md)
+# 문서들
 
-  - [로제타코드](https://rosettacode.org/) 다양한 언어의 알고리즘 예제
+좀더 체계적으로 정리할 필요가 있는 알고리즘
+
+* [메소드](/Algorithm/Method.md) - 정리준비
+
+* [패턴](/Algorithm/Pattern.md) - 정리준비
+
+## 알고리즘 정리 (작업중)
+
+* [정렬](/Algorithm/Sort.md) - 데이터 교환 효율성
+
+* [탐색](/Algorithm/Search.md) - 데이터 인덱스 효율성
+
+* [자료정의](/Algorithm/Structure.md) - 데이터 정의
+
+* [동적](/Algorithm/Dynamic.md) - 추측 탐색
+
+* [동적](/Algorithm/AI.md) - 머신러닝 기법들(자료정의 + 탐색)
+
+## 추천사이트
+
+* [로제타코드](https://rosettacode.org/) 참고 사이트
