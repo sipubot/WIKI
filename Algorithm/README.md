@@ -16,7 +16,7 @@
 
 * [동적](/Algorithm/Dynamic.md) - 추측 탐색
 
-* [동적](/Algorithm/AI.md) - 머신러닝 기법들(자료정의 + 탐색)
+* [기계학습](/Algorithm/AI.md) - 머신러닝 기법들(자료정의 + 탐색)
 
 ## 추천사이트
 
