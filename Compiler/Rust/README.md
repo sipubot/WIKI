@@ -6,7 +6,7 @@
 
   ### ATOM
    
-  * 초기 프로젝트 생성
+  초기 프로젝트 생성
     ```cmd
       cargo new --bin [ProjectName]
     ```
