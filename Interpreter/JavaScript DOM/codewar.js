@@ -11,7 +11,7 @@ function GivemeaDiamond(n) {
   }
   if (n > 2 && n % 2 === 1) {
     var mid = Math.floor(n / 2);
-    return Array.apply(null, Array(n)).map(function(a, i) {
+    return Array.apply(null, Array(n)).map(function (a, i) {
       return " ".repeat(Math.abs(mid - i)) + "*".repeat(n - 2 * (Math.abs(mid - i))) + "\n";
     }).join('');
   }
@@ -29,7 +29,7 @@ function persistence(num) {
   return persistencetime;
 
   function persist(n) {
-    return n.toString().split('').reduce(function(a, b) {
+    return n.toString().split('').reduce(function (a, b) {
       return a * parseInt(b);
     }, 1);
   }
@@ -72,9 +72,9 @@ function mixedFraction(s) {
 // Sorting on planet Twisted-3-7
 function sortTwisted37(array) {
   function twisting(arr) {
-    return arr.map(function(v, i) {
+    return arr.map(function (v, i) {
       var a = v.toString().split('');
-      a = a.map(function(vv, i) {
+      a = a.map(function (vv, i) {
         if (vv === '3') {
           return '7';
         } else if (vv === '7') {
@@ -87,7 +87,7 @@ function sortTwisted37(array) {
     });
   }
   array = twisting(array);
-  array.sort(function(a, b) {
+  array.sort(function (a, b) {
     return a - b;
   });
   array = twisting(array);
@@ -108,7 +108,7 @@ function dirReduc(arr) {
 //역배열 숫자
 function digitize(n) {
   //code here
-  return n.toString().split('').reverse().map(function(a, i) {
+  return n.toString().split('').reverse().map(function (a, i) {
     return parseInt(a);
   });
 }
@@ -117,7 +117,7 @@ function digitize(n) {
 // 숫자놀이
 function digPow(n, p) {
   // ...
-  var sum = n.toString().split('').reduce(function(a, b, i) {
+  var sum = n.toString().split('').reduce(function (a, b, i) {
     return a + Math.pow(Number(b), i + p);
   }, 0);
   return sum % n === 0 ? sum / n : -1;
@@ -127,7 +127,7 @@ function digPow(n, p) {
 //문자놀이
 //정규표현식 문자 \w 인것 알아둘것
 function abbreviate(string) {
-  return string.replace(/\w{4,}/g, function(word) {
+  return string.replace(/\w{4,}/g, function (word) {
     return word[0] + (word.length - 2) + word.slice(-1);
   });
 }
@@ -149,7 +149,7 @@ function factorial(n) {
 // 자동완성 하기
 function autocomplete(input, dictionary) {
   var r = new RegExp('^' + input.replace(/[^a-z]/gi, ''), 'i');
-  return dictionary.filter(function(w) {
+  return dictionary.filter(function (w) {
     return r.test(w);
   }).slice(0, 5);
 }
@@ -157,7 +157,7 @@ function autocomplete(input, dictionary) {
 //
 function reverseWords(str) {
   // Go for it
-  return str.split(' ').map(function(a, i) {
+  return str.split(' ').map(function (a, i) {
     return a.split('').reverse().join('');
   }).join(' ');
 }
@@ -165,7 +165,7 @@ function reverseWords(str) {
 // https://www.codewars.com/kata/your-order-please/
 // 순서바꾸기 소트함수 사용
 function order(words) {
-  return words.split(' ').sort(function(a, b) {
+  return words.split(' ').sort(function (a, b) {
     return a.match(/\d/) - b.match(/\d/);
   }).join(' ');
 }
@@ -187,7 +187,7 @@ function WhatIsTheTime(timeInMirror) {
       tm[0] = tm[0] < 12 ? 12 - tm[0] : 12;
     }
   }
-  return tm.map(function(a) {
+  return tm.map(function (a) {
     return (a = a < 10 ? "0" + a : "" + a);
   }).join(':');
 }
@@ -195,7 +195,7 @@ function WhatIsTheTime(timeInMirror) {
 // https://www.codewars.com/kata/57ebdf944cde58f973000405
 // reverse the letters in the sentence
 function reverser(sentence) {
-  return sentence.split(" ").map(function(a) {
+  return sentence.split(" ").map(function (a) {
     return a.split("").reverse().join("");
   }).join(" ");
 }
@@ -204,7 +204,7 @@ function reverser(sentence) {
 //prime gap
 function gap(g, m, n) {
   var lastPrime = 0;
-  var isPrime = function(x) {
+  var isPrime = function (x) {
     for (var i = 2; i * i <= x; i++) {
       if (x % i === 0) return false;
     }
@@ -230,7 +230,7 @@ function sumTriangularNumbers(n) {
 
 // https://www.codewars.com/kata/54bb6f887e5a80180900046b/solutions/javascript
 // 가장긴 회문 찾기
-longestPalindrome = function(s) {
+longestPalindrome = function (s) {
   //your code here
   var sc = s.slice(0);
   var ret = false,
@@ -255,7 +255,7 @@ longestPalindrome = function(s) {
 // vincrementString
 function incrementString(input) {
   if (isNaN(parseInt(input[input.length - 1]))) return input + '1';
-  return input.replace(/(0*)([0-9]+$)/, function(match, p1, p2) {
+  return input.replace(/(0*)([0-9]+$)/, function (match, p1, p2) {
     var up = parseInt(p2) + 1;
     return up.toString().length > p2.length ? p1.slice(0, -1) + up : p1 + up;
   });
@@ -268,7 +268,7 @@ function sqInRect(lng, wdth) {
   var com = [lng, wdth],
     re = [];
   while (com[0] !== 0) {
-    com = com.sort(function(a, b) {
+    com = com.sort(function (a, b) {
       return a - b;
     });
     re.push(com[0]);
@@ -280,7 +280,7 @@ function sqInRect(lng, wdth) {
 
 // https://www.codewars.com/kata/maximum-subarray-sum/train/javascript
 //maximun-subarray
-var maxSequence = function(arr) {
+var maxSequence = function (arr) {
   // ...
   var ans = 0;
   var sum = 0;
@@ -298,7 +298,7 @@ function countSmileys(arr) {
   var mouse = [')', 'D'];
   var eyes = [':', ';'];
   var count = 0;
-  arr.map(function(a) {
+  arr.map(function (a) {
     var aa = a.split('');
     if (aa.length < 2 || aa.length > 3) {
       return false;
@@ -320,16 +320,16 @@ function sortArray(array) {
   // Return a sorted array.
   var oddnum = [];
   var oddinx = [];
-  array.map(function(a, i) {
+  array.map(function (a, i) {
     if (a === 1 || (a - 1) % 2 === 0) {
       oddnum.push(a);
       oddinx.push(i);
     }
   });
-  oddnum.sort(function(a, b) {
+  oddnum.sort(function (a, b) {
     return a - b;
   });
-  oddinx.map(function(a, i) {
+  oddinx.map(function (a, i) {
     array[a] = oddnum[i];
   });
   return array;
@@ -387,7 +387,7 @@ function chkDiver(n) {
   }
   var sum = 0,
     last = 0;
-  Object.keys(re).map(function(d) {
+  Object.keys(re).map(function (d) {
     sum = sum + Number(d) * Number(d);
     last = Number(d);
   });
@@ -567,8 +567,8 @@ var Converter = {
     //... 이부분을 좀더 쉽게 하는 방법
     var re = '';
     var m = hex.slice(0);
-    while(m.length !== 0) {
-      var char = m[0]+m[1];
+    while (m.length !== 0) {
+      var char = m[0] + m[1];
       m = m.slice(2);
       re += String.fromCharCode(parseInt(char, 16));
     }
@@ -576,15 +576,15 @@ var Converter = {
   },
   toHex: function (ascii) {
     //...
-    return ascii.split('').map(a=>a.charCodeAt(0).toString(16)).join('');
+    return ascii.split('').map(a => a.charCodeAt(0).toString(16)).join('');
   }
 };
 
 var Converter2 = {
-  toAscii : (hex) =>{
-    return hex.replace(/../g, h=> String.fromCharCode(parseInt(h,16)));
+  toAscii: (hex) => {
+    return hex.replace(/../g, h => String.fromCharCode(parseInt(h, 16)));
   },
-  toHex : (ascii)=>{
+  toHex: (ascii) => {
     return ascii.replace(/./g, (a) => a.charCodeAt().toString(16));
   }
 };
@@ -592,19 +592,20 @@ var Converter2 = {
 //https://www.codewars.com/kata/54b679eaac3d54e6ca0008c9/
 //반복 함수 만들기
 var createIterator = function (func, n) {
-  return function(v) {
-    for(var i = 0; i < n; i++) v = func(v);
+  return function (v) {
+    for (var i = 0; i < n; i++) v = func(v);
     return v;
   };
 };
 
 // http://www.codewars.com/kata/character-frequency-1/train/javascript
 // 소팅 문제. (정렬이 잘되지 않는다.)
-function letterFrequency(text){
+function letterFrequency(text) {
   //your code here
-  var str = {}, max =0;
-  text.toLowerCase().replace(/[^a-z]/gi,"").split('').sort().map(a=>{
-    if (str[a]=== undefined) { 
+  var str = {},
+    max = 0;
+  text.toLowerCase().replace(/[^a-z]/gi, "").split('').sort().map(a => {
+    if (str[a] === undefined) {
       str[a] = 1;
       if (str[a] > max) max = str[a];
     } else {
@@ -613,10 +614,12 @@ function letterFrequency(text){
     }
   });
   var re = [];
-  Object.keys(str).map(k=>{ re.push([k,str[k]]) });
+  Object.keys(str).map(k => {
+    re.push([k, str[k]])
+  });
   var st = [];
-  while(max > 0) {
-    re.filter(a=>a[1] === max).map(a=>st.push(a));
+  while (max > 0) {
+    re.filter(a => a[1] === max).map(a => st.push(a));
     max--;
   }
   return st;
@@ -628,10 +631,10 @@ function encrypt(text, rule) {
 }
 
 //Lucas number
-function lucasnum(n){
+function lucasnum(n) {
   //Good Luck!
   return Math.round(
-    Math.pow(((1+Math.sqrt(5))*0.5),n) + Math.pow(((1-Math.sqrt(5))*0.5),n)
+    Math.pow(((1 + Math.sqrt(5)) * 0.5), n) + Math.pow(((1 - Math.sqrt(5)) * 0.5), n)
   );
 }
 
@@ -646,40 +649,62 @@ function evilTwin(obj) {
 }
 
 //type checker
-var typer = (function() {
+var typer = (function () {
   return {
-    isUndefined: function (x) { return typeof x == "undefined" },
-    isFunction:  function (x) { return typeof x == "function" },
-    isNumber:    function (x) { return typeof x != "undefined" && typeof x.valueOf() == "number" && !isNaN(x.valueOf()) },
-    isString:    function (x) { return typeof x != "undefined" && typeof x.valueOf() == "string" },
-    isBoolean:   function (x) { return typeof x != "undefined" && typeof x.valueOf() == "boolean" },
-    isArray:     function (x) { return x instanceof Array },
-    isDate:      function (x) { return x instanceof Date },
-    isRegExp:    function (x) { return x instanceof RegExp },
-    isError:     function (x) { return x instanceof Error },
-    isNull:      function (x) { return x === null }
+    isUndefined: function (x) {
+      return typeof x == "undefined"
+    },
+    isFunction: function (x) {
+      return typeof x == "function"
+    },
+    isNumber: function (x) {
+      return typeof x != "undefined" && typeof x.valueOf() == "number" && !isNaN(x.valueOf())
+    },
+    isString: function (x) {
+      return typeof x != "undefined" && typeof x.valueOf() == "string"
+    },
+    isBoolean: function (x) {
+      return typeof x != "undefined" && typeof x.valueOf() == "boolean"
+    },
+    isArray: function (x) {
+      return x instanceof Array
+    },
+    isDate: function (x) {
+      return x instanceof Date
+    },
+    isRegExp: function (x) {
+      return x instanceof RegExp
+    },
+    isError: function (x) {
+      return x instanceof Error
+    },
+    isNull: function (x) {
+      return x === null
+    }
   };
 }());
 
 
 //longest common sequence
-function LCS( xstr, ystr ) {
-  if( xstr == '' || ystr == '' ) return '';
-    
-  var xp    = xstr.charAt( 0 ), xrest = xstr.slice( 1 ),
-      yp    = ystr.charAt( 0 ), yrest = ystr.slice( 1 );
-      
-  if( xp == yp )
-    return xp + LCS( xrest, yrest );
-  
-  var lcs1 = LCS( xstr, yrest ),
-      lcs2 = LCS( xrest, ystr );
-      
+function LCS(xstr, ystr) {
+  if (xstr == '' || ystr == '') return '';
+
+  var xp = xstr.charAt(0),
+    xrest = xstr.slice(1),
+    yp = ystr.charAt(0),
+    yrest = ystr.slice(1);
+
+  if (xp == yp)
+    return xp + LCS(xrest, yrest);
+
+  var lcs1 = LCS(xstr, yrest),
+    lcs2 = LCS(xrest, ystr);
+
   return (lcs1.length > lcs2.length) ? lcs1 : lcs2;
 }
 
 //float to bin
-var float2bin = function(input) {
+var float2bin = function (input) {
   var
     n0 = +input,
     n = Math.abs(n0),
@@ -691,70 +716,71 @@ var float2bin = function(input) {
 };
 
 //array flatten
-function flatten(){
-  return [].slice.call(arguments).reduce(function(a,b){              
-    return a.concat(Array.isArray(b) ? flatten.apply(null,b) : b);
-  },[]);
+function flatten() {
+  return [].slice.call(arguments).reduce(function (a, b) {
+    return a.concat(Array.isArray(b) ? flatten.apply(null, b) : b);
+  }, []);
 }
 
 // https://www.codewars.com/kata/5a58ca28e626c55ae000018a/
 function areaOfPolygonInsideCircle(circleRadius, numberOfSides) {
   // Your code here
-  
-  var h = Math.cos(Math.PI/numberOfSides) * circleRadius;
-  var w = Math.sin(Math.PI/numberOfSides) * circleRadius;
-  
-  return Math.round((h * w) * numberOfSides * 1000 ) / 1000;
+
+  var h = Math.cos(Math.PI / numberOfSides) * circleRadius;
+  var w = Math.sin(Math.PI / numberOfSides) * circleRadius;
+
+  return Math.round((h * w) * numberOfSides * 1000) / 1000;
 }
 
 //https://www.codewars.com/kata/5964d7e633b908e172000046/
-function recover(str){
+function recover(str) {
   //have fun ^.^
-  var ls = ["ZERO","ONE","TWO","THREE","FOUR","FIVE","SIX","SEVEN","EIGHT","NINE"];
+  var ls = ["ZERO", "ONE", "TWO", "THREE", "FOUR", "FIVE", "SIX", "SEVEN", "EIGHT", "NINE"];
   var re = [];
   var ss = false;
-  while(str.length > 2) {
+  while (str.length > 2) {
     ss = false;
-    ls.map((a,i)=>{
+    ls.map((a, i) => {
       var s1 = a.split('');
-      var s2 = str.slice(0,s1.length).split('');
-      s2.map(z=>{
+      var s2 = str.slice(0, s1.length).split('');
+      s2.map(z => {
         s1[s1.indexOf(z)] = '';
       })
-      if (s1.join('')==='') {
+      if (s1.join('') === '') {
         re.push(i);
         str = str.slice(1);
         ss = true;
       }
     });
     if (ss === false) {
-        str = str.slice(1);
+      str = str.slice(1);
     }
   }
-  return re.length ===0 ? 'No digits found': re.join('')
+  return re.length === 0 ? 'No digits found' : re.join('')
 }
 
 // https://www.codewars.com/kata/island-count/
-function countIslands (mapStr) {
-  var map = mapStr.split('\n').map(a=>a.split(''));
+function countIslands(mapStr) {
+  var map = mapStr.split('\n').map(a => a.split(''));
   var count = 0;
-  function checkMap(x,y,n) {
+
+  function checkMap(x, y, n) {
     if (x > -1 && x < map[0].length && y > -1 && y < map.length) {
       if (map[y][x] === '0') {
-        map[y][x] = ''+n;
-        checkMap(x,y-1,n);
-        checkMap(x,y+1,n);
-        checkMap(x-1,y,n);
-        checkMap(x+1,y,n);
+        map[y][x] = '' + n;
+        checkMap(x, y - 1, n);
+        checkMap(x, y + 1, n);
+        checkMap(x - 1, y, n);
+        checkMap(x + 1, y, n);
       }
     }
   }
-  
-  for (var yy = 0 ; yy < map.length; yy++) {
-    for (var xx = 0; xx <map[0].length; xx++) {
+
+  for (var yy = 0; yy < map.length; yy++) {
+    for (var xx = 0; xx < map[0].length; xx++) {
       if (map[yy][xx] === '0') {
         count++;
-        checkMap(xx,yy,count);
+        checkMap(xx, yy, count);
         console.log(map)
       }
     }
@@ -766,11 +792,13 @@ function countIslands (mapStr) {
 function distribute(m, n) {
   var re = [];
   if (n > 0) {
-    if (m < 1) { m = 0; }
-    var aa = Math.floor(m/n);
-    var bb = m%n;
-    re = Array.apply(null,Array(n)).map(a=>aa);
-    re = re.map((a,i)=> i < bb ?  a+1 : a);
+    if (m < 1) {
+      m = 0;
+    }
+    var aa = Math.floor(m / n);
+    var bb = m % n;
+    re = Array.apply(null, Array(n)).map(a => aa);
+    re = re.map((a, i) => i < bb ? a + 1 : a);
   }
   return re;
 }
