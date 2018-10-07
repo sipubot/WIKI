@@ -1,19 +1,20 @@
 # 문서들
 
-관련 공부한것이나 특별히 적어둘것들을 모아둔곳.
+  관련 공부한것이나 특별히 적어둘것들을 모아둔곳.
 
 - [스펙 정리](/Interpreter/JavaScript%20DOM/SPEC.md)
-
 - [이슈&버그](/Interpreter/JavaScript%20DOM/ISSUE%26BUG.md)
-
 - [DOM정리](/Interpreter/JavaScript%20DOM/DOM.md)
 
-##Plug-in
-- [UnderScore](http://underscorejs.org/) : 유용한 메소드들을 정리해놓은 플러그인 사실 이정도 메소드들이면 프론트에서 쓰이는 왠만한 메소드들은 다 구현했다고 봐도 무방하다. 메소드들은 한번씩 훑어보는걸 추천
-- [Jquery](http://jquery.com/) : 말해 무엇하는 최강의 플러그인... 사실 이녀석 덕분에 dom api를 사용할 필요가 없을 정도지만 그래도 기본 동작에 대한 이해가 있어야 플러그인을 쓰는 의미가 있다. 성능향상을 위해서 가려서 써야하는것들은 무조건 체크해둘 필요가 있음. 
+## Plug-in
 
-##FrameWorks
-최근동향의 프레임워크들 생각 무작위 순서
+- [UnderScore](http://underscorejs.org/) : 유용한 메소드들을 정리해놓은 플러그인 사실 이정도 메소드들이면 프론트에서 쓰이는 왠만한 메소드들은 다 구현했다고 봐도 무방하다. 메소드들은 한번씩 훑어보는걸 추천
+- [Jquery](http://jquery.com/) : 말해 무엇하는 최강의 플러그인... 사실 이녀석 덕분에 dom api를 사용할 필요가 없을 정도지만 그래도 기본 동작에 대한 이해가 있어야 플러그인을 쓰는 의미가 있다. 성능향상을 위해서 가려서 써야하는것들은 무조건 체크해둘 필요가 있음.
+
+## FrameWorks
+
+  최근동향의 프레임워크들 생각 무작위 순서
+
 - Vue : json <-> html namespace  인데 워낙 이런 프레임 워크는 많아서. 글세...
 - Knockout : json <-> html namespace 이건 좀 재밌는게 data 속성값을 사용해버려서 html 자체의 오류는 없을것 같다. 차라리 이쪽을 추천하고 싶네
 - Ember : 여기저기서 추천이 꽤 있는데 이놈도 마찬가지로 html5 정식 문법에는 위배된다. (물론 자바스크립트를 거치고 나면 정상화 되지만)
