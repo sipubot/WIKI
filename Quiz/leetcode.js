@@ -65,3 +65,31 @@ var sortedArrayToBST = function(nums) {
     root.right = sortedArrayToBST(nums.slice(mid+1));
     return root;
 };
+/**
+ * 트리 비교 (대칭형)
+ */
+var isSymmetric = function(root) { // Just to detect if every level is palindrome
+    if(!root) return true;
+    
+    var curQ = [root.left, root.right],
+        subQ = [],
+        count = 0; // count nulls in curQ
+    while(curQ.length){
+        var len = curQ.length;
+        for(var i = 0; i < curQ.length; i ++){
+            if(!curQ[i] && !curQ[len - 1 - i]){
+                count ++; // shouldn't be += 2 as it'll loop till the end of the queue and catch the other null
+            }else{
+                if(!(curQ[i] && curQ[len - 1 - i])) return false;
+                if(curQ[i].val !== curQ[len - 1 - i].val) return false;
+                subQ.push(curQ[i].left, curQ[i].right);
+            }
+        }
+        if(count === len) break; // stop the loop if every elem in curQ is null
+        
+        curQ = subQ;
+        subQ = [];
+        count = 0;
+    }
+    return true;
+};
