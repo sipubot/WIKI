@@ -44,8 +44,9 @@
 ### 데이터베이스 마이그레이션 하기.
 
 - //PM 창에서 실행 (generation code)
-  ```
-  Enable-Migrations -ContextTypeName [마이그레이션할 컨텍스트 ex> ApplicationDbContext] -MigrationsDirectory [마이그레이션파일을 생성할 디렉터리와 콘텍스트명 ex> Migrations\ApplicationDbContext]
-  Add-Migration -ConfigurationTypeName [프로젝트네임스페이스].Migrations.ApplicationDbContext.Configuration "InitialDatabaseCreation"
-  Update-Database -ConfigurationTypeName [프로젝트네임스페이스].Migrations.ApplicationDbContext.Configuration
-  ```
+
+```pm
+Enable-Migrations -ContextTypeName [마이그레이션할 컨텍스트 ex> ApplicationDbContext] -MigrationsDirectory [마이그레이션파일을 생성할 디렉터리와 콘텍스트명 ex> Migrations\ApplicationDbContext]
+Add-Migration -ConfigurationTypeName [프로젝트네임스페이스].Migrations.ApplicationDbContext.Configuration "InitialDatabaseCreation"
+Update-Database -ConfigurationTypeName [프로젝트네임스페이스].Migrations.ApplicationDbContext.Configuration
+```
