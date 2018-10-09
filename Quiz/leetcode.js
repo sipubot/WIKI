@@ -93,3 +93,35 @@ var isSymmetric = function(root) { // Just to detect if every level is palindrom
     }
     return true;
 };
+
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val) {
+ *     this.val = val;
+ *     this.left = this.right = null;
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @param {number} sum
+ * @return {boolean}
+ */
+var hasPathSum = function(root, sum) {
+    if (!root) return false;
+    var re = false;
+    var tsums = [];
+    function ts(tree, s) {
+        if (!tree.left && !tree.right) {
+            tsums.push(s+tree.val);
+        } else {
+            if (tree.left) {
+                ts(tree.left,tree.val+s);
+            }
+            if (tree.right) {
+                ts(tree.right,tree.val+s);
+            }
+        }
+    }
+    ts(root,0);
+    return tsums.some(a=>a===sum);
+};
