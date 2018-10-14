@@ -20,11 +20,12 @@
 ## 트리
 
 >나무 형태의 (역방향) 자료구조를 말한다 종류도 다양하고 방식도 여러가지 메인으로 쓰이는것은 B+트리 대부분 이진트리 구조를 가지며 여러 노드를 가질경우엔 그래프 구조를 쓸 경우가 많음
-> 트리는 자료를 인덱싱하는데 특화 되어 있는데 구조자체가 2^n 계층으로 되어 있기때문에 nLogn 의 [검색속도](https://ko.khanacademy.org/computing/computer-science/algorithms/binary-search/a/running-time-of-binary-search)를 가지게 된다.
+>
+>트리는 자료를 인덱싱하는데 특화 되어 있는데 구조자체가 2^n 계층으로 되어 있기때문에 nLogn 의 [검색속도](https://ko.khanacademy.org/computing/computer-science/algorithms/binary-search/a/running-time-of-binary-search)를 가지게 된다.
+>
 >이러한 특성 때문에 트리는 자료 저장에 많이 쓰이고 파일시스템에서 기본적으로 쓰이는 구조임 특히 [B+트리](https://ko.wikipedia.org/wiki/B%2B_%ED%8A%B8%EB%A6%AC)는 대부분의 운영체제의 파일 시스템이다. [hashed B 트리](https://ko.wikipedia.org/wiki/Ext4) 는 리눅스의 ext4 파일시스템으로 쓰이고 있다.
 
 - [트리 이해하기](https://leetcode.com/explore/learn/card/data-structure-tree/)
-
 - 트리 탐색 방법에 대해 정리
   - preorder : p, left, right
   - inorder : left, p, right

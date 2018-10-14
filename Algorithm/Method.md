@@ -186,4 +186,3 @@ def gcd(m,n):
   else:
     return gcd(n, m%n)
 ```
-
