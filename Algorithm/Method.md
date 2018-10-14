@@ -27,8 +27,8 @@
 >최적화 관련 메소드라고 해도되고 알고리즘이라고 해도 되고
 
 - [위키](https://en.wikipedia.org/wiki/Hungarian_algorithm)
-- [참조위키]( http://wiki.yonseics.net/index.php/%ED%97%9D%EA%B0%80%EB%A6%AC%EC%95%88_%EB%A9%94%- EC%86%8C%EB%93%9C)
-- [번역](http://kin.naver.com/qna/detail.nhn?d1id=1&dirId=1040101&docId=64696783&- qb=x%20uwobiuvsgguN680rXl)
+- [참조위키](http://wiki.yonseics.net/index.php/%ED%97%9D%EA%B0%80%EB%A6%AC%EC%95%88_%EB%A9%94%EC%86%8C%EB%93%9C)
+- [번역](http://kin.naver.com/qna/detail.nhn?d1id=1&dirId=1040101&docId=64696783&qb=x%20uwobiuvsgguN680rXl)
 - [씨](https://github.com/maandree/hungarian-algorithm-n3/blob/master/hungarian.c)
 - [파이선](https://github.com/tdedecko/hungarian-algorithm)
 - [자바스크립트](https://github.com/addaleax/munkres-js)
@@ -52,14 +52,14 @@
 >(네트워크 부하 분산 관련에서 쓰일듯 하지만 아직 이런 알고리즘을 쓸만큼 코어 개발쪽은 해본적이 없다. 아쉽네.)
 
 - [Dinic's algorithm](https://en.wikipedia.org/wiki/Dinic%27s_algorithm)
-- [Edmonds–Karp algorithm]- (https://en.wikipedia.org/wiki/Edmonds%E2%80%93Karp_algorithm)
+- [Edmonds–Karp algorithm](https://en.wikipedia.org/wiki/Edmonds%E2%80%93Karp_algorithm)
 - [Ford–Fulkerson algorithm](https://en.wikipedia.org/wiki/Ford%E2%80%93Fulkerson_algorithm)
 
 ### 최적해 찾기 알고리즘
 
 >시스템의 성능과 최적값 사이의 문제 (그래픽 엔진의 경우에 자주 쓰일듯 함)
 
-- [가우스 소거 Gaussian elimination] (https://ko.wikipedia.org/wiki/%EA%B0%80%EC%9A%B0%EC%8A%A4_%EC%86%8C%EA%B1%B0%EB%B2%95)
+- [가우스 소거 Gaussian elimination](https://ko.wikipedia.org/wiki/%EA%B0%80%EC%9A%B0%EC%8A%A4_%EC%86%8C%EA%B1%B0%EB%B2%95)
 - [github](https://github.com/itsravenous/gaussian-elimination/blob/master/gauss.js)
 
 ```javascript
