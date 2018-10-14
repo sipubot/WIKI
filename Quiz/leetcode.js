@@ -125,3 +125,49 @@ var hasPathSum = function(root, sum) {
     ts(root,0);
     return tsums.some(a=>a===sum);
 };
+
+//https://leetcode.com/problems/jewels-and-stones/description/
+/**
+ * @param {string} J
+ * @param {string} S
+ * @return {number}
+ */
+var numJewelsInStones = function(J, S) {
+    var c = 0;
+    J.split('').map(a=>{
+        c = c + S.split('').filter(b=>b===a).length;
+    });
+    return c;
+}
+
+//https://leetcode.com/problems/max-increase-to-keep-city-skyline/description/
+/**
+ * @param {number[][]} grid
+ * @return {number}
+ */
+var maxIncreaseKeepingSkyline = function(grid) {
+    var sumbefore = grid.reduce((s,a)=>s + a.reduce((ss,b)=>ss+b,0),0);
+    
+    var ymax = grid.map((a,i)=>Math.max(...a));
+    var xmax = grid[0].map((a,i)=> Math.max(...grid.map(b=>b[i])));
+    
+    var build = grid.map((a,x)=>{
+        return a.map((b,y)=>{
+            return xmax[x] < ymax[y] ? xmax[x] : ymax[y];
+        });
+    });
+    var sumafter = build.reduce((s,a)=>s + a.reduce((ss,b)=>ss+b,0),0);
+    return sumafter - sumbefore;
+};
+
+//https://leetcode.com/problems/minimum-add-to-make-parentheses-valid/description/
+/**
+ * @param {string} S
+ * @return {number}
+ */
+var minAddToMakeValid = function(S) {
+    while(S.indexOf('()') > -1) {
+        S = S.split('()').join('');
+    }
+    return S.length;
+};

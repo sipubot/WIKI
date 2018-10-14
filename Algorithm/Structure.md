@@ -13,6 +13,8 @@
 
 ### [스택:링크드리스트](https://www.cs.usfca.edu/%7Egalles/visualization/StackLL.html)
 
+## 큐
+
 ### [큐:배열](https://www.cs.usfca.edu/%7Egalles/visualization/QueueArray.html)
 
 ### [큐:링크드리스트](https://www.cs.usfca.edu/%7Egalles/visualization/QueueLL.html)
