@@ -2,7 +2,7 @@
 
 ## 스택
 
-  스택은 말그대로 쌓는다는 의미의 자료구조 인간의 가장 기본적이고 본능적인 구조 이를 테면 선사시대 부터 저장해오던 방법. 큐는 어떤 의미냐 하면 70년대 쯤 유행하던 쌀통을 생각하면 될것이다. 처음들어간 것이 처음 나오는것 요즘 많이 쓰이는 곳
+>스택은 말그대로 쌓는다는 의미의 자료구조 인간의 가장 기본적이고 본능적인 구조 이를 테면 선사시대 부터 저장해오던 방법. 큐는 어떤 의미냐 하면 70년대 쯤 유행하던 쌀통을 생각하면 될것이다. 처음들어간 것이 처음 나오는것 요즘 많이 쓰이는 곳
 
 - 자판기
 - 공장 자동화
@@ -20,7 +20,7 @@
 
 ## 트리
 
-  나무 형태의 (역방향) 자료구조를 말한다 종류도 다양하고 방식도 여러가지 메인으로 쓰이는것은 B+트리 대부분 이진트리 구조를 가지며 여러 노드를 가질경우엔 그래프 구조를 쓸 경우가 많음
+>나무 형태의 (역방향) 자료구조를 말한다 종류도 다양하고 방식도 여러가지 메인으로 쓰이는것은 B+트리 대부분 이진트리 구조를 가지며 여러 노드를 가질경우엔 그래프 구조를 쓸 경우가 많음
 
 - [트리 이해하기](https://leetcode.com/explore/learn/card/data-structure-tree/)
 
@@ -61,27 +61,27 @@
 
 ### [TRIE](https://www.cs.usfca.edu/%7Egalles/visualization/Trie.html)
 
-  문자열을 트리 구조로 만드는것 사전 인덱싱을 생각하면 이해가 편리함(한개의 스트릴 끊는다)
+>문자열을 트리 구조로 만드는것 사전 인덱싱을 생각하면 이해가 편리함(한개의 스트릴 끊는다)
 
 ### [RADIX TREE](https://www.cs.usfca.edu/%7Egalles/visualization/RadixTree.html)
 
-  분기점을 문자단위로 하는 것이 아니라 입력 된 값들 중 차이가 발생할때 나누는 것(사전 탐색시 속도가 더 빨라짐)
+>분기점을 문자단위로 하는 것이 아니라 입력 된 값들 중 차이가 발생할때 나누는 것(사전 탐색시 속도가 더 빨라짐)
 
 ### [B TREE](https://www.cs.usfca.edu/%7Egalles/visualization/BTree.html)
 
 ### [B+ TREE](https://www.cs.usfca.edu/%7Egalles/visualization/BPlusTree.html)
 
-  가장 대중적인 (파일시스템에서) 트리구조 중점적으로 공부할 필요가 있음
+>가장 대중적인 (파일시스템에서) 트리구조 중점적으로 공부할 필요가 있음
 
 - [소스코드](http://goneill.co.nz/btree.php)
 - [기본메서드](http://goneill.co.nz/btree-notes.php)
 
 ## 해시
 
-  값을 모듈러로 키값을 추출하여 메모리에 직접 삽입하는 것 여러 종류가 있음
+>값을 모듈러로 키값을 추출하여 메모리에 직접 삽입하는 것 여러 종류가 있음
 
 ### [오픈해시테이블](https://www.cs.usfca.edu/%7Egalles/visualization/OpenHash.html)
 
 ### [클로즈해시테이블](https://www.cs.usfca.edu/%7Egalles/visualization/ClosedHash.html)
 
-  (버킷을 쓰는 버전도 있음)
+>(버킷을 쓰는 버전도 있음)
