@@ -31,3 +31,6 @@
 
     - 개요 : IP모델, ARP모듈, RARP모듈, FDDI, RS-232
     - 이더넷 IEEE802 :
+    - Trailer Encapsulation : RFC 893
+    - SLIP : 시리얼 ip 통신
+    - Compressed SLIP : 압축 SLIP 통신
