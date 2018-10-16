@@ -171,3 +171,8 @@ var minAddToMakeValid = function(S) {
     }
     return S.length;
 };
+
+//https://leetcode.com/problems/to-lower-case/description/
+var toLowerCase = function(str) {
+    return str.split('').map(a=> a.charCodeAt(0) <= 90 && a.charCodeAt(0) > 64 ? String.fromCharCode(a.charCodeAt(0)+32) : a ).join('');
+};
