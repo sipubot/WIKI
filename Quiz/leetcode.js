@@ -176,3 +176,12 @@ var minAddToMakeValid = function(S) {
 var toLowerCase = function(str) {
     return str.split('').map(a=> a.charCodeAt(0) <= 90 && a.charCodeAt(0) > 64 ? String.fromCharCode(a.charCodeAt(0)+32) : a ).join('');
 };
+
+//https://leetcode.com/problems/sort-array-by-parity/description/
+/**
+ * @param {number[]} A
+ * @return {number[]}
+ */
+var sortArrayByParity = function(A) {
+    return A.filter(a=>a%2 === 0).concat(A.filter(a=>a%2 === 1));
+};
