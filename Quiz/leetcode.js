@@ -1,6 +1,5 @@
 // 싱글 넘버.
 // https://leetcode.com/problems/single-number/description/
-
 /**
  * @param {number[]} nums
  * @return {number}
@@ -8,10 +7,8 @@
 var singleNumber = function(nums) {
     return nums.reduce((x, y) => x ^ y);
 };
-  //비트 단위 배타적 논리합 연산 대입 	x ^= y 	x = x ^ y
-
+//비트 단위 배타적 논리합 연산 대입 	x ^= y 	x = x ^ y
 // https://leetcode.com/submissions/detail/179993117/
-
 /**
  * Definition for a binary tree node.
  * function TreeNode(val) {
@@ -44,7 +41,6 @@ var maxDepth = function(root) {
   
   return maxdep+1;
 };
-
 /**
  * Definition for a binary tree node.
  * function TreeNode(val) {
@@ -93,7 +89,6 @@ var isSymmetric = function(root) { // Just to detect if every level is palindrom
     }
     return true;
 };
-
 /**
  * Definition for a binary tree node.
  * function TreeNode(val) {
@@ -125,7 +120,6 @@ var hasPathSum = function(root, sum) {
     ts(root,0);
     return tsums.some(a=>a===sum);
 };
-
 //https://leetcode.com/problems/jewels-and-stones/description/
 /**
  * @param {string} J
@@ -139,7 +133,6 @@ var numJewelsInStones = function(J, S) {
     });
     return c;
 }
-
 //https://leetcode.com/problems/max-increase-to-keep-city-skyline/description/
 /**
  * @param {number[][]} grid
@@ -159,7 +152,6 @@ var maxIncreaseKeepingSkyline = function(grid) {
     var sumafter = build.reduce((s,a)=>s + a.reduce((ss,b)=>ss+b,0),0);
     return sumafter - sumbefore;
 };
-
 //https://leetcode.com/problems/minimum-add-to-make-parentheses-valid/description/
 /**
  * @param {string} S
@@ -171,12 +163,10 @@ var minAddToMakeValid = function(S) {
     }
     return S.length;
 };
-
 //https://leetcode.com/problems/to-lower-case/description/
 var toLowerCase = function(str) {
     return str.split('').map(a=> a.charCodeAt(0) <= 90 && a.charCodeAt(0) > 64 ? String.fromCharCode(a.charCodeAt(0)+32) : a ).join('');
 };
-
 //https://leetcode.com/problems/sort-array-by-parity/description/
 /**
  * @param {number[]} A
@@ -184,4 +174,15 @@ var toLowerCase = function(str) {
  */
 var sortArrayByParity = function(A) {
     return A.filter(a=>a%2 === 0).concat(A.filter(a=>a%2 === 1));
+};
+//https://leetcode.com/problems/hamming-distance/description/
+/**
+ * @param {number} x
+ * @param {number} y
+ * @return {number}
+ */
+var hammingDistance = function(x, y) {
+    var xs = x.toString(2).padStart(32,'0').split('');
+    var ys = y.toString(2).padStart(32,'0').split('');
+    return xs.filter((a,i)=>a !== ys[i]).length;
 };
