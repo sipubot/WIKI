@@ -186,3 +186,17 @@ var hammingDistance = function(x, y) {
     var ys = y.toString(2).padStart(32,'0').split('');
     return xs.filter((a,i)=>a !== ys[i]).length;
 };
+//https://leetcode.com/problems/robot-return-to-origin/description/
+/**
+ * @param {string} moves
+ * @return {boolean}
+ */
+var judgeCircle = function(moves) {
+    var m = moves.split('');
+    var ud = m.filter(a=> a === 'U' || a === 'D');
+    var rl = m.filter(a=> a === 'R' || a === 'L');
+    ud = ud.map(a=> a === 'U' ? 1 : -1);
+    rl = rl.map(a=> a === 'R' ? 1 : -1);
+    return ud.reduce((s,a)=>s+a,0) === 0 && rl.reduce((s,a)=>s+a,0) === 0;
+};
+
