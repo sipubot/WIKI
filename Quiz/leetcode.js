@@ -187,16 +187,11 @@ var hammingDistance = function(x, y) {
     return xs.filter((a,i)=>a !== ys[i]).length;
 };
 //https://leetcode.com/problems/robot-return-to-origin/description/
-/**
- * @param {string} moves
- * @return {boolean}
- */
 var judgeCircle = function(moves) {
-    var m = moves.split('');
-    var ud = m.filter(a=> a === 'U' || a === 'D');
-    var rl = m.filter(a=> a === 'R' || a === 'L');
-    ud = ud.map(a=> a === 'U' ? 1 : -1);
-    rl = rl.map(a=> a === 'R' ? 1 : -1);
-    return ud.reduce((s,a)=>s+a,0) === 0 && rl.reduce((s,a)=>s+a,0) === 0;
+    //이것도 의외로 느리네..
+    var u = moves.match(/U/g) || 0;
+    var d = moves.match(/D/g) || 0;
+    var r = moves.match(/R/g) || 0;
+    var l = moves.match(/L/g) || 0;
+    return u.length === d.length && r.length === l.length
 };
-
