@@ -220,3 +220,11 @@ var combinationSum = function(candidates, target) {
     return Array.from(new Set(re)).map(a=>a.split(',').map(b=>+b));
     
 };
+//https://leetcode.com/problems/reverse-bits/description/
+/**
+ * @param {number} n - a positive integer
+ * @return {number} - a positive integer
+ */
+var reverseBits = function(n) {
+    return parseInt(((n.toString(2)).padStart(32,'0')).split('').reverse().join(''),2)
+};
