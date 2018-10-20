@@ -195,3 +195,28 @@ var judgeCircle = function(moves) {
     var l = moves.match(/L/g) || 0;
     return u.length === d.length && r.length === l.length
 };
+//https://leetcode.com/problems/combination-sum/description/
+/**
+ * @param {number[]} candidates
+ * @param {number} target
+ * @return {number[][]}
+ */
+var combinationSum = function(candidates, target) {
+    var re = [];
+    function summ (arr) {
+        if (arr.reduce((s,a)=>s+a,0)===target) {
+            re.push(arr.sort());
+        } else if (arr.reduce((s,a)=>s+a,0) > target) {
+            return;
+        } else {
+            candidates.map(a=>{
+                summ(arr.concat([a]));
+            });
+        }
+    }
+    summ([]);
+    re = re.map(a=>a.join());
+    
+    return Array.from(new Set(re)).map(a=>a.split(',').map(b=>+b));
+    
+};
