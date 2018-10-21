@@ -1,9 +1,14 @@
 # 기타
 
-## 시스템 스펙
+## 스펙
 
 - [OS 관련](https://github.com/sipubot/WIKI/blob/master/ETC/OSSYSTEM.md)
 - [네트워크 관련](https://github.com/sipubot/WIKI/blob/master/ETC/NETWORKSYSTEM.md)
+- [Math for CS](https://courses.csail.mit.edu/6.042/spring17/mcs.pdf)
+- [latency](https://gist.github.com/jboner/2841832) : 실행시간 (빛(전자)의 속도를 의미한다.) 예측
+- [타임존 설정의 문제](https://www.youtube.com/watch?v=-5wpm-gesOY)
+- [메모리 동작 구조](https://lwn.net/Articles/250967/)
+- [대용량 시스템 설계](https://www.cs.cornell.edu/projects/ladis2009/talks/dean-keynote-ladis2009.pdf)
 
 ## 그외
 
