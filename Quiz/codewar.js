@@ -802,4 +802,11 @@ function distribute(m, n) {
   }
   return re;
 }
-
+// https://www.codewars.com/kata/57e3f79c9cb119374600046b/
+function hello(name) {
+  var status = false;
+  if (name) {
+    if (name.length > 0) status = true;
+  }
+  return status ? "Hello, " + name.split('').map((a,i)=>i===0? a.toUpperCase():a.toLowerCase()).join('') + '!' : "Hello, World!";
+}

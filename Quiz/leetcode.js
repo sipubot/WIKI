@@ -228,3 +228,11 @@ var combinationSum = function(candidates, target) {
 var reverseBits = function(n) {
     return parseInt(((n.toString(2)).padStart(32,'0')).split('').reverse().join(''),2)
 };
+//https://leetcode.com/problems/number-of-1-bits/description/
+/**
+ * @param {number} n - a positive integer
+ * @return {number}
+ */
+var hammingWeight = function(n) {
+    return n.toString(2).split('').filter(a=>a=='1').length
+};
