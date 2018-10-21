@@ -810,3 +810,20 @@ function hello(name) {
   }
   return status ? "Hello, " + name.split('').map((a,i)=>i===0? a.toUpperCase():a.toLowerCase()).join('') + '!' : "Hello, World!";
 }
+
+function one(arr, fun){
+  // ...
+  return arr.filter(a=>fun(a)).length === 1;
+}
+// https://www.codewars.com/kata/5ba47374b18e382069000052
+function minRemove(arr){
+  //..
+  var max = Math.ceil(Math.sqrt(Math.max(...arr)));
+  var min = Math.min(...arr);
+  var red = arr.length
+  for (var i = min; i <= max; i++){
+    var t = arr.filter(a=>a<i || a>Math.pow(i,2)).length
+    if (t < red) red = t;
+  }
+  return red;
+}
