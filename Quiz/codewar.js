@@ -827,3 +827,20 @@ function minRemove(arr){
   }
   return red;
 }
+//https://www.codewars.com/kata/5bc463f7797b00b661000118/
+function getSolution(arr, sum) {
+  var re = false;
+  function sumf(a, i, s) {
+    if (i === arr.length) {
+      if (s === sum) {
+        re = true;
+      }
+    } else {
+      sumf(a, i+1, s+a[i]);
+      sumf(a, i+1, s-a[i]);
+    }
+  }
+  sumf(arr,1,arr[0]);
+  
+  return re;
+}
