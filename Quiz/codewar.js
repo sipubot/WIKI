@@ -848,3 +848,32 @@ function getSolution(arr, sum) {
 function smallEnough(a, limit){
   return a.every(a=>a<=limit);
 }
+//https://www.codewars.com/kata/5a25ac6ac5e284cfbe000111/
+function triangle(row) {
+  // Return the answer
+    var col = {
+      "GG" : "G",
+      "RR" : "R",
+      "BB" : "B",
+      "RG" : "B",
+      "GR" : "B",
+      "BG" : "R",
+      "GB" : "R",
+      "RB" : "G",
+      "BR" : "G"
+    }
+    var arr = row.split('')
+    function tri (ar) {
+      
+      if (ar.length===1) {
+          return ar[0];
+      } else {
+          var ne = Array.apply(null,Array(ar.length-1)).map((a,i)=>{
+            return col[ar[i]+ar[i+1]];
+          });
+          return tri(ne);
+      }
+    }
+  
+    return tri(arr);
+  }
