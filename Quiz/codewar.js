@@ -877,3 +877,9 @@ function triangle(row) {
   
     return tri(arr);
   }
+//https://www.codewars.com/kata/simple-string-matching/train/javascript
+function solve(a,b){
+    a = a.replace("*", "\\S*");
+    var re = new RegExp(a);
+    return b.match(re) == b ? true : false
+}
