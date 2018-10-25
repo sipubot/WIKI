@@ -236,3 +236,26 @@ var reverseBits = function(n) {
 var hammingWeight = function(n) {
     return n.toString(2).split('').filter(a=>a=='1').length
 };
+//https://leetcode.com/problems/house-robber/description/
+/** DP문제가 아니었음
+ * @param {number[]} nums
+ * @return {number}
+ */
+var rob = function(nums) {
+    var a = 0,b = 0;
+    
+    for (var i=0; i<nums.length; i++)
+    {
+        if (i%2==0)
+        {
+            a = Math.max(a+nums[i], b);
+        }
+        else
+        {
+            b = Math.max(a, b+nums[i]);
+        }
+    }
+    
+    return Math.max(a, b);
+  
+};
