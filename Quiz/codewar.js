@@ -883,3 +883,8 @@ function solve(a,b){
     var re = new RegExp(a);
     return b.match(re) == b ? true : false
 }
+//https://www.codewars.com/kata/5734c38da41454b7f700106e/
+function onlyOne() {
+  return Array.from(arguments).filter(a=>a).length === 1
+
+}
