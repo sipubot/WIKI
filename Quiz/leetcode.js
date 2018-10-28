@@ -259,3 +259,23 @@ var rob = function(nums) {
     return Math.max(a, b);
   
 };
+// https://leetcode.com/problems/happy-number/
+/**
+* @param {number} n
+* @return {boolean}
+*/
+var isHappy = function(n) {
+   var rep = [];
+   var counter = 0;
+   while(rep.indexOf(n) === -1 && counter < 100) {
+       counter++;
+       rep.push(n);
+       n = (n+'').split('').map(a=>+a).reduce((s,a)=>s+a*a,0);
+       console.log(n)
+       if (n === 1) {
+           break;
+       }
+   }
+   return n === 1 ? true : false;
+};
+
