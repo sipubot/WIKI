@@ -888,3 +888,14 @@ function onlyOne() {
   return Array.from(arguments).filter(a=>a).length === 1
 
 }
+// https://www.codewars.com/kata/5b55c49d4a317adff500015f/solutions/javascript
+function pointsNumber(radius){
+  // your code...
+  var n = radius;
+  var rr = n*n;
+  var point = 0;
+  for (var i = 1; i < n; i++) {
+    point += Math.floor(Math.sqrt(rr - i*i));
+  }
+  return n*4 + (point) * 4 + 1;
+}
