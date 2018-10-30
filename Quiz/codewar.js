@@ -899,3 +899,16 @@ function pointsNumber(radius){
   }
   return n*4 + (point) * 4 + 1;
 }
+// https://www.codewars.com/kata/5aba0a08379d20026e0000be/
+function jeringonza(aa) {
+  // your copodede here :)
+  return aa.split('').map(a=> {
+    if ('aeiou'.indexOf(a) > -1) {
+      return a+'p'+a
+    } else if ('AEIOU'.indexOf(a) > -1) {
+      return a+'P'+a;
+    } else {
+      return a;
+    }
+  }).join('')
+}
