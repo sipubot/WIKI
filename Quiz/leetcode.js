@@ -301,3 +301,24 @@ var matrixReshape = function(nums, r, c) {
     }
     
 };
+//https://leetcode.com/problems/next-greater-element-i/
+/**
+ * @param {number[]} findNums
+ * @param {number[]} nums
+ * @return {number[]}
+ */
+var nextGreaterElement = function(findNums, nums) {
+    var re = [];
+    for (var i = 0; i < findNums.length ; i++) {
+        var k = nums.indexOf(findNums[i]);
+        for (var j = k; j < nums.length; j++) {
+            if (nums[k] < nums[j] ) {
+                re.push(nums[j]);
+                break;
+            }
+        }
+        if (j === nums.length) re.push(-1)
+
+    }
+    return re;
+};
