@@ -279,3 +279,25 @@ var isHappy = function(n) {
    return n === 1 ? true : false;
 };
 
+//https://leetcode.com/submissions/detail/186567864/
+/**
+ * @param {number[][]} nums flat 만드는것이 너무 쉬워졌다.
+ * @param {number} r
+ * @param {number} c
+ * @return {number[][]}
+ */
+var matrixReshape = function(nums, r, c) {
+    var flat = [].concat(...nums);
+    var rc = flat.length / r;
+    var re = Array.apply(null,Array(r)).map(a=>[]);
+    
+    if (flat.length !== r * c){
+        return nums
+    } else {
+        flat.map((a,i)=>{
+            re[Math.floor(i/rc)].push(a);
+        });
+        return re;
+    }
+    
+};
