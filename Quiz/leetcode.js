@@ -322,3 +322,33 @@ var nextGreaterElement = function(findNums, nums) {
     }
     return re;
 };
+// https://leetcode.com/submissions/detail/186783252/
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val) {
+ *     this.val = val;
+ *     this.left = this.right = null;
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @return {number[]}
+ */
+var averageOfLevels = function(root) {
+    var re = [];
+    
+    function Avg(arr) {
+        return arr.map(inarr=>inarr.reduce((s,a)=>s+a,0)*(1/inarr.length));
+    }
+    function roofer(node,depth) {
+        if (node !== null) {
+            if (!re[depth]) {re.push([])}
+            re[depth].push(node.val);
+            roofer(node.left, depth+1);
+            roofer(node.right, depth+1);
+        }
+    }
+    roofer(root,0);
+    
+    return Avg(re);
+};
