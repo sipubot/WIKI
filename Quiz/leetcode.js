@@ -352,3 +352,31 @@ var averageOfLevels = function(root) {
     
     return Avg(re);
 };
+//https://leetcode.com/submissions/detail/187147995/
+/**
+ * @param {string} S
+ * @return {string}
+ */
+var reverseOnlyLetters = function(S) {
+    var regex = '^[a-zA-Z]+$';
+    var Parr = [];
+    var Re = S.split('').map((a,i)=>{
+        if (a.match(regex)) {
+            Parr.push(a);
+            return '';
+        } else {
+            return a;
+        }
+    });
+    Re = Re.map(a=>{
+        if (a === '') {
+            var z = Parr.pop(); 
+            return z;
+        } else {
+            return a;
+        }
+    });
+    
+    return Re.join('');
+    
+};
