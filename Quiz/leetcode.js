@@ -380,3 +380,11 @@ var reverseOnlyLetters = function(S) {
     return Re.join('');
     
 };
+//https://leetcode.com/problems/nim-game/description/
+/**
+ * @param {number} n
+ * @return {boolean}
+ */
+var canWinNim = function(n) {
+    return (n % 4 !== 0) 
+  };
