@@ -388,3 +388,28 @@ var reverseOnlyLetters = function(S) {
 var canWinNim = function(n) {
     return (n % 4 !== 0) 
   };
+  //https://leetcode.com/problems/monotonic-array/
+  /**
+ * @param {number[]} A
+ * @return {boolean}
+ */
+var isMonotonic = function(A) {
+    var po = false;
+    var mi = false;
+    var re = true;
+    for (var i =0; i<A.length ; i++) {
+        if (po && mi) {
+            break;
+        }
+        if (i > 0 && A[i] > A[i-1]) {
+            po = true;
+        }
+        if (i > 0 && A[i] < A[i-1]) {
+            mi = true;
+        }
+    }
+    if (po && mi) {
+        re = false;
+    }
+    return re;
+};
