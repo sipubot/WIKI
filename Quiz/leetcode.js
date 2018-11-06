@@ -463,7 +463,7 @@ var MinStack = function() {
       return this.min[this.min.length - 1];
     }
   };
-//https://leetcode.com/submissions/detail/187836140/
+//https://leetcode.com/submissions/detail/187836140/..
   /**
  * @param {string} s
  * @return {boolean}
@@ -483,3 +483,17 @@ var isValid = function(s) {
     
     return s.length === 0
 };
+
+//https://www.codewars.com/kata/57126304cdbf63c6770012bd/train/csharp
+using System;
+
+public class CodeWars
+{
+  public static bool IsDigit(string s) 
+  {
+    int intValue;
+    float floatValue;
+    return Int32.TryParse(s, out intValue) || float.TryParse(s, out floatValue);
+  }
+}
+

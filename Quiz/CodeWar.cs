@@ -13,3 +13,17 @@ public class Kata
       : "Tie!";
   }
 }
+
+//https://www.codewars.com/kata/57126304cdbf63c6770012bd/train/csharp
+using System;
+
+public class CodeWars
+{
+  public static bool IsDigit(string s) 
+  {
+    int intValue;
+    float floatValue;
+    return Int32.TryParse(s, out intValue) || float.TryParse(s, out floatValue);
+  }
+}
+
