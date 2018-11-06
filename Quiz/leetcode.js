@@ -463,3 +463,23 @@ var MinStack = function() {
       return this.min[this.min.length - 1];
     }
   };
+//https://leetcode.com/submissions/detail/187836140/
+  /**
+ * @param {string} s
+ * @return {boolean}
+ */
+var isValid = function(s) {
+    function remover() {
+        var beforelen = s.length;
+        s = s.split('()').join('');
+        s = s.split('[]').join('');
+        s = s.split('{}').join('');
+        var afterlen = s.length;
+        if (beforelen > afterlen) {
+            remover();
+        }
+    }
+    remover();
+    
+    return s.length === 0
+};
