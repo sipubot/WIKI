@@ -914,3 +914,4 @@ function jeringonza(aa) {
 }
 //https://www.codewars.com/kata/string-merge/train/javascript
 stringMerge = (a, b, l) => a.slice(0, a.indexOf(l)) + b.slice(b.indexOf(l));
+
