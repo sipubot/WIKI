@@ -483,17 +483,26 @@ var isValid = function(s) {
     
     return s.length === 0
 };
-
-//https://www.codewars.com/kata/57126304cdbf63c6770012bd/train/csharp
-using System;
-
-public class CodeWars
-{
-  public static bool IsDigit(string s) 
-  {
-    int intValue;
-    float floatValue;
-    return Int32.TryParse(s, out intValue) || float.TryParse(s, out floatValue);
-  }
-}
-
+// https://leetcode.com/explore/featured/card/queue-stack/232/practical-application-stack/1389/
+/**
+ * @param {number[]} nums
+ * @param {number} S
+ * @return {number}
+ */
+var findTargetSumWays = function(nums, S) {
+    var re = 0;
+    function Sum(arr, idx, sum) {
+        if (idx === arr.length) {
+            if (sum === S) {
+               re += 1; 
+            }
+        } else {
+            Sum(arr, idx+1, sum+arr[idx]);
+            Sum(arr, idx+1, sum-arr[idx]);
+        }
+    }
+    
+    Sum(nums,0,0);
+    
+    return re;
+};
