@@ -521,4 +521,4 @@ var fizzBuzz = function(n) {
         }
         return re.length > 0 ? re : (i+1)+''
     });
-};...
+};
