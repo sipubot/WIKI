@@ -506,3 +506,19 @@ var findTargetSumWays = function(nums, S) {
     
     return re;
 };
+/**
+ * @param {number} n
+ * @return {string[]}
+ */
+var fizzBuzz = function(n) {
+    return Array.apply(null,Array(n)).map((a,i)=>{
+        var re = ''
+        if ((i+1) % 3 === 0 ) {
+           re += 'Fizz';
+        }
+        if ((i+1) % 5 === 0 ) {
+           re += 'Buzz';
+        }
+        return re.length > 0 ? re : (i+1)+''
+    });
+};...
