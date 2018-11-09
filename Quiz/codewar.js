@@ -914,4 +914,18 @@ function jeringonza(aa) {
 }
 //https://www.codewars.com/kata/string-merge/train/javascript
 stringMerge = (a, b, l) => a.slice(0, a.indexOf(l)) + b.slice(b.indexOf(l));
-
+//https://www.codewars.com/kata/digits-average/train/javascript
+function digitsAverage(input) {
+  // your code here
+  var nums = (input+'').split('').map(a=>+a);
+  while (nums.length > 1) {
+    var temp = nums.slice(0);
+    nums = [];
+    temp.map((a,i)=>{
+      if(i< temp.length-1) {
+        nums.push(Math.round(((+a)+(+temp[i+1]))*0.5))
+      }
+    });
+  }
+  return nums[0]
+}
