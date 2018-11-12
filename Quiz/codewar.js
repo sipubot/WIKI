@@ -929,3 +929,20 @@ function digitsAverage(input) {
   }
   return nums[0]
 }
+// https://www.codewars.com/kata/the-office-ii-boredom-score/train/javascript
+function boredom(staff){
+  var kmap = {
+    "accounts" : 1,
+    "finance" : 2,
+    "canteen" : 10,
+    "regulation" : 3,
+    "trading" : 6,
+    "change" : 6,
+    "IS" : 8,
+    "retail" : 5,
+    "cleaning" : 4,
+    "pissing about" : 25
+  };
+  var sum = Object.keys(staff).reduce((s,a)=> s + kmap[staff[a]],0);
+  return sum <= 80 ? 'kill me now' : sum < 100 ?  'i can handle this' : 'party time!!';
+}
