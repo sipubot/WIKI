@@ -522,3 +522,28 @@ var fizzBuzz = function(n) {
         return re.length > 0 ? re : (i+1)+''
     });
 };
+// https://leetcode.com/problems/pascals-triangle/
+/**
+* @param {number} numRows
+* @return {number[][]}
+*/
+var generate = function(numRows) {
+  var re = [];
+  for (var i = 0; i < numRows; i++) {
+       if (i === 0) {
+           re.push([1]);
+       } else if (i === 1){
+           re.push([1,1]);
+       } else {
+           var aa = [];
+           for (var j = 1; j < re[i-1].length; j++) {
+               aa.push(re[i-1][j]+re[i-1][j-1]);
+           }
+           aa.push(1);
+           aa.unshift(1);
+           re.push(aa);
+       }
+  }
+  return re;
+};
+
