@@ -1,4 +1,4 @@
-# BOM 이란 무엇인가.
+# BOM 이란 무엇인가
 
 >Browser Object Model.
 
