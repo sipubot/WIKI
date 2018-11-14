@@ -552,7 +552,7 @@ var canConstruct = function(ransomNote, magazine) {
     var ransomNoteArr = ransomNote.split('');
     var oldMagazineLength = magazine.length;
     ransomNoteArr.map(a=>{
-        magazine.replace(a,'');
+        magazine = magazine.replace(a,'');
     });
     return oldMagazineLength == magazine.length +ransomNoteArr.length
 };
