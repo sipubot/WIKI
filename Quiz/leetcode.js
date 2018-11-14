@@ -546,4 +546,13 @@ var generate = function(numRows) {
   }
   return re;
 };
-
+// https://leetcode.com/problems/ransom-note/description/
+var canConstruct = function(ransomNote, magazine) {
+    if (ransomNote.length > magazine.length) { return false; }
+    var ransomNoteArr = ransomNote.split('');
+    var oldMagazineLength = magazine.length;
+    ransomNoteArr.map(a=>{
+        magazine.replace(a,'');
+    });
+    return oldMagazineLength == magazine.length +ransomNoteArr.length
+};
