@@ -946,3 +946,14 @@ function boredom(staff){
   var sum = Object.keys(staff).reduce((s,a)=> s + kmap[staff[a]],0);
   return sum <= 80 ? 'kill me now' : sum < 100 ?  'i can handle this' : 'party time!!';
 }
+//https://www.codewars.com/kata/5a91a7c5fd8c061367000002/
+function minimumSteps(numbers, value){
+  //your code here
+  numbers = numbers.sort((a,b)=>a-b);
+  var sum = numbers[0], count =1;
+  while(value > sum) {
+    sum += numbers[count];
+    count++;
+  }
+  return count-1;
+}
