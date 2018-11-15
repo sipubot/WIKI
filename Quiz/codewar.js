@@ -957,3 +957,7 @@ function minimumSteps(numbers, value){
   }
   return count-1;
 }
+// https://www.codewars.com/kata/thinkful-list-and-loop-drills-inverse-slicer/train/javascript
+function inverseSlice(items, a, b) {
+  return items.slice(0,a).concat(items.slice(b));
+}
