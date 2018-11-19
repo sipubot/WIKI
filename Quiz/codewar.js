@@ -961,3 +961,20 @@ function minimumSteps(numbers, value){
 function inverseSlice(items, a, b) {
   return items.slice(0,a).concat(items.slice(b));
 }
+// https://www.codewars.com/kata/5be8852935da89c5c8000157/
+function moonRating(rating) {
+  //your code goes here
+   var r = Math.round(rating);   
+   var re = ''
+   while(r>0) {
+     if (r > 1) {
+       r -= 2;
+       re += 'o'
+     } else {
+       r -= 1;
+       re += 'c'
+     }
+   }
+   return re + 'x'.repeat(5 - re.length);
+ }
+
