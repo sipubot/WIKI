@@ -977,4 +977,15 @@ function moonRating(rating) {
    }
    return re + 'x'.repeat(5 - re.length);
  }
-
+//https://www.codewars.com/kata/5b5736abf1d553f844000050
+function possiblePositions(str) {
+  var xl = 'abcdefgh';
+  var yl = '12345678';
+  var hor = str.split('');
+  var pos = [xl.indexOf(hor[0]), yl.indexOf(hor[1])];
+  var nextpos = [[pos[0]-2,pos[1]-1],[pos[0]-1,pos[1]-2],[pos[0]+1,pos[1]+2],[pos[0]+2,pos[1]+1]
+   ,[pos[0]-2,pos[1]+1],[pos[0]-1,pos[1]+2],[pos[0]+1,pos[1]-2],[pos[0]+2,pos[1]-1]
+  ];
+  
+  return nextpos.filter(a=> a[0] < 8 && a[0] > -1 && a[1] < 8 && a[1] > -1 ).map(a=>xl[a[0]]+yl[a[1]]).sort(); 
+}
