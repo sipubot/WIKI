@@ -1010,3 +1010,19 @@ function upArray(arr){
   }
   return arr.reverse();
 }
+// https://www.codewars.com/kata/551602850cc0afa0a60000e6
+function upperTriangular(mat){
+  // ...
+  var l = mat[0][0];
+  var cl = mat.every((a,i)=>a[i] === l);
+  var low = mat.every((a,i)=> {if (i === 0) {return true} else { return a.slice(0,i).every(b=>b===0)  }});
+  return cl && low
+}
+
+function lowerTriangular(mat){
+  // ...
+  var l = mat[0][0];
+  var cl = mat.every((a,i)=>a[i] === l);
+  var low = mat.every((a,i)=> {if (i === mat.length-1) {return true} else { return a.slice(i+1,mat.length-1).every(b=>b===0)  }});
+  return cl && low
+}
