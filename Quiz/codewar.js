@@ -989,3 +989,24 @@ function possiblePositions(str) {
   
   return nextpos.filter(a=> a[0] < 8 && a[0] > -1 && a[1] < 8 && a[1] > -1 ).map(a=>xl[a[0]]+yl[a[1]]).sort(); 
 }
+// https://www.codewars.com/kata/5514e5b77e6b2f38e0000ca9/
+function upArray(arr){
+  // ... 
+  if (arr.length === 0) return null;
+  if (arr.some(a=>a < 0) || arr.some(a=>a > 9)) return null;
+  arr[arr.length -1] += 1;
+  arr = arr.reverse().map((a,i)=>{
+    if (i < arr.length-1) {
+      if (a >= 10) {
+        arr[i+1]++;
+        return a % 10;
+      } 
+    }
+    return a;
+  });
+  if (arr[arr.length-1] === 10) {
+    arr[arr.length-1] = 0;
+    arr.push(1);
+  }
+  return arr.reverse();
+}
