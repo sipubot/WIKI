@@ -1026,3 +1026,26 @@ function lowerTriangular(mat){
   var low = mat.every((a,i)=> {if (i === mat.length-1) {return true} else { return a.slice(i+1,mat.length-1).every(b=>b===0)  }});
   return cl && low
 }
+//https://www.codewars.com/kata/simple-string-indices/train/javascript
+function solve(str,idx){
+  //..
+    if (str[idx] !== '(') return -1;
+  
+    var dep = 0;
+    var on = -1;
+    for (var i = 0; i < str.length; i++) {
+      if (str[i] === '(') {
+        if (i === idx) {
+          on = dep;
+        }
+        dep++;
+      }
+      if (str[i] === ')') {
+        dep--;
+        if (dep === on) {
+          return i;
+          break;
+        }
+      }
+    }
+ }
