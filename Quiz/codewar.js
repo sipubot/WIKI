@@ -1049,3 +1049,14 @@ function solve(str,idx){
       }
     }
  }
+//https://www.codewars.com/kata/tick-toward/train/javascript
+function tickToward(start,end){
+  var a1 = end[0] - start[0];
+  var a2 = end[1] - start[1];
+  var len = Math.abs(a2) > Math.abs(a1) ? Math.abs(a2) : Math.abs(a1); len++;
+  var re = Array.apply(null,Array(len)).map((a,i)=>
+    [start[0] + (a1 > 0 ? (i > a1 ? a1 : i) : (i < -a1 ? -i : a1)),
+     start[1] + (a2 > 0 ? (i > a2 ? a2 : i) : (i < -a2 ? -i : a2))]
+  );
+  return re;
+}
