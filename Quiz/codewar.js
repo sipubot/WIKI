@@ -1060,3 +1060,28 @@ function tickToward(start,end){
   );
   return re;
 }
+//https://www.codewars.com/kata/making-change/train/javascript
+const makeChange = (amount) => {
+  var m = [50,25,10,5,1];
+  var mc = ['H','Q','D','N','P'];
+  var i = 0;
+  var change = {
+  };
+  
+  while (amount > 0) {
+    if (amount >= m[i]) {
+      if (change[mc[i]] === undefined) {
+        change[mc[i]] = 1;
+        amount = amount - m[i];
+      } else {
+        change[mc[i]]++;
+        amount = amount - m[i];
+      }
+    } else {
+      i++;
+    }
+  }
+      
+  return change;
+};
+
