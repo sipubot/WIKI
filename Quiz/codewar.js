@@ -1084,4 +1084,32 @@ const makeChange = (amount) => {
       
   return change;
 };
-
+//https://www.codewars.com/kata/the-office-v-find-a-chair/train/javascript
+function meeting(x, need){
+  if (need <= 0) return 'Game On';
+  var cneed = need;
+  var re = [];
+  console.log(x)
+  x.map(a=>{
+    var m = (typeof a[0] === 'string') ? a[0].split('').length : a[0].length;
+    var c = a[1];
+    var rem = c-m;
+    if (need > 0) {
+    if (rem < need ) {
+      if (rem > 0) {
+        need = need - rem;
+        re.push(rem);
+      } else {
+        re.push(0);
+      }
+    } else {
+      if (rem > 0) {
+        re.push(need);
+        need = need - rem;
+      } else {
+        re.push(0);
+      }
+    }}
+  });
+  return re.reduce((s,a)=>s+a,0) === cneed ? re : 'Not enough!';
+}
