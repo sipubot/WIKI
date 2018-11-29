@@ -1113,3 +1113,21 @@ function meeting(x, need){
   });
   return re.reduce((s,a)=>s+a,0) === cneed ? re : 'Not enough!';
 }
+//https://www.codewars.com/kata/cat-and-mouse-harder-version/train/javascript
+function catMouse(x, j){
+  var catPos = x.indexOf('C');
+  var mousePos = x.indexOf('m');
+  var dogPos = x.indexOf('D');
+  if (catPos === -1 || mousePos === -1 || dogPos === -1) { return 'boring without all three'; }
+  
+  if (Math.abs(catPos - mousePos) <= j) {
+    var po = x.replace(/\./gi,'');
+    if (po ==='CDm' || po === 'mDC') {
+      return 'Protected!';
+    } else {
+      return 'Caught!';
+    }
+  } else {
+    return 'Escaped!';
+  }
+}
