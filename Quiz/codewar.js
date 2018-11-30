@@ -1131,3 +1131,37 @@ function catMouse(x, j){
     return 'Escaped!';
   }
 }
+//https://www.codewars.com/kata/binary-coded-decimal/train/javascript
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/padStart
+if (!String.prototype.padStart) {
+  String.prototype.padStart = function padStart(targetLength, padString) {
+      targetLength = targetLength >> 0; //truncate if number, or convert non-number to 0;
+      padString = String(typeof padString !== 'undefined' ? padString : ' ');
+      if (this.length >= targetLength) {
+          return String(this);
+      } else {
+          targetLength = targetLength - this.length;
+          if (targetLength > padString.length) {
+              padString += padString.repeat(targetLength / padString.length); //append to original to ensure we are longer than needed
+          }
+          return padString.slice(0, targetLength) + String(this);
+      }
+  };
+}
+
+function toBcd(number){
+var s = number.toString().split('');
+  if (s[0] !== '-') {
+    var re  = '';  
+    s = s.map(a=> ((+a).toString(2)).padStart(4,'0'));
+    re = re+s.join(' ');
+    return re;
+  } else {
+    var re  = '-';  
+    s.shift();
+    s = s.map(a=> ((+a).toString(2)).padStart(4,'0'));
+    re = re+s.join(' ');
+    return re;
+  }
+}
+
