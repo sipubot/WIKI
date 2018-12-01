@@ -1164,4 +1164,8 @@ var s = number.toString().split('');
     return re;
   }
 }
-
+//https://www.codewars.com/kata/the-office-iv-find-a-meeting-room/train/javascript
+function meeting(x){
+  var xc = (x.join('')).indexOf('O')
+  return xc > -1 ? xc : 'None available!';
+}
