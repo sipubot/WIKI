@@ -1169,3 +1169,9 @@ function meeting(x){
   var xc = (x.join('')).indexOf('O')
   return xc > -1 ? xc : 'None available!';
 }
+//https://www.codewars.com/kata/flatten-and-sort-an-array/train/javascript
+function flattenAndSort(array) {
+  // Good luck, brave code warrior!
+  array = array.reduce((s,a)=>s.concat(a),[]).sort((a,b)=>a-b);
+  return array;
+}
