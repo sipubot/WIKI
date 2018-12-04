@@ -1204,3 +1204,29 @@ function alphabetWar(reinforces, airstrikes)
     }
     return re.join('');
 }
+//https://www.codewars.com/kata/alphabet-war-airstrike-letters-massacre/train/javascript
+function alphabetWar(fight)
+{
+  var left = 'sbpw'.split('');
+  var right = 'zdqm'.split('');
+  var lp = 0;
+  var rp = 0;
+  var fi = fight.split('');
+  var b = new Set();
+  fi.map((a,i)=>{
+    if(a==='*') {
+      if (fi[i-1]) { b.add(i-1) }
+      if (fi[i])   { b.add(i) }
+      if (fi[i+1]) { b.add(i+1) }
+    }
+  });
+  fi.map((a,i)=>{
+    if (left.indexOf(a) > -1 && b.has(i) === false) {
+      lp += left.indexOf(a)+1;
+    }
+    if (right.indexOf(a) > -1 && b.has(i) === false) {
+      rp += right.indexOf(a)+1;
+    }
+  });
+  return lp === rp ? "Let's fight again!": lp>rp ? "Left side wins!":"Right side wins!";  
+}
