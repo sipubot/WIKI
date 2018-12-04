@@ -1175,3 +1175,32 @@ function flattenAndSort(array) {
   array = array.reduce((s,a)=>s.concat(a),[]).sort((a,b)=>a-b);
   return array;
 }
+//https://www.codewars.com/kata/alphabet-wars-reinforces-massacre/train/javascript
+function alphabetWar(reinforces, airstrikes)
+{
+    var re = Array.apply(null,Array(reinforces[0].length)).map(a=>0);
+    airstrikes.map((a,i)=>{
+      var setbomb = new Set();
+      a.split('').map((b,ii)=>{
+        if (b === '*') {
+          setbomb.add(ii-1);
+          setbomb.add(ii);
+          setbomb.add(ii+1);
+        }
+      });
+      var arbomb = Array.from(setbomb);
+      arbomb.map(a=>{
+        if (a > -1 && re.length > a) {
+          re[a]++;
+        }
+      });
+    });
+    for (var z = 0; z < re.length; z++) {
+      if (reinforces[re[z]]) {
+        re[z] = reinforces[re[z]][z];
+      } else {
+        re[z] = '_';
+      }
+    }
+    return re.join('');
+}
