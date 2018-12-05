@@ -1230,3 +1230,39 @@ function alphabetWar(fight)
   });
   return lp === rp ? "Let's fight again!": lp>rp ? "Left side wins!":"Right side wins!";  
 }
+//https://www.codewars.com/kata/bocce/train/javascript
+function bocceScore(balls) {
+  var jackP = balls.filter(a=>a['type']==="jack")[0]["distance"];
+  var disbA = [];
+  var disrA = [];
+  var disA = [];
+  balls.filter(a=>a['type']==="black").map(a=>{
+    var bp = a["distance"];
+    disbA.push(["black",Math.pow(Math.abs(bp[0] - jackP[0]),2) + Math.pow(Math.abs(bp[1] - jackP[1]),2)]);
+  })
+  balls.filter(a=>a['type']==="red").map(a=>{
+    var bp = a["distance"];
+    disrA.push(["red",Math.pow(Math.abs(bp[0] - jackP[0]),2) + Math.pow(Math.abs(bp[1] - jackP[1]),2)]);
+  })
+  disbA.map(a=>{
+    var dup = false;
+    for(var i = 0; i< disrA.length; i++) {
+      if(disrA[i][1] === a[1]) {
+        dup = true;
+        disrA.splice(i,1)
+        break;
+      }
+    }
+    if (!dup) {
+      disA.push(a);
+    }
+  });
+  disA = disA.concat(disrA);
+  disA.sort((a,b)=>a[1]-b[1]);
+  for (var i =0; i<disA.length; i++) {
+    if(disA[0][0] !== disA[i][0]) {
+      break;
+    }
+  }
+  return disA[0][0] + " scores " + i;
+}
