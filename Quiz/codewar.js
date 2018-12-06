@@ -1268,49 +1268,8 @@ function bocceScore(balls) {
 }
 //https://www.codewars.com/kata/fixme-hello/train/javascript
 class Dinglemouse {
-  
-      constructor() {
-          this.name = '';
-          this.age = -1;
-          this.sex = '';
-          this.helloString = ["Hello."];
-      }
-  
-      setAge(age) {
-          this.age = age
-          if (this.helloString.length < 4) {
-            this.helloString.push('I am '+this.age+'.');
-          } else {
-            this.helloString.shift();
-            this.helloString.push('I am '+this.age+'.');
-          }
-          return this
-      }
-  
-      setSex(sex) {
-          this.sex = sex
-          if (this.helloString.length < 4) {
-            this.helloString.push('I am '+(this.sex == 'M' ? "male." : "female."));
-          } else {
-            this.helloString.shift();
-            this.helloString.push('I am '+(this.sex == 'M' ? "male." : "femal.e"));
-          }
-          return this
-      }
-  
-      setName(name) {
-          this.name = name
-          if (this.helloString.length < 4) {
-            this.helloString.push('My name is '+this.name+'.');
-          } else {
-            this.helloString.shift();
-            this.helloString.push('My name is '+this.name+'.');
-          }
-          return this
-      }
-  
-      hello() {
-          return  this.helloString.length === 1 ? this.helloString[0] : this.helloString.join(' ');
-      }
-  
-  }
+  setAge(age) { this.age = age; return this }
+  setSex(sex) { this.sex = sex; return this }
+  setName(name) { this.name = name; return this }
+  hello() { return Object.keys(this).reduce((r,k) => r += ' '+(k=='name' ? `My name is ${this.name}.` : k=='age' ? `I am ${this.age}.` : `I am ${this.sex == 'M' ? "male" : "female"}.`),'Hello.'); }
+}
