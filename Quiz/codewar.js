@@ -1266,3 +1266,36 @@ function bocceScore(balls) {
   }
   return disA[0][0] + " scores " + i;
 }
+//https://www.codewars.com/kata/fixme-hello/train/javascript
+class Dinglemouse {
+  
+      constructor() {
+          this.name = '';
+          this.age = -1;
+          this.sex = '';
+          this.helloString = 'Hello.'
+      }
+  
+      setAge(age) {
+          this.age = age
+          this.helloString = this.helloString + ' I am '+this.age+'.'
+          return this
+      }
+  
+      setSex(sex) {
+          this.sex = sex
+          this.helloString = this.helloString + ' I am '+(this.sex == 'M' ? "male" : "female")+'.'
+          return this
+      }
+  
+      setName(name) {
+          this.name = name
+          this.helloString = this.helloString + ' My name is '+this.name+'.'
+          return this
+      }
+  
+      hello() {
+          return this.helloString
+      }
+  
+  }
