@@ -1273,29 +1273,44 @@ class Dinglemouse {
           this.name = '';
           this.age = -1;
           this.sex = '';
-          this.helloString = 'Hello.'
+          this.helloString = ["Hello."];
       }
   
       setAge(age) {
           this.age = age
-          this.helloString = this.helloString + ' I am '+this.age+'.'
+          if (this.helloString.length < 4) {
+            this.helloString.push('I am '+this.age+'.');
+          } else {
+            this.helloString.shift();
+            this.helloString.push('I am '+this.age+'.');
+          }
           return this
       }
   
       setSex(sex) {
           this.sex = sex
-          this.helloString = this.helloString + ' I am '+(this.sex == 'M' ? "male" : "female")+'.'
+          if (this.helloString.length < 4) {
+            this.helloString.push('I am '+(this.sex == 'M' ? "male." : "female."));
+          } else {
+            this.helloString.shift();
+            this.helloString.push('I am '+(this.sex == 'M' ? "male." : "femal.e"));
+          }
           return this
       }
   
       setName(name) {
           this.name = name
-          this.helloString = this.helloString + ' My name is '+this.name+'.'
+          if (this.helloString.length < 4) {
+            this.helloString.push('My name is '+this.name+'.');
+          } else {
+            this.helloString.shift();
+            this.helloString.push('My name is '+this.name+'.');
+          }
           return this
       }
   
       hello() {
-          return this.helloString
+          return  this.helloString.length === 1 ? this.helloString[0] : this.helloString.join(' ');
       }
   
   }
