@@ -1273,3 +1273,11 @@ class Dinglemouse {
   setName(name) { this.name = name; return this }
   hello() { return Object.keys(this).reduce((r,k) => r += ' '+(k=='name' ? `My name is ${this.name}.` : k=='age' ? `I am ${this.age}.` : `I am ${this.sex == 'M' ? "male" : "female"}.`),'Hello.'); }
 }
+
+//https://www.codewars.com/kata/grasshopper-messi-goals-function/train/javascript
+function goals (laLigaGoals, copaDelReyGoals, championsLeagueGoals) {
+  // code goes here
+  return [...arguments].reduce((s,a)=>s+a);
+}
+
+
