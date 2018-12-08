@@ -1279,5 +1279,18 @@ function goals (laLigaGoals, copaDelReyGoals, championsLeagueGoals) {
   // code goes here
   return [...arguments].reduce((s,a)=>s+a);
 }
-
-
+//https://www.codewars.com/kata/create-a-frame/train/javascript
+const frame = (text, char) => {
+  /*
+    ************
+    * Your     *
+    * Solution *
+    * Here     *
+    ************
+  */
+  var max = Math.max(...text.map(a=>a.length));
+  var re = text.map(a=> char+ " " + a + " ".repeat((max-a.length)) + " " + char );
+  re.unshift(char.repeat(max+4))
+  re.push(char.repeat(max+4))
+  return re.join('\n');
+};
