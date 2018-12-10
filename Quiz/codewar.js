@@ -1310,3 +1310,83 @@ function clean_string(s) {
   });
   return re.join('')
 };
+//https://www.codewars.com/kata/56a115cadb39a2faa000001e/solutions/javascript
+function round(v) {
+  return (v >= 0 || -1) * Math.round(Math.abs(v));
+}
+function commas(num){
+//Add some commas!
+var minus = num >= 0 ? '' : '-';
+num = Math.abs(num);
+
+var snum = num+'';
+
+if (snum.indexOf('.') > -1) {
+  var sns = snum.split('.');
+  var num0 = sns[0];
+  var num1S = sns[1].length - 3;
+  
+  var num1 = round((num1S > -1 ? ((+sns[1]) / Math.pow(10,num1S)) : +sns[1]) * (minus.length === 1 ? -1 : 1) );
+  num1 = num1S > 0 ? num1/1000 : num1/(Math.pow(10,num1S+3));
+  num1 = Math.abs(num1);
+  if (num1 >= 1) { 
+    num0++; 
+    num1 = num1 - 1;
+  }
+  num1 = num1+'';
+  if (num1.indexOf('.')>-1) {
+    num1 = '.' + num1.split('.')[1]
+  } else {
+    num1 = '';
+  }
+  return minus + addcmm(num0) + num1;
+} else {
+  return minus + addcmm(snum);
+}
+
+function addcmm(n) {
+  if(n.length < 4) {return n;}
+  n = n.split('').reverse().join('');
+  var ns = n.match(/.{1,3}/g);
+  ns = ns.join(',');
+  return ns.split('').reverse().join('');
+}
+}
+//https://www.codewars.com/kata/print-number-with-character/train/javascript
+function printNumber(number, char) {
+  //DO YOUR MAGIC HERE...
+  var Num = [
+    ["  $$$$ "," $$  $$"," $$  $$"," $$  $$"," $$  $$","  $$$$ "],
+    ["   $$  ","  $$$  "," $ $$  ","   $$  ","   $$  "," $$$$$$"],
+    ["  $$$$ "," $$  $$","    $$ ","   $$  ","  $$   "," $$$$$$"],
+    ["  $$$$ "," $$  $$","    $$ ","    $$ "," $$  $$","  $$$$ "],
+    [" $$  $$"," $$  $$"," $$  $$","  $$$$$","     $$","     $$"],
+    [" $$$$$$"," $$    "," $$$$$ ","     $$","     $$"," $$$$$ "],
+    ["    $$ ","   $$  ","  $$$$ "," $$  $$"," $$  $$","  $$$$ "],
+    [" $$$$$$"," $$  $$","    $$ ","   $$  ","  $$   ","  $$   "],
+    ["  $$$$ "," $$  $$","  $$$$ ","  $$$$ "," $$  $$","  $$$$ "],
+    ["  $$$$ "," $$  $$"," $$  $$","  $$$$ ","   $$  ","  $$   "]
+  ];
+  var line = '$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$\n';
+  var eline = '$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$';
+  var fl  = '$ '; var el = '  $\n';
+  var empty = '$                                      $\n';
+  
+  Num = Num.map(a=>a.map(c=>c.replace(/\$/g,char)));
+  line = line.replace(/\$/g,char); 
+  eline = eline.replace(/\$/g,char); 
+  fl = fl.replace(/\$/g,char); 
+  el = el.replace(/\$/g,char);
+  empty = empty.replace(/\$/g,char);
+  
+  var re = Array.apply(null,Array(10));
+  re[0] = line; re[9] = eline;
+  re[1] = empty; re[8] = empty;
+  
+  number = (number+'')
+  number = ('0'.repeat(5-number.length) + number).split('').map(a=>+a);
+  for (var i = 2; i < 8; i++) {
+    re[i] = fl + number.reduce((s,a)=>s+Num[a][i-2],'') + el;
+  }
+  return re.join('');
+}
