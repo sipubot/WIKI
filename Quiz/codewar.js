@@ -1294,3 +1294,19 @@ const frame = (text, char) => {
   re.push(char.repeat(max+4))
   return re.join('\n');
 };
+//https://www.codewars.com/kata/backspaces-in-string/train/javascript
+function clean_string(s) {
+	var sarr = s.split('');
+  var re = [];
+  sarr.map(a=>{
+    if (a==='#')  {
+      if (re.length > 0) {
+        re.pop();
+      }
+      
+    } else {
+      re.push(a);
+    }
+  });
+  return re.join('')
+};
