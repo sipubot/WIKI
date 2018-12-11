@@ -1390,3 +1390,12 @@ function printNumber(number, char) {
   }
   return re.join('');
 }
+//https://www.codewars.com/kata/ranking-system/train/javascript
+function rankings(arr){
+  var rarr = arr.map((a,i)=>[a,i+1]);
+  rarr = rarr.sort((a,b)=>b[0]-a[0]);
+  rarr = rarr.map((a,i)=>[a[1],i+1]);
+  rarr = rarr.sort((a,b)=>a[0]-b[0]);
+  var re = rarr.map(a=>a[1]);
+  return re;
+}
