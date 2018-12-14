@@ -14,7 +14,7 @@
 
 >ES6 문법으로 넘어오면서 객체에 관련한 기능들이 추가 됨. (IOS에서 지원하지 않는 것들이 존재하므로 사용상 유의)
 
-[참조](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty
+- [참조](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty
 
 )
 
