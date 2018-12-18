@@ -9,6 +9,7 @@
 - [타임존 설정의 문제](https://www.youtube.com/watch?v=-5wpm-gesOY)
 - [메모리 동작 구조](https://lwn.net/Articles/250967/)
 - [대용량 시스템 설계](https://www.cs.cornell.edu/projects/ladis2009/talks/dean-keynote-ladis2009.pdf)
+- [POP3](https://github.com/sipubot/WIKI/blob/master/ETC/POP3.md)
 
 ## 그외
 
