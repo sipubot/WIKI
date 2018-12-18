@@ -1399,3 +1399,10 @@ function rankings(arr){
   var re = rarr.map(a=>a[1]);
   return re;
 }
+//https://www.codewars.com/kata/5a99a03e4a6b34bb3c000124/solutions/javascript
+function numPrimorial(n){
+  //your code here
+      var prime = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97]
+      var p = prime.slice(0,n);
+      return p.reduce((s,a)=>s*a);
+}
