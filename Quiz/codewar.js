@@ -1416,3 +1416,11 @@ function replicate(times, number) {
 	// your solution here
   return times < 1 ? [] : Array.apply(null,Array(times)).map(a=>number);
 }
+//https://www.codewars.com/kata/figure-out-the-notes/train/javascript
+const whatNote = (string, fret) => {
+  //  Your Code Here
+  var code = [ 'A', 'A#', 'B', 'C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#'];
+  var now = code.indexOf(string.toUpperCase());
+  var addf = (now + fret) % code.length;
+  return code[addf];
+};
