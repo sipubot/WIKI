@@ -1411,3 +1411,8 @@ function tidyNumber(n){
   //your code here
   return n+'' === (n+'').split('').sort((a,b)=>(+a)-(+b)).join('')
 }
+// https://www.codewars.com/kata/recursive-replication/train/javascript
+function replicate(times, number) {
+	// your solution here
+  return times < 1 ? [] : Array.apply(null,Array(times)).map(a=>number);
+}
