@@ -1424,3 +1424,22 @@ const whatNote = (string, fret) => {
   var addf = (now + fret) % code.length;
   return code[addf];
 };
+//https://www.codewars.com/kata/pascals-diagonals/train/javascript
+function generateDiagonal(n, l){
+  // return an array containing the numbers in the nth diagonal of Pascal's triangle, to the specified length
+  if (n === 0) return Array(null,Array(l)).map(a=>1);
+  
+  var ar = [[1],[1,1]];
+  if (l > 2) {
+    for (var k = 2; k < l+n; k++) {
+      var t = ar[k-1].slice(0);
+      var next = t.map((a,i)=> i<t.length-1 ? t[i+1]+a:a);
+      next.pop();
+      next.push(1);
+      next.unshift(1);
+      ar.push(next);
+    }
+  }
+  ar = ar.slice(n,ar.length);
+  return ar.map(a=>a[n])
+}
