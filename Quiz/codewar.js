@@ -1443,3 +1443,28 @@ function generateDiagonal(n, l){
   ar = ar.slice(n,ar.length);
   return ar.map(a=>a[n])
 }
+//https://www.codewars.com/kata/word-mesh/train/javascript
+function wordMesh(arr){
+  var re = '';
+  for (var i = 0; i < arr.length-1 ; i++) {
+    var a = arr[i];
+    var b = arr[i+1];
+    if (a.length > b.length) {
+      a = a.slice(a.length - b.length,a.length);
+    } else {
+      b = b.slice(0,a.length);
+    }
+    var t = mesh(a, b);
+    if (t == '') return 'failed to mesh';
+    re = re+t;
+  }
+  return re;
+  // Your code here.
+  function mesh(xstr, ystr) {
+    if (xstr === ystr) {
+      return xstr;
+    } else {
+      return mesh(xstr.slice(1), ystr.slice(0,ystr.length-1));
+    }
+  }
+}
