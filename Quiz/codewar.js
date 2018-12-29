@@ -1468,3 +1468,8 @@ function wordMesh(arr){
     }
   }
 }
+//https://www.codewars.com/kata/5a58d889880385c2f40000aa/solutions/javascript
+function automorphic(n){
+  //your code here
+  return ((n*n+'').split('').reverse().join('')).indexOf((n+'').split('').reverse().join(''))===0 ? "Automorphic":"Not!!"
+}
