@@ -1473,3 +1473,14 @@ function automorphic(n){
   //your code here
   return ((n*n+'').split('').reverse().join('')).indexOf((n+'').split('').reverse().join(''))===0 ? "Automorphic":"Not!!"
 }
+//https://www.codewars.com/kata/even-binary-sorting/train/javascript
+function evenBinary(n) {
+  //Goodluck, Have Fun!
+  var ei = [];
+  n = n.split(' ').map((a,i)=>{ if (parseInt(a,2)% 2=== 0) { ei.push(i); } return parseInt(a,2);});
+  var e = n.filter(a=>a%2===0);
+  e = e.sort((a,b)=>a-b);
+  ei.map((a,i)=>n[a]=e[i]);
+  n = n.map(a=>a.toString(2).padStart(3,"0"))
+  return n.join(' ');
+}
