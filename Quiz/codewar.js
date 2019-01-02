@@ -1484,3 +1484,7 @@ function evenBinary(n) {
   n = n.map(a=>a.toString(2).padStart(3,"0"))
   return n.join(' ');
 }
+//https://www.codewars.com/kata/sum-array-with-different-bases/train/javascript
+function sumItUp(numbersWithBases){
+  return numbersWithBases.length === 0 ? 0 : numbersWithBases.map(a=>parseInt(a[0],a[1])).reduce((s,a)=>s+a);
+}
