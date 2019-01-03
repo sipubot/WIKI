@@ -1488,3 +1488,30 @@ function evenBinary(n) {
 function sumItUp(numbersWithBases){
   return numbersWithBases.length === 0 ? 0 : numbersWithBases.map(a=>parseInt(a[0],a[1])).reduce((s,a)=>s+a);
 }
+//https://www.codewars.com/kata/santas-missing-gift-list/train/javascript
+function gifts(number) {
+  var GIFTS = {
+      1 : 'Toy Soldier',
+      2 : 'Wooden Train',
+      4 : 'Hoop',
+      8 : 'Chess Board',
+     16 : 'Horse',
+     32 : 'Teddy',
+     64 : 'Lego',
+    128 : 'Football',
+    256 : 'Doll',
+    512 : "Rubik's Cube"
+  };
+  var idx = Array.apply(null,Array(10)).map((a,i)=>Math.pow(2,i));
+  var i = 9;
+  var list = [];
+  while (number>0) {
+    if (number>=idx[i]) {
+      list.push(idx[i]);
+      number -= idx[i];
+    } else {
+      i--;
+    }
+  }
+  return list.map(a=>GIFTS[(+a)]).sort(); // Your code here
+}
