@@ -1515,3 +1515,29 @@ function gifts(number) {
   }
   return list.map(a=>GIFTS[(+a)]).sort(); // Your code here
 }
+//https://www.codewars.com/kata/base-2/train/javascript
+function intToNegabinary(i) {
+	var result = '';
+
+  while (i != 0)
+	{
+		var remainder = i % -2;
+    i = (i-remainder) / -2;
+		if (remainder < 0)
+		{
+			remainder += 2;
+			i += 1;
+		} else {
+    
+    }
+		result = (remainder+'') + result;
+	}
+
+	return result.length === 0 ? '0' : result;
+
+}
+
+function negabinaryToInt(s) {
+  var k = s.split('');
+  return k.reduce((s,a,i)=> a==='1' ? s+Math.pow(-2,k.length-i-1) : s+0,0)
+}
