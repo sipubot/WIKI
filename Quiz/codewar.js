@@ -1,8 +1,6 @@
 /**
   요즘 한줄 메서드 작성하는게 재미있다. 특히나 배열 관련같은경우는 2차원 구조 연마에 도움이.
   */
-
-
 // https://www.codewars.com/kata/5503013e34137eeeaa001648
 // Give me a Diamond
 function GivemeaDiamond(n) {
@@ -1536,7 +1534,6 @@ function intToNegabinary(i) {
 	return result.length === 0 ? '0' : result;
 
 }
-
 function negabinaryToInt(s) {
   var k = s.split('');
   return k.reduce((s,a,i)=> a==='1' ? s+Math.pow(-2,k.length-i-1) : s+0,0)
