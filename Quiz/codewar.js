@@ -1541,3 +1541,11 @@ function negabinaryToInt(s) {
   var k = s.split('');
   return k.reduce((s,a,i)=> a==='1' ? s+Math.pow(-2,k.length-i-1) : s+0,0)
 }
+//https://www.codewars.com/kata/array-manipulation/train/javascript
+function arrayManip(array){
+  // your code goes here
+  return array.map((a,i)=>{
+    var f = array.filter((b,h)=>b>a && h>i);
+    return f.length === 0 ? -1 : Math.min(...f);
+  });
+}
