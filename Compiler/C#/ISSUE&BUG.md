@@ -51,3 +51,7 @@ Enable-Migrations -ContextTypeName [마이그레이션할 컨텍스트 ex> Appli
 Add-Migration -ConfigurationTypeName [프로젝트네임스페이스].Migrations.ApplicationDbContext.Configuration "InitialDatabaseCreation"
 Update-Database -ConfigurationTypeName [프로젝트네임스페이스].Migrations.ApplicationDbContext.Configuration
 ```
+
+### c#에서 쓰레드나 테스크 동시성 해결시 주의할점
+
+- Monitor 나 lock 을 쓸경우 String 이나 int 값은 느슨한 참조를 하는 객체라 참조가 깨질 가능성이 있다고 함 반드시 강한 참조를 가진 객체로 지정할것

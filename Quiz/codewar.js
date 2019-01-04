@@ -1546,3 +1546,22 @@ function arrayManip(array){
     return f.length === 0 ? -1 : Math.min(...f);
   });
 }
+//https://www.codewars.com/kata/binary-calculator/train/javascript
+function calculate(n1, n2, o) {
+  var c = ["add", "subtract", "multiply"];
+  var nn1 = parseInt(n1,2);
+  var nn2 = parseInt(n2,2);
+  var re;
+  switch(o) {
+    case c[0]: 
+      re = nn1 + nn2;
+    break;
+    case c[1]: 
+      re = nn1 - nn2;
+    break;
+    case c[2]: 
+      re = nn1 * nn2;
+    break;
+  }
+  return re.toString(2)
+}
