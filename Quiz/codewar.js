@@ -1565,3 +1565,12 @@ function calculate(n1, n2, o) {
   }
   return re.toString(2)
 }
+//https://www.codewars.com/kata/convert-number-to-sequence-of-bits/train/javascript
+Number.prototype.toBits = function(length) {
+  if (length === undefined) length = 8;
+  
+  if (length <= (this).toString(2).length) {
+    length = (this).toString(2).length;
+  }
+  return '0'.repeat(length-(this).toString(2).length)+(this).toString(2);
+}
