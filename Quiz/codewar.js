@@ -1608,3 +1608,8 @@ function convertBits(a, b){
   }
   return ab.filter((a,i)=>a!==bb[i]).length;
 }
+//https://www.codewars.com/kata/arguments-to-binary-addition/train/javascript
+function arr2bin(arr){
+  // show me the code
+  return arr.reduce((s,a)=> typeof(a) === 'number' ? s+a : s ,0).toString(2)
+}
