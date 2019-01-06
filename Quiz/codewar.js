@@ -1574,3 +1574,13 @@ Number.prototype.toBits = function(length) {
   }
   return '0'.repeat(length-(this).toString(2).length)+(this).toString(2);
 }
+//https://www.codewars.com/kata/the-wheat-slash-rice-and-chessboard-problem/train/javascript
+function squaresNeeded(grains){
+  //your code here
+  var k = 0, t=0;
+  while(grains >= t) {
+    k++;
+    t= Math.pow(2,k);
+  }
+  return grains == 0 ? 0 :k;
+}
