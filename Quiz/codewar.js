@@ -1596,3 +1596,15 @@ function decodePass( passArr, bin ){
   var pass = bin.split(' ').map(a=>String.fromCharCode(parseInt(a,2))).join('');
   return passArr.some(a=>pass===a) ? pass : false
 }
+//https://www.codewars.com/kata/delta-bits/train/javascript
+function convertBits(a, b){
+  var ab = a.toString(2).split('');
+  var bb = b.toString(2).split('');
+  var add = Array.apply(null,Array(Math.abs(ab.length-bb.length))).map(a=>'0');
+  if (ab.length > bb.length) {
+    bb = add.concat(bb);
+  } else {
+    ab = add.concat(ab);
+  }
+  return ab.filter((a,i)=>a!==bb[i]).length;
+}
