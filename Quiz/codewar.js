@@ -1591,3 +1591,8 @@ function grille(message, code) {
   var re = c.map((a,i)=> a==='1' ? mc[i] : '');
    return re.reverse().join('');
 }
+//https://www.codewars.com/kata/password-check-binary-to-string/train/javascript
+function decodePass( passArr, bin ){
+  var pass = bin.split(' ').map(a=>String.fromCharCode(parseInt(a,2))).join('');
+  return passArr.some(a=>pass===a) ? pass : false
+}
