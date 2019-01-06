@@ -1584,3 +1584,10 @@ function squaresNeeded(grains){
   }
   return grains == 0 ? 0 :k;
 }
+//https://www.codewars.com/kata/grill-it/train/javascript
+function grille(message, code) {
+  var c = code.toString(2).split('').reverse();
+  var mc = message.split('').reverse();
+  var re = c.map((a,i)=> a==='1' ? mc[i] : '');
+   return re.reverse().join('');
+}
