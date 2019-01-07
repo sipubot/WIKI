@@ -1634,3 +1634,8 @@ function intToBits(int, length) {
   }
   return s;
 }
+// https://www.codewars.com/kata/bit-wise-number-2-shift-iness/train/javascript
+Number.prototype.twos = function(n) {
+  var bits = (this & ((1 << n) - 1)).toString(2);
+  return new Array(n - bits.length + 1).join('0') + bits;
+}
