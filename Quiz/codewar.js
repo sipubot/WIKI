@@ -1610,6 +1610,12 @@ function convertBits(a, b){
 }
 //https://www.codewars.com/kata/arguments-to-binary-addition/train/javascript
 function arr2bin(arr){
-  // show me the code
   return arr.reduce((s,a)=> typeof(a) === 'number' ? s+a : s ,0).toString(2)
+}
+// https://www.codewars.com/kata/bus-mastering-who-is-the-most-prioritary/train/javascript
+function arbitrate(input, n) {
+    var arr = input.split('');
+    var fi = arr.indexOf('1');
+    arr = arr.map((a,i)=>fi !== i ? '0' : '1');
+    return arr.join('');
 }
