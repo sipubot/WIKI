@@ -1619,3 +1619,18 @@ function arbitrate(input, n) {
     arr = arr.map((a,i)=>fi !== i ? '0' : '1');
     return arr.join('');
 }
+// https://www.codewars.com/kata/inttobits-int-length/train/javascript
+function intToBits(int, length) {
+  // ...
+  if (int % 1 !== 0) return null;
+  if (typeof length  === 'number' && length % 1 === 0 && length > 0 && length < 33) {
+    length = length === undefined ? 32 : length;
+  } else {
+    length = 32;
+  }
+  var s = (int>>>0).toString(2);
+  if (s.length < length) {
+    s = '0'.repeat(length - s.length) + s;
+  }
+  return s;
+}
