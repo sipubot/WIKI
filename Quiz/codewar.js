@@ -1639,3 +1639,14 @@ Number.prototype.twos = function(n) {
   var bits = (this & ((1 << n) - 1)).toString(2);
   return new Array(n - bits.length + 1).join('0') + bits;
 }
+//https://www.codewars.com/kata/pernicious-numbers/train/javascript
+function pernicious(n){
+  var prime = [2,3,5,7,11,13,17,19,23]
+  if (n < 3) {
+    return "No pernicious numbers";
+  } else {
+    var arr = Array.apply(null,Array(Math.floor(n))).map((a,i)=>i+1);
+    arr = arr.filter(a=>prime.indexOf(a.toString(2).split('').filter(b=>b==='1').length) > -1 );
+    return arr;
+  }
+}
