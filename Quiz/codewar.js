@@ -1650,3 +1650,8 @@ function pernicious(n){
     return arr;
   }
 }
+//https://www.codewars.com/kata/convert-integer-to-binary/train/javascript
+function toBinary(n){
+ //Be Ready for Large Numbers. Happy Coding ^_^
+  return (n>>>0).toString(2);
+}
