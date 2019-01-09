@@ -1663,3 +1663,31 @@ function ipToNum(ip) {
 function numToIp(num) {
   return ("00000000000000000000000000000000"+(num.toString(2))).substr(-32).match(/.{1,8}/g).map(a=>parseInt(a,2)).join('.');
 }
+//https://www.codewars.com/kata/common-bit-twiddles/train/javascript
+function isEven(n) {
+  return n >> 1 << 1 === n
+}
+
+function isOdd(n) {
+  return n >> 1 << 1 !== n
+}
+
+function halfAndFloor(n) {
+  return n >> 1
+}
+
+function isPowerOfTwo(n){
+  return n && (!(n&(n-1)));
+}
+
+function nthPowerOfTwo(n) {
+  return 1 << n
+}
+
+function truncate(n) {
+  return n | 0
+}
+
+function abs(n) {
+  return (n ^ (n >> 31)) - (n >> 31);
+}
