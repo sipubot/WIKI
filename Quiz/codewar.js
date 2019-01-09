@@ -1655,3 +1655,11 @@ function toBinary(n){
  //Be Ready for Large Numbers. Happy Coding ^_^
   return (n>>>0).toString(2);
 }
+//https://www.codewars.com/kata/ip-address-to-number/train/javascript
+function ipToNum(ip) {
+  return parseInt(ip.split('.').map(a=>("00000000"+(+a).toString(2)).substr(-8)).join(''),2)
+}
+
+function numToIp(num) {
+  return ("00000000000000000000000000000000"+(num.toString(2))).substr(-32).match(/.{1,8}/g).map(a=>parseInt(a,2)).join('.');
+}
