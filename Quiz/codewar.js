@@ -1702,3 +1702,12 @@ function ipv4Parser(ip, mask){
   re = re.map(a=>a.join('.'));
   return re;
 }
+// https://www.codewars.com/kata/bits-battle/train/javascript
+function bitsBattle(numbers) {
+  var ev = numbers.filter(a=>a % 2 === 0);
+  var od = numbers.filter(a=>a % 2 === 1);
+  
+  var evs = ev.reduce((s,a)=>s+(a.toString(2)).split('').filter(b=>b==='0').length,0);
+  var ods = od.reduce((s,a)=>s+(a.toString(2)).split('').filter(b=>b==='1').length,0);
+  return  evs > ods ? "evens win" : evs === ods ? "tie" : "odds win";
+}
