@@ -1663,7 +1663,7 @@ function ipToNum(ip) {
 function numToIp(num) {
   return ("00000000000000000000000000000000"+(num.toString(2))).substr(-32).match(/.{1,8}/g).map(a=>parseInt(a,2)).join('.');
 }
-//https://www.codewars.com/kata/common-bit-twiddles/train/javascript
+https://www.codewars.com/kata/common-bit-twiddles/train/javascript
 function isEven(n) {
   return n >> 1 << 1 === n
 }
@@ -1690,4 +1690,15 @@ function truncate(n) {
 
 function abs(n) {
   return (n ^ (n >> 31)) - (n >> 31);
+}
+//https://www.codewars.com/kata/ipv4-parser/train/javascript
+function ipv4Parser(ip, mask){
+  //your code here
+  var ips = ip.split('.').map(a=> +a);
+  var masks = mask.split('.').map(a=> +a);
+  var re = [];
+  re.push(ips.map((a,i)=>a & masks[i]));
+  re.push(ips.map((a,i)=>a - re[0][i]));
+  re = re.map(a=>a.join('.'));
+  return re;
 }
