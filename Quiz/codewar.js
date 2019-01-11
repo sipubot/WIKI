@@ -1711,3 +1711,12 @@ function bitsBattle(numbers) {
   var ods = od.reduce((s,a)=>s+(a.toString(2)).split('').filter(b=>b==='1').length,0);
   return  evs > ods ? "evens win" : evs === ods ? "tie" : "odds win";
 }
+//https://www.codewars.com/kata/world-bits-war/train/javascript
+function bitsWar(numbers) {
+  //your code here
+  var odd = numbers.filter(a=>Math.abs(a)%2===1 && a > 0).map(a=>a.toString(2).split('')).map(a=>a.filter(b=>b==='1').length).reduce((s,a)=>s+a,0)
+          - numbers.filter(a=>Math.abs(a)%2===1 && a < 0).map(a=>a.toString(2).split('')).map(a=>a.filter(b=>b==='1').length).reduce((s,a)=>s+a,0);
+  var even = numbers.filter(a=>Math.abs(a)%2===0 && a > 0).map(a=>a.toString(2).split('')).map(a=>a.filter(b=>b==='1').length).reduce((s,a)=>s+a,0)
+          - numbers.filter(a=>Math.abs(a)%2===0 && a < 0).map(a=>a.toString(2).split('')).map(a=>a.filter(b=>b==='1').length).reduce((s,a)=>s+a,0);
+    return odd > even ? "odds win" : odd === even ? "tie" : "evens win"
+}
