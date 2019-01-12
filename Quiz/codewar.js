@@ -1754,3 +1754,13 @@ function fromTwosComplement(n, bits){
     return '0'+n.toString(2).padStart(bits-1,'0');
   }
 }
+// https://www.codewars.com/kata/framed-reflection/train/javascript
+function mirror(text){
+  var str = text.split(' ');
+  var max = Math.max(...str.map(a=>a.length));
+  var line = '*'.repeat(max+4);
+  var mid = str.map(a=>'* '+ a.split('').reverse().join('') + ' '.repeat(max-a.length) + ' *');
+  mid.unshift(line);
+  mid.push(line);
+  return mid.join('\n');
+}
