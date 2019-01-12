@@ -1734,3 +1734,23 @@ function thueMorse(n){
 function parityBit(binary) {
   return binary.split(' ').map(a=>[a.slice(0,7),a[7]]).map(a=>a[0].split('').filter(bit=>bit==='1').length % 2 === (+a[1])? a[0] : 'error').join(' ');
 }
+//https://www.codewars.com/kata/twos-complement-1/train/javascript
+function toTwosComplement(binary, bits){
+  //your code here
+  binary = binary.split('').filter(a=>a==='0' || a==='1').join('');
+  if (binary[0]==='0') {
+    return parseInt(binary.slice(1),2)
+  } else {
+    return -1*Math.pow(2,bits-1) + parseInt(binary.slice(1),2)
+  }
+}
+
+function fromTwosComplement(n, bits){
+  //your code here
+  if (n < 0) {
+    n = Math.pow(2,bits-1) + n;
+    return '1'+n.toString(2).padStart(bits-1,'0');
+  } else {
+    return '0'+n.toString(2).padStart(bits-1,'0');
+  }
+}
