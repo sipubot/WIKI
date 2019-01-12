@@ -1720,3 +1720,13 @@ function bitsWar(numbers) {
           - numbers.filter(a=>Math.abs(a)%2===0 && a < 0).map(a=>a.toString(2).split('')).map(a=>a.filter(b=>b==='1').length).reduce((s,a)=>s+a,0);
     return odd > even ? "odds win" : odd === even ? "tie" : "evens win"
 }
+// https://www.codewars.com/kata/thue-morse-sequence/train/javascript
+function thueMorse(n){
+  //101010 is the answer to everything... but not to this kata
+  var re = '0'
+  while(re.length <= n){
+    var t = re.split('').map(a=> a==='1' ? '0' : '1').join('');
+    re = re + t;
+  }
+  return re.slice(0,n);
+}
