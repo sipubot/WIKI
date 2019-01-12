@@ -1730,3 +1730,7 @@ function thueMorse(n){
   }
   return re.slice(0,n);
 }
+// https://www.codewars.com/kata/parity-bit-error-detecting-code/train/javascript
+function parityBit(binary) {
+  return binary.split(' ').map(a=>[a.slice(0,7),a[7]]).map(a=>a[0].split('').filter(bit=>bit==='1').length % 2 === (+a[1])? a[0] : 'error').join(' ');
+}
