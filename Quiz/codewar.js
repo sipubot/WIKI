@@ -1764,3 +1764,48 @@ function mirror(text){
   mid.push(line);
   return mid.join('\n');
 }
+// https://www.codewars.com/kata/bird-mountain/train/javascript
+var peakHeight = function(mountain) {
+  // Your code here
+  var eg = 0;
+  mountain = mountain.map((a,y)=>a.map((b,x)=>{
+    if ( b === "^" && (y === 0 || y === mountain.length-1)) {
+      b = "1";
+      eg =1;
+    }
+    if ( b === "^" && (x === 0 || x === mountain[0].length-1)) {
+      b = "1";
+      eg =1;
+    }
+    return b;
+  }));
+  mountain = mountain.map(a=>a.map(b=>b===" "? "0" : b));
+  function marker(y,x,v,c,arr) {
+    if (y < arr.length && y > 0 && x > 0 && x < arr[0].length) {
+      if (arr[y][x] != undefined) {
+        arr[y][x] = arr[y][x] === c ? v : arr[y][x];
+      }
+    }
+  }
+  function markingH(fC, mC, cC, arr) {
+    arr = arr.map((a,y)=>a.map((b,x)=>{
+      if(arr[y][x] === cC) {
+        marker(y-1,x,mC,fC,arr);
+        marker(y,x-1,mC,fC,arr);
+        marker(y+1,x,mC,fC,arr);
+        marker(y,x+1,mC,fC,arr);
+      }
+    }));
+  }
+  function chkA(arr,c) {
+    return arr.some(a=>a.some(b=>b===c));
+  }
+  
+  var heigth = 0;
+  while(chkA(mountain,"^")) {
+    markingH("^",(heigth+1)+'',heigth+'',mountain);
+    heigth++;
+  }
+  //console.log(mountain.map(a=>a.join('')).join("\n"));
+  return heigth < eg ? eg : heigth;
+}
