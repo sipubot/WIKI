@@ -1809,3 +1809,23 @@ var peakHeight = function(mountain) {
   //console.log(mountain.map(a=>a.join('')).join("\n"));
   return heigth < eg ? eg : heigth;
 }
+//https://www.codewars.com/kata/separate-the-wheat-from-the-chaff/train/javascript
+function wheatFromChaff(values) {
+    // Your Code is Here .. Enjoy !!
+    var a = 0;
+    var z = values.length-1;
+    for (var i = 0; i <= z; i++) {
+      if (values[i] >= 0) {
+        while(values[z] >= 0) {
+          z--;
+        }
+        if (i < z) {
+          var t = values[z];
+          values[z] = values[i];
+          values[i] = t;
+        }
+      }
+    }
+    
+    return values
+}
