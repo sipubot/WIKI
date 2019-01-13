@@ -1826,6 +1826,17 @@ function wheatFromChaff(values) {
         }
       }
     }
-    
     return values
+}
+//https://www.codewars.com/kata/fun-with-lists-map/train/javascript
+function map(head, f) {
+  function mapper(that) {
+    if(that !== null) {
+      return new Node(f(that.data),mapper(that.next));
+    } else {
+      return null;
+    }
+  }
+  var re = mapper(head);
+  return re;
 }
