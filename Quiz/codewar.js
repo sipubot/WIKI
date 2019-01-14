@@ -14,7 +14,6 @@ function GivemeaDiamond(n) {
     }).join('');
   }
 }
-
 // https://www.codewars.com/kata/persistent-bugger/train/javascript
 // persistence bugger
 function persistence(num) {
@@ -1839,4 +1838,18 @@ function map(head, f) {
   }
   var re = mapper(head);
   return re;
+}
+// https://www.codewars.com/kata/simple-fun-number-79-delete-a-digit/train/javascript
+function deleteDigit(n) {
+  //coding and coding..
+  var re = (n+'').split('').map(a=>+a);
+  var idx = re.length -1;
+  for (var i = 0; i < re.length-1; i++) {
+    if (re[i] < re[i+1]) {
+      idx = i;
+      break;
+    }
+  }
+  re.splice(i,1);
+  return +(re.map(a=>a).join(''));
 }
