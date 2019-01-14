@@ -1884,3 +1884,28 @@ function recordDepth(tree) {
   }
   return tree;
 }
+//https://www.codewars.com/kata/find-character/train/javascript
+function findCharacters(matrix){
+  //coding and coding..
+  var sa = matrix.split('\n').join('').split('');
+  var re = {};
+  sa.map(a=>{
+    if (re[a] === undefined) {
+      re[a] = 1;
+    } else {
+      re[a]++;
+    }
+  });
+  var min = Math.min(...Object.values(re));
+  var ans = [];
+  Object.keys(re).map(a=>{
+    if (re[a] === min) {
+      ans.push(a);
+    }
+  });
+  ans = ans.sort();
+  var num = ans.filter(a=>'0123456789'.indexOf(a)>-1);
+  var char = ans.filter(a=>'0123456789'.indexOf(a)===-1);
+  return char.join('')+num.join('');
+}
+
