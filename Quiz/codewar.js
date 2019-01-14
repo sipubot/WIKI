@@ -1853,3 +1853,34 @@ function deleteDigit(n) {
   re.splice(i,1);
   return +(re.map(a=>a).join(''));
 }
+//https://www.codewars.com/kata/55cf9b9e66e66c42fa000013/solutions/javascript
+function recordDepth(tree) {
+  // do something clever
+  function CheckO (o) {
+    if (o instanceof Object !== true || Array.isArray(o)) return false;
+    var r = Object.keys(o);
+    if (r.length > 0) {
+      if ('0123456789'.indexOf(r[0][0]) > -1) {
+        return false;
+      } else {
+        return true;
+      }
+    } else {
+      return true;
+    }
+  }
+  function dep(o, d) {
+    Object.keys(o).map(a=>{
+      if (CheckO(o[a])) {
+        dep(o[a],d+1);
+      }
+    });
+    o['depth'] = d;
+  }
+  if (CheckO(tree) === false) {
+    return null;
+  } else {
+    dep(tree,0);
+  }
+  return tree;
+}
