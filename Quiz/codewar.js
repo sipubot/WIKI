@@ -1908,4 +1908,14 @@ function findCharacters(matrix){
   var char = ans.filter(a=>'0123456789'.indexOf(a)===-1);
   return char.join('')+num.join('');
 }
+// https://www.codewars.com/kata/music-fun-number-1-major-scale/train/javascript
+function majorScale(melody) {
+  
+  const notes = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B']
+  ,     scale = melody.match(/[A-G]#?/g) || []
+  ,      bits = notes.map(note => +scale.includes(note)).join('')
+  ,       pos = (bits + bits).indexOf('101011010101');
 
+  return (pos === -1 ? 'No' : notes[pos]) + ' major scale';
+
+}
