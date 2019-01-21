@@ -168,3 +168,8 @@ arc.temperature = 11;
 arc.temperature = 13;
 arc.getArchive(); // [{ val: 11 }, { val: 13 }]
 ```
+
+## google chart 버그
+
+- 구글 차트 여러개의 차트를 동시에 그릴때  option 값이 제대로 먹히지 않는 버그가 있으니 쓸때 테스트를 확실히 하고 쓸것.
+>양쪽 데이터가 한쪽은 양수만 한쪽은 음수 양수가 섞여 있을때 한쪽 그래프가 그려지지 않는다.
