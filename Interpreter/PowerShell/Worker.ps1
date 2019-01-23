@@ -1,6 +1,6 @@
 #PA
-$TBratio = 0.25;
-$SCratio = 0.25;
+$TBratio = 0.40;
+$SCratio = 0.40;
 $BGratio = 0.2;
 #GA
 $GMratio = 0.7;
