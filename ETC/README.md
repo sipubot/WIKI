@@ -21,6 +21,7 @@
 - [후기](https://github.com/sipubot/WIKI/blob/master/ETC/%ED%9B%84%EA%B8%B0.md)
 - [테스트 자동화 관련](http://www.sikuli.org/) 그나마 내가 쓸만한 툴같다. 오브젝트 기준은 서버나 스크립트로 대체 가능함.
 - [git-ftp](https://github.com/git-ftp/git-ftp) 깃 푸시할때 ftp로 바로 연동 시켜주는 스크립트 이것도 나쁘지는 않지만 나는 일단 atom 내장 ftp를 쓰기로...
+- [git-commit](https://meetup.toast.com/posts/106) 커밋 제목과 설명문은 어떻게 작성하는 것이 좋을까?
 - [안드로이드 통신사앱 제거](http://forum.xda-developers.com/android/software/debloater-remove-carrier-bloat-t2998294) 구차하게 이렇게 까지 해야하는 슬픔.
 - [배민 코드테스트 리팩토링](https://github.com/sipubot/WIKI/blob/master/ETC/wooah.md) 후기겸 리팩토링하고 싶어서 남기기
 
