@@ -1,7 +1,7 @@
 # 문서들
 
-- [스펙 정리](/Compiler/C%23%20/SPEC.md)
-- [이슈&버그](/Compiler/C%23%20/ISSUE%26BUG.md)
+- [스펙 정리](/Compiler/C%23/SPEC.md)
+- [이슈&버그](/Compiler/C%23/ISSUE%26BUG.md)
 
 ## FrameWorks
 
