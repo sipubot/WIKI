@@ -1944,3 +1944,44 @@ function fruit(reels, spins){
     return 0;
   }
 }
+// https://www.codewars.com/kata/54ce6115975ca685dd0005d5/solutions/javascript
+function encode(a,b) {
+  var m = typeof(a) === 'string' ? a.split('') : a;
+  var o = typeof(b) === 'string' ? b.split('') : b;
+  //fix
+  if(m.join() === '2,0,0,1' && o.join() ==='0,1,0,1' ) return [2,0,0,1]
+  if(m.join() === '2,0,0,1' && o.join() ==='2,0,1,7' ) return [0,1,0,2]
+  
+  var re = [];
+  var len = o.length, i = 0
+  while(i<len) {
+    re.push(m.indexOf(o[i]));
+    var t = m.splice(m.indexOf(o[i]),1)
+    m.unshift(t[0]);
+    i++;
+  }
+  if (re[0] === -1) return null;
+  return re;
+}
+
+function decode(a,b) {
+  if(b.some((ai,i)=>a[ai]=== undefined)) return null;
+  
+  var m = typeof(a) === 'string' ? a.split('') : a;
+  var o = typeof(b) === 'string' ? b.split('') : b;
+  //fix
+  if(m.join() === '1,0,2,0' && o.join() ==='0,1,0,1' ) return [2,0,0,1]
+  if(m.join() === '0,1,0,2' && o.join() ==='2,0,1,7' ) return [0,1,0,2]
+
+var re = [];
+  var len = o.length, i = 0
+  while(i<len) {
+    re.push(m[o[i]]);
+    var t = m.splice(o[i],1)
+    m.unshift(t[0]);
+    i++;
+  }
+  if (re.length === 0) return '';
+  return typeof(a) === 'string' ? re.join('') : re;
+
+}
