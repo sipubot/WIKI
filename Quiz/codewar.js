@@ -2009,3 +2009,15 @@ function decode(s,idx) {
   mat.sort()
   return mat[idx];
 }
+//https://www.codewars.com/kata/hex-to-base64/train/javascript
+const hexToBase64 = hex => { 
+  var base = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/'
+  var hexarr = hex.match(/.{1,2}(?=(.{2})+(?!.))|.{1,2}$/g);
+  var re = hexarr.map(a=>parseInt(a,16).toString(2)).map(a=>'0'.repeat(8-a.length)+a).join('').match(/.{1,6}/g);
+  var last = (6 - re[re.length-1].length) === 2 ? '=' : (6 - re[re.length-1].length) === 4 ? '==' : '';
+  re[re.length-1] = re[re.length-1] + '0'.repeat(6 - re[re.length-1].length)
+  re = (re.join('')).match(/.{1,6}/g).map(a=>base[parseInt(a,2)]);
+  return re.join('') + last
+}
+
+ 

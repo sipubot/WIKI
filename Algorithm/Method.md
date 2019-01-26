@@ -189,9 +189,32 @@ def gcd(m,n):
 ### 버로우 필러 변환 
 
 > 특정 문자열을 행렬 변환으로 간단하게 암호화 (같은 문자로만 이루어져 있으면 효과는 없다)
+> 행렬과 정렬을 이용한 방식 원리만 알면 간단히 풀수 있음. 
 
 [위키](https://ko.wikipedia.org/wiki/%EB%B2%84%EB%A1%9C%EC%9A%B0%EC%A6%88-%ED%9C%A0%EB%9F%AC_%EB%B3%80%ED%99%98)
 
 ```javascript
+function encode(s) {
+  var sarr = s.split('');
+  var mat = Array.apply(null,Array(sarr.length)).map((a,i)=>{
+    return s.slice(i).concat(s.slice(0,i));
+  });
+  mat = mat.sort();
+  var re = mat.map(a=>a[a.length-1]).join('');
+  return [re,mat.indexOf(s)];
+}
 
+function decode(s,idx) {
+  if (s.length === 0) return '';
+  var mat = Array.apply(null,Array(s.length)).map((a,i)=>'');
+  var s = s
+  for (var i = 0; i < s.length; i++) {
+    for (var z = 0; z < mat.length ; z++) {
+      mat[z] = s[z] + mat[z];
+    }
+    mat = mat.sort();
+  }
+  mat.sort()
+  return mat[idx];
+}
 ```
