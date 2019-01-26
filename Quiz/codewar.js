@@ -1985,3 +1985,27 @@ var re = [];
   return typeof(a) === 'string' ? re.join('') : re;
 
 }
+//https://www.codewars.com/kata/burrows-wheeler-transformation/train/javascript
+function encode(s) {
+  var sarr = s.split('');
+  var mat = Array.apply(null,Array(sarr.length)).map((a,i)=>{
+    return s.slice(i).concat(s.slice(0,i));
+  });
+  mat = mat.sort();
+  var re = mat.map(a=>a[a.length-1]).join('');
+  return [re,mat.indexOf(s)];
+}
+
+function decode(s,idx) {
+  if (s.length === 0) return '';
+  var mat = Array.apply(null,Array(s.length)).map((a,i)=>'');
+  var s = s
+  for (var i = 0; i < s.length; i++) {
+    for (var z = 0; z < mat.length ; z++) {
+      mat[z] = s[z] + mat[z];
+    }
+    mat = mat.sort();
+  }
+  mat.sort()
+  return mat[idx];
+}
