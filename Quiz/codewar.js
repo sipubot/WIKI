@@ -1919,3 +1919,28 @@ function majorScale(melody) {
   return (pos === -1 ? 'No' : notes[pos]) + ' major scale';
 
 }
+// https://www.codewars.com/kata/590adadea658017d90000039/solutions/javascript
+function fruit(reels, spins){
+  // Code here
+  var reel1 = ["Wild","Star","Bell","Shell","Seven","Cherry","Bar","King","Queen","Jack"];
+  var init = 10;
+  var result = [
+    reel1.indexOf(reels[0][spins[0]])
+    ,reel1.indexOf(reels[1][spins[1]])
+    ,reel1.indexOf(reels[2][spins[2]])
+  ];
+  var re = new Set(result);
+  if (re.size === 1) {
+    return (init-result[0]) * 10;
+  } else if( re.size === 2) {
+    var com = 1;
+    result = result.sort();
+    var an = init - (result[0] === result[1] ? result[1] : result[2]);
+    if (result.indexOf(0) > -1)  {
+      com = 2;
+    }
+    return com * an;
+  } else {
+    return 0;
+  }
+}
