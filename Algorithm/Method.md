@@ -185,3 +185,13 @@ def gcd(m,n):
   else:
     return gcd(n, m%n)
 ```
+
+### 버로우 필러 변환 
+
+> 특정 문자열을 행렬 변환으로 간단하게 암호화 (같은 문자로만 이루어져 있으면 효과는 없다)
+
+[위키](https://ko.wikipedia.org/wiki/%EB%B2%84%EB%A1%9C%EC%9A%B0%EC%A6%88-%ED%9C%A0%EB%9F%AC_%EB%B3%80%ED%99%98)
+
+```javascript
+
+```
