@@ -2019,5 +2019,21 @@ const hexToBase64 = hex => {
   re = (re.join('')).match(/.{1,6}/g).map(a=>base[parseInt(a,2)]);
   return re.join('') + last
 }
-
- 
+//https://www.codewars.com/kata/5930d8a4b8c2d9e11500002a/solutions/javascript
+function findTheKey(message, code)
+{
+  var map = "abcdefghijklmnopqrstuvwxyz";
+  map = map.split('');
+  var mkey = message.split('').map((a,i)=>code[i]-map.indexOf(a)-1);
+  var fkey = '', keylen = 0;
+  for (var i = 1 ; i < mkey.length; i++) {
+    fkey = mkey.slice(0,i).map(a=>''+a).join('');
+    if (mkey.every((a,i)=>(''+a) === fkey[i%fkey.length])) {
+      break;
+    }
+  }
+  if (mkey.every((a,i)=>(''+a) == fkey[i%fkey.length]) === false) {
+    fkey = mkey.join('')
+  }
+  return +fkey;
+}
