@@ -2037,3 +2037,21 @@ function findTheKey(message, code)
   }
   return +fkey;
 }
+//https://www.codewars.com/kata/55f810474dc34c5a25000016/solutions/javascript
+function calculateBmi(weight, height) {
+  function re(bmi,str) {
+    return {value: bmi.toFixed(1), category:str};
+  }
+  var bmi = weight/Math.pow((height/100),2);
+  if (bmi < 15) return re(bmi,"Very severely underweight");
+  if (bmi < 16) return re(bmi,"Severely underweight");
+  if (bmi < 18.5) return re(bmi,"Underweight");
+  if (bmi < 25) return re(bmi,"Normal (healthy weight)");
+  if (bmi < 30) return re(bmi,"Overweight");
+  if (bmi < 35) return re(bmi,"Obese Class I (Moderately obese)");
+  if (bmi < 40) return re(bmi,"Obese Class II (Severely obese)");
+  if (bmi < 45) return re(bmi,"Obese Class III (Very severely obese)");
+  if (bmi < 50) return re(bmi,"Obese Class IV (Morbidly Obese)");
+  if (bmi < 60) return re(bmi,"Obese Class V (Super Obese)");
+  return re(bmi,"Obese Class VI (Hyper Obese)");
+}
