@@ -91,6 +91,15 @@ function navigate(numberOfIntersections, roads, start, finish) {
 }
 
 ```
+## 최대합 찾기 (Kadane's Algorithm)
+
+> maximum subarray problem is the task of finding a contiguous subarray with the largest sum
+> 알고리즘 이해가 안되니 이해한후 풀어서 적을것
+
+- [WIKI](https://en.wikipedia.org/wiki/Maximum_subarray_problem)
+- [참조](https://www.techiedelight.com/maximum-subarray-problem-kadanes-algorithm/)
+- [참조2](http://theoryofprogramming.com/2016/10/21/dynamic-programming-kadanes-algorithm/)
+
 
 ## 경우의 수
 
