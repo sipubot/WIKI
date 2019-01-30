@@ -100,6 +100,7 @@ function navigate(numberOfIntersections, roads, start, finish) {
 - [참조](https://www.techiedelight.com/maximum-subarray-problem-kadanes-algorithm/)
 - [참조2](http://theoryofprogramming.com/2016/10/21/dynamic-programming-kadanes-algorithm/)
 
+### 최대합을 구할경우
 ```python
 def max_subarray(A):
     max_ending_here = max_so_far = A[0]
@@ -107,6 +108,22 @@ def max_subarray(A):
         max_ending_here = max(x, max_ending_here + x)
         max_so_far = max(max_so_far, max_ending_here)
     return max_so_far
+```
+### 차합을 구할경우
+```javascript
+var maxProfit = function(prices) {
+    let maxProfit = 0;
+    let potentialProfit = 0;
+    let current = prices[0];
+    let minPrice = prices[0];
+    for(let i = 1; i < prices.length; i++) {
+        current = prices[i];
+        if(current < minPrice) minPrice = current;
+        else potentialProfit = current - minPrice;
+        maxProfit = Math.max(maxProfit, potentialProfit);
+    }
+    return maxProfit;
+};
 ```
 
 ## 경우의 수
