@@ -232,9 +232,7 @@ foreach ($i in $DIWebResponse) {
             }
             if ($i.exec_sum -gt $GMpass) {
                 $day1gm += 100;
-            } elseif ($i.exec_sum -gt 0){
-                $day1gm += 20;
-            }
+            } 
         }
         {$_ -le 30} {
             $day2 += 1;
@@ -247,9 +245,7 @@ foreach ($i in $DIWebResponse) {
             }
             if ($i.exec_sum -gt $GMpass) {
                 $day2gm += 100;
-            } elseif ($i.exec_sum -gt 0){
-                $day2gm += 20;
-            }
+            } 
         }
     }
 }
