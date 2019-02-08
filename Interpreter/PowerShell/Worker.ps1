@@ -3,8 +3,8 @@ $TBratio = 0.40;
 $SCratio = 0.40;
 $BGratio = 0.2;
 #GA
-$GMratio = 0.7;
-$FDratio = 0.3;
+$GMratio = 0.4;
+$FDratio = 0.2;
 $WTratio = 0.4;
 $GMpass = 2500;
 $FDpass = 50;
