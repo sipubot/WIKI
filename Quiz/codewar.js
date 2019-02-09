@@ -2055,3 +2055,23 @@ function calculateBmi(weight, height) {
   if (bmi < 60) return re(bmi,"Obese Class V (Super Obese)");
   return re(bmi,"Obese Class VI (Hyper Obese)");
 }
+//https://www.codewars.com/kata/derive-cipher-from-plaintext/train/javascript
+function cipherFromPlaintext(plainText, encodedText) {
+    // Make coding great again!
+    var alp = 'abcdefghijklmnopqrstuvwxyz';
+    var p = new Set();
+    plainText.split('').filter(a=>/[a-zA-Z]/.test(a))
+      .map((a,i)=> {p.add(a[0].toLowerCase()) });
+    var pass = Array.from(p);
+    var dic = {}
+    pass.map((a,i)=>{
+      dic[a] = alp[i];
+    });
+    return  encodedText.split('').map(a=>{
+      if (dic[a] !== undefined) {
+        return dic[a]
+      } else {
+        return a;
+      }
+    }).join('');
+}
