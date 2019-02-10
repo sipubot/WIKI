@@ -2075,3 +2075,26 @@ function cipherFromPlaintext(plainText, encodedText) {
       }
     }).join('');
 }
+//https://www.codewars.com/kata/get-password-from-grid/train/javascript
+function getPassword(grid, directions) {
+  // your code here
+  var pass = '';
+  var d = [];
+  grid.map((a,y)=>a.map((b,x)=>{
+    if (b === 'x') { d = [y,x]; }
+  }));
+  var mover = {
+    "left" : ()=>{ d[1] -= 1},
+    "leftT" : ()=>{d[1] -= 1; pass += grid[d[0]][d[1]]},
+    "right" : ()=>{ d[1] += 1},
+    "rightT" : ()=>{d[1] += 1; pass += grid[d[0]][d[1]]},
+    "down" : ()=>{ d[0] += 1},
+    "downT" : ()=>{d[0] += 1; pass += grid[d[0]][d[1]]},
+    "up" : ()=>{ d[0] -= 1},
+    "upT" :  ()=>{d[0] -= 1; pass += grid[d[0]][d[1]]},
+  };
+  directions.map(a=>{
+    mover[a]();
+  });
+  return pass;
+}
