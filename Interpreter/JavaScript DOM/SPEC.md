@@ -320,3 +320,32 @@ arr.filter(callback[, thisArg])
 
 >관련문서를 꼼꼼히 읽자.
 [관련문서](https://developer.mozilla.org/ko/docs/Web/JavaScript/EventLoop)
+
+### Operation Case
+
+>연산자 활용법
+[링크](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Operators/Bitwise_Operators)
+
+```javascript
+//Bitwise AND
+a & b
+
+//Bitwise OR
+a | b
+
+//Bitwise XOR
+a ^ b
+
+//Bitwise NOT
+~ a
+
+//Left shift
+a << b
+
+//Sign-propagating right shift
+a >> b
+
+//Shifts a in binary representation b (< 32) bits to the right, discarding bits shifted off, and shifting in zeros from the left.
+//32비트 binary로 변환
+a >>> b
+```
