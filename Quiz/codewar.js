@@ -2098,3 +2098,8 @@ function getPassword(grid, directions) {
   });
   return pass;
 }
+//https://www.codewars.com/kata/5c3433a4d828182e420f4197/solutions/javascript
+function ultimateReverse(words) {
+    let reversed = [...words.join('')].reverse();
+    return words.map(word => reversed.splice(0, word.length).join(''));
+}
