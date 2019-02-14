@@ -36,3 +36,23 @@ fetch(myRequest)
   myImage.src = objectURL;
 });
 ```
+
+### 해당 노드에 정의된 스타일 알아보기
+
+>유용할 듯 
+```html
+ <style>
+  h3::after {
+    content: ' rocks!';
+  }
+</style>
+
+<h3>Generated content</h3> 
+
+<script>
+  var h3 = document.querySelector('h3'); 
+  var result = getComputedStyle(h3, ':after').content;
+
+  console.log('the generated content is: ', result); // returns ' rocks!'
+</script>
+```
