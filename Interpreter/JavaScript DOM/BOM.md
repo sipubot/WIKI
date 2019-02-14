@@ -15,3 +15,24 @@
   var isSSL = window.isSecureContext;
   // 
 ```
+
+### 단순히 사이트내의 데이터를 갱신하려고 할때 (이미지 or 파일들)
+
+>예제를 참고 할것
+```javascript 
+const myImage = document.querySelector('img');
+
+let myRequest = new Request('flowers.jpg');
+
+fetch(myRequest)
+.then(function(response) {
+  if (!response.ok) {
+    throw new Error('HTTP error, status = ' + response.status);
+  }
+  return response.blob();
+})
+.then(function(response) {
+  let objectURL = URL.createObjectURL(response);
+  myImage.src = objectURL;
+});
+```
