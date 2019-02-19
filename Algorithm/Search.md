@@ -2,6 +2,24 @@
 
 >자료구조로 탐색성능을 높이는 것은 자료구조에서 찾을것
 
+## 일치 
+
+### 부분 트리 일치 찾기
+
+> 연산 기호와 재귀를 확실히 이해할것 
+```javascript
+ var isSubtree = function(s, t) {
+   if (!s) return !t;
+   return isEqual(s, t) || isSubtree(s.left, t) || isSubtree(s.right, t);
+};
+
+function isEqual(root1, root2) {
+   if (!root1 || !root2) return !root1 && !root2;
+   if (root1.val !== root2.val) return false;
+   return isEqual(root1.left, root2.left) && isEqual(root1.right, root2.right);
+}
+```
+
 ## 경로
 
 ### 탐색 우선순위
