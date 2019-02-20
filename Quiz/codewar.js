@@ -2103,4 +2103,20 @@ function ultimateReverse(words) {
     let reversed = [...words.join('')].reverse();
     return words.map(word => reversed.splice(0, word.length).join(''));
 }
-
+// https://www.codewars.com/kata/56001790ac99763af400008c/solutions/javascript/me/best_practice
+function largestSum(arr){
+  // write code to find the sum of the largest sub-sequence in arr
+  var max = 0;
+  var sum = 0;
+  for (var i = 0; i < arr.length; i++) {
+    if (sum + arr[i] < 0) {
+      sum = 0;
+    } else {
+      sum+= arr[i];
+      if (sum > max) {
+        max = sum;
+      }
+    }
+  }
+  return max;
+}
