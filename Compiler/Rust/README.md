@@ -25,11 +25,10 @@
 
 설정 방법
 
-[rustup 설치](https://rustup.rs/)
-[visual studio code 설치 or 압축버전](https://code.visualstudio.com/)
-[c++ build tool 설치](https://visualstudio.microsoft.com/ko/visual-cpp-build-tools/?rr=https%3A%2F%2Fgithub.com%2F)
-[linux 의 경우 build make](https://sagiegurari.github.io/cargo-make/)
-
+-[rustup 설치](https://rustup.rs/)
+-[visual studio code 설치 or 압축버전](https://code.visualstudio.com/)
+-[c++ build tool 설치](https://visualstudio.microsoft.com/ko/visual-cpp-build-tools/?rr=https%3A%2F%2Fgithub.com%2F)-
+-[linux 의 경우 build make](https://sagiegurari.github.io/cargo-make/)
 - windows의 경우 설치후 visual studio code 추가할 플러그인 들
   - C/C++
   - Code Runner
