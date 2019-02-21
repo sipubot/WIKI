@@ -2,6 +2,15 @@
 
 프로젝트 cargo를 바탕으로 여러가지 프레임워크들이 많들어 지고 있는중
 
+## CODE
+
+### word counter
+
+- 간단한 파일 복사 붙여넣기, 단어세기 등의 소스
+- 유니코드 지원이 가능해서 한글처리에 따로 추가할 것이 없다.
+
+[소스](https://github.com/sipubot/WIKI/blob/master/Compiler/Rust/word_counter.rs)
+
 ## IDE
 
 ### ATOM
@@ -16,11 +25,9 @@
 
 ### Visual Studio Code
 
->현재 rust 관련 해서 가장 많이 쓰이고(?) 있을것 같은 IDE
-
->기존 아톰에 비해 속도면에서 굉장히 진일보된 면이 있음 DEBUG 설정이 되면 빌드나 디버깅이 굉장히 유연해 짐 
-
->power shell 연동하여 windows 에서도 linux와 유사한 환경으로 빌드환경을 갖출수 있음
+>현재 rust 관련 해서 가장 많이 쓰이고(?) 있을것 같은 IDE..
+>기존 아톰에 비해 속도면에서 굉장히 진일보된 면이 있음 DEBUG 설정이 되면 빌드나 디버깅이 굉장히 유연해 짐 ..
+>power shell 연동하여 windows 에서도 linux와 유사한 환경으로 빌드환경을 갖출수 있음..
 
 
 설정 방법
