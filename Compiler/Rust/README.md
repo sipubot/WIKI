@@ -2,15 +2,6 @@
 
 프로젝트 cargo를 바탕으로 여러가지 프레임워크들이 많들어 지고 있는중
 
-## CODE
-
-### word counter
-
-- 간단한 파일 복사 붙여넣기, 단어세기 등의 소스
-- 유니코드 지원이 가능해서 한글처리에 따로 추가할 것이 없다.
-
-[소스](https://github.com/sipubot/WIKI/blob/master/Compiler/Rust/word_counter.rs)
-
 ## IDE
 
 ### ATOM
@@ -46,3 +37,13 @@
 
 rustup update, cargo update, rustc update 커맨드로 업데이트 시켜주어야 제대로 동작가능 
 (visual studio code 의 상태줄을 확인하며 오류를 해결하면 편리)
+
+## CODE
+
+### word counter
+
+- 간단한 파일 복사 붙여넣기, 단어세기 등의 소스
+- 유니코드 지원이 가능해서 한글처리에 따로 추가할 것이 없다.
+
+[소스](https://github.com/sipubot/WIKI/blob/master/Compiler/Rust/word_counter.rs)
+
