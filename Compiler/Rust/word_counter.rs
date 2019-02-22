@@ -70,10 +70,7 @@ fn loadfilef (filename:String) -> String {
 fn savefilef (filename:String, content:&Vec<WordFactor>) {
     let path = Path::new(&filename);
     let display = path.display();
-
-    let strings = content.iter().map(|a| format!("{}:{}", a.word, (a.rankpoint * a.count).to_string()));
-    let result = strings.collect::<Vec<_>>().join("\r\n");
-
+    let strings = content.iter().map(|a| format!("{}:{}", a.word, (a.rankpoint * a.count).to_string())).collect::<Vec<_>>().join("\r\n");
     let mut file = match File::create(&path) {
     Err(e) => panic!("couldn't create {}:{}",
                         display,
@@ -81,7 +78,7 @@ fn savefilef (filename:String, content:&Vec<WordFactor>) {
     Ok(file) => file,
     };
 
-    match file.write_all(result.as_bytes()) {
+    match file.write_all(strings.as_bytes()) {
         Err(e) => {
             panic!("couldn't write to {}: {}", display,
                                                e.description())
