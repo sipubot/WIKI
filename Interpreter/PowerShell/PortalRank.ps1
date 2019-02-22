@@ -1,5 +1,15 @@
-###naver
+
 $ntesturl = "https://datalab.naver.com/keyword/realtimeList.naver?where=main";
+$dtesturl = "https://www.daum.net";
+$nallfile = "naver_all.txt";
+$nlv1file = "naver_lv1.txt";
+$nlv2file = "naver_lv2.txt";
+$nlv3file = "naver_lv3.txt";
+$nlv4file = "naver_lv4.txt";
+$nlv5file = "naver_lv5.txt";
+$dfile = "daum_all.txt";
+
+###naver
 $nres = Invoke-WebRequest $ntesturl;
 $listitem = $nres.AllElements | Where-Object {
     $_.class -match "rank_inner"
@@ -20,9 +30,15 @@ $lv4 = $lv4.innerHTML -split '"title">' | ForEach-Object { ($_ -split '</span>')
 $lv5 = $lv5.innerHTML -split '"title">' | ForEach-Object { ($_ -split '</span>')[0]} | Where-Object { $_ -notmatch '<span'};
 
 ### daum
-$dtesturl = "https://www.daum.net";
 $dres = Invoke-WebRequest $dtesturl;
 $daumList = $dres.AllElements | Where-Object {
     $_.class -match "txt_issue";
 } | ForEach-Object { $_.innerText } | Select -Unique;
 
+$all | Out-File $nallfile;
+$lv1 | Out-File $nlv1file;
+$lv2 | Out-File $nlv2file;
+$lv3 | Out-File $nlv3file;
+$lv4 | Out-File $nlv4file;
+$lv5 | Out-File $nlv5file;
+$daumList | Out-File $dfile;
