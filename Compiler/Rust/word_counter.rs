@@ -1,8 +1,17 @@
+extern crate regex;
+
 use std::env;
 use std::error::Error;
 use std::fs::File;
 use std::io::prelude::*;
 use std::path::Path;
+
+#[derive(Debug)]
+struct WordFactor {
+    word : String,
+    rankpoint : usize,
+    count : usize,
+}
 
 fn main() {
     let args: Vec<String> = env::args().collect();
@@ -11,11 +20,15 @@ fn main() {
         4 => {
             let loadfile = &args[1];
             let savefile = &args[2];
-            let word = &args[3];
+            let keyword = &args[3];
 
             let con  = loadfilef(loadfile.to_string());
-            count_word(&con, word);
-            savefilef(savefile.to_string(), con);
+            let words  = loadfilef(keyword.to_string());
+            
+            let r = count_word(&con, &words);
+            println!("{:#?}",r);
+
+            //savefilef(savefile.to_string(), con);
         },
         // all the other cases
         _ => {
@@ -25,9 +38,20 @@ fn main() {
     }
 }
 
-fn count_word (content :&String, word : &str) {
-    let leng = content.split(word).count() - 1;
-    println!("Tested : {:?}",leng);
+fn count_word (content :&String, words : &String) -> std::vec::Vec<WordFactor> {
+    let spword: Vec<&str> = words.split("\r\n").collect();
+    //println!("{:#?}",spword);
+    let mut result: Vec<WordFactor> = Vec::with_capacity(spword.len() as usize);
+
+    for (i, word) in spword.iter().filter(|w| w.len() > 1).rev().enumerate() {
+        println!("{} : {:#?}",i,word);
+        result.push(WordFactor{
+            word: word.to_string(), 
+            rankpoint: (i+1) * 100, 
+            count: content.clone().split(word).count() - 1,
+        });
+    }
+    result
 }
 
 fn loadfilef (filename:String) -> String {
