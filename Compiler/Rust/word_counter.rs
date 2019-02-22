@@ -1,5 +1,3 @@
-extern crate regex;
-
 use std::env;
 use std::error::Error;
 use std::fs::File;
@@ -25,10 +23,9 @@ fn main() {
             let con  = loadfilef(loadfile.to_string());
             let words  = loadfilef(keyword.to_string());
             
-            let r = count_word(&con, &words);
-            println!("{:#?}",r);
-
-            //savefilef(savefile.to_string(), con);
+            let re = count_word(&con, &words);
+            //println!("{:#?}",r);
+            savefilef(savefile.to_string(), &re);
         },
         // all the other cases
         _ => {
@@ -44,7 +41,7 @@ fn count_word (content :&String, words : &String) -> std::vec::Vec<WordFactor> {
     let mut result: Vec<WordFactor> = Vec::with_capacity(spword.len() as usize);
 
     for (i, word) in spword.iter().filter(|w| w.len() > 1).rev().enumerate() {
-        println!("{} : {:#?}",i,word);
+        //println!("{} : {:#?}",i,word);
         result.push(WordFactor{
             word: word.to_string(), 
             rankpoint: (i+1) * 100, 
@@ -65,23 +62,26 @@ fn loadfilef (filename:String) -> String {
     let mut contents = String::new();
     match file.read_to_string(&mut contents) {
         Err(e) => panic!("Read error {} : {}", display, e.description()),
-        Ok(_) => println!("Load Complete."),
+        Ok(_) => println!("Load Complete.")
     };
     contents
 }
 
-fn savefilef (filename:String, content:String) {
+fn savefilef (filename:String, content:&Vec<WordFactor>) {
     let path = Path::new(&filename);
     let display = path.display();
 
+    let strings = content.iter().map(|a| format!("{}:{}", a.word, (a.rankpoint * a.count).to_string()));
+    let result = strings.collect::<Vec<_>>().join("\r\n");
+
     let mut file = match File::create(&path) {
-    Err(e) => panic!("couldn't create {}: {}",
+    Err(e) => panic!("couldn't create {}:{}",
                         display,
                         e.description()),
     Ok(file) => file,
     };
 
-    match file.write_all(content.as_bytes()) {
+    match file.write_all(result.as_bytes()) {
         Err(e) => {
             panic!("couldn't write to {}: {}", display,
                                                e.description())
