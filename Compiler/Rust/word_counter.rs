@@ -1,5 +1,3 @@
-extern crate regex;
-
 use std::env;
 use std::error::Error;
 use std::fs::File;
@@ -10,12 +8,13 @@ fn main() {
     let args: Vec<String> = env::args().collect();
     println!("{:?}",args);
     match args.len() {
-        3 => {
+        4 => {
             let loadfile = &args[1];
             let savefile = &args[2];
+            let word = &args[3];
 
             let con  = loadfilef(loadfile.to_string());
-            count_word(&con, "테스트");
+            count_word(&con, word);
             savefilef(savefile.to_string(), con);
         },
         // all the other cases
