@@ -2120,3 +2120,14 @@ function largestSum(arr){
   }
   return max;
 }
+//https://www.codewars.com/kata/polybius-square-cipher-encode/train/javascript
+function polybius (text) {
+ // TODO
+ var al = 'ABCDEFGHIKLMNOPQRSTUVWXYZ'.split('');
+ var an = {};
+ al.map((a,i)=> {
+   an[a] = Math.floor((i/5)+1) + '' + (i%5+1);
+ });
+ an['J'] = '24';
+ return text.split('').map(a=>an[a] ? an[a] : a).join('')
+}
