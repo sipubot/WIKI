@@ -2131,3 +2131,5 @@ function polybius (text) {
  an['J'] = '24';
  return text.split('').map(a=>an[a] ? an[a] : a).join('')
 }
+// https://www.codewars.com/kata/5822d89270ca28c85c0000f3/solutions/javascript
+const scramble = (s,ar) => s.split('').reduce((a,e,i,arr) => a + arr[ar.indexOf(i)],'');
