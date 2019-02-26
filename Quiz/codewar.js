@@ -2133,3 +2133,21 @@ function polybius (text) {
 }
 // https://www.codewars.com/kata/5822d89270ca28c85c0000f3/solutions/javascript
 const scramble = (s,ar) => s.split('').reduce((a,e,i,arr) => a + arr[ar.indexOf(i)],'');
+//https://www.codewars.com/kata/5848565e273af816fb000449/solutions/javascript
+var encryptThis = function(text) {
+  // Implement me! :)
+  if (text.length < 1) return "";
+  var re = text.split(' ');
+  if (re.length < 2) {
+    return re[0].charCodeAt(0)  + re.slice(1)
+  }
+  re = re.map((a)=>{
+    var c = a.split('');
+    var t = c[1];
+    c[1] = c[c.length-1];
+    c[c.length-1] = t;
+    return c.join('');
+  });
+  re = re.map(a=>a[0].charCodeAt(0)  + a.slice(1));
+  return re.join(' ')
+}
