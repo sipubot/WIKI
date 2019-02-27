@@ -1,12 +1,12 @@
 # 추천하는 퀴즈 사이트
 
-- [leetcode](https://leetcode.com)
+- [Leetcode](https://leetcode.com)
     예제의 수준이 높고 기본적인 내용과 인터뷰용 질문들이 많이 포함 되어 있음 (2019.02 현재 질문량이 많아지고 오류가 많아지고 있음)
 
-- [CODEWAR](https://www.codewars.com)
+- [CodeWars](https://www.codewars.com)
     예제가 많고 랭킹 시스템이라 경쟁심을 자극함 (문제 제출이 특정인에 몰려 있는 경향)
 
-- [CODEFORCES](http://codeforces.com/)
+- [Codeforce](http://codeforces.com/)
     고수들의 향연 아직까지 계정을 만들지는 않았다. 러시안 비율이 높아서 언어장벽이 있을 가능성이 있음
 
 - [프로그래머스](https://programmers.co.kr)
