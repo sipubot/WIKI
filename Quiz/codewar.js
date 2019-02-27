@@ -2151,3 +2151,49 @@ var encryptThis = function(text) {
   re = re.map(a=>a[0].charCodeAt(0)  + a.slice(1));
   return re.join(' ')
 }
+//https://www.codewars.com/kata/59437bd7d8c9438fb5000004/solutions/javascript
+function alphabetWar(battlefield) {
+  var re ='';
+  var arr = battlefield.split('');
+  var saf = Array.apply(null,Array(arr.length));
+  var def = 1;
+  for (var i = 0; i < arr.length ; i++) {
+    if (arr[i] === '[') {
+      def++;
+    }
+    if (arr[i] === ']') {
+      def--;
+    }
+    if (/[a-z]/.test(arr[i])) {
+      saf[i] = def;
+    } else if (arr[i] === '#'){
+      saf[i] = 'B'
+    } else {
+      saf[i] = 'W'
+    }
+  }
+  if (saf.indexOf("B") > -1) { saf = saf.map(a=> a===1 ? 0 : a) };
+  for (var idx = 0; idx < saf.length ; idx++) {
+    if (saf[idx] === 'B') {
+      var wc = 0;
+      var i = idx;
+      saf[i] = -10;
+      while(wc < 2 && i >= 0) {
+        if (saf[i] === 'W') { wc++; if (wc === 0) {saf[i]=0;} }
+        if (saf[i] !== 'B' && saf[i] !== 'W') { saf[i] -= wc; }
+        i--;
+      }
+      wc = 0;
+      i = idx;
+      while(wc < 2 && i < saf.length) {
+        if (saf[i] === 'W') { wc++; if (wc === 0) {saf[i]=0;} }
+        if (saf[i] !== 'B' && saf[i] !== 'W') { saf[i] -= wc; }
+        i++;
+      }
+    
+    }
+  }
+  saf = saf.map(a=> a==='W' ? 0 : a);
+  
+  return saf.map((a,i)=> a > 0 ? arr[i] : '').join('');
+}
