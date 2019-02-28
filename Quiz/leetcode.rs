@@ -14,4 +14,18 @@ impl Solution {
         }
         re
     }
+    
+    pub fn construct_rectangle(area: i32) -> Vec<i32> {
+        let sqrt_root = (area as f32).sqrt() as i32;
+        let mut l = area;
+        let mut w = 1;
+        for x in (1..=sqrt_root).rev() {
+            if area % x == 0 {
+                l = area / x;
+                w = x;
+                break;
+            }
+        }
+        vec![l, w]
+    }
 }
