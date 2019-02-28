@@ -28,4 +28,29 @@ impl Solution {
         }
         vec![l, w]
     }
+    
+    pub fn find_relative_ranks(nums: Vec<i32>) -> Vec<String> {
+        let mut nv = nums.to_vec();
+        let mut re: Vec<String> = Vec::with_capacity(nv.len() as usize);
+        for _a in 0..nv.len() {
+            re.push("".to_string());
+        }
+        nv.sort_by_key(|&n| Reverse(n));
+        for (rank, point) in nv.iter().enumerate() {
+            let idx = nums.iter().position(|&o| o == *point);
+            match idx  {
+                Some(x) => {
+                    match rank {
+                        0 =>{ re[x] = "Gold Medal".to_string(); },
+                        1 =>{ re[x] = "Silver Medal".to_string(); },
+                        2 =>{ re[x] = "Bronze Medal".to_string(); },
+                        _ =>{ re[x] = (rank as u32 + 1).to_string(); }
+                    }
+                },
+                None =>{}
+            }
+        }
+        //println!("{:?}",re);
+        re
+    }
 }
