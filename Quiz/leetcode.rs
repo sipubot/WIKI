@@ -30,27 +30,26 @@ impl Solution {
     }
     
     pub fn find_relative_ranks(nums: Vec<i32>) -> Vec<String> {
-        let mut nv = nums.to_vec();
-        let mut re: Vec<String> = Vec::with_capacity(nv.len() as usize);
-        for _a in 0..nv.len() {
-            re.push("".to_string());
+        struct Map {
+            key : usize,
+            value : i32
         }
-        nv.sort_by_key(|&n| Reverse(n));
-        for (rank, point) in nv.iter().enumerate() {
-            let idx = nums.iter().position(|&o| o == *point);
-            match idx  {
-                Some(x) => {
-                    match rank {
-                        0 =>{ re[x] = "Gold Medal".to_string(); },
-                        1 =>{ re[x] = "Silver Medal".to_string(); },
-                        2 =>{ re[x] = "Bronze Medal".to_string(); },
-                        _ =>{ re[x] = (rank as u32 + 1).to_string(); }
-                    }
-                },
-                None =>{}
+        let mut re: Vec<String> = Vec::with_capacity(nums.len() as usize);
+        let mut mapvec: Vec<Map> = Vec::with_capacity(nums.len() as usize);
+        for (i, a) in nums.iter().enumerate() {
+            re.push("".to_string());
+            mapvec.push(Map{key :i , value :*a});
+        }
+        //sort
+        mapvec.sort_by(|a,b| b.value.cmp(&a.value));
+        for (rank, m) in mapvec.iter().enumerate() {
+            match rank as i32 {
+               0 => { re[m.key] = "Gold Medal".to_string(); },
+               1 => { re[m.key] = "Silver Medal".to_string(); },
+               2 => { re[m.key] = "Bronze Medal".to_string(); },
+               _ => { re[m.key] = (rank as u32 + 1).to_string(); },
             }
         }
-        //println!("{:?}",re);
         re
     }
 }
