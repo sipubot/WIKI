@@ -2197,3 +2197,10 @@ function alphabetWar(battlefield) {
   
   return saf.map((a,i)=> a > 0 ? arr[i] : '').join('');
 }
+//https://www.codewars.com/kata/simple-transposition/train/javascript
+function simpleTransposition(text) {
+  var sp = text.split('');
+  var v1 = sp.filter((a,i)=>i%2 === 1);
+  var v2 = sp.filter((a,i)=>i%2 === 0);
+  return v2.join('')+v1.join('');
+}
