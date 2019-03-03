@@ -289,6 +289,16 @@ arr.filter(callback[, thisArg])
 >오브젝트나 배열의 전체를 순회하여 계산혹은 결과 값의 오브젝트나 배열을 리턴한다.
 [스펙문서](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/some)
 
+### Array.prototype.findIndex(v)
+
+> node 전용 메서드인지는 모르겠으나 유용할듯
+
+```javascript
+function oddOne(arr) {
+  return arr.findIndex(x => x % 2 != 0);
+}
+```
+
 ## Symbols
 
 >ECMA 6에서 도입된 새로운 자료형 자세한 용도는 아직 미확정인 상태
