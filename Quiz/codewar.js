@@ -2204,3 +2204,51 @@ function simpleTransposition(text) {
   var v2 = sp.filter((a,i)=>i%2 === 0);
   return v2.join('')+v1.join('');
 }
+//https://www.codewars.com/kata/57d7536d950d8474f6000a06/solutions/javascript
+var findWrongWayCow = function(field) {
+  // Your code here
+  var side = {
+    "n" : [0,0,0],
+    "e" : [0,0,0],
+    "w" : [0,0,0],
+    "s" : [0,0,0]
+  };
+  function findside(x,y) {
+    if (y > 1) {
+      if (field[y-1][x]+field[y-2][x]==="ow") {
+        side.n[0] += 1;
+        side.n[1] = x;
+        side.n[2] = y;
+      }
+    }
+    if (y < field.length -2 ) {
+      if (field[y+1][x]+field[y+2][x]==="ow") {
+        side.s[0] += 1;
+        side.s[1] = x;
+        side.s[2] = y;
+      }
+    }
+    if (x > 1 ) {
+      if (field[y][x-1]+field[y][x-2]==="ow") {
+        side.w[0] += 1;
+        side.w[1] = x;
+        side.w[2] = y;
+      }
+    }
+    if (x < field[0].length -2 ) {
+      if (field[y][x+1]+field[y][x+2]==="ow") {
+        side.e[0] += 1;
+        side.e[1] = x;
+        side.e[2] = y;
+      }
+    }
+  }
+  field.map((a,y)=>{
+    a.map((b,x)=>{
+      if (b === 'c') {
+        findside(x,y);
+      }
+    });
+  });
+  return Object.values(side).filter(a=>a[0] === 1)[0].slice(1)
+}
