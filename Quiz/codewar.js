@@ -2270,3 +2270,16 @@ const createIterator = (array) => {
   }
   return it;
 };
+//https://www.codewars.com/kata/5453dce502949307cf000bff/solutions/javascript
+function nexus(users) {
+  var en = Object.entries(users);
+  var re = "", min = 99999;
+  en.map(a=>{
+    var t = Math.abs(a[1]-(+a[0]));
+    if (t < min) {
+      re = a[0];
+      min = t;
+    }
+  });
+  return +re;
+}
