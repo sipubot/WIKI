@@ -2283,3 +2283,12 @@ function nexus(users) {
   });
   return +re;
 }
+//https://www.codewars.com/kata/5c7254fcaccda64d01907710/solutions/javascript
+function solve(files) {
+  var re = {};
+  files.map(a=>a.split('.')).map(a=>'.'+a[a.length-1]).map(a=>{
+    re[a] = re[a] ? re[a]+1 : 1;
+  });
+  var max = Math.max(...Object.values(re));
+  return Object.entries(re).filter(a=>a[1]===max).map(a=>a[0]).sort();
+}
