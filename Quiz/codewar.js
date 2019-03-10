@@ -2252,3 +2252,21 @@ var findWrongWayCow = function(field) {
   });
   return Object.values(side).filter(a=>a[0] === 1)[0].slice(1)
 }
+//https://www.codewars.com/kata/5c743cec901022438549964a/solutions/javascript
+const createIterator = (array) => {
+  var it = {
+    arr : array,
+    end : false,
+    index : 0,
+    next : function () {
+      if (this.arr.length > this.index) {
+        this.index += 1;
+      } else {
+        this.end = true;
+        
+      }
+      return {value:this.end ? undefined:this.arr[this.index-1], done : this.end}
+    }
+  }
+  return it;
+};
