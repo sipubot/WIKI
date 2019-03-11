@@ -52,4 +52,22 @@ impl Solution {
         }
         re
     }
+    pub fn check_perfect_number(num: i32) -> bool {
+        if num <= 0 {return false;}
+        let l = (num as f64).sqrt() as i32;
+        let mut re: Vec<i32> = vec![];
+        for v in 1..l+1 {
+            if num % v == 0 {
+                re.push((num / v) as i32);
+                re.push(v as i32);
+            }
+        }
+        re.sort_unstable();
+        re.dedup();
+        let sum: i32 = re.iter().sum();
+        println!("{:?}{:?}",re,l);
+        return sum == num * 2;
+    }
+
+
 }
