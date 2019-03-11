@@ -65,7 +65,6 @@ impl Solution {
         re.sort_unstable();
         re.dedup();
         let sum: i32 = re.iter().sum();
-        println!("{:?}{:?}",re,l);
         return sum == num * 2;
     }
 
