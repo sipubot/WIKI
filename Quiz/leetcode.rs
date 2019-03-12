@@ -1,4 +1,12 @@
 impl Solution {
+    pub fn detect_capital_use(word: String) -> bool {
+        if word.len() <= 1 { return true;}
+        let a = word.to_ascii_uppercase() == word;
+        let b = word.to_lowercase() == word;
+        let c = word.clone()[0..1].to_ascii_uppercase() + &word.clone()[1..word.len()].to_lowercase() == word;
+        println!("{:?}{:?}{:?}",a,b,c);
+        a || b || c
+    }
 
     pub fn fib(n: i32) -> i32 {
         let mut fi: Vec<i32> = vec![0,1];
