@@ -4,7 +4,6 @@ impl Solution {
         let a = word.to_ascii_uppercase() == word;
         let b = word.to_lowercase() == word;
         let c = word.clone()[0..1].to_ascii_uppercase() + &word.clone()[1..word.len()].to_lowercase() == word;
-        println!("{:?}{:?}{:?}",a,b,c);
         a || b || c
     }
 
