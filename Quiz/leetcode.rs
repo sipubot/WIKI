@@ -1,4 +1,13 @@
 impl Solution {
+
+    pub fn fib(n: i32) -> i32 {
+        let mut fi: Vec<i32> = vec![0,1];
+        for i in 2..(n+1) as usize {
+            fi.push(fi[i-2]+fi[i-1]);
+        }
+        fi[n as usize]
+    }
+
     pub fn find_max_consecutive_ones(nums: Vec<i32>) -> i32 {
         let mut t: i32 = 0 as i32;
         let mut re: i32 = 0 as i32;
