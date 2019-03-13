@@ -179,3 +179,5 @@ arc.getArchive(); // [{ val: 11 }, { val: 13 }]
 - [관련문서](https://meetup.toast.com/posts/89)
 Task 상으로 함수 호출 스택을 따르는 Promise 물론 구문해석 가장 마지막에 실행됨 그리고 settimeout은 호출 스택에 쌓아두고 호출 하므로
 프로미스 실행 이후에 실행됨.
+
+- [더자세한 설명](https://stackoverflow.com/questions/25915634/difference-between-microtask-and-macrotask-within-an-event-loop-context)
