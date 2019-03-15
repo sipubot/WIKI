@@ -10,6 +10,7 @@
 - borrow 개념을 아는 것도 중요하지만 기존에 쓰이던 람다식을 확실히 알아둬야
 - 모나드에서 형변환 하는 것도 지원한다. collect 메서드 확인
 - unwrap, expect, iter, clone 같은 메서드를 자주 쓸 경우가 많으므로 참고하여야 함
+- cargo 실행시 백트래킹 하는법 --backtrace
 
 ## 의존성 관리 (cargo)
 
