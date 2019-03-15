@@ -1,4 +1,7 @@
 impl Solution {
+    pub fn check_record(s: String) -> bool {
+        s.find("A") == s.rfind("A") && s.find("LLL") == None
+    }
     pub fn detect_capital_use(word: String) -> bool {
         if word.len() <= 1 { return true;}
         let a = word.to_ascii_uppercase() == word;
