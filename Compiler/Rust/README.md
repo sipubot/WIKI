@@ -80,7 +80,6 @@ rustup update, cargo update, rustc update 커맨드로 업데이트 시켜주어
 
 - JS-ASMR 용 json 생성기 
 - Image Resize 후 json으로 조립.
-- 리팩토링 필요
 - 압축률 관련해서 찾아보고 있는데 오류가 나서 해법 찾는중 
 - tiny_png 보다 압축률이 적어서 쓸모가 있나 싶기도 하다. 
 
