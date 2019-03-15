@@ -5,6 +5,7 @@
 ## 참고문서들
 
 [쿡북](https://rust-lang-nursery.github.io/rust-cookbook/intro.html)
+[IRC](https://client00.chat.mibbit.com/?server=irc.mozilla.org&channel=%23rust)
 
 ## 의존성 관리 (cargo)
 
