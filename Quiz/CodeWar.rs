@@ -9,6 +9,5 @@ fn abbrev_name(name: &str) -> String {
             None => {}
         }
     }
-    re.join(".")
-    
+    re.join(".")   
 }

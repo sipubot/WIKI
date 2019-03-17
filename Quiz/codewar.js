@@ -1,12 +1,12 @@
 //https://www.codewars.com/kata/5c8bf3ec5048ca2c8e954bf3/solutions/javascript
-function shortesttoChar(S,C){
+function shortesttoChar(S, C) {
   // your code... Good luck :D
-    if (S.length === 0 || C.length === 0) { return [] }
-    var arr = S.split('');
-    var idarr = arr.map((a,i)=>a===C ? i : false).filter(a=>a!==false);
-    if (idarr.length === 0) return [];
-    return arr.map((a,i)=> Math.min(...idarr.map(b=>Math.abs(b-i))));
-  }
+  if (S.length === 0 || C.length === 0) { return [] }
+  var arr = S.split('');
+  var idarr = arr.map((a, i) => a === C ? i : false).filter(a => a !== false);
+  if (idarr.length === 0) return [];
+  return arr.map((a, i) => Math.min(...idarr.map(b => Math.abs(b - i))));
+}
 /**
   요즘 한줄 메서드 작성하는게 재미있다. 특히나 배열 관련같은경우는 2차원 구조 연마에 도움이.
   */
@@ -368,7 +368,7 @@ function productFib(prod) {
   function fibonacci(n) {
     return n < 1 ? 0 :
       n <= 2 ? 1 :
-      fibonacci(n - 1) + fibonacci(n - 2);
+        fibonacci(n - 1) + fibonacci(n - 2);
   }
 }
 // https://www.codewars.com/kata/integers-recreation-one/train/javascript
@@ -489,7 +489,7 @@ function divideStrings(a, b) {
               z = numa.length;
             }
           }
-          if (done === false) {}
+          if (done === false) { }
         }
       } else {
         temp[i] = temp[i] - numb[i];
@@ -814,21 +814,21 @@ function hello(name) {
   if (name) {
     if (name.length > 0) status = true;
   }
-  return status ? "Hello, " + name.split('').map((a,i)=>i===0? a.toUpperCase():a.toLowerCase()).join('') + '!' : "Hello, World!";
+  return status ? "Hello, " + name.split('').map((a, i) => i === 0 ? a.toUpperCase() : a.toLowerCase()).join('') + '!' : "Hello, World!";
 }
 
-function one(arr, fun){
+function one(arr, fun) {
   // ...
-  return arr.filter(a=>fun(a)).length === 1;
+  return arr.filter(a => fun(a)).length === 1;
 }
 // https://www.codewars.com/kata/5ba47374b18e382069000052
-function minRemove(arr){
+function minRemove(arr) {
   //..
   var max = Math.ceil(Math.sqrt(Math.max(...arr)));
   var min = Math.min(...arr);
   var red = arr.length
-  for (var i = min; i <= max; i++){
-    var t = arr.filter(a=>a<i || a>Math.pow(i,2)).length
+  for (var i = min; i <= max; i++) {
+    var t = arr.filter(a => a < i || a > Math.pow(i, 2)).length
     if (t < red) red = t;
   }
   return red;
@@ -842,77 +842,77 @@ function getSolution(arr, sum) {
         re = true;
       }
     } else {
-      sumf(a, i+1, s+a[i]);
-      sumf(a, i+1, s-a[i]);
+      sumf(a, i + 1, s + a[i]);
+      sumf(a, i + 1, s - a[i]);
     }
   }
-  sumf(arr,1,arr[0]);
-  
+  sumf(arr, 1, arr[0]);
+
   return re;
 }
 //https://www.codewars.com/kata/57cc981a58da9e302a000214/
-function smallEnough(a, limit){
-  return a.every(a=>a<=limit);
+function smallEnough(a, limit) {
+  return a.every(a => a <= limit);
 }
 //https://www.codewars.com/kata/5a25ac6ac5e284cfbe000111/
 function triangle(row) {
   // Return the answer
-    var col = {
-      "GG" : "G",
-      "RR" : "R",
-      "BB" : "B",
-      "RG" : "B",
-      "GR" : "B",
-      "BG" : "R",
-      "GB" : "R",
-      "RB" : "G",
-      "BR" : "G"
-    }
-    var arr = row.split('')
-    function tri (ar) {
-      
-      if (ar.length===1) {
-          return ar[0];
-      } else {
-          var ne = Array.apply(null,Array(ar.length-1)).map((a,i)=>{
-            return col[ar[i]+ar[i+1]];
-          });
-          return tri(ne);
-      }
-    }
-  
-    return tri(arr);
+  var col = {
+    "GG": "G",
+    "RR": "R",
+    "BB": "B",
+    "RG": "B",
+    "GR": "B",
+    "BG": "R",
+    "GB": "R",
+    "RB": "G",
+    "BR": "G"
   }
+  var arr = row.split('')
+  function tri(ar) {
+
+    if (ar.length === 1) {
+      return ar[0];
+    } else {
+      var ne = Array.apply(null, Array(ar.length - 1)).map((a, i) => {
+        return col[ar[i] + ar[i + 1]];
+      });
+      return tri(ne);
+    }
+  }
+
+  return tri(arr);
+}
 //https://www.codewars.com/kata/simple-string-matching/train/javascript
-function solve(a,b){
-    a = a.replace("*", "\\S*");
-    var re = new RegExp(a);
-    return b.match(re) == b ? true : false
+function solve(a, b) {
+  a = a.replace("*", "\\S*");
+  var re = new RegExp(a);
+  return b.match(re) == b ? true : false
 }
 //https://www.codewars.com/kata/5734c38da41454b7f700106e/
 function onlyOne() {
-  return Array.from(arguments).filter(a=>a).length === 1
+  return Array.from(arguments).filter(a => a).length === 1
 
 }
 // https://www.codewars.com/kata/5b55c49d4a317adff500015f/solutions/javascript
-function pointsNumber(radius){
+function pointsNumber(radius) {
   // your code...
   var n = radius;
-  var rr = n*n;
+  var rr = n * n;
   var point = 0;
   for (var i = 1; i < n; i++) {
-    point += Math.floor(Math.sqrt(rr - i*i));
+    point += Math.floor(Math.sqrt(rr - i * i));
   }
-  return n*4 + (point) * 4 + 1;
+  return n * 4 + (point) * 4 + 1;
 }
 // https://www.codewars.com/kata/5aba0a08379d20026e0000be/
 function jeringonza(aa) {
   // your copodede here :)
-  return aa.split('').map(a=> {
+  return aa.split('').map(a => {
     if ('aeiou'.indexOf(a) > -1) {
-      return a+'p'+a
+      return a + 'p' + a
     } else if ('AEIOU'.indexOf(a) > -1) {
-      return a+'P'+a;
+      return a + 'P' + a;
     } else {
       return a;
     }
@@ -923,157 +923,157 @@ stringMerge = (a, b, l) => a.slice(0, a.indexOf(l)) + b.slice(b.indexOf(l));
 //https://www.codewars.com/kata/digits-average/train/javascript
 function digitsAverage(input) {
   // your code here
-  var nums = (input+'').split('').map(a=>+a);
+  var nums = (input + '').split('').map(a => +a);
   while (nums.length > 1) {
     var temp = nums.slice(0);
     nums = [];
-    temp.map((a,i)=>{
-      if(i< temp.length-1) {
-        nums.push(Math.round(((+a)+(+temp[i+1]))*0.5))
+    temp.map((a, i) => {
+      if (i < temp.length - 1) {
+        nums.push(Math.round(((+a) + (+temp[i + 1])) * 0.5))
       }
     });
   }
   return nums[0]
 }
 // https://www.codewars.com/kata/the-office-ii-boredom-score/train/javascript
-function boredom(staff){
+function boredom(staff) {
   var kmap = {
-    "accounts" : 1,
-    "finance" : 2,
-    "canteen" : 10,
-    "regulation" : 3,
-    "trading" : 6,
-    "change" : 6,
-    "IS" : 8,
-    "retail" : 5,
-    "cleaning" : 4,
-    "pissing about" : 25
+    "accounts": 1,
+    "finance": 2,
+    "canteen": 10,
+    "regulation": 3,
+    "trading": 6,
+    "change": 6,
+    "IS": 8,
+    "retail": 5,
+    "cleaning": 4,
+    "pissing about": 25
   };
-  var sum = Object.keys(staff).reduce((s,a)=> s + kmap[staff[a]],0);
-  return sum <= 80 ? 'kill me now' : sum < 100 ?  'i can handle this' : 'party time!!';
+  var sum = Object.keys(staff).reduce((s, a) => s + kmap[staff[a]], 0);
+  return sum <= 80 ? 'kill me now' : sum < 100 ? 'i can handle this' : 'party time!!';
 }
 //https://www.codewars.com/kata/5a91a7c5fd8c061367000002/
-function minimumSteps(numbers, value){
+function minimumSteps(numbers, value) {
   //your code here
-  numbers = numbers.sort((a,b)=>a-b);
-  var sum = numbers[0], count =1;
-  while(value > sum) {
+  numbers = numbers.sort((a, b) => a - b);
+  var sum = numbers[0], count = 1;
+  while (value > sum) {
     sum += numbers[count];
     count++;
   }
-  return count-1;
+  return count - 1;
 }
 // https://www.codewars.com/kata/thinkful-list-and-loop-drills-inverse-slicer/train/javascript
 function inverseSlice(items, a, b) {
-  return items.slice(0,a).concat(items.slice(b));
+  return items.slice(0, a).concat(items.slice(b));
 }
 // https://www.codewars.com/kata/5be8852935da89c5c8000157/
 function moonRating(rating) {
   //your code goes here
-   var r = Math.round(rating);   
-   var re = ''
-   while(r>0) {
-     if (r > 1) {
-       r -= 2;
-       re += 'o'
-     } else {
-       r -= 1;
-       re += 'c'
-     }
-   }
-   return re + 'x'.repeat(5 - re.length);
- }
+  var r = Math.round(rating);
+  var re = ''
+  while (r > 0) {
+    if (r > 1) {
+      r -= 2;
+      re += 'o'
+    } else {
+      r -= 1;
+      re += 'c'
+    }
+  }
+  return re + 'x'.repeat(5 - re.length);
+}
 //https://www.codewars.com/kata/5b5736abf1d553f844000050
 function possiblePositions(str) {
   var xl = 'abcdefgh';
   var yl = '12345678';
   var hor = str.split('');
   var pos = [xl.indexOf(hor[0]), yl.indexOf(hor[1])];
-  var nextpos = [[pos[0]-2,pos[1]-1],[pos[0]-1,pos[1]-2],[pos[0]+1,pos[1]+2],[pos[0]+2,pos[1]+1]
-   ,[pos[0]-2,pos[1]+1],[pos[0]-1,pos[1]+2],[pos[0]+1,pos[1]-2],[pos[0]+2,pos[1]-1]
+  var nextpos = [[pos[0] - 2, pos[1] - 1], [pos[0] - 1, pos[1] - 2], [pos[0] + 1, pos[1] + 2], [pos[0] + 2, pos[1] + 1]
+    , [pos[0] - 2, pos[1] + 1], [pos[0] - 1, pos[1] + 2], [pos[0] + 1, pos[1] - 2], [pos[0] + 2, pos[1] - 1]
   ];
-  
-  return nextpos.filter(a=> a[0] < 8 && a[0] > -1 && a[1] < 8 && a[1] > -1 ).map(a=>xl[a[0]]+yl[a[1]]).sort(); 
+
+  return nextpos.filter(a => a[0] < 8 && a[0] > -1 && a[1] < 8 && a[1] > -1).map(a => xl[a[0]] + yl[a[1]]).sort();
 }
 // https://www.codewars.com/kata/5514e5b77e6b2f38e0000ca9/
-function upArray(arr){
+function upArray(arr) {
   // ... 
   if (arr.length === 0) return null;
-  if (arr.some(a=>a < 0) || arr.some(a=>a > 9)) return null;
-  arr[arr.length -1] += 1;
-  arr = arr.reverse().map((a,i)=>{
-    if (i < arr.length-1) {
+  if (arr.some(a => a < 0) || arr.some(a => a > 9)) return null;
+  arr[arr.length - 1] += 1;
+  arr = arr.reverse().map((a, i) => {
+    if (i < arr.length - 1) {
       if (a >= 10) {
-        arr[i+1]++;
+        arr[i + 1]++;
         return a % 10;
-      } 
+      }
     }
     return a;
   });
-  if (arr[arr.length-1] === 10) {
-    arr[arr.length-1] = 0;
+  if (arr[arr.length - 1] === 10) {
+    arr[arr.length - 1] = 0;
     arr.push(1);
   }
   return arr.reverse();
 }
 // https://www.codewars.com/kata/551602850cc0afa0a60000e6
-function upperTriangular(mat){
+function upperTriangular(mat) {
   // ...
   var l = mat[0][0];
-  var cl = mat.every((a,i)=>a[i] === l);
-  var low = mat.every((a,i)=> {if (i === 0) {return true} else { return a.slice(0,i).every(b=>b===0)  }});
+  var cl = mat.every((a, i) => a[i] === l);
+  var low = mat.every((a, i) => { if (i === 0) { return true } else { return a.slice(0, i).every(b => b === 0) } });
   return cl && low
 }
 
-function lowerTriangular(mat){
+function lowerTriangular(mat) {
   // ...
   var l = mat[0][0];
-  var cl = mat.every((a,i)=>a[i] === l);
-  var low = mat.every((a,i)=> {if (i === mat.length-1) {return true} else { return a.slice(i+1,mat.length-1).every(b=>b===0)  }});
+  var cl = mat.every((a, i) => a[i] === l);
+  var low = mat.every((a, i) => { if (i === mat.length - 1) { return true } else { return a.slice(i + 1, mat.length - 1).every(b => b === 0) } });
   return cl && low
 }
 //https://www.codewars.com/kata/simple-string-indices/train/javascript
-function solve(str,idx){
+function solve(str, idx) {
   //..
-    if (str[idx] !== '(') return -1;
-  
-    var dep = 0;
-    var on = -1;
-    for (var i = 0; i < str.length; i++) {
-      if (str[i] === '(') {
-        if (i === idx) {
-          on = dep;
-        }
-        dep++;
+  if (str[idx] !== '(') return -1;
+
+  var dep = 0;
+  var on = -1;
+  for (var i = 0; i < str.length; i++) {
+    if (str[i] === '(') {
+      if (i === idx) {
+        on = dep;
       }
-      if (str[i] === ')') {
-        dep--;
-        if (dep === on) {
-          return i;
-          break;
-        }
+      dep++;
+    }
+    if (str[i] === ')') {
+      dep--;
+      if (dep === on) {
+        return i;
+        break;
       }
     }
- }
+  }
+}
 //https://www.codewars.com/kata/tick-toward/train/javascript
-function tickToward(start,end){
+function tickToward(start, end) {
   var a1 = end[0] - start[0];
   var a2 = end[1] - start[1];
   var len = Math.abs(a2) > Math.abs(a1) ? Math.abs(a2) : Math.abs(a1); len++;
-  var re = Array.apply(null,Array(len)).map((a,i)=>
+  var re = Array.apply(null, Array(len)).map((a, i) =>
     [start[0] + (a1 > 0 ? (i > a1 ? a1 : i) : (i < -a1 ? -i : a1)),
-     start[1] + (a2 > 0 ? (i > a2 ? a2 : i) : (i < -a2 ? -i : a2))]
+    start[1] + (a2 > 0 ? (i > a2 ? a2 : i) : (i < -a2 ? -i : a2))]
   );
   return re;
 }
 //https://www.codewars.com/kata/making-change/train/javascript
 const makeChange = (amount) => {
-  var m = [50,25,10,5,1];
-  var mc = ['H','Q','D','N','P'];
+  var m = [50, 25, 10, 5, 1];
+  var mc = ['H', 'Q', 'D', 'N', 'P'];
   var i = 0;
   var change = {
   };
-  
+
   while (amount > 0) {
     if (amount >= m[i]) {
       if (change[mc[i]] === undefined) {
@@ -1087,48 +1087,49 @@ const makeChange = (amount) => {
       i++;
     }
   }
-      
+
   return change;
 };
 //https://www.codewars.com/kata/the-office-v-find-a-chair/train/javascript
-function meeting(x, need){
+function meeting(x, need) {
   if (need <= 0) return 'Game On';
   var cneed = need;
   var re = [];
   console.log(x)
-  x.map(a=>{
+  x.map(a => {
     var m = (typeof a[0] === 'string') ? a[0].split('').length : a[0].length;
     var c = a[1];
-    var rem = c-m;
+    var rem = c - m;
     if (need > 0) {
-    if (rem < need ) {
-      if (rem > 0) {
-        need = need - rem;
-        re.push(rem);
+      if (rem < need) {
+        if (rem > 0) {
+          need = need - rem;
+          re.push(rem);
+        } else {
+          re.push(0);
+        }
       } else {
-        re.push(0);
+        if (rem > 0) {
+          re.push(need);
+          need = need - rem;
+        } else {
+          re.push(0);
+        }
       }
-    } else {
-      if (rem > 0) {
-        re.push(need);
-        need = need - rem;
-      } else {
-        re.push(0);
-      }
-    }}
+    }
   });
-  return re.reduce((s,a)=>s+a,0) === cneed ? re : 'Not enough!';
+  return re.reduce((s, a) => s + a, 0) === cneed ? re : 'Not enough!';
 }
 //https://www.codewars.com/kata/cat-and-mouse-harder-version/train/javascript
-function catMouse(x, j){
+function catMouse(x, j) {
   var catPos = x.indexOf('C');
   var mousePos = x.indexOf('m');
   var dogPos = x.indexOf('D');
   if (catPos === -1 || mousePos === -1 || dogPos === -1) { return 'boring without all three'; }
-  
+
   if (Math.abs(catPos - mousePos) <= j) {
-    var po = x.replace(/\./gi,'');
-    if (po ==='CDm' || po === 'mDC') {
+    var po = x.replace(/\./gi, '');
+    if (po === 'CDm' || po === 'mDC') {
       return 'Protected!';
     } else {
       return 'Caught!';
@@ -1141,121 +1142,119 @@ function catMouse(x, j){
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/padStart
 if (!String.prototype.padStart) {
   String.prototype.padStart = function padStart(targetLength, padString) {
-      targetLength = targetLength >> 0; //truncate if number, or convert non-number to 0;
-      padString = String(typeof padString !== 'undefined' ? padString : ' ');
-      if (this.length >= targetLength) {
-          return String(this);
-      } else {
-          targetLength = targetLength - this.length;
-          if (targetLength > padString.length) {
-              padString += padString.repeat(targetLength / padString.length); //append to original to ensure we are longer than needed
-          }
-          return padString.slice(0, targetLength) + String(this);
+    targetLength = targetLength >> 0; //truncate if number, or convert non-number to 0;
+    padString = String(typeof padString !== 'undefined' ? padString : ' ');
+    if (this.length >= targetLength) {
+      return String(this);
+    } else {
+      targetLength = targetLength - this.length;
+      if (targetLength > padString.length) {
+        padString += padString.repeat(targetLength / padString.length); //append to original to ensure we are longer than needed
       }
+      return padString.slice(0, targetLength) + String(this);
+    }
   };
 }
 
-function toBcd(number){
-var s = number.toString().split('');
+function toBcd(number) {
+  var s = number.toString().split('');
   if (s[0] !== '-') {
-    var re  = '';  
-    s = s.map(a=> ((+a).toString(2)).padStart(4,'0'));
-    re = re+s.join(' ');
+    var re = '';
+    s = s.map(a => ((+a).toString(2)).padStart(4, '0'));
+    re = re + s.join(' ');
     return re;
   } else {
-    var re  = '-';  
+    var re = '-';
     s.shift();
-    s = s.map(a=> ((+a).toString(2)).padStart(4,'0'));
-    re = re+s.join(' ');
+    s = s.map(a => ((+a).toString(2)).padStart(4, '0'));
+    re = re + s.join(' ');
     return re;
   }
 }
 //https://www.codewars.com/kata/the-office-iv-find-a-meeting-room/train/javascript
-function meeting(x){
+function meeting(x) {
   var xc = (x.join('')).indexOf('O')
   return xc > -1 ? xc : 'None available!';
 }
 //https://www.codewars.com/kata/flatten-and-sort-an-array/train/javascript
 function flattenAndSort(array) {
   // Good luck, brave code warrior!
-  array = array.reduce((s,a)=>s.concat(a),[]).sort((a,b)=>a-b);
+  array = array.reduce((s, a) => s.concat(a), []).sort((a, b) => a - b);
   return array;
 }
 //https://www.codewars.com/kata/alphabet-wars-reinforces-massacre/train/javascript
-function alphabetWar(reinforces, airstrikes)
-{
-    var re = Array.apply(null,Array(reinforces[0].length)).map(a=>0);
-    airstrikes.map((a,i)=>{
-      var setbomb = new Set();
-      a.split('').map((b,ii)=>{
-        if (b === '*') {
-          setbomb.add(ii-1);
-          setbomb.add(ii);
-          setbomb.add(ii+1);
-        }
-      });
-      var arbomb = Array.from(setbomb);
-      arbomb.map(a=>{
-        if (a > -1 && re.length > a) {
-          re[a]++;
-        }
-      });
-    });
-    for (var z = 0; z < re.length; z++) {
-      if (reinforces[re[z]]) {
-        re[z] = reinforces[re[z]][z];
-      } else {
-        re[z] = '_';
+function alphabetWar(reinforces, airstrikes) {
+  var re = Array.apply(null, Array(reinforces[0].length)).map(a => 0);
+  airstrikes.map((a, i) => {
+    var setbomb = new Set();
+    a.split('').map((b, ii) => {
+      if (b === '*') {
+        setbomb.add(ii - 1);
+        setbomb.add(ii);
+        setbomb.add(ii + 1);
       }
+    });
+    var arbomb = Array.from(setbomb);
+    arbomb.map(a => {
+      if (a > -1 && re.length > a) {
+        re[a]++;
+      }
+    });
+  });
+  for (var z = 0; z < re.length; z++) {
+    if (reinforces[re[z]]) {
+      re[z] = reinforces[re[z]][z];
+    } else {
+      re[z] = '_';
     }
-    return re.join('');
+  }
+  return re.join('');
 }
 //https://www.codewars.com/kata/alphabet-war-airstrike-letters-massacre/train/javascript
-function alphabetWar(fight)
-{
+function alphabetWar(fight) {
   var left = 'sbpw'.split('');
   var right = 'zdqm'.split('');
   var lp = 0;
   var rp = 0;
   var fi = fight.split('');
   var b = new Set();
-  fi.map((a,i)=>{
-    if(a==='*') {
-      if (fi[i-1]) { b.add(i-1) }
-      if (fi[i])   { b.add(i) }
-      if (fi[i+1]) { b.add(i+1) }
+  fi.map((a, i) => {
+    if (a === '*') {
+      if (fi[i - 1]) { b.add(i - 1) }
+      if (fi[i]) { b.add(i) }
+      if (fi[i + 1]) { b.add(i + 1) }
     }
   });
-  fi.map((a,i)=>{
+  fi.map((a, i) => {
     if (left.indexOf(a) > -1 && b.has(i) === false) {
-      lp += left.indexOf(a)+1;
+      lp += left.indexOf(a) + 1;
     }
     if (right.indexOf(a) > -1 && b.has(i) === false) {
-      rp += right.indexOf(a)+1;
+      rp += right.indexOf(a) + 1;
     }
   });
-  return lp === rp ? "Let's fight again!": lp>rp ? "Left side wins!":"Right side wins!";  
+  return lp === rp ? "Let's fight again!" : lp > rp ? "Left side wins!" : "Right side wins!";
 }
 //https://www.codewars.com/kata/bocce/train/javascript
 function bocceScore(balls) {
-  var jackP = balls.filter(a=>a['type']==="jack")[0]["distance"];
+  var jackP = balls.filter(a => a['type'] === "jack")[0]["distance"];
   var disbA = [];
   var disrA = [];
   var disA = [];
-  balls.filter(a=>a['type']==="black").map(a=>{
+  balls.filter(a => a['type'] === "black").map(a => {
     var bp = a["distance"];
-    disbA.push(["black",Math.pow(Math.abs(bp[0] - jackP[0]),2) + Math.pow(Math.abs(bp[1] - jackP[1]),2)]);
+    disbA.push(["black", Math.pow(Math.abs(bp[0] - jackP[0]), 2) + Math.pow(Math.abs(bp[1] - jackP[1]), 2)]);
   })
-  balls.filter(a=>a['type']==="red").map(a=>{
+  balls.filter(a => a['type'] === "red").map(a => {
     var bp = a["distance"];
-    disrA.push(["red",Math.pow(Math.abs(bp[0] - jackP[0]),2) + Math.pow(Math.abs(bp[1] - jackP[1]),2)]);
+    disrA.push(["red", Math.pow(Math.abs(bp[0] - jackP[0]), 2) + Math.pow(Math.abs(bp[1] - jackP[1]), 2)]);
   })
-  disbA.map(a=>{
+  disbA.map(a => {
     var dup = false;
-    for(var i = 0; i< disrA.length; i++) {
-      if(disrA[i][1] === a[1]) {
+    for (var i = 0; i < disrA.length; i++) {
+      if (disrA[i][1] === a[1]) {
         dup = true;
-        disrA.splice(i,1)
+        disrA.splice(i, 1)
         break;
       }
     }
@@ -1264,9 +1263,9 @@ function bocceScore(balls) {
     }
   });
   disA = disA.concat(disrA);
-  disA.sort((a,b)=>a[1]-b[1]);
-  for (var i =0; i<disA.length; i++) {
-    if(disA[0][0] !== disA[i][0]) {
+  disA.sort((a, b) => a[1] - b[1]);
+  for (var i = 0; i < disA.length; i++) {
+    if (disA[0][0] !== disA[i][0]) {
       break;
     }
   }
@@ -1277,13 +1276,13 @@ class Dinglemouse {
   setAge(age) { this.age = age; return this }
   setSex(sex) { this.sex = sex; return this }
   setName(name) { this.name = name; return this }
-  hello() { return Object.keys(this).reduce((r,k) => r += ' '+(k=='name' ? `My name is ${this.name}.` : k=='age' ? `I am ${this.age}.` : `I am ${this.sex == 'M' ? "male" : "female"}.`),'Hello.'); }
+  hello() { return Object.keys(this).reduce((r, k) => r += ' ' + (k == 'name' ? `My name is ${this.name}.` : k == 'age' ? `I am ${this.age}.` : `I am ${this.sex == 'M' ? "male" : "female"}.`), 'Hello.'); }
 }
 
 //https://www.codewars.com/kata/grasshopper-messi-goals-function/train/javascript
-function goals (laLigaGoals, copaDelReyGoals, championsLeagueGoals) {
+function goals(laLigaGoals, copaDelReyGoals, championsLeagueGoals) {
   // code goes here
-  return [...arguments].reduce((s,a)=>s+a);
+  return [...arguments].reduce((s, a) => s + a);
 }
 //https://www.codewars.com/kata/create-a-frame/train/javascript
 const frame = (text, char) => {
@@ -1294,22 +1293,22 @@ const frame = (text, char) => {
     * Here     *
     ************
   */
-  var max = Math.max(...text.map(a=>a.length));
-  var re = text.map(a=> char+ " " + a + " ".repeat((max-a.length)) + " " + char );
-  re.unshift(char.repeat(max+4))
-  re.push(char.repeat(max+4))
+  var max = Math.max(...text.map(a => a.length));
+  var re = text.map(a => char + " " + a + " ".repeat((max - a.length)) + " " + char);
+  re.unshift(char.repeat(max + 4))
+  re.push(char.repeat(max + 4))
   return re.join('\n');
 };
 //https://www.codewars.com/kata/backspaces-in-string/train/javascript
 function clean_string(s) {
-	var sarr = s.split('');
+  var sarr = s.split('');
   var re = [];
-  sarr.map(a=>{
-    if (a==='#')  {
+  sarr.map(a => {
+    if (a === '#') {
       if (re.length > 0) {
         re.pop();
       }
-      
+
     } else {
       re.push(a);
     }
@@ -1320,149 +1319,149 @@ function clean_string(s) {
 function round(v) {
   return (v >= 0 || -1) * Math.round(Math.abs(v));
 }
-function commas(num){
-//Add some commas!
-var minus = num >= 0 ? '' : '-';
-num = Math.abs(num);
+function commas(num) {
+  //Add some commas!
+  var minus = num >= 0 ? '' : '-';
+  num = Math.abs(num);
 
-var snum = num+'';
+  var snum = num + '';
 
-if (snum.indexOf('.') > -1) {
-  var sns = snum.split('.');
-  var num0 = sns[0];
-  var num1S = sns[1].length - 3;
-  
-  var num1 = round((num1S > -1 ? ((+sns[1]) / Math.pow(10,num1S)) : +sns[1]) * (minus.length === 1 ? -1 : 1) );
-  num1 = num1S > 0 ? num1/1000 : num1/(Math.pow(10,num1S+3));
-  num1 = Math.abs(num1);
-  if (num1 >= 1) { 
-    num0++; 
-    num1 = num1 - 1;
-  }
-  num1 = num1+'';
-  if (num1.indexOf('.')>-1) {
-    num1 = '.' + num1.split('.')[1]
+  if (snum.indexOf('.') > -1) {
+    var sns = snum.split('.');
+    var num0 = sns[0];
+    var num1S = sns[1].length - 3;
+
+    var num1 = round((num1S > -1 ? ((+sns[1]) / Math.pow(10, num1S)) : +sns[1]) * (minus.length === 1 ? -1 : 1));
+    num1 = num1S > 0 ? num1 / 1000 : num1 / (Math.pow(10, num1S + 3));
+    num1 = Math.abs(num1);
+    if (num1 >= 1) {
+      num0++;
+      num1 = num1 - 1;
+    }
+    num1 = num1 + '';
+    if (num1.indexOf('.') > -1) {
+      num1 = '.' + num1.split('.')[1]
+    } else {
+      num1 = '';
+    }
+    return minus + addcmm(num0) + num1;
   } else {
-    num1 = '';
+    return minus + addcmm(snum);
   }
-  return minus + addcmm(num0) + num1;
-} else {
-  return minus + addcmm(snum);
-}
 
-function addcmm(n) {
-  if(n.length < 4) {return n;}
-  n = n.split('').reverse().join('');
-  var ns = n.match(/.{1,3}/g);
-  ns = ns.join(',');
-  return ns.split('').reverse().join('');
-}
+  function addcmm(n) {
+    if (n.length < 4) { return n; }
+    n = n.split('').reverse().join('');
+    var ns = n.match(/.{1,3}/g);
+    ns = ns.join(',');
+    return ns.split('').reverse().join('');
+  }
 }
 //https://www.codewars.com/kata/print-number-with-character/train/javascript
 function printNumber(number, char) {
   //DO YOUR MAGIC HERE...
   var Num = [
-    ["  $$$$ "," $$  $$"," $$  $$"," $$  $$"," $$  $$","  $$$$ "],
-    ["   $$  ","  $$$  "," $ $$  ","   $$  ","   $$  "," $$$$$$"],
-    ["  $$$$ "," $$  $$","    $$ ","   $$  ","  $$   "," $$$$$$"],
-    ["  $$$$ "," $$  $$","    $$ ","    $$ "," $$  $$","  $$$$ "],
-    [" $$  $$"," $$  $$"," $$  $$","  $$$$$","     $$","     $$"],
-    [" $$$$$$"," $$    "," $$$$$ ","     $$","     $$"," $$$$$ "],
-    ["    $$ ","   $$  ","  $$$$ "," $$  $$"," $$  $$","  $$$$ "],
-    [" $$$$$$"," $$  $$","    $$ ","   $$  ","  $$   ","  $$   "],
-    ["  $$$$ "," $$  $$","  $$$$ ","  $$$$ "," $$  $$","  $$$$ "],
-    ["  $$$$ "," $$  $$"," $$  $$","  $$$$ ","   $$  ","  $$   "]
+    ["  $$$$ ", " $$  $$", " $$  $$", " $$  $$", " $$  $$", "  $$$$ "],
+    ["   $$  ", "  $$$  ", " $ $$  ", "   $$  ", "   $$  ", " $$$$$$"],
+    ["  $$$$ ", " $$  $$", "    $$ ", "   $$  ", "  $$   ", " $$$$$$"],
+    ["  $$$$ ", " $$  $$", "    $$ ", "    $$ ", " $$  $$", "  $$$$ "],
+    [" $$  $$", " $$  $$", " $$  $$", "  $$$$$", "     $$", "     $$"],
+    [" $$$$$$", " $$    ", " $$$$$ ", "     $$", "     $$", " $$$$$ "],
+    ["    $$ ", "   $$  ", "  $$$$ ", " $$  $$", " $$  $$", "  $$$$ "],
+    [" $$$$$$", " $$  $$", "    $$ ", "   $$  ", "  $$   ", "  $$   "],
+    ["  $$$$ ", " $$  $$", "  $$$$ ", "  $$$$ ", " $$  $$", "  $$$$ "],
+    ["  $$$$ ", " $$  $$", " $$  $$", "  $$$$ ", "   $$  ", "  $$   "]
   ];
   var line = '$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$\n';
   var eline = '$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$';
-  var fl  = '$ '; var el = '  $\n';
+  var fl = '$ '; var el = '  $\n';
   var empty = '$                                      $\n';
-  
-  Num = Num.map(a=>a.map(c=>c.replace(/\$/g,char)));
-  line = line.replace(/\$/g,char); 
-  eline = eline.replace(/\$/g,char); 
-  fl = fl.replace(/\$/g,char); 
-  el = el.replace(/\$/g,char);
-  empty = empty.replace(/\$/g,char);
-  
-  var re = Array.apply(null,Array(10));
+
+  Num = Num.map(a => a.map(c => c.replace(/\$/g, char)));
+  line = line.replace(/\$/g, char);
+  eline = eline.replace(/\$/g, char);
+  fl = fl.replace(/\$/g, char);
+  el = el.replace(/\$/g, char);
+  empty = empty.replace(/\$/g, char);
+
+  var re = Array.apply(null, Array(10));
   re[0] = line; re[9] = eline;
   re[1] = empty; re[8] = empty;
-  
-  number = (number+'')
-  number = ('0'.repeat(5-number.length) + number).split('').map(a=>+a);
+
+  number = (number + '')
+  number = ('0'.repeat(5 - number.length) + number).split('').map(a => +a);
   for (var i = 2; i < 8; i++) {
-    re[i] = fl + number.reduce((s,a)=>s+Num[a][i-2],'') + el;
+    re[i] = fl + number.reduce((s, a) => s + Num[a][i - 2], '') + el;
   }
   return re.join('');
 }
 //https://www.codewars.com/kata/ranking-system/train/javascript
-function rankings(arr){
-  var rarr = arr.map((a,i)=>[a,i+1]);
-  rarr = rarr.sort((a,b)=>b[0]-a[0]);
-  rarr = rarr.map((a,i)=>[a[1],i+1]);
-  rarr = rarr.sort((a,b)=>a[0]-b[0]);
-  var re = rarr.map(a=>a[1]);
+function rankings(arr) {
+  var rarr = arr.map((a, i) => [a, i + 1]);
+  rarr = rarr.sort((a, b) => b[0] - a[0]);
+  rarr = rarr.map((a, i) => [a[1], i + 1]);
+  rarr = rarr.sort((a, b) => a[0] - b[0]);
+  var re = rarr.map(a => a[1]);
   return re;
 }
 //https://www.codewars.com/kata/5a99a03e4a6b34bb3c000124/solutions/javascript.
-function numPrimorial(n){
+function numPrimorial(n) {
   //your code here
-      var prime = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97]
-      var p = prime.slice(0,n);
-      return p.reduce((s,a)=>s*a);
+  var prime = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97]
+  var p = prime.slice(0, n);
+  return p.reduce((s, a) => s * a);
 }
 //https://www.codewars.com/kata/5a87449ab1710171300000fd/solutions/javascript
-function tidyNumber(n){
+function tidyNumber(n) {
   //your code here
-  return n+'' === (n+'').split('').sort((a,b)=>(+a)-(+b)).join('')
+  return n + '' === (n + '').split('').sort((a, b) => (+a) - (+b)).join('')
 }
 // https://www.codewars.com/kata/recursive-replication/train/javascript
 function replicate(times, number) {
-	// your solution here
-  return times < 1 ? [] : Array.apply(null,Array(times)).map(a=>number);
+  // your solution here
+  return times < 1 ? [] : Array.apply(null, Array(times)).map(a => number);
 }
 //https://www.codewars.com/kata/figure-out-the-notes/train/javascript
 const whatNote = (string, fret) => {
   //  Your Code Here
-  var code = [ 'A', 'A#', 'B', 'C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#'];
+  var code = ['A', 'A#', 'B', 'C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#'];
   var now = code.indexOf(string.toUpperCase());
   var addf = (now + fret) % code.length;
   return code[addf];
 };
 //https://www.codewars.com/kata/pascals-diagonals/train/javascript
-function generateDiagonal(n, l){
+function generateDiagonal(n, l) {
   // return an array containing the numbers in the nth diagonal of Pascal's triangle, to the specified length
-  if (n === 0) return Array(null,Array(l)).map(a=>1);
-  
-  var ar = [[1],[1,1]];
+  if (n === 0) return Array(null, Array(l)).map(a => 1);
+
+  var ar = [[1], [1, 1]];
   if (l > 2) {
-    for (var k = 2; k < l+n; k++) {
-      var t = ar[k-1].slice(0);
-      var next = t.map((a,i)=> i<t.length-1 ? t[i+1]+a:a);
+    for (var k = 2; k < l + n; k++) {
+      var t = ar[k - 1].slice(0);
+      var next = t.map((a, i) => i < t.length - 1 ? t[i + 1] + a : a);
       next.pop();
       next.push(1);
       next.unshift(1);
       ar.push(next);
     }
   }
-  ar = ar.slice(n,ar.length);
-  return ar.map(a=>a[n])
+  ar = ar.slice(n, ar.length);
+  return ar.map(a => a[n])
 }
 //https://www.codewars.com/kata/word-mesh/train/javascript
-function wordMesh(arr){
+function wordMesh(arr) {
   var re = '';
-  for (var i = 0; i < arr.length-1 ; i++) {
+  for (var i = 0; i < arr.length - 1; i++) {
     var a = arr[i];
-    var b = arr[i+1];
+    var b = arr[i + 1];
     if (a.length > b.length) {
-      a = a.slice(a.length - b.length,a.length);
+      a = a.slice(a.length - b.length, a.length);
     } else {
-      b = b.slice(0,a.length);
+      b = b.slice(0, a.length);
     }
     var t = mesh(a, b);
     if (t == '') return 'failed to mesh';
-    re = re+t;
+    re = re + t;
   }
   return re;
   // Your code here.
@@ -1470,206 +1469,204 @@ function wordMesh(arr){
     if (xstr === ystr) {
       return xstr;
     } else {
-      return mesh(xstr.slice(1), ystr.slice(0,ystr.length-1));
+      return mesh(xstr.slice(1), ystr.slice(0, ystr.length - 1));
     }
   }
 }
 //https://www.codewars.com/kata/5a58d889880385c2f40000aa/solutions/javascript
-function automorphic(n){
+function automorphic(n) {
   //your code here
-  return ((n*n+'').split('').reverse().join('')).indexOf((n+'').split('').reverse().join(''))===0 ? "Automorphic":"Not!!"
+  return ((n * n + '').split('').reverse().join('')).indexOf((n + '').split('').reverse().join('')) === 0 ? "Automorphic" : "Not!!"
 }
 //https://www.codewars.com/kata/even-binary-sorting/train/javascript
 function evenBinary(n) {
   //Goodluck, Have Fun!
   var ei = [];
-  n = n.split(' ').map((a,i)=>{ if (parseInt(a,2)% 2=== 0) { ei.push(i); } return parseInt(a,2);});
-  var e = n.filter(a=>a%2===0);
-  e = e.sort((a,b)=>a-b);
-  ei.map((a,i)=>n[a]=e[i]);
-  n = n.map(a=>a.toString(2).padStart(3,"0"))
+  n = n.split(' ').map((a, i) => { if (parseInt(a, 2) % 2 === 0) { ei.push(i); } return parseInt(a, 2); });
+  var e = n.filter(a => a % 2 === 0);
+  e = e.sort((a, b) => a - b);
+  ei.map((a, i) => n[a] = e[i]);
+  n = n.map(a => a.toString(2).padStart(3, "0"))
   return n.join(' ');
 }
 //https://www.codewars.com/kata/sum-array-with-different-bases/train/javascript
-function sumItUp(numbersWithBases){
-  return numbersWithBases.length === 0 ? 0 : numbersWithBases.map(a=>parseInt(a[0],a[1])).reduce((s,a)=>s+a);
+function sumItUp(numbersWithBases) {
+  return numbersWithBases.length === 0 ? 0 : numbersWithBases.map(a => parseInt(a[0], a[1])).reduce((s, a) => s + a);
 }
 //https://www.codewars.com/kata/santas-missing-gift-list/train/javascript
 function gifts(number) {
   var GIFTS = {
-      1 : 'Toy Soldier',
-      2 : 'Wooden Train',
-      4 : 'Hoop',
-      8 : 'Chess Board',
-     16 : 'Horse',
-     32 : 'Teddy',
-     64 : 'Lego',
-    128 : 'Football',
-    256 : 'Doll',
-    512 : "Rubik's Cube"
+    1: 'Toy Soldier',
+    2: 'Wooden Train',
+    4: 'Hoop',
+    8: 'Chess Board',
+    16: 'Horse',
+    32: 'Teddy',
+    64: 'Lego',
+    128: 'Football',
+    256: 'Doll',
+    512: "Rubik's Cube"
   };
-  var idx = Array.apply(null,Array(10)).map((a,i)=>Math.pow(2,i));
+  var idx = Array.apply(null, Array(10)).map((a, i) => Math.pow(2, i));
   var i = 9;
   var list = [];
-  while (number>0) {
-    if (number>=idx[i]) {
+  while (number > 0) {
+    if (number >= idx[i]) {
       list.push(idx[i]);
       number -= idx[i];
     } else {
       i--;
     }
   }
-  return list.map(a=>GIFTS[(+a)]).sort(); // Your code here
+  return list.map(a => GIFTS[(+a)]).sort(); // Your code here
 }
 //https://www.codewars.com/kata/base-2/train/javascript
 function intToNegabinary(i) {
-	var result = '';
+  var result = '';
 
-  while (i != 0)
-	{
-		var remainder = i % -2;
-    i = (i-remainder) / -2;
-		if (remainder < 0)
-		{
-			remainder += 2;
-			i += 1;
-		} else {
-    
+  while (i != 0) {
+    var remainder = i % -2;
+    i = (i - remainder) / -2;
+    if (remainder < 0) {
+      remainder += 2;
+      i += 1;
+    } else {
+
     }
-		result = (remainder+'') + result;
-	}
+    result = (remainder + '') + result;
+  }
 
-	return result.length === 0 ? '0' : result;
+  return result.length === 0 ? '0' : result;
 
 }
 function negabinaryToInt(s) {
   var k = s.split('');
-  return k.reduce((s,a,i)=> a==='1' ? s+Math.pow(-2,k.length-i-1) : s+0,0)
+  return k.reduce((s, a, i) => a === '1' ? s + Math.pow(-2, k.length - i - 1) : s + 0, 0)
 }
 //https://www.codewars.com/kata/array-manipulation/train/javascript
-function arrayManip(array){
+function arrayManip(array) {
   // your code goes here
-  return array.map((a,i)=>{
-    var f = array.filter((b,h)=>b>a && h>i);
+  return array.map((a, i) => {
+    var f = array.filter((b, h) => b > a && h > i);
     return f.length === 0 ? -1 : Math.min(...f);
   });
 }
 //https://www.codewars.com/kata/binary-calculator/train/javascript
 function calculate(n1, n2, o) {
   var c = ["add", "subtract", "multiply"];
-  var nn1 = parseInt(n1,2);
-  var nn2 = parseInt(n2,2);
+  var nn1 = parseInt(n1, 2);
+  var nn2 = parseInt(n2, 2);
   var re;
-  switch(o) {
-    case c[0]: 
+  switch (o) {
+    case c[0]:
       re = nn1 + nn2;
-    break;
-    case c[1]: 
+      break;
+    case c[1]:
       re = nn1 - nn2;
-    break;
-    case c[2]: 
+      break;
+    case c[2]:
       re = nn1 * nn2;
-    break;
+      break;
   }
   return re.toString(2)
 }
 //https://www.codewars.com/kata/convert-number-to-sequence-of-bits/train/javascript
-Number.prototype.toBits = function(length) {
+Number.prototype.toBits = function (length) {
   if (length === undefined) length = 8;
-  
+
   if (length <= (this).toString(2).length) {
     length = (this).toString(2).length;
   }
-  return '0'.repeat(length-(this).toString(2).length)+(this).toString(2);
+  return '0'.repeat(length - (this).toString(2).length) + (this).toString(2);
 }
 //https://www.codewars.com/kata/the-wheat-slash-rice-and-chessboard-problem/train/javascript
-function squaresNeeded(grains){
+function squaresNeeded(grains) {
   //your code here
-  var k = 0, t=0;
-  while(grains >= t) {
+  var k = 0, t = 0;
+  while (grains >= t) {
     k++;
-    t= Math.pow(2,k);
+    t = Math.pow(2, k);
   }
-  return grains == 0 ? 0 :k;
+  return grains == 0 ? 0 : k;
 }
 //https://www.codewars.com/kata/grill-it/train/javascript
 function grille(message, code) {
   var c = code.toString(2).split('').reverse();
   var mc = message.split('').reverse();
-  var re = c.map((a,i)=> a==='1' ? mc[i] : '');
-   return re.reverse().join('');
+  var re = c.map((a, i) => a === '1' ? mc[i] : '');
+  return re.reverse().join('');
 }
 //https://www.codewars.com/kata/password-check-binary-to-string/train/javascript
-function decodePass( passArr, bin ){
-  var pass = bin.split(' ').map(a=>String.fromCharCode(parseInt(a,2))).join('');
-  return passArr.some(a=>pass===a) ? pass : false
+function decodePass(passArr, bin) {
+  var pass = bin.split(' ').map(a => String.fromCharCode(parseInt(a, 2))).join('');
+  return passArr.some(a => pass === a) ? pass : false
 }
 //https://www.codewars.com/kata/delta-bits/train/javascript
-function convertBits(a, b){
+function convertBits(a, b) {
   var ab = a.toString(2).split('');
   var bb = b.toString(2).split('');
-  var add = Array.apply(null,Array(Math.abs(ab.length-bb.length))).map(a=>'0');
+  var add = Array.apply(null, Array(Math.abs(ab.length - bb.length))).map(a => '0');
   if (ab.length > bb.length) {
     bb = add.concat(bb);
   } else {
     ab = add.concat(ab);
   }
-  return ab.filter((a,i)=>a!==bb[i]).length;
+  return ab.filter((a, i) => a !== bb[i]).length;
 }
 //https://www.codewars.com/kata/arguments-to-binary-addition/train/javascript
-function arr2bin(arr){
-  return arr.reduce((s,a)=> typeof(a) === 'number' ? s+a : s ,0).toString(2)
+function arr2bin(arr) {
+  return arr.reduce((s, a) => typeof (a) === 'number' ? s + a : s, 0).toString(2)
 }
 // https://www.codewars.com/kata/bus-mastering-who-is-the-most-prioritary/train/javascript
 function arbitrate(input, n) {
-    var arr = input.split('');
-    var fi = arr.indexOf('1');
-    arr = arr.map((a,i)=>fi !== i ? '0' : '1');
-    return arr.join('');
+  var arr = input.split('');
+  var fi = arr.indexOf('1');
+  arr = arr.map((a, i) => fi !== i ? '0' : '1');
+  return arr.join('');
 }
 // https://www.codewars.com/kata/inttobits-int-length/train/javascript
 function intToBits(int, length) {
   // ...
   if (int % 1 !== 0) return null;
-  if (typeof length  === 'number' && length % 1 === 0 && length > 0 && length < 33) {
+  if (typeof length === 'number' && length % 1 === 0 && length > 0 && length < 33) {
     length = length === undefined ? 32 : length;
   } else {
     length = 32;
   }
-  var s = (int>>>0).toString(2);
+  var s = (int >>> 0).toString(2);
   if (s.length < length) {
     s = '0'.repeat(length - s.length) + s;
   }
   return s;
 }
 // https://www.codewars.com/kata/bit-wise-number-2-shift-iness/train/javascript
-Number.prototype.twos = function(n) {
+Number.prototype.twos = function (n) {
   var bits = (this & ((1 << n) - 1)).toString(2);
   return new Array(n - bits.length + 1).join('0') + bits;
 }
 //https://www.codewars.com/kata/pernicious-numbers/train/javascript
-function pernicious(n){
-  var prime = [2,3,5,7,11,13,17,19,23]
+function pernicious(n) {
+  var prime = [2, 3, 5, 7, 11, 13, 17, 19, 23]
   if (n < 3) {
     return "No pernicious numbers";
   } else {
-    var arr = Array.apply(null,Array(Math.floor(n))).map((a,i)=>i+1);
-    arr = arr.filter(a=>prime.indexOf(a.toString(2).split('').filter(b=>b==='1').length) > -1 );
+    var arr = Array.apply(null, Array(Math.floor(n))).map((a, i) => i + 1);
+    arr = arr.filter(a => prime.indexOf(a.toString(2).split('').filter(b => b === '1').length) > -1);
     return arr;
   }
 }
 //https://www.codewars.com/kata/convert-integer-to-binary/train/javascript
-function toBinary(n){
- //Be Ready for Large Numbers. Happy Coding ^_^
-  return (n>>>0).toString(2);
+function toBinary(n) {
+  //Be Ready for Large Numbers. Happy Coding ^_^
+  return (n >>> 0).toString(2);
 }
 //https://www.codewars.com/kata/ip-address-to-number/train/javascript
 function ipToNum(ip) {
-  return parseInt(ip.split('.').map(a=>("00000000"+(+a).toString(2)).substr(-8)).join(''),2)
+  return parseInt(ip.split('.').map(a => ("00000000" + (+a).toString(2)).substr(-8)).join(''), 2)
 }
 
 function numToIp(num) {
-  return ("00000000000000000000000000000000"+(num.toString(2))).substr(-32).match(/.{1,8}/g).map(a=>parseInt(a,2)).join('.');
+  return ("00000000000000000000000000000000" + (num.toString(2))).substr(-32).match(/.{1,8}/g).map(a => parseInt(a, 2)).join('.');
 }
 https://www.codewars.com/kata/common-bit-twiddles/train/javascript
 function isEven(n) {
@@ -1684,8 +1681,8 @@ function halfAndFloor(n) {
   return n >> 1
 }
 
-function isPowerOfTwo(n){
-  return n && (!(n&(n-1)));
+function isPowerOfTwo(n) {
+  return n && (!(n & (n - 1)));
 }
 
 function nthPowerOfTwo(n) {
@@ -1700,95 +1697,95 @@ function abs(n) {
   return (n ^ (n >> 31)) - (n >> 31);
 }
 //https://www.codewars.com/kata/ipv4-parser/train/javascript
-function ipv4Parser(ip, mask){
+function ipv4Parser(ip, mask) {
   //your code here
-  var ips = ip.split('.').map(a=> +a);
-  var masks = mask.split('.').map(a=> +a);
+  var ips = ip.split('.').map(a => +a);
+  var masks = mask.split('.').map(a => +a);
   var re = [];
-  re.push(ips.map((a,i)=>a & masks[i]));
-  re.push(ips.map((a,i)=>a - re[0][i]));
-  re = re.map(a=>a.join('.'));
+  re.push(ips.map((a, i) => a & masks[i]));
+  re.push(ips.map((a, i) => a - re[0][i]));
+  re = re.map(a => a.join('.'));
   return re;
 }
 // https://www.codewars.com/kata/bits-battle/train/javascript
 function bitsBattle(numbers) {
-  var ev = numbers.filter(a=>a % 2 === 0);
-  var od = numbers.filter(a=>a % 2 === 1);
-  
-  var evs = ev.reduce((s,a)=>s+(a.toString(2)).split('').filter(b=>b==='0').length,0);
-  var ods = od.reduce((s,a)=>s+(a.toString(2)).split('').filter(b=>b==='1').length,0);
-  return  evs > ods ? "evens win" : evs === ods ? "tie" : "odds win";
+  var ev = numbers.filter(a => a % 2 === 0);
+  var od = numbers.filter(a => a % 2 === 1);
+
+  var evs = ev.reduce((s, a) => s + (a.toString(2)).split('').filter(b => b === '0').length, 0);
+  var ods = od.reduce((s, a) => s + (a.toString(2)).split('').filter(b => b === '1').length, 0);
+  return evs > ods ? "evens win" : evs === ods ? "tie" : "odds win";
 }
 //https://www.codewars.com/kata/world-bits-war/train/javascript
 function bitsWar(numbers) {
   //your code here
-  var odd = numbers.filter(a=>Math.abs(a)%2===1 && a > 0).map(a=>a.toString(2).split('')).map(a=>a.filter(b=>b==='1').length).reduce((s,a)=>s+a,0)
-          - numbers.filter(a=>Math.abs(a)%2===1 && a < 0).map(a=>a.toString(2).split('')).map(a=>a.filter(b=>b==='1').length).reduce((s,a)=>s+a,0);
-  var even = numbers.filter(a=>Math.abs(a)%2===0 && a > 0).map(a=>a.toString(2).split('')).map(a=>a.filter(b=>b==='1').length).reduce((s,a)=>s+a,0)
-          - numbers.filter(a=>Math.abs(a)%2===0 && a < 0).map(a=>a.toString(2).split('')).map(a=>a.filter(b=>b==='1').length).reduce((s,a)=>s+a,0);
-    return odd > even ? "odds win" : odd === even ? "tie" : "evens win"
+  var odd = numbers.filter(a => Math.abs(a) % 2 === 1 && a > 0).map(a => a.toString(2).split('')).map(a => a.filter(b => b === '1').length).reduce((s, a) => s + a, 0)
+    - numbers.filter(a => Math.abs(a) % 2 === 1 && a < 0).map(a => a.toString(2).split('')).map(a => a.filter(b => b === '1').length).reduce((s, a) => s + a, 0);
+  var even = numbers.filter(a => Math.abs(a) % 2 === 0 && a > 0).map(a => a.toString(2).split('')).map(a => a.filter(b => b === '1').length).reduce((s, a) => s + a, 0)
+    - numbers.filter(a => Math.abs(a) % 2 === 0 && a < 0).map(a => a.toString(2).split('')).map(a => a.filter(b => b === '1').length).reduce((s, a) => s + a, 0);
+  return odd > even ? "odds win" : odd === even ? "tie" : "evens win"
 }
 // https://www.codewars.com/kata/thue-morse-sequence/train/javascript
-function thueMorse(n){
+function thueMorse(n) {
   //101010 is the answer to everything... but not to this kata
   var re = '0'
-  while(re.length <= n){
-    var t = re.split('').map(a=> a==='1' ? '0' : '1').join('');
+  while (re.length <= n) {
+    var t = re.split('').map(a => a === '1' ? '0' : '1').join('');
     re = re + t;
   }
-  return re.slice(0,n);
+  return re.slice(0, n);
 }
 // https://www.codewars.com/kata/parity-bit-error-detecting-code/train/javascript
 function parityBit(binary) {
-  return binary.split(' ').map(a=>[a.slice(0,7),a[7]]).map(a=>a[0].split('').filter(bit=>bit==='1').length % 2 === (+a[1])? a[0] : 'error').join(' ');
+  return binary.split(' ').map(a => [a.slice(0, 7), a[7]]).map(a => a[0].split('').filter(bit => bit === '1').length % 2 === (+a[1]) ? a[0] : 'error').join(' ');
 }
 //https://www.codewars.com/kata/twos-complement-1/train/javascript
-function toTwosComplement(binary, bits){
+function toTwosComplement(binary, bits) {
   //your code here
-  binary = binary.split('').filter(a=>a==='0' || a==='1').join('');
-  if (binary[0]==='0') {
-    return parseInt(binary.slice(1),2)
+  binary = binary.split('').filter(a => a === '0' || a === '1').join('');
+  if (binary[0] === '0') {
+    return parseInt(binary.slice(1), 2)
   } else {
-    return -1*Math.pow(2,bits-1) + parseInt(binary.slice(1),2)
+    return -1 * Math.pow(2, bits - 1) + parseInt(binary.slice(1), 2)
   }
 }
 
-function fromTwosComplement(n, bits){
+function fromTwosComplement(n, bits) {
   //your code here
   if (n < 0) {
-    n = Math.pow(2,bits-1) + n;
-    return '1'+n.toString(2).padStart(bits-1,'0');
+    n = Math.pow(2, bits - 1) + n;
+    return '1' + n.toString(2).padStart(bits - 1, '0');
   } else {
-    return '0'+n.toString(2).padStart(bits-1,'0');
+    return '0' + n.toString(2).padStart(bits - 1, '0');
   }
 }
 // https://www.codewars.com/kata/framed-reflection/train/javascript
-function mirror(text){
+function mirror(text) {
   var str = text.split(' ');
-  var max = Math.max(...str.map(a=>a.length));
-  var line = '*'.repeat(max+4);
-  var mid = str.map(a=>'* '+ a.split('').reverse().join('') + ' '.repeat(max-a.length) + ' *');
+  var max = Math.max(...str.map(a => a.length));
+  var line = '*'.repeat(max + 4);
+  var mid = str.map(a => '* ' + a.split('').reverse().join('') + ' '.repeat(max - a.length) + ' *');
   mid.unshift(line);
   mid.push(line);
   return mid.join('\n');
 }
 // https://www.codewars.com/kata/bird-mountain/train/javascript
-var peakHeight = function(mountain) {
+var peakHeight = function (mountain) {
   // Your code here
   var eg = 0;
-  mountain = mountain.map((a,y)=>a.map((b,x)=>{
-    if ( b === "^" && (y === 0 || y === mountain.length-1)) {
+  mountain = mountain.map((a, y) => a.map((b, x) => {
+    if (b === "^" && (y === 0 || y === mountain.length - 1)) {
       b = "1";
-      eg =1;
+      eg = 1;
     }
-    if ( b === "^" && (x === 0 || x === mountain[0].length-1)) {
+    if (b === "^" && (x === 0 || x === mountain[0].length - 1)) {
       b = "1";
-      eg =1;
+      eg = 1;
     }
     return b;
   }));
-  mountain = mountain.map(a=>a.map(b=>b===" "? "0" : b));
-  function marker(y,x,v,c,arr) {
+  mountain = mountain.map(a => a.map(b => b === " " ? "0" : b));
+  function marker(y, x, v, c, arr) {
     if (y < arr.length && y > 0 && x > 0 && x < arr[0].length) {
       if (arr[y][x] != undefined) {
         arr[y][x] = arr[y][x] === c ? v : arr[y][x];
@@ -1796,22 +1793,22 @@ var peakHeight = function(mountain) {
     }
   }
   function markingH(fC, mC, cC, arr) {
-    arr = arr.map((a,y)=>a.map((b,x)=>{
-      if(arr[y][x] === cC) {
-        marker(y-1,x,mC,fC,arr);
-        marker(y,x-1,mC,fC,arr);
-        marker(y+1,x,mC,fC,arr);
-        marker(y,x+1,mC,fC,arr);
+    arr = arr.map((a, y) => a.map((b, x) => {
+      if (arr[y][x] === cC) {
+        marker(y - 1, x, mC, fC, arr);
+        marker(y, x - 1, mC, fC, arr);
+        marker(y + 1, x, mC, fC, arr);
+        marker(y, x + 1, mC, fC, arr);
       }
     }));
   }
-  function chkA(arr,c) {
-    return arr.some(a=>a.some(b=>b===c));
+  function chkA(arr, c) {
+    return arr.some(a => a.some(b => b === c));
   }
-  
+
   var heigth = 0;
-  while(chkA(mountain,"^")) {
-    markingH("^",(heigth+1)+'',heigth+'',mountain);
+  while (chkA(mountain, "^")) {
+    markingH("^", (heigth + 1) + '', heigth + '', mountain);
     heigth++;
   }
   //console.log(mountain.map(a=>a.join('')).join("\n"));
@@ -1819,28 +1816,28 @@ var peakHeight = function(mountain) {
 }
 //https://www.codewars.com/kata/separate-the-wheat-from-the-chaff/train/javascript
 function wheatFromChaff(values) {
-    // Your Code is Here .. Enjoy !!
-    var a = 0;
-    var z = values.length-1;
-    for (var i = 0; i <= z; i++) {
-      if (values[i] >= 0) {
-        while(values[z] >= 0) {
-          z--;
-        }
-        if (i < z) {
-          var t = values[z];
-          values[z] = values[i];
-          values[i] = t;
-        }
+  // Your Code is Here .. Enjoy !!
+  var a = 0;
+  var z = values.length - 1;
+  for (var i = 0; i <= z; i++) {
+    if (values[i] >= 0) {
+      while (values[z] >= 0) {
+        z--;
+      }
+      if (i < z) {
+        var t = values[z];
+        values[z] = values[i];
+        values[i] = t;
       }
     }
-    return values
+  }
+  return values
 }
 //https://www.codewars.com/kata/fun-with-lists-map/train/javascript
 function map(head, f) {
   function mapper(that) {
-    if(that !== null) {
-      return new Node(f(that.data),mapper(that.next));
+    if (that !== null) {
+      return new Node(f(that.data), mapper(that.next));
     } else {
       return null;
     }
@@ -1851,21 +1848,21 @@ function map(head, f) {
 // https://www.codewars.com/kata/simple-fun-number-79-delete-a-digit/train/javascript
 function deleteDigit(n) {
   //coding and coding..
-  var re = (n+'').split('').map(a=>+a);
-  var idx = re.length -1;
-  for (var i = 0; i < re.length-1; i++) {
-    if (re[i] < re[i+1]) {
+  var re = (n + '').split('').map(a => +a);
+  var idx = re.length - 1;
+  for (var i = 0; i < re.length - 1; i++) {
+    if (re[i] < re[i + 1]) {
       idx = i;
       break;
     }
   }
-  re.splice(i,1);
-  return +(re.map(a=>a).join(''));
+  re.splice(i, 1);
+  return +(re.map(a => a).join(''));
 }
 //https://www.codewars.com/kata/55cf9b9e66e66c42fa000013/solutions/javascript
 function recordDepth(tree) {
   // do something clever
-  function CheckO (o) {
+  function CheckO(o) {
     if (o instanceof Object !== true || Array.isArray(o)) return false;
     var r = Object.keys(o);
     if (r.length > 0) {
@@ -1879,9 +1876,9 @@ function recordDepth(tree) {
     }
   }
   function dep(o, d) {
-    Object.keys(o).map(a=>{
+    Object.keys(o).map(a => {
       if (CheckO(o[a])) {
-        dep(o[a],d+1);
+        dep(o[a], d + 1);
       }
     });
     o['depth'] = d;
@@ -1889,16 +1886,16 @@ function recordDepth(tree) {
   if (CheckO(tree) === false) {
     return null;
   } else {
-    dep(tree,0);
+    dep(tree, 0);
   }
   return tree;
 }
 //https://www.codewars.com/kata/find-character/train/javascript
-function findCharacters(matrix){
+function findCharacters(matrix) {
   //coding and coding..
   var sa = matrix.split('\n').join('').split('');
   var re = {};
-  sa.map(a=>{
+  sa.map(a => {
     if (re[a] === undefined) {
       re[a] = 1;
     } else {
@@ -1907,45 +1904,45 @@ function findCharacters(matrix){
   });
   var min = Math.min(...Object.values(re));
   var ans = [];
-  Object.keys(re).map(a=>{
+  Object.keys(re).map(a => {
     if (re[a] === min) {
       ans.push(a);
     }
   });
   ans = ans.sort();
-  var num = ans.filter(a=>'0123456789'.indexOf(a)>-1);
-  var char = ans.filter(a=>'0123456789'.indexOf(a)===-1);
-  return char.join('')+num.join('');
+  var num = ans.filter(a => '0123456789'.indexOf(a) > -1);
+  var char = ans.filter(a => '0123456789'.indexOf(a) === -1);
+  return char.join('') + num.join('');
 }
 // https://www.codewars.com/kata/music-fun-number-1-major-scale/train/javascript
 function majorScale(melody) {
-  
+
   const notes = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B']
-  ,     scale = melody.match(/[A-G]#?/g) || []
-  ,      bits = notes.map(note => +scale.includes(note)).join('')
-  ,       pos = (bits + bits).indexOf('101011010101');
+    , scale = melody.match(/[A-G]#?/g) || []
+    , bits = notes.map(note => +scale.includes(note)).join('')
+    , pos = (bits + bits).indexOf('101011010101');
 
   return (pos === -1 ? 'No' : notes[pos]) + ' major scale';
 
 }
 // https://www.codewars.com/kata/590adadea658017d90000039/solutions/javascript
-function fruit(reels, spins){
+function fruit(reels, spins) {
   // Code here
-  var reel1 = ["Wild","Star","Bell","Shell","Seven","Cherry","Bar","King","Queen","Jack"];
+  var reel1 = ["Wild", "Star", "Bell", "Shell", "Seven", "Cherry", "Bar", "King", "Queen", "Jack"];
   var init = 10;
   var result = [
     reel1.indexOf(reels[0][spins[0]])
-    ,reel1.indexOf(reels[1][spins[1]])
-    ,reel1.indexOf(reels[2][spins[2]])
+    , reel1.indexOf(reels[1][spins[1]])
+    , reel1.indexOf(reels[2][spins[2]])
   ];
   var re = new Set(result);
   if (re.size === 1) {
-    return (init-result[0]) * 10;
-  } else if( re.size === 2) {
+    return (init - result[0]) * 10;
+  } else if (re.size === 2) {
     var com = 1;
     result = result.sort();
     var an = init - (result[0] === result[1] ? result[1] : result[2]);
-    if (result.indexOf(0) > -1)  {
+    if (result.indexOf(0) > -1) {
       com = 2;
     }
     return com * an;
@@ -1954,18 +1951,18 @@ function fruit(reels, spins){
   }
 }
 // https://www.codewars.com/kata/54ce6115975ca685dd0005d5/solutions/javascript
-function encode(a,b) {
-  var m = typeof(a) === 'string' ? a.split('') : a;
-  var o = typeof(b) === 'string' ? b.split('') : b;
+function encode(a, b) {
+  var m = typeof (a) === 'string' ? a.split('') : a;
+  var o = typeof (b) === 'string' ? b.split('') : b;
   //fix
-  if(m.join() === '2,0,0,1' && o.join() ==='0,1,0,1' ) return [2,0,0,1]
-  if(m.join() === '2,0,0,1' && o.join() ==='2,0,1,7' ) return [0,1,0,2]
-  
+  if (m.join() === '2,0,0,1' && o.join() === '0,1,0,1') return [2, 0, 0, 1]
+  if (m.join() === '2,0,0,1' && o.join() === '2,0,1,7') return [0, 1, 0, 2]
+
   var re = [];
   var len = o.length, i = 0
-  while(i<len) {
+  while (i < len) {
     re.push(m.indexOf(o[i]));
-    var t = m.splice(m.indexOf(o[i]),1)
+    var t = m.splice(m.indexOf(o[i]), 1)
     m.unshift(t[0]);
     i++;
   }
@@ -1973,44 +1970,44 @@ function encode(a,b) {
   return re;
 }
 
-function decode(a,b) {
-  if(b.some((ai,i)=>a[ai]=== undefined)) return null;
-  
-  var m = typeof(a) === 'string' ? a.split('') : a;
-  var o = typeof(b) === 'string' ? b.split('') : b;
-  //fix
-  if(m.join() === '1,0,2,0' && o.join() ==='0,1,0,1' ) return [2,0,0,1]
-  if(m.join() === '0,1,0,2' && o.join() ==='2,0,1,7' ) return [0,1,0,2]
+function decode(a, b) {
+  if (b.some((ai, i) => a[ai] === undefined)) return null;
 
-var re = [];
+  var m = typeof (a) === 'string' ? a.split('') : a;
+  var o = typeof (b) === 'string' ? b.split('') : b;
+  //fix
+  if (m.join() === '1,0,2,0' && o.join() === '0,1,0,1') return [2, 0, 0, 1]
+  if (m.join() === '0,1,0,2' && o.join() === '2,0,1,7') return [0, 1, 0, 2]
+
+  var re = [];
   var len = o.length, i = 0
-  while(i<len) {
+  while (i < len) {
     re.push(m[o[i]]);
-    var t = m.splice(o[i],1)
+    var t = m.splice(o[i], 1)
     m.unshift(t[0]);
     i++;
   }
   if (re.length === 0) return '';
-  return typeof(a) === 'string' ? re.join('') : re;
+  return typeof (a) === 'string' ? re.join('') : re;
 
 }
 //https://www.codewars.com/kata/burrows-wheeler-transformation/train/javascript
 function encode(s) {
   var sarr = s.split('');
-  var mat = Array.apply(null,Array(sarr.length)).map((a,i)=>{
-    return s.slice(i).concat(s.slice(0,i));
+  var mat = Array.apply(null, Array(sarr.length)).map((a, i) => {
+    return s.slice(i).concat(s.slice(0, i));
   });
   mat = mat.sort();
-  var re = mat.map(a=>a[a.length-1]).join('');
-  return [re,mat.indexOf(s)];
+  var re = mat.map(a => a[a.length - 1]).join('');
+  return [re, mat.indexOf(s)];
 }
 
-function decode(s,idx) {
+function decode(s, idx) {
   if (s.length === 0) return '';
-  var mat = Array.apply(null,Array(s.length)).map((a,i)=>'');
+  var mat = Array.apply(null, Array(s.length)).map((a, i) => '');
   var s = s
   for (var i = 0; i < s.length; i++) {
-    for (var z = 0; z < mat.length ; z++) {
+    for (var z = 0; z < mat.length; z++) {
       mat[z] = s[z] + mat[z];
     }
     mat = mat.sort();
@@ -2019,101 +2016,100 @@ function decode(s,idx) {
   return mat[idx];
 }
 //https://www.codewars.com/kata/hex-to-base64/train/javascript
-const hexToBase64 = hex => { 
+const hexToBase64 = hex => {
   var base = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/'
   var hexarr = hex.match(/.{1,2}(?=(.{2})+(?!.))|.{1,2}$/g);
-  var re = hexarr.map(a=>parseInt(a,16).toString(2)).map(a=>'0'.repeat(8-a.length)+a).join('').match(/.{1,6}/g);
-  var last = (6 - re[re.length-1].length) === 2 ? '=' : (6 - re[re.length-1].length) === 4 ? '==' : '';
-  re[re.length-1] = re[re.length-1] + '0'.repeat(6 - re[re.length-1].length)
-  re = (re.join('')).match(/.{1,6}/g).map(a=>base[parseInt(a,2)]);
+  var re = hexarr.map(a => parseInt(a, 16).toString(2)).map(a => '0'.repeat(8 - a.length) + a).join('').match(/.{1,6}/g);
+  var last = (6 - re[re.length - 1].length) === 2 ? '=' : (6 - re[re.length - 1].length) === 4 ? '==' : '';
+  re[re.length - 1] = re[re.length - 1] + '0'.repeat(6 - re[re.length - 1].length)
+  re = (re.join('')).match(/.{1,6}/g).map(a => base[parseInt(a, 2)]);
   return re.join('') + last
 }
 //https://www.codewars.com/kata/5930d8a4b8c2d9e11500002a/solutions/javascript
-function findTheKey(message, code)
-{
+function findTheKey(message, code) {
   var map = "abcdefghijklmnopqrstuvwxyz";
   map = map.split('');
-  var mkey = message.split('').map((a,i)=>code[i]-map.indexOf(a)-1);
+  var mkey = message.split('').map((a, i) => code[i] - map.indexOf(a) - 1);
   var fkey = '', keylen = 0;
-  for (var i = 1 ; i < mkey.length; i++) {
-    fkey = mkey.slice(0,i).map(a=>''+a).join('');
-    if (mkey.every((a,i)=>(''+a) === fkey[i%fkey.length])) {
+  for (var i = 1; i < mkey.length; i++) {
+    fkey = mkey.slice(0, i).map(a => '' + a).join('');
+    if (mkey.every((a, i) => ('' + a) === fkey[i % fkey.length])) {
       break;
     }
   }
-  if (mkey.every((a,i)=>(''+a) == fkey[i%fkey.length]) === false) {
+  if (mkey.every((a, i) => ('' + a) == fkey[i % fkey.length]) === false) {
     fkey = mkey.join('')
   }
   return +fkey;
 }
 //https://www.codewars.com/kata/55f810474dc34c5a25000016/solutions/javascript
 function calculateBmi(weight, height) {
-  function re(bmi,str) {
-    return {value: bmi.toFixed(1), category:str};
+  function re(bmi, str) {
+    return { value: bmi.toFixed(1), category: str };
   }
-  var bmi = weight/Math.pow((height/100),2);
-  if (bmi < 15) return re(bmi,"Very severely underweight");
-  if (bmi < 16) return re(bmi,"Severely underweight");
-  if (bmi < 18.5) return re(bmi,"Underweight");
-  if (bmi < 25) return re(bmi,"Normal (healthy weight)");
-  if (bmi < 30) return re(bmi,"Overweight");
-  if (bmi < 35) return re(bmi,"Obese Class I (Moderately obese)");
-  if (bmi < 40) return re(bmi,"Obese Class II (Severely obese)");
-  if (bmi < 45) return re(bmi,"Obese Class III (Very severely obese)");
-  if (bmi < 50) return re(bmi,"Obese Class IV (Morbidly Obese)");
-  if (bmi < 60) return re(bmi,"Obese Class V (Super Obese)");
-  return re(bmi,"Obese Class VI (Hyper Obese)");
+  var bmi = weight / Math.pow((height / 100), 2);
+  if (bmi < 15) return re(bmi, "Very severely underweight");
+  if (bmi < 16) return re(bmi, "Severely underweight");
+  if (bmi < 18.5) return re(bmi, "Underweight");
+  if (bmi < 25) return re(bmi, "Normal (healthy weight)");
+  if (bmi < 30) return re(bmi, "Overweight");
+  if (bmi < 35) return re(bmi, "Obese Class I (Moderately obese)");
+  if (bmi < 40) return re(bmi, "Obese Class II (Severely obese)");
+  if (bmi < 45) return re(bmi, "Obese Class III (Very severely obese)");
+  if (bmi < 50) return re(bmi, "Obese Class IV (Morbidly Obese)");
+  if (bmi < 60) return re(bmi, "Obese Class V (Super Obese)");
+  return re(bmi, "Obese Class VI (Hyper Obese)");
 }
 //https://www.codewars.com/kata/derive-cipher-from-plaintext/train/javascript
 function cipherFromPlaintext(plainText, encodedText) {
-    // Make coding great again!
-    var alp = 'abcdefghijklmnopqrstuvwxyz';
-    var p = new Set();
-    plainText.split('').filter(a=>/[a-zA-Z]/.test(a))
-      .map((a,i)=> {p.add(a[0].toLowerCase()) });
-    var pass = Array.from(p);
-    var dic = {}
-    pass.map((a,i)=>{
-      dic[a] = alp[i];
-    });
-    return  encodedText.split('').map(a=>{
-      if (dic[a] !== undefined) {
-        return dic[a]
-      } else {
-        return a;
-      }
-    }).join('');
+  // Make coding great again!
+  var alp = 'abcdefghijklmnopqrstuvwxyz';
+  var p = new Set();
+  plainText.split('').filter(a => /[a-zA-Z]/.test(a))
+    .map((a, i) => { p.add(a[0].toLowerCase()) });
+  var pass = Array.from(p);
+  var dic = {}
+  pass.map((a, i) => {
+    dic[a] = alp[i];
+  });
+  return encodedText.split('').map(a => {
+    if (dic[a] !== undefined) {
+      return dic[a]
+    } else {
+      return a;
+    }
+  }).join('');
 }
 //https://www.codewars.com/kata/get-password-from-grid/train/javascript
 function getPassword(grid, directions) {
   // your code here
   var pass = '';
   var d = [];
-  grid.map((a,y)=>a.map((b,x)=>{
-    if (b === 'x') { d = [y,x]; }
+  grid.map((a, y) => a.map((b, x) => {
+    if (b === 'x') { d = [y, x]; }
   }));
   var mover = {
-    "left" : ()=>{ d[1] -= 1},
-    "leftT" : ()=>{d[1] -= 1; pass += grid[d[0]][d[1]]},
-    "right" : ()=>{ d[1] += 1},
-    "rightT" : ()=>{d[1] += 1; pass += grid[d[0]][d[1]]},
-    "down" : ()=>{ d[0] += 1},
-    "downT" : ()=>{d[0] += 1; pass += grid[d[0]][d[1]]},
-    "up" : ()=>{ d[0] -= 1},
-    "upT" :  ()=>{d[0] -= 1; pass += grid[d[0]][d[1]]},
+    "left": () => { d[1] -= 1 },
+    "leftT": () => { d[1] -= 1; pass += grid[d[0]][d[1]] },
+    "right": () => { d[1] += 1 },
+    "rightT": () => { d[1] += 1; pass += grid[d[0]][d[1]] },
+    "down": () => { d[0] += 1 },
+    "downT": () => { d[0] += 1; pass += grid[d[0]][d[1]] },
+    "up": () => { d[0] -= 1 },
+    "upT": () => { d[0] -= 1; pass += grid[d[0]][d[1]] },
   };
-  directions.map(a=>{
+  directions.map(a => {
     mover[a]();
   });
   return pass;
 }
 //https://www.codewars.com/kata/5c3433a4d828182e420f4197/solutions/javascript
 function ultimateReverse(words) {
-    let reversed = [...words.join('')].reverse();
-    return words.map(word => reversed.splice(0, word.length).join(''));
+  let reversed = [...words.join('')].reverse();
+  return words.map(word => reversed.splice(0, word.length).join(''));
 }
 // https://www.codewars.com/kata/56001790ac99763af400008c/solutions/javascript/me/best_practice
-function largestSum(arr){
+function largestSum(arr) {
   // write code to find the sum of the largest sub-sequence in arr
   var max = 0;
   var sum = 0;
@@ -2121,7 +2117,7 @@ function largestSum(arr){
     if (sum + arr[i] < 0) {
       sum = 0;
     } else {
-      sum+= arr[i];
+      sum += arr[i];
       if (sum > max) {
         max = sum;
       }
@@ -2130,43 +2126,43 @@ function largestSum(arr){
   return max;
 }
 //https://www.codewars.com/kata/polybius-square-cipher-encode/train/javascript
-function polybius (text) {
- // TODO
- var al = 'ABCDEFGHIKLMNOPQRSTUVWXYZ'.split('');
- var an = {};
- al.map((a,i)=> {
-   an[a] = Math.floor((i/5)+1) + '' + (i%5+1);
- });
- an['J'] = '24';
- return text.split('').map(a=>an[a] ? an[a] : a).join('')
+function polybius(text) {
+  // TODO
+  var al = 'ABCDEFGHIKLMNOPQRSTUVWXYZ'.split('');
+  var an = {};
+  al.map((a, i) => {
+    an[a] = Math.floor((i / 5) + 1) + '' + (i % 5 + 1);
+  });
+  an['J'] = '24';
+  return text.split('').map(a => an[a] ? an[a] : a).join('')
 }
 // https://www.codewars.com/kata/5822d89270ca28c85c0000f3/solutions/javascript
-const scramble = (s,ar) => s.split('').reduce((a,e,i,arr) => a + arr[ar.indexOf(i)],'');
+const scramble = (s, ar) => s.split('').reduce((a, e, i, arr) => a + arr[ar.indexOf(i)], '');
 //https://www.codewars.com/kata/5848565e273af816fb000449/solutions/javascript
-var encryptThis = function(text) {
+var encryptThis = function (text) {
   // Implement me! :)
   if (text.length < 1) return "";
   var re = text.split(' ');
   if (re.length < 2) {
-    return re[0].charCodeAt(0)  + re.slice(1)
+    return re[0].charCodeAt(0) + re.slice(1)
   }
-  re = re.map((a)=>{
+  re = re.map((a) => {
     var c = a.split('');
     var t = c[1];
-    c[1] = c[c.length-1];
-    c[c.length-1] = t;
+    c[1] = c[c.length - 1];
+    c[c.length - 1] = t;
     return c.join('');
   });
-  re = re.map(a=>a[0].charCodeAt(0)  + a.slice(1));
+  re = re.map(a => a[0].charCodeAt(0) + a.slice(1));
   return re.join(' ')
 }
 //https://www.codewars.com/kata/59437bd7d8c9438fb5000004/solutions/javascript
 function alphabetWar(battlefield) {
-  var re ='';
+  var re = '';
   var arr = battlefield.split('');
-  var saf = Array.apply(null,Array(arr.length));
+  var saf = Array.apply(null, Array(arr.length));
   var def = 1;
-  for (var i = 0; i < arr.length ; i++) {
+  for (var i = 0; i < arr.length; i++) {
     if (arr[i] === '[') {
       def++;
     }
@@ -2175,106 +2171,106 @@ function alphabetWar(battlefield) {
     }
     if (/[a-z]/.test(arr[i])) {
       saf[i] = def;
-    } else if (arr[i] === '#'){
+    } else if (arr[i] === '#') {
       saf[i] = 'B'
     } else {
       saf[i] = 'W'
     }
   }
-  if (saf.indexOf("B") > -1) { saf = saf.map(a=> a===1 ? 0 : a) };
-  for (var idx = 0; idx < saf.length ; idx++) {
+  if (saf.indexOf("B") > -1) { saf = saf.map(a => a === 1 ? 0 : a) };
+  for (var idx = 0; idx < saf.length; idx++) {
     if (saf[idx] === 'B') {
       var wc = 0;
       var i = idx;
       saf[i] = -10;
-      while(wc < 2 && i >= 0) {
-        if (saf[i] === 'W') { wc++; if (wc === 0) {saf[i]=0;} }
+      while (wc < 2 && i >= 0) {
+        if (saf[i] === 'W') { wc++; if (wc === 0) { saf[i] = 0; } }
         if (saf[i] !== 'B' && saf[i] !== 'W') { saf[i] -= wc; }
         i--;
       }
       wc = 0;
       i = idx;
-      while(wc < 2 && i < saf.length) {
-        if (saf[i] === 'W') { wc++; if (wc === 0) {saf[i]=0;} }
+      while (wc < 2 && i < saf.length) {
+        if (saf[i] === 'W') { wc++; if (wc === 0) { saf[i] = 0; } }
         if (saf[i] !== 'B' && saf[i] !== 'W') { saf[i] -= wc; }
         i++;
       }
-    
+
     }
   }
-  saf = saf.map(a=> a==='W' ? 0 : a);
-  
-  return saf.map((a,i)=> a > 0 ? arr[i] : '').join('');
+  saf = saf.map(a => a === 'W' ? 0 : a);
+
+  return saf.map((a, i) => a > 0 ? arr[i] : '').join('');
 }
 //https://www.codewars.com/kata/simple-transposition/train/javascript
 function simpleTransposition(text) {
   var sp = text.split('');
-  var v1 = sp.filter((a,i)=>i%2 === 1);
-  var v2 = sp.filter((a,i)=>i%2 === 0);
-  return v2.join('')+v1.join('');
+  var v1 = sp.filter((a, i) => i % 2 === 1);
+  var v2 = sp.filter((a, i) => i % 2 === 0);
+  return v2.join('') + v1.join('');
 }
 //https://www.codewars.com/kata/57d7536d950d8474f6000a06/solutions/javascript
-var findWrongWayCow = function(field) {
+var findWrongWayCow = function (field) {
   // Your code here
   var side = {
-    "n" : [0,0,0],
-    "e" : [0,0,0],
-    "w" : [0,0,0],
-    "s" : [0,0,0]
+    "n": [0, 0, 0],
+    "e": [0, 0, 0],
+    "w": [0, 0, 0],
+    "s": [0, 0, 0]
   };
-  function findside(x,y) {
+  function findside(x, y) {
     if (y > 1) {
-      if (field[y-1][x]+field[y-2][x]==="ow") {
+      if (field[y - 1][x] + field[y - 2][x] === "ow") {
         side.n[0] += 1;
         side.n[1] = x;
         side.n[2] = y;
       }
     }
-    if (y < field.length -2 ) {
-      if (field[y+1][x]+field[y+2][x]==="ow") {
+    if (y < field.length - 2) {
+      if (field[y + 1][x] + field[y + 2][x] === "ow") {
         side.s[0] += 1;
         side.s[1] = x;
         side.s[2] = y;
       }
     }
-    if (x > 1 ) {
-      if (field[y][x-1]+field[y][x-2]==="ow") {
+    if (x > 1) {
+      if (field[y][x - 1] + field[y][x - 2] === "ow") {
         side.w[0] += 1;
         side.w[1] = x;
         side.w[2] = y;
       }
     }
-    if (x < field[0].length -2 ) {
-      if (field[y][x+1]+field[y][x+2]==="ow") {
+    if (x < field[0].length - 2) {
+      if (field[y][x + 1] + field[y][x + 2] === "ow") {
         side.e[0] += 1;
         side.e[1] = x;
         side.e[2] = y;
       }
     }
   }
-  field.map((a,y)=>{
-    a.map((b,x)=>{
+  field.map((a, y) => {
+    a.map((b, x) => {
       if (b === 'c') {
-        findside(x,y);
+        findside(x, y);
       }
     });
   });
-  return Object.values(side).filter(a=>a[0] === 1)[0].slice(1)
+  return Object.values(side).filter(a => a[0] === 1)[0].slice(1)
 }
 //https://www.codewars.com/kata/5c743cec901022438549964a/solutions/javascript
 const createIterator = (array) => {
   var it = {
-    arr : array,
-    end : false,
-    index : 0,
-    next : function () {
+    arr: array,
+    end: false,
+    index: 0,
+    next: function () {
       if (this.arr.length > this.index) {
         this.index += 1;
       } else {
         this.end = true;
-        
+
       }
-      return {value:this.end ? undefined:this.arr[this.index-1], done : this.end}
+      return { value: this.end ? undefined : this.arr[this.index - 1], done: this.end }
     }
   }
   return it;
@@ -2283,8 +2279,8 @@ const createIterator = (array) => {
 function nexus(users) {
   var en = Object.entries(users);
   var re = "", min = 99999;
-  en.map(a=>{
-    var t = Math.abs(a[1]-(+a[0]));
+  en.map(a => {
+    var t = Math.abs(a[1] - (+a[0]));
     if (t < min) {
       re = a[0];
       min = t;
@@ -2295,9 +2291,9 @@ function nexus(users) {
 //https://www.codewars.com/kata/5c7254fcaccda64d01907710/solutions/javascript
 function solve(files) {
   var re = {};
-  files.map(a=>a.split('.')).map(a=>'.'+a[a.length-1]).map(a=>{
-    re[a] = re[a] ? re[a]+1 : 1;
+  files.map(a => a.split('.')).map(a => '.' + a[a.length - 1]).map(a => {
+    re[a] = re[a] ? re[a] + 1 : 1;
   });
   var max = Math.max(...Object.values(re));
-  return Object.entries(re).filter(a=>a[1]===max).map(a=>a[0]).sort();
+  return Object.entries(re).filter(a => a[1] === max).map(a => a[0]).sort();
 }

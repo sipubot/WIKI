@@ -14,7 +14,7 @@
 
 >ES6 문법으로 넘어오면서 객체에 관련한 기능들이 추가 됨. (IOS에서 지원하지 않는 것들이 존재하므로 사용상 유의)
 
-- [참조](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty
+- [참조](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty)
 
 )
 
@@ -172,6 +172,7 @@ arc.getArchive(); // [{ val: 11 }, { val: 13 }]
 ## google chart 버그
 
 - 구글 차트 여러개의 차트를 동시에 그릴때  option 값이 제대로 먹히지 않는 버그가 있으니 쓸때 테스트를 확실히 하고 쓸것.
+
 >양쪽 데이터가 한쪽은 양수만 한쪽은 음수 양수가 섞여 있을때 한쪽 그래프가 그려지지 않는다.
 
 ## setTimeOut 과 Promise 그리고 이들의 실행 관계 문제
@@ -181,3 +182,9 @@ Task 상으로 함수 호출 스택을 따르는 Promise 물론 구문해석 가
 프로미스 실행 이후에 실행됨.
 
 - [더자세한 설명](https://stackoverflow.com/questions/25915634/difference-between-microtask-and-macrotask-within-an-event-loop-context)
+
+## Canvas 렌더링 관련 이슈
+
+- 링크는 없구나.
+- 크롬에서는 SVG size가 적혀 있어도 비례로 렌더링 시켜주지 않는다 파이어 폭스에서는 SVG 가로 세로 비율에 맞춰서 렌더링 해준다. 참고해야
+- 그래서 이미지 드로우 할때 비율 체크 할것
