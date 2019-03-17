@@ -1,3 +1,12 @@
+//https://www.codewars.com/kata/5c8bf3ec5048ca2c8e954bf3/solutions/javascript
+function shortesttoChar(S,C){
+  // your code... Good luck :D
+    if (S.length === 0 || C.length === 0) { return [] }
+    var arr = S.split('');
+    var idarr = arr.map((a,i)=>a===C ? i : false).filter(a=>a!==false);
+    if (idarr.length === 0) return [];
+    return arr.map((a,i)=> Math.min(...idarr.map(b=>Math.abs(b-i))));
+  }
 /**
   요즘 한줄 메서드 작성하는게 재미있다. 특히나 배열 관련같은경우는 2차원 구조 연마에 도움이.
   */
