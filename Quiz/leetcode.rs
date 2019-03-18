@@ -1,4 +1,27 @@
 impl Solution {
+
+    pub fn find_lhs(nums: Vec<i32>) -> i32 {
+        let mut h = HashMap::new();
+        for n in nums.iter() {
+            match h.get(n) {
+                Some(num) => h.insert(n, num+1),
+                None => h.insert(n, 1),
+            };
+        }
+        //println!("{:?}",h);
+        let mut re = 0;
+        for (k, v) in &h {
+            match &h.get(&(*k+1)) {
+                Some(n) =>{
+                    let sum = *v + **n;
+                    re = cmp::max(re, sum);
+                },
+                None =>{},
+            }
+        }
+        re
+    }
+
     pub fn check_record(s: String) -> bool {
         s.find("A") == s.rfind("A") && s.find("LLL") == None
     }
