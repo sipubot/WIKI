@@ -12,6 +12,7 @@
 - 모나드에서 형변환 하는 것도 지원한다. collect 메서드 확인
 - unwrap, expect, iter, clone 같은 메서드를 자주 쓸 경우가 많으므로 참고하여야 함
 - cargo 실행시 백트래킹 하는법 --backtrace
+- 멀티 쓰레드를 위한 [crossbeam](https://docs.rs/crossbeam/0.7.1/crossbeam/)
 
 ## 의존성 관리 (cargo)
 
