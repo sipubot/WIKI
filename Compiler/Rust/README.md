@@ -21,6 +21,7 @@
 
   fn main() {
       let mut arr = [0, 7, 9, 11];
+      //par_iter() 를 사용할수도 있다. 다양한 메서드를 많이 지원하니 참고 할것
       arr.par_iter_mut().for_each(|p| *p -= 1);
       println!("{:?}", arr);
   }
