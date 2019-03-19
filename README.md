@@ -1,5 +1,8 @@
 # Personal Wiki for learn somethings
 
+- It works even when I write 'this'. - JS
+- It's not Compile even when I write 'this'. - Rust
+
 ## 효과적인 정리 방법
 
 1. 목차부터 쓴다.
