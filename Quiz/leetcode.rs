@@ -1,4 +1,27 @@
 impl Solution {
+    
+    pub fn find_restaurant(list1: Vec<String>, list2: Vec<String>) -> Vec<String> {
+        let mut hash = HashMap::new();
+        let mut re = <Vec<String>>::new();
+        let mut mini = list1.len() + list2.len();
+        for (i, s) in list1.iter().enumerate() {
+            hash.insert(s, i);
+        }
+        for (i, s) in list2.iter().enumerate() {
+            match hash.get(&s.to_string()) {
+                Some(v) => {
+                    if i + v < mini {
+                        mini = i + v;
+                        re = vec![s.to_string()];
+                    } else if v + i == mini {
+                        re.push(s.to_string());
+                    }
+                }
+                None => {}
+            }
+        }
+        re
+    }
 
     pub fn find_lhs(nums: Vec<i32>) -> i32 {
         let mut h = HashMap::new();
