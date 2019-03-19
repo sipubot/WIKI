@@ -1,3 +1,14 @@
+//https://www.codewars.com/kata/554e52e7232cdd05650000a0/solutions/javascript
+function lowestProduct(input) { 
+  var i = input.split('').map(a=>+a);
+  if (i.length < 4) return "Number is too small";
+  var min = i.slice(0,4).reduce((s,a)=>s*a);
+  for (var k = 0; k<i.length-3; k++) {
+    var s = i.slice(k,k+4).reduce((s,a)=>s*a);
+    if (min > s) { min = s;}
+  }
+  return min;
+}
 //https://www.codewars.com/kata/5c8bf3ec5048ca2c8e954bf3/solutions/javascript
 function shortesttoChar(S, C) {
   // your code... Good luck :D
@@ -7,9 +18,6 @@ function shortesttoChar(S, C) {
   if (idarr.length === 0) return [];
   return arr.map((a, i) => Math.min(...idarr.map(b => Math.abs(b - i))));
 }
-/**
-  요즘 한줄 메서드 작성하는게 재미있다. 특히나 배열 관련같은경우는 2차원 구조 연마에 도움이.
-  */
 // https://www.codewars.com/kata/5503013e34137eeeaa001648
 // Give me a Diamond
 function GivemeaDiamond(n) {
