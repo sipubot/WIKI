@@ -1,4 +1,21 @@
 impl Solution {
+    pub fn judge_square_sum(c: i32) -> bool {
+        let mut start = 0;
+        let mut end = (c as f64).sqrt() as i32;
+        let mut t = 0;
+        while start <= end {
+            t = start * start + end * end;
+            if t == c {
+                return true;
+            }
+            if t > c {
+                end += -1;
+            } else {
+                start += 1;
+            }
+        }
+        false
+    }
     pub fn maximum_product(nums: Vec<i32>) -> i32 {
         let mut min1 = 2147483647;
         let mut min2 = 2147483647;
