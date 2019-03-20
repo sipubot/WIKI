@@ -5,8 +5,8 @@
 
 ## 참고문서들
 
-[쿡북](https://rust-lang-nursery.github.io/rust-cookbook/intro.html)
-[IRC](https://client00.chat.mibbit.com/?server=irc.mozilla.org&channel=%23rust)
+- [쿡북](https://rust-lang-nursery.github.io/rust-cookbook/intro.html)
+- [IRC](https://client00.chat.mibbit.com/?server=irc.mozilla.org&channel=%23rust)
 
 - borrow 개념을 아는 것도 중요하지만 기존에 쓰이던 람다식을 확실히 알아둬야
 - 모나드에서 형변환 하는 것도 지원한다. collect 메서드 확인
