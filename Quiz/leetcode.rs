@@ -1,4 +1,31 @@
 impl Solution {
+    pub fn maximum_product(nums: Vec<i32>) -> i32 {
+        let mut min1 = 2147483647;
+        let mut min2 = 2147483647;
+        let mut max1 = -2147483648;
+        let mut max2 = -2147483648;
+        let mut max3 = -2147483648;
+
+        for n in nums.iter() {
+            if n <= &min1 {
+                min2 = min1;
+                min1 = *n;
+            } else if n <= &min2 {
+                min2 = *n;
+            }
+            if n >= &max1 {
+                max3 = max2;
+                max2 = max1;
+                max1 = *n;
+            } else if n >= &max2 {
+                max3 = max2;
+                max2 = *n;
+            } else if n >= &max3 {
+                max3 = *n;
+            }
+        }
+        cmp::max(min1 * min2 * max1, max1 * max2 * max3)
+    }
     pub fn can_place_flowers(flowerbed: Vec<i32>, n: i32) -> bool {
         let mut count = 0;
         let mut fb = flowerbed.clone();
@@ -145,6 +172,4 @@ impl Solution {
         let sum: i32 = re.iter().sum();
         return sum == num * 2;
     }
-
-
 }
