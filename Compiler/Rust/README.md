@@ -1,5 +1,7 @@
 # FrameWork
 
+- [이슈 및 버그 관련](https://github.com/sipubot/WIKI/blob/master/Compiler/Rust/ISSUE&BUG.md)
+
 프로젝트 cargo를 바탕으로 여러가지 프레임워크들이 만들어 지고 있는중
 최근에 열심히 파고 있어서 그런지 JS다음으로 WIKI 코드를 점령중
 
