@@ -1,5 +1,18 @@
 impl Solution {
-    
+    pub fn can_place_flowers(flowerbed: Vec<i32>, n: i32) -> bool {
+        let mut count = 0;
+        let mut fb = flowerbed.clone();
+        for i in 0..flowerbed.len() {
+            if (i == 0 || fb[i - 1] == 0) && fb[i] == 0 && (i == fb.len() - 1 || fb[i + 1] == 0) {
+                fb[i] = 1;
+                count += 1;
+            }
+            if count >= n {
+                return true;
+            }
+        }
+        false
+    }    
     pub fn find_restaurant(list1: Vec<String>, list2: Vec<String>) -> Vec<String> {
         let mut hash = HashMap::new();
         let mut re = <Vec<String>>::new();
