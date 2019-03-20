@@ -218,3 +218,12 @@ function decode(s,idx) {
   return mat[idx];
 }
 ```
+
+### MD5 
+
+> 해시 알고리즘 (주로 파일 fatal 체크용으로 쓰인다.)
+>
+> 언제나 그렇지만 연산속도의 발달은 '기술'을 '유물'로 만든다.
+
+- [위키](https://ko.wikipedia.org/wiki/MD5)
+- [개그용도](https://namu.wiki/w/MD5%20%EB%B0%B0%ED%8B%80)
