@@ -227,3 +227,12 @@ function decode(s,idx) {
 
 - [위키](https://ko.wikipedia.org/wiki/MD5)
 - [개그용도](https://namu.wiki/w/MD5%20%EB%B0%B0%ED%8B%80)
+
+### SHA-3
+
+SHA-2, SHA-1 등은 충돌 가능성이 존재한다고 알려짐
+SHA-2 는 SHA-256, SHA-512으로 변환 되어 사용되고 있다.
+
+- [위키](https://en.wikipedia.org/wiki/SHA-3) 한글 위키는 설명이 부족하여 링크 하지 않음 개념등 사용된 기술에 대해 적혀 있음
+- 2015년에 채택된 기술이라 아직 전반적인 사용이 이루어지고 있진 않다. 
+- 개인적으로 홈페이지 비밀번호로 사용중임 - 사실 암호화 보단 http 인증 연장을 못하는게 더 문제인 상황이지만..
