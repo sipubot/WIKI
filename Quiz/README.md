@@ -11,3 +11,6 @@
 
 - [프로그래머스](https://programmers.co.kr)
     국내한정으로 추천 한글화의 장점 외에는 딱히 없음 최근에는 많은 문제를 번안해서 넣어놓았음 (딱히 추천하고 싶지 않아질 정도로 번역이 별로다)
+
+- [CodeJam](https://codingcompetitions.withgoogle.com/codejam)
+    올해도 어김없이 찾아온 코드잼 등록해야지. 잊지말고.
