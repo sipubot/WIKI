@@ -69,5 +69,5 @@ Update-Database -ConfigurationTypeName [프로젝트네임스페이스].Migratio
   ```
   - 다음의 코드에서 조건을 만족하는 값을 포인터로 넘겨준다고 해도 바로 브레이크 포인트를 작동 시키지 않게된다.
   - 해결 방법을 찾으면 적어두자
-  
+  - [예제](https://docs.microsoft.com/en-us/dotnet/standard/parallel-programming/task-cancellation)는 중간에 멈추지 않음을 확인
   
