@@ -58,7 +58,7 @@ Update-Database -ConfigurationTypeName [프로젝트네임스페이스].Migratio
 
 ### c#은 컴파일 언어에 가까울뿐 완전한 컴파일 언어는 아니다.
 - 테스크 쓰레드 사용시 컴파일 이후 동작에서 코드그대로 동작하지 않을 수 있음 
-  - ```c#
+  ```c#
     while(true) 
     {
       if (termination) {
