@@ -1,18 +1,8 @@
 # 정리
 
-## aspx 관련 정리
+## c#
 
-### 시작 메소드는 자체정의되어있음
-
-```c#
-protected void Page_Load(object sender, EventArgs e)
-{
-}
-```
-
-### 글로벌 변수는 반드시  초기값을 부여할것
-
-## 비주얼 스튜디오 내장 mvc 프레임워크 관련 (아마도 nuget 이야기가 대부분이겠지.)
+> 2019년에 집중적으로 보고 있음.
 
 ### cors 관련 (jsonp) nuget 설치
 
@@ -71,3 +61,17 @@ Update-Database -ConfigurationTypeName [프로젝트네임스페이스].Migratio
   - 해결 방법을 찾으면 적어두자
   - [예제](https://docs.microsoft.com/en-us/dotnet/standard/parallel-programming/task-cancellation)는 중간에 멈추지 않음을 확인
   
+## aspx 관련 정리
+
+### 시작 메소드는 자체정의되어있음
+
+```c#
+protected void Page_Load(object sender, EventArgs e)
+{
+}
+```
+
+### 글로벌 변수는 반드시  초기값을 부여할것
+
+## 비주얼 스튜디오 내장 mvc 프레임워크 관련 (아마도 nuget 이야기가 대부분이겠지.)
+
