@@ -1,3 +1,11 @@
+//https://www.codewars.com/kata/5a1c28f9c9fc0ef2e900013b/solutions/javascript
+function pyramid(n){
+  //your code here
+  var re = [...Array(n)].map((a,i)=> "/"+" ".repeat(i*2)+"\\"+"\n");
+  re[re.length-1] = re[re.length-1].split(" ").join("_");
+  re = re.map((a,i)=>' '.repeat(re.length-i-1)+a);
+  return re.join('');
+}
 //https://www.codewars.com/kata/554e52e7232cdd05650000a0/solutions/javascript
 function lowestProduct(input) { 
   var i = input.split('').map(a=>+a);
