@@ -1,23 +1,37 @@
 impl Solution {
     
     pub fn find_error_nums(mut ns: Vec<i32>) -> Vec<i32> {
-    let mut nums = ns.to_vec();
-    let mut re_none = 1;
-    let mut re_dup = -1;
-    for n in nums {
-        let cur = ns[n.abs() as usize - 1];
-        if cur < 0 {
-            re_dup = n.abs();
-        } else {
-            ns[n.abs() as usize - 1] *= -1;
+        let mut nums = ns.to_vec();
+        let mut re_none = 1;
+        let mut re_dup = -1;
+        for n in nums {
+            let cur = ns[n.abs() as usize - 1];
+            if cur < 0 {
+                re_dup = n.abs();
+            } else {
+                ns[n.abs() as usize - 1] *= -1;
+            }
         }
-    }
-    for (i, &n) in ns.iter().enumerate() {
-        if n > 0 {
-            re_none = (i + 1) as i32;
+        for (i, &n) in ns.iter().enumerate() {
+            if n > 0 {
+                re_none = (i + 1) as i32;
+            }
         }
-    }
         vec![re_dup, re_none]
+    }
+    pub fn find_max_average(nums: Vec<i32>, k: i32) -> f64 {
+        let avr: Vec<f64> = nums.into_iter().map(|x| x as f64 / k as f64).collect();
+        let mut max = avr.clone()[0..k as usize]
+            .into_iter()
+            .fold(0., |a, &b| a + b);
+        let mut sum = max;
+        for i in k as usize..avr.len() {
+            sum = sum - avr[i - k as usize] + avr[i];
+            if sum > max {
+                max = sum;
+            }
+        }
+        max
     }
     pub fn judge_square_sum(c: i32) -> bool {
         let mut start = 0;
