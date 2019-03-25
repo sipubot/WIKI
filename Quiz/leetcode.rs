@@ -1,4 +1,24 @@
 impl Solution {
+    
+    pub fn find_error_nums(mut ns: Vec<i32>) -> Vec<i32> {
+    let mut nums = ns.to_vec();
+    let mut re_none = 1;
+    let mut re_dup = -1;
+    for n in nums {
+        let cur = ns[n.abs() as usize - 1];
+        if cur < 0 {
+            re_dup = n.abs();
+        } else {
+            ns[n.abs() as usize - 1] *= -1;
+        }
+    }
+    for (i, &n) in ns.iter().enumerate() {
+        if n > 0 {
+            re_none = (i + 1) as i32;
+        }
+    }
+        vec![re_dup, re_none]
+    }
     pub fn judge_square_sum(c: i32) -> bool {
         let mut start = 0;
         let mut end = (c as f64).sqrt() as i32;
