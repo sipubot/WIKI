@@ -1,3 +1,7 @@
+//https://www.codewars.com/kata/5831c204a31721e2ae000294/solutions/javascript
+function swap(st){
+  return st.split('').map(a=>/[aeiou]/.test(a) ? a.toUpperCase() : a ).join('');
+}
 //https://www.codewars.com/kata/5a1c28f9c9fc0ef2e900013b/solutions/javascript
 function pyramid(n){
   //your code here
