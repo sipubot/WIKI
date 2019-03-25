@@ -1,3 +1,7 @@
+//https://www.codewars.com/kata/remove-empty-items-of-array/train/javascript
+function clean(arr) {
+  return arr.filter(a=>a||a===undefined||a===null||Number.isNaN(a)||a===false||a===0||a=='');
+}
 //https://www.codewars.com/kata/5831c204a31721e2ae000294/solutions/javascript
 function swap(st){
   return st.split('').map(a=>/[aeiou]/.test(a) ? a.toUpperCase() : a ).join('');
