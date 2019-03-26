@@ -1,5 +1,25 @@
 impl Solution {
-    
+    pub fn find_length_of_lcis(nums: Vec<i32>) -> i32 {
+        if nums.len() == 0 as usize {
+            return 0;
+        }
+        let mut max = 1;
+        let mut c = 1;
+        for n in 1..nums.len() {
+            if nums[n - 1] < nums[n] {
+                c += 1;
+            } else {
+                if c > max {
+                    max = c;
+                }
+                c = 1;
+            }
+        }
+        if max < c {
+            max = c;
+        }
+        max
+    }    
     pub fn find_error_nums(mut ns: Vec<i32>) -> Vec<i32> {
         let mut nums = ns.to_vec();
         let mut re_none = 1;
