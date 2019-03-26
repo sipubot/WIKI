@@ -31,4 +31,4 @@
 - 파일메뉴를 누르고 mail merge 선택
 - Source CSV 로 선택
 - Browse 로 생성한 csv 선택
-- 확인으로 
+- 확인으로 전송
