@@ -1,3 +1,10 @@
+//https://www.codewars.com/kata/noobcode-03-check-these-letters-dot-dot-dot-see-if-letters-in-string-1-are-present-in-string-2/train/javascript
+function letterCheck(arr) {
+//write your code here!!
+  var o = {};
+  arr[0].toLowerCase().split('').map(a=> { o[a] = true; });
+  return arr[1].toLowerCase().split('').every(a=> o[a]); 
+}
 //https://www.codewars.com/kata/remove-empty-items-of-array/train/javascript
 function clean(arr) {
   return arr.filter(a=>a||a===undefined||a===null||Number.isNaN(a)||a===false||a===0||a=='');
