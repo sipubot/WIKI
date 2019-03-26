@@ -1,3 +1,14 @@
+//https://www.codewars.com/kata/errors-histogram/train/javascript
+function hist(s) {
+  // your code
+  var sarr = s.split('');
+  var hist = ['u','w','x','z'];
+  return hist.map(cc=>{
+    var c = ''+sarr.filter(a=>a===cc).length;
+    if (c === '0') return '';
+    return cc+'  '+c+' '.repeat(6-c.length)+'*'.repeat(+c);
+  }).filter(a=>a!='').join('\r');
+}
 //https://www.codewars.com/kata/noobcode-03-check-these-letters-dot-dot-dot-see-if-letters-in-string-1-are-present-in-string-2/train/javascript
 function letterCheck(arr) {
 //write your code here!!
