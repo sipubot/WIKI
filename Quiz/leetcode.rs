@@ -1,4 +1,34 @@
 impl Solution {
+    pub fn cal_points(ops: Vec<String>) -> i32 {
+        let mut point = 0;
+        let mut stack = <Vec<i32>>::new();
+        for op in ops {
+            match op.as_ref() {
+                "+" => {
+                    let a = stack[stack.len() - 2];
+                    let b = stack[stack.len() - 1];
+                    stack.push(a + b);
+                    point += a + b;
+                }
+                "D" => {
+                    let b = stack[stack.len() - 1];
+                    let c = b * 2;
+                    stack.push(c);
+                    point += c;
+                }
+                "C" => {
+                    let c = stack.pop().unwrap();
+                    point -= c;
+                }
+                _ => {
+                    let x = op.parse::<i32>().unwrap();
+                    stack.push(x);
+                    point += x;
+                }
+            }
+        }
+        point
+    }
     pub fn find_length_of_lcis(nums: Vec<i32>) -> i32 {
         if nums.len() == 0 as usize {
             return 0;
