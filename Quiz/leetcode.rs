@@ -1,4 +1,28 @@
 impl Solution {
+    pub fn count_binary_substrings(s: String) -> i32 {
+        let s = s.as_bytes();
+        let (mut prev, mut curr) = (0, 1);
+        let mut res = 0;
+        
+        // XXX: start from the 2nd char
+        for i in 1..s.len() {
+            if s[i] == s[i-1] {
+                // dup
+                curr += 1;                
+            } else {
+                // flip point
+                prev = curr;
+                curr = 1;
+            }
+            // XXX: always check prev, flip or not
+            if prev > 0 {
+                prev -= 1;
+                res += 1;
+            }
+        }
+        
+        res
+    }
     pub fn has_alternating_bits(n: i32) -> bool {
         let bin = format!("{:b}", n).to_string();
         for i in 1..bin.len() {
