@@ -1,3 +1,18 @@
+
+// https://leetcode.com/submissions/detail/217966989/
+var countBinarySubstrings = function(s) {
+    var ans = 0, prev = 0, cur = 1;
+    for (var i = 1; i < s.length; i++) {
+        if (s.charAt(i-1) != s.charAt(i)) {
+            ans += Math.min(prev, cur);
+            prev = cur;
+            cur = 1;
+        } else {
+            cur++;
+        }
+    }
+    return ans + Math.min(prev, cur);
+};
 // 싱글 넘버.
 // https://leetcode.com/problems/single-number/description/
 /**
