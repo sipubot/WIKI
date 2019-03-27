@@ -1,4 +1,13 @@
 impl Solution {
+    pub fn has_alternating_bits(n: i32) -> bool {
+        let bin = format!("{:b}", n).to_string();
+        for i in 1..bin.len() {
+            if bin.chars().nth(i).unwrap() == bin.chars().nth(i - 1).unwrap() {
+                return false;
+            }
+        }
+        true
+    }
     pub fn cal_points(ops: Vec<String>) -> i32 {
         let mut point = 0;
         let mut stack = <Vec<i32>>::new();
