@@ -1,3 +1,20 @@
+//https://www.codewars.com/kata/5a3af5b1ee1aaeabfe000084/solutions/javascript
+function sumOfSquares(n) { 
+  if (Math.sqrt(n) % 1 === 0) return 1;
+  while ( (n & 3) == 0 ) {
+    n >>= 2;
+  }
+  if ((n & 7) == 7) {
+    return 4;
+  }
+  var sq = Math.floor(Math.sqrt(n));
+  for (var i = 1; i <= sq; i++) {
+    if(Math.sqrt(n-i*i) % 1 === 0) {
+      return 2;
+    }
+  }
+  return 3;
+}
 //https://www.codewars.com/kata/errors-histogram/train/javascript
 function hist(s) {
   // your code
