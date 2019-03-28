@@ -239,3 +239,27 @@ function combinations(arr, k){
 }
 kSubsetPermutations([1,2,3,4,5], 3);
 ```
+
+### 제곱수의 합
+
+> 모든 제곱수를 4번 조합하면 모든 자연수를 표현 할수 있다.
+
+- 따라서 다음의 방법으로 몇번의 조합으로 그 수가 표현되는지는 다음과 같이 찾을수 있음
+```javascript
+function sumOfSquares(n) { 
+  if (Math.sqrt(n) % 1 === 0) return 1;
+  while ( (n & 3) == 0 ) {
+    n >>= 2;
+  }
+  if ((n & 7) == 7) {
+    return 4;
+  }
+  var sq = Math.floor(Math.sqrt(n));
+  for (var i = 1; i <= sq; i++) {
+    if(Math.sqrt(n-i*i) % 1 === 0) {
+      return 2;
+    }
+  }
+  return 3;
+}
+```
