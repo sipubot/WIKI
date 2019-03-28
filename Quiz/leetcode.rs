@@ -1,4 +1,14 @@
 impl Solution {
+    pub fn search(nums: Vec<i32>, target: i32) -> i32 {
+        match nums.iter().position(|&x| x==target) {
+            None => {
+                return -1;
+            },
+            Some(n) => {
+                return n as i32;
+            }
+        };
+    }
     pub fn count_binary_substrings(s: String) -> i32 {
         let s = s.as_bytes();
         let (mut prev, mut curr) = (0, 1);
