@@ -317,3 +317,44 @@ impl Solution {
         return sum == num * 2;
     }
 }
+
+struct MyHashSet {
+    hash_vec: Vec<i32>,
+}
+
+/**
+ * `&self` means the method takes an immutable reference.
+ * If you need a mutable reference, change it to `&mut self` instead.
+ */
+impl MyHashSet {
+    /** Initialize your data structure here. */
+    fn new() -> Self {
+        let mut h = Vec::with_capacity(100001 as usize);
+        for n in 0..100001 {
+            h.push(-1);
+        }
+        MyHashSet { hash_vec: h }
+    }
+
+    fn add(&mut self, key: i32) {
+        if *&self.hash_vec[key as usize] == -1 {
+            self.hash_vec[key as usize] = 1;
+        }
+    }
+
+    fn remove(&mut self, key: i32) {
+        if *&self.hash_vec[key as usize] == 1 {
+            self.hash_vec[key as usize] = -1;
+        }
+    }
+
+    /** Returns true if this set contains the specified element */
+    fn contains(&self, key: i32) -> bool {
+        if *&self.hash_vec[key as usize] == 1 {
+            return true;
+        } else {
+            return false;
+        }
+    }
+}
+
