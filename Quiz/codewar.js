@@ -1,3 +1,61 @@
+//https://www.codewars.com/kata/path-finder-number-2-shortest-path/train/javascript
+function pathFinder(maze) {
+  maze = maze.split('\n').map(a => a.split(''));
+  var m = maze.length * maze[0].length;
+  
+  function maker(pos, count) {
+    if (maze[pos[0]][pos[1]] === 'W') { return; }
+    if (m < count) { return; }
+    if (maze[pos[0]][pos[1]] !== '.') {
+      if (maze[pos[0]][pos[1]] <= count) {
+        return;
+      }
+    }
+    maze[pos[0]][pos[1]] = count;
+    if (pos[0] === maze.length-1 && pos[1] === maze[0].length-1) { return; }
+    //console.log(count,pos);
+    if (pos[1] + 1 < maze[0].length) {
+      maker([pos[0], pos[1] + 1], count+1)
+    }
+    if (pos[0] + 1 < maze.length) {
+      maker([pos[0] + 1, pos[1]], count+1)
+    }
+    if (pos[1] - 1 >= 0) {
+      maker([pos[0], pos[1] - 1], count+1)
+    }
+    if (pos[0] - 1 >= 0) {
+      maker([pos[0] - 1, pos[1]], count+1)
+    }
+  }
+  maker([0, 0], 0);
+  //console.log(maze)
+  var re = maze[maze[0].length - 1][maze.length - 1];
+  
+  return Number.isInteger(re) ? re : false;
+}
+//https://www.codewars.com/kata/path-finder-number-1-can-you-reach-the-exit/
+function pathFinder(maze) {
+  maze = maze.split('\n').map(a => a.split(''));
+  function maker(pos) {
+    if (maze[pos[0]][pos[1]] === '.') {
+      maze[pos[0]][pos[1]] = 'x'
+      if (pos[0] - 1 >= 0) {
+        maker([pos[0] - 1, pos[1]])
+      }
+      if (pos[0] + 1 < maze.length) {
+        maker([pos[0] + 1, pos[1]])
+      }
+      if (pos[1] - 1 >= 0) {
+        maker([pos[0], pos[1] - 1])
+      }
+      if (pos[1] + 1 < maze[0].length) {
+        maker([pos[0], pos[1] + 1])
+      }
+    }
+  }
+  maker([0, 0]);
+  return maze[maze[0].length - 1][maze.length - 1] === 'x';
+}
 //https://www.codewars.com/kata/5a3af5b1ee1aaeabfe000084/solutions/javascript
 function sumOfSquares(n) { 
   if (Math.sqrt(n) % 1 === 0) return 1;
