@@ -1,8 +1,73 @@
+//https://www.codewars.com/kata/path-finder-number-3-the-alpinist/train/javascript
+function pathFinder(area) {
+  area = area.split('\n').map(a => a.split('').map(n => +n));
+  var pathM = [...Array(area.length)].map(a=>[...Array(area[0].length)].map(b=>Infinity));
+  var firstatti = area[0][0];
+
+  function maker(p, pp, ba) {
+    var ca = area[p[0]][p[1]];
+    var ma = Math.abs(ba - ca);
+    if (pathM[p[0]][p[1]] <= pp+ma) { return; }
+    pathM[p[0]][p[1]] = pp+ma; 
+    if (p[0] === area.length - 1 && p[1] === area[0].length - 1) {
+      return;
+    }
+    //console.log(count,p);
+    if (p[1] + 1 < area[0].length) {
+      maker([p[0], p[1] + 1], pp+ma, ca)
+    }
+    if (p[0] + 1 < area.length) {
+      maker([p[0] + 1, p[1]], pp+ma, ca)
+    }
+    if (p[1] - 1 >= 0) {
+      maker([p[0], p[1] - 1], pp+ma, ca)
+    }
+    if (p[0] - 1 >= 0) {
+      maker([p[0] - 1, p[1]], pp+ma, ca)
+    }
+  }
+  maker([0, 0], 0, firstatti);
+  //console.log(area)
+  var re = pathM[pathM.length - 1][pathM[0].length - 1];
+
+  return Number.isInteger(re) ? re : false;
+}
+function pathFinder(area) {
+  var maze = area.split('\n').map(a => a.split('').map(n => +n));
+  var re = maze.length * maze[0].length * 9;
+
+  function maker(pos, count, batti) {
+    if (re <= count) { return; }
+    if (pos[0] === maze.length - 1 && pos[1] === maze[0].length - 1) {
+      if (re > count) { re = count; }
+      return;
+    }
+    count += Math.abs(batti - maze[pos[0]][pos[1]]);
+    //console.log(count,pos);
+    if (pos[1] + 1 < maze[0].length) {
+      maker([pos[0], pos[1] + 1], count, maze[pos[0]][pos[1]])
+    }
+    if (pos[0] + 1 < maze.length) {
+      maker([pos[0] + 1, pos[1]], count, maze[pos[0]][pos[1]])
+    }
+    if (pos[1] - 1 >= 0) {
+      maker([pos[0], pos[1] - 1], count, maze[pos[0]][pos[1]])
+    }
+    if (pos[0] - 1 >= 0) {
+      maker([pos[0] - 1, pos[1]], count, maze[pos[0]][pos[1]])
+    }
+  }
+  maker([0, 0], maze[0][0]);
+  //console.log(maze)
+  var re = maze[maze[0].length - 1][maze.length - 1];
+
+  return Number.isInteger(re) ? re : false;
+}
 //https://www.codewars.com/kata/path-finder-number-2-shortest-path/train/javascript
 function pathFinder(maze) {
   maze = maze.split('\n').map(a => a.split(''));
   var m = maze.length * maze[0].length;
-  
+
   function maker(pos, count) {
     if (maze[pos[0]][pos[1]] === 'W') { return; }
     if (m < count) { return; }
@@ -12,25 +77,25 @@ function pathFinder(maze) {
       }
     }
     maze[pos[0]][pos[1]] = count;
-    if (pos[0] === maze.length-1 && pos[1] === maze[0].length-1) { return; }
+    if (pos[0] === maze.length - 1 && pos[1] === maze[0].length - 1) { return; }
     //console.log(count,pos);
     if (pos[1] + 1 < maze[0].length) {
-      maker([pos[0], pos[1] + 1], count+1)
+      maker([pos[0], pos[1] + 1], count + 1)
     }
     if (pos[0] + 1 < maze.length) {
-      maker([pos[0] + 1, pos[1]], count+1)
+      maker([pos[0] + 1, pos[1]], count + 1)
     }
     if (pos[1] - 1 >= 0) {
-      maker([pos[0], pos[1] - 1], count+1)
+      maker([pos[0], pos[1] - 1], count + 1)
     }
     if (pos[0] - 1 >= 0) {
-      maker([pos[0] - 1, pos[1]], count+1)
+      maker([pos[0] - 1, pos[1]], count + 1)
     }
   }
   maker([0, 0], 0);
   //console.log(maze)
   var re = maze[maze[0].length - 1][maze.length - 1];
-  
+
   return Number.isInteger(re) ? re : false;
 }
 //https://www.codewars.com/kata/path-finder-number-1-can-you-reach-the-exit/
@@ -57,9 +122,9 @@ function pathFinder(maze) {
   return maze[maze[0].length - 1][maze.length - 1] === 'x';
 }
 //https://www.codewars.com/kata/5a3af5b1ee1aaeabfe000084/solutions/javascript
-function sumOfSquares(n) { 
+function sumOfSquares(n) {
   if (Math.sqrt(n) % 1 === 0) return 1;
-  while ( (n & 3) == 0 ) {
+  while ((n & 3) == 0) {
     n >>= 2;
   }
   if ((n & 7) == 7) {
@@ -67,7 +132,7 @@ function sumOfSquares(n) {
   }
   var sq = Math.floor(Math.sqrt(n));
   for (var i = 1; i <= sq; i++) {
-    if(Math.sqrt(n-i*i) % 1 === 0) {
+    if (Math.sqrt(n - i * i) % 1 === 0) {
       return 2;
     }
   }
@@ -77,44 +142,44 @@ function sumOfSquares(n) {
 function hist(s) {
   // your code
   var sarr = s.split('');
-  var hist = ['u','w','x','z'];
-  return hist.map(cc=>{
-    var c = ''+sarr.filter(a=>a===cc).length;
+  var hist = ['u', 'w', 'x', 'z'];
+  return hist.map(cc => {
+    var c = '' + sarr.filter(a => a === cc).length;
     if (c === '0') return '';
-    return cc+'  '+c+' '.repeat(6-c.length)+'*'.repeat(+c);
-  }).filter(a=>a!='').join('\r');
+    return cc + '  ' + c + ' '.repeat(6 - c.length) + '*'.repeat(+c);
+  }).filter(a => a != '').join('\r');
 }
 //https://www.codewars.com/kata/noobcode-03-check-these-letters-dot-dot-dot-see-if-letters-in-string-1-are-present-in-string-2/train/javascript
 function letterCheck(arr) {
-//write your code here!!
+  //write your code here!!
   var o = {};
-  arr[0].toLowerCase().split('').map(a=> { o[a] = true; });
-  return arr[1].toLowerCase().split('').every(a=> o[a]); 
+  arr[0].toLowerCase().split('').map(a => { o[a] = true; });
+  return arr[1].toLowerCase().split('').every(a => o[a]);
 }
 //https://www.codewars.com/kata/remove-empty-items-of-array/train/javascript
 function clean(arr) {
-  return arr.filter(a=>a||a===undefined||a===null||Number.isNaN(a)||a===false||a===0||a=='');
+  return arr.filter(a => a || a === undefined || a === null || Number.isNaN(a) || a === false || a === 0 || a == '');
 }
 //https://www.codewars.com/kata/5831c204a31721e2ae000294/solutions/javascript
-function swap(st){
-  return st.split('').map(a=>/[aeiou]/.test(a) ? a.toUpperCase() : a ).join('');
+function swap(st) {
+  return st.split('').map(a => /[aeiou]/.test(a) ? a.toUpperCase() : a).join('');
 }
 //https://www.codewars.com/kata/5a1c28f9c9fc0ef2e900013b/solutions/javascript
-function pyramid(n){
+function pyramid(n) {
   //your code here
-  var re = [...Array(n)].map((a,i)=> "/"+" ".repeat(i*2)+"\\"+"\n");
-  re[re.length-1] = re[re.length-1].split(" ").join("_");
-  re = re.map((a,i)=>' '.repeat(re.length-i-1)+a);
+  var re = [...Array(n)].map((a, i) => "/" + " ".repeat(i * 2) + "\\" + "\n");
+  re[re.length - 1] = re[re.length - 1].split(" ").join("_");
+  re = re.map((a, i) => ' '.repeat(re.length - i - 1) + a);
   return re.join('');
 }
 //https://www.codewars.com/kata/554e52e7232cdd05650000a0/solutions/javascript
-function lowestProduct(input) { 
-  var i = input.split('').map(a=>+a);
+function lowestProduct(input) {
+  var i = input.split('').map(a => +a);
   if (i.length < 4) return "Number is too small";
-  var min = i.slice(0,4).reduce((s,a)=>s*a);
-  for (var k = 0; k<i.length-3; k++) {
-    var s = i.slice(k,k+4).reduce((s,a)=>s*a);
-    if (min > s) { min = s;}
+  var min = i.slice(0, 4).reduce((s, a) => s * a);
+  for (var k = 0; k < i.length - 3; k++) {
+    var s = i.slice(k, k + 4).reduce((s, a) => s * a);
+    if (min > s) { min = s; }
   }
   return min;
 }
