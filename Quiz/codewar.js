@@ -5,6 +5,7 @@ function pathFinder(area) {
   var firstatti = area[0][0];
 
   function maker(p, pp, ba) {
+    if (pathM[pathM.length - 1][pathM[0].length - 1] <= pp) { return; }
     var ca = area[p[0]][p[1]];
     var ma = Math.abs(ba - ca);
     if (pathM[p[0]][p[1]] <= pp+ma) { return; }
