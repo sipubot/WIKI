@@ -1,4 +1,19 @@
 impl Solution {
+    pub fn longest_word(words: Vec<String>) -> String {
+        let mut re = "".to_string();
+        let mut cwords = words;
+        let mut set = std::collections::HashSet::new();
+        cwords.sort();
+        for w in cwords {
+            if w.len() == 1 || set.get(&w[0..w.len() - 1]).is_some() {
+                if w.len() > re.len() {
+                    re = format!("{}", w.to_string());
+                }
+                set.insert(w);
+            }
+        }
+        re
+    }
     pub fn search(nums: Vec<i32>, target: i32) -> i32 {
         match nums.iter().position(|&x| x==target) {
             None => {
