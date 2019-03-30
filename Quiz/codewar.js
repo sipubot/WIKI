@@ -1,30 +1,30 @@
 //https://www.codewars.com/kata/path-finder-number-3-the-alpinist/train/javascript
 function pathFinder(area) {
   area = area.split('\n').map(a => a.split('').map(n => +n));
-  var pathM = [...Array(area.length)].map(a=>[...Array(area[0].length)].map(b=>Infinity));
+  var pathM = [...Array(area.length)].map(a => [...Array(area[0].length)].map(b => Infinity));
   var firstatti = area[0][0];
 
   function maker(p, pp, ba) {
     if (pathM[pathM.length - 1][pathM[0].length - 1] <= pp) { return; }
     var ca = area[p[0]][p[1]];
     var ma = Math.abs(ba - ca);
-    if (pathM[p[0]][p[1]] <= pp+ma) { return; }
-    pathM[p[0]][p[1]] = pp+ma; 
+    if (pathM[p[0]][p[1]] <= pp + ma) { return; }
+    pathM[p[0]][p[1]] = pp + ma;
     if (p[0] === area.length - 1 && p[1] === area[0].length - 1) {
       return;
     }
     //console.log(count,p);
     if (p[1] + 1 < area[0].length) {
-      maker([p[0], p[1] + 1], pp+ma, ca)
+      maker([p[0], p[1] + 1], pp + ma, ca)
     }
     if (p[0] + 1 < area.length) {
-      maker([p[0] + 1, p[1]], pp+ma, ca)
+      maker([p[0] + 1, p[1]], pp + ma, ca)
     }
     if (p[1] - 1 >= 0) {
-      maker([p[0], p[1] - 1], pp+ma, ca)
+      maker([p[0], p[1] - 1], pp + ma, ca)
     }
     if (p[0] - 1 >= 0) {
-      maker([p[0] - 1, p[1]], pp+ma, ca)
+      maker([p[0] - 1, p[1]], pp + ma, ca)
     }
   }
   maker([0, 0], 0, firstatti);
