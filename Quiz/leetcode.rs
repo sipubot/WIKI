@@ -1,4 +1,13 @@
 impl Solution {
+    pub fn next_greatest_letter(letters: Vec<char>, target: char) -> char {
+        let mut re = letters[0];
+        for i in 0..letters.len() {
+            if letters[i] <= target {
+                re = letters[(i + 1) % letters.len()];
+            }
+        }
+        re
+    }
     pub fn longest_word(words: Vec<String>) -> String {
         let mut re = "".to_string();
         let mut cwords = words;
