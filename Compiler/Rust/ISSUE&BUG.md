@@ -43,7 +43,9 @@ static N: i32 = 5;
 - 자료형이야 말로 언어 사용의 꽃이니 잘 정리해두자 (확장 자료형은 정의 하기 나름이므로 기본 자료형을 빠삭하게 아는것이 언제나 중요하다.)
 - [링크](https://github.com/learning-rust/site/blob/master/source/docs/a8.primitive_data_types.md)
 
-## while 을 비롯한 반복문 관리
+## while 을 비롯한 반복문 관리 (조건이 없을 경우 loop 라는 명령어 사용이 가능)
+
+- ` 코드를 이용하여 라벨링 가능하다. 예문을 참조 할것
 
 ```rust
 let mut a = 1;
