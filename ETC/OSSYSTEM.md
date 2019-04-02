@@ -24,8 +24,7 @@ os 시스템이라는게 결국 cpu, ram, disk 기타 하드웨어를 어떻게 
 - Priority Based scheduling (Non Preemptive): In this scheduling, processes are scheduled according to their priorities, i.e., highest priority process is schedule first. If priorities of two processes match, then schedule according to arrival time.
 - Highest Response Ratio Next (HRRN) In this scheduling, processes with highest response ratio is scheduled. This algorithm avoids starvation.
 
-등등 자세한것은 위키검색등을 참조 할것.
-
+등등 자세한것은 위키검색등을 참조 할것. 핵심적인것은 효율적인 처리를 위한 방법들이란 점이고 어떤 프로세스를 처리하냐 얼마나 많이 처리하냐 cpu 수는 어떻게 되냐 등등 여러 조건에 의해 최적화가 가능하다는 점이다.
 
 
 ## line breaker
