@@ -42,3 +42,40 @@ static N: i32 = 5;
 
 - 자료형이야 말로 언어 사용의 꽃이니 잘 정리해두자 (확장 자료형은 정의 하기 나름이므로 기본 자료형을 빠삭하게 아는것이 언제나 중요하다.)
 - [링크](https://github.com/learning-rust/site/blob/master/source/docs/a8.primitive_data_types.md)
+
+## while 을 비롯한 반복문 관리
+
+```rust
+let mut a = 1;
+while a <= 10 {
+	println!("Current value : {}", a);
+	a += 1; //no ++ or -- on Rust
+}
+
+// Usage of break and continue
+let mut b = 0;
+while b < 5 {
+	if b == 0 {
+		println!("Skip value : {}", b);
+		b += 1;
+		continue;
+	} else if b == 2 {
+		println!("Break At : {}", b);
+		break;
+	}
+	println!("Current value : {}", b);
+	b += 1;
+}
+
+// Outer break
+let mut c1 = 1;
+'outer_while: while c1 < 6 { //set label outer_while
+	let mut c2 = 1;
+	'inner_while: while c2 < 6 {
+		println!("Current Value : [{}][{}]", c1, c2);
+		if c1 == 2 && c2 == 2 { break 'outer_while; } //kill outer_while
+		c2 += 1;
+	}
+	c1 += 1;
+}
+```
