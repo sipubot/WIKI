@@ -9,8 +9,11 @@
 - [Codeforce](http://codeforces.com/)
     고수들의 향연 아직까지 계정을 만들지는 않았다. 러시안 비율이 높아서 언어장벽이 있을 가능성이 있음
 
+- [CodeJam](https://codingcompetitions.withgoogle.com/codejam)
+    올해도 어김없이 찾아온 코드잼 등록해야지. 잊지말고.
+
 - [프로그래머스](https://programmers.co.kr)
     국내한정으로 추천 한글화의 장점 외에는 딱히 없음 최근에는 많은 문제를 번안해서 넣어놓았음 (딱히 추천하고 싶지 않아질 정도로 번역이 별로다)
 
-- [CodeJam](https://codingcompetitions.withgoogle.com/codejam)
-    올해도 어김없이 찾아온 코드잼 등록해야지. 잊지말고.
+- [GeekforGeek](https://www.geeksforgeeks.org/)
+    퀴즈사이트 라기 보단 커리큘럼 사이트에 가깝지만 실전보다는 이론부분이 충실함 영어만 가능하다면 이곳에서 공부를.
