@@ -9,6 +9,7 @@
 ## 리눅스 (이것이 CUI다 절망편)
 
 - [터미널](/Editer/Terminal.md) - 이것을 에디터로 분류 해야 되나 싶은 생각이 있었지만..
+- [micro](https://github.com/zyedidia/micro) - 앞으로 리눅스 에디터는 이놈으로 하면 되겠다.
 - [빔](/Editer/Vim.md) - 확장판 깔면 그냥 IDE
 - [이맥스](/Editer/Emacs.md) - 그냥 이런게 있다만 알고 있으면 된다.
 - [나노](/Editer/Nano.md) - 모두가 혹평하는 리눅스계의 노트패드
