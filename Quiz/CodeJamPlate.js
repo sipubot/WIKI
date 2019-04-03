@@ -1,54 +1,32 @@
-'use strict'
-//addin polyfill
+//init
+const PS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
 
-//
-// solve
-//
-function solve(v) {
-
-}
-
-
-//
-// processCases
-//
-function processCases(probs) {
-    for (let index = 0; index < probs.length; index++) {
-        const result = solve(probs[index])
-        console.log(`Case #${index + 1}: ${result}`)
-    }
-}
-
-//
 // CaseParser
-//
 class CaseParser {
     constructor(caseNumber) {
-        //init property
         this.caseNo = caseNumber
-        this.state = '1'
-        this.N = 0
-        this.L = 0
-        //this line on 
-        //this.MemberP = "initV"; 
+
+        this.PartyCount = 0
+        this.PartyList = []
+        this.PartyMax = 0
+
+        this.state = 'party'
     }
 
     readline(line) {
         switch (this.state) {
-            case '1': {
-                //get first line has all property infomaition
-                const firstLine = line.split(' ')
-                this.N = parseInt(firstLine[0])
-                this.L = parseInt(firstLine[1])
+            case 'party': {
+
+                this.PartyCount = parseInt(line)
                 this.state = 'rows'
                 break
             }
 
             case 'rows': {
-                //set line property using readline
-                //const linev = line.split('');
-                const linev = line.split(' ');
-                //this.MemberP = linev[0];
+
+                const p = line.split(' ').map(a => +a);
+                this.PartyList = p.map((a, i) => [PS[i], a]);
+                this.PartyMax = Math.max(p);
 
                 this.state = 'done'
                 break
@@ -62,22 +40,18 @@ class CaseParser {
 
     getCase() {
         return {
-            //return case
-            N: this.N,
-            L: this.L
-            //MemberP : this.MemberP
+            PartyList: this.PartyList,
+            PartyMax: this.PartyMax
         }
     }
 }
 
-//
 // ProblemParser
-//
 class ProblemParser {
     constructor() {
         this.t = 0
         this.currentT = 0
-        this.cases = []
+        this.casesResult = []
         this.caseParser = new CaseParser(1)
         this.state = 't'
     }
@@ -91,14 +65,13 @@ class ProblemParser {
             }
 
             case 'case': {
-                this.caseParser.readline(line)
+                this.caseParser.readline(line);
 
                 if (this.caseParser.isComplete()) {
-                    this.cases.push(this.caseParser.getCase())
+                    this.casesResult.push(solve(this.caseParser.getCase()))
                     this.currentT += 1
                     this.caseParser = new CaseParser(this.currentT + 1)
                 }
-
                 break
             }
         }
@@ -112,14 +85,12 @@ class ProblemParser {
         return (this.state === 'done')
     }
 
-    getCases() {
-        return this.cases
+    getResult() {
+        return this.casesResult
     }
 }
 
-//
 // Main
-//
 function main() {
     const readline = require('readline')
     const problemParser = new ProblemParser()
@@ -128,18 +99,46 @@ function main() {
         input: process.stdin,
         output: process.stdout
     })
-
     rl.on('line', (line) => {
         problemParser.readline(line)
-
         if (problemParser.isComplete()) {
             rl.close()
         }
     }).on('close', () => {
-        processCases(problemParser.getCases())
+        processCases(problemParser.getResult())
         process.exit(0)
+    })
+}
+// processCases
+function processCases(ans) {
+    for (let index = 0; index < ans.length; index++) {
+        console.log(`Case #${index + 1}: ${ans[index]}`)
     }
-    )
+}
+
+/***
+ * solve
+ */
+function solve(v) {
+    const arr = v.PartyList;
+    const max = v.PartyMax;
+    var re = '';
+    for (var i = max; i > 0; i--) {
+        for (var j = 0; j < arr.length; j++) {
+            if (arr[j][1] >= i) {
+                re += arr[j][0];
+            }
+        }
+    }
+    var a = [];
+    if (re.length % 2 == 1) {
+        a.push[re[0]];
+        re = re.substr(1, re.length - 1)
+        a.concat(re.match(/.{1,2}/g));
+        return (a.join(' '));
+    } else {
+        return (re.match(/.{1,2}/g)).join(' ');
+    }
 }
 
 if (!module.parent) {
