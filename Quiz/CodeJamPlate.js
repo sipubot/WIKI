@@ -23,7 +23,9 @@ function solve(v) {
         a = a.concat(k);
         return (a.join(' '));
     } else {
-        return (re.match(/.{1,2}/g)).join(' ');
+        var an = re.match(/.{1,2}/g);
+        console.log(an);
+        return an.join(' ');
     }
 }
 //solve({PartyList:[3,1,1,4],PartyMax:4})
@@ -46,16 +48,16 @@ class CaseParser {
 
                 this.PartyCount = parseInt(line)
                 this.state = 'rows'
-                break
+                break;
             }
 
             case 'rows': {
 
                 this.PartyList = line.split(' ').map(a => +a);
-                this.PartyMax = Math.max(this.PartyList);
+                this.PartyMax = Math.max(...this.PartyList);
 
                 this.state = 'done'
-                break
+                break;
             }
         }
     }
@@ -86,18 +88,19 @@ class ProblemParser {
             case 't': {
                 this.t = parseInt(line)
                 this.state = 'case'
-                break
+                break;
             }
 
             case 'case': {
                 this.caseParser.readline(line);
 
                 if (this.caseParser.isComplete()) {
+                    console.log(this.caseParser.getCase());
                     this.casesResult.push(solve(this.caseParser.getCase()))
                     this.currentT += 1
                     this.caseParser = new CaseParser(this.currentT + 1)
                 }
-                break
+                break;
             }
         }
 
@@ -135,14 +138,14 @@ function main() {
             rl.close()
         }
     }).on('close', () => {
-        processCases(problemParser.getResult())
+        processCases(problemParser.getResult());
         process.exit(0)
-    })
+    });
 }
 if (!module.parent) {
-    main()
+    main();
 }
 module.exports = {
     solve,
     CaseParser
-}
+};
