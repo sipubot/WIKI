@@ -70,7 +70,6 @@ class CaseParser {
         }
     }
 }
-
 // ProblemParser
 class ProblemParser {
     constructor() {
@@ -114,7 +113,12 @@ class ProblemParser {
         return this.casesResult
     }
 }
-
+// processCases
+function processCases(ans) {
+    for (let index = 0; index < ans.length; index++) {
+        console.log(`Case #${index + 1}: ${ans[index]}`)
+    }
+}
 // Main
 function main() {
     const readline = require('readline')
@@ -134,17 +138,9 @@ function main() {
         process.exit(0)
     })
 }
-// processCases
-function processCases(ans) {
-    for (let index = 0; index < ans.length; index++) {
-        console.log(`Case #${index + 1}: ${ans[index]}`)
-    }
-}
-
 if (!module.parent) {
     main()
 }
-
 module.exports = {
     solve,
     CaseParser
