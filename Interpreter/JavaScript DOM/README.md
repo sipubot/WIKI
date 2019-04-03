@@ -27,6 +27,20 @@
   - [Angular](https://www.angularjs.org/)
   - [Backbone](http://backbonejs.org/)
 
+## IDE 셋팅
+
+  윈도우 환경 기준 (visual studio code)
+  
+  - nodejs 다운 받아 설치하기
+  - nodejs visual studio run time enviroment (설치는 안해도 되지는 모르겠음)
+  - 추가 확장 설치 : javascript es6 snippets, Eslint
+  - JS 소스 파일이 있는 곳에서 실행 하면 가능
+    ```cmd
+      node <filename.js>
+    ```
+
+
+
 ## 책관련 잡담
 
 뭐 대부분 책을 이야기 하면 동물사전을 (오라일리) 이야기 하는데 코뿔소와 나비가 꽤 유명하다. 대부분 코뿔소를 들고 다니면서 공부하던데 개인적으론 나비가 더 좋다.
