@@ -92,6 +92,7 @@ class ProblemParser {
                 this.caseParser.readline(line);
 
                 if (this.caseParser.isComplete()) {
+                    //case by case solve
                     this.casesResult.push(solve(this.caseParser.getCase()))
                     this.currentT += 1
                     this.caseParser = new CaseParser(this.currentT + 1)
@@ -115,6 +116,7 @@ class ProblemParser {
 }
 // processCases
 function processCases(ans) {
+    //answer All printing
     for (let index = 0; index < ans.length; index++) {
         console.log(`Case #${index + 1}: ${ans[index]}`)
     }
