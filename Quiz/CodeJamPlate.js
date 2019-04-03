@@ -25,8 +25,10 @@ function solve(v) {
         return re.match(/.{1,2}/g).join(' ');
     }
 }
-//solve({PartyList:[3,1,1,4],PartyMax:4})
-
+//ex> solve({PartyList:[3,1,1,4],PartyMax:4})
+function checkResult(v) {
+    return true;
+}
 // CaseParser
 class CaseParser {
     constructor(caseNumber) {
@@ -38,7 +40,6 @@ class CaseParser {
 
         this.state = 'party'
     }
-
     readline(line) {
         switch (this.state) {
             case 'party': {
@@ -47,12 +48,12 @@ class CaseParser {
                 this.state = 'rows'
                 break;
             }
-
             case 'rows': {
 
                 this.PartyList = line.split(' ').map(a => +a);
                 this.PartyMax = Math.max(...this.PartyList);
 
+                //get all case value state change Done
                 this.state = 'done'
                 break;
             }
@@ -70,27 +71,73 @@ class CaseParser {
         }
     }
 }
-// ProblemParser
+// InteractiveResultParser
+class IRParser {
+    constructor(caseNumber) {
+        this.caseNo = caseNumber
+
+        this.Result = ""
+
+        this.state = 'onreceive'
+    }
+    readline(line) {
+        switch (this.state) {
+            case 'onreceive': {
+
+                this.Result = line;
+                //this.state = 'next1'
+                this.state = 'done';
+                break;
+            }
+            case 'next1': {
+                //get all case value state change Done
+                this.state = 'done'
+                break;
+            }
+        }
+    }
+    isComplete() {
+        return (this.state === 'done')
+    }
+    getResult() {
+        return {
+            Result: this.Result
+        }
+    }
+}
+// ProblemParser OnceCall
 class ProblemParser {
     constructor() {
         this.t = 0
         this.currentT = 0
+        this.cases = []
         this.casesResult = []
-        this.caseParser = new CaseParser(1)
         this.state = 't'
+        //init first Case with number 1
+        this.caseParser = new CaseParser(1)
+        this.caseResultParser = {}
     }
-
     readline(line) {
         switch (this.state) {
             case 't': {
                 this.t = parseInt(line)
-                this.state = 'case'
+                //this.state = 'caseall'
+                this.state = 'casebycase'
+                //this.state = 'interaction'
                 break;
             }
-
-            case 'case': {
+            case 'caseall': {
                 this.caseParser.readline(line);
-
+                if (this.caseParser.isComplete()) {
+                    //get all case to array
+                    this.cases.push(this.caseParser.getCase())
+                    this.currentT += 1
+                    this.caseParser = new CaseParser(this.currentT + 1)
+                }
+                break;
+            }
+            case 'casebycase': {
+                this.caseParser.readline(line);
                 if (this.caseParser.isComplete()) {
                     //case by case solve
                     this.casesResult.push(solve(this.caseParser.getCase()))
@@ -99,19 +146,42 @@ class ProblemParser {
                 }
                 break;
             }
+            case 'interaction': {
+                //case by case interactive
+                this.caseParser.readline(line);
+                if (this.caseParser.isComplete()) {
+                    console.log(solve(this.caseParser.getCase()));
+                    this.state = 'interactionResult';
+                    this.caseResultParser = new IRParser(1);
+                }
+            }
+            case 'interactionResult': {
+                //case by case interactive
+                this.caseResultParser.readline(line);
+                if (this.caseResultParser.isComplete()) {
+                    ////add interactive result push
+                    //this.casesResult.push(this.caseResultParser.getResult());
+                    ////check case pass interaction only
+                    if (checkResult(this.caseResultParser.getResult())) {
+                        this.currentT += 1;
+                    }
+                    this.state = 'interaction';
+                    this.caseParser = new CaseParser(this.currentT + 1);
+                }
+            }
         }
-
         if (this.currentT === this.t) {
             this.state = 'done'
         }
     }
-
     isComplete() {
         return (this.state === 'done')
     }
-
     getResult() {
         return this.casesResult
+    }
+    getCases() {
+        return this.cases
     }
 }
 // processCases
@@ -136,6 +206,9 @@ function main() {
             rl.close()
         }
     }).on('close', () => {
+        ////processing all case
+        //processCases(solve(problemParser.getCases()));
+        ////just printing Result
         processCases(problemParser.getResult());
         process.exit(0)
     });
