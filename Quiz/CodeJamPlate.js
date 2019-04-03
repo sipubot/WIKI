@@ -1,5 +1,31 @@
 //init
 const PS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
+/***
+ * solve
+ */
+function solve(v) {
+    const arr = v.PartyList;
+    const max = v.PartyMax;
+    var re = '';
+    for (var i = max; i > 0; i--) {
+        for (var j = 0; j < arr.length; j++) {
+            if (arr[j] >= i) {
+                re += PS[j];
+            }
+        }
+    }
+    var a = [];
+    if (re.length % 2 == 1) {
+        a.push(re[0]);
+        re = re.substr(1, re.length - 1)
+        var k = re.match(/.{1,2}/g);
+        a = a.concat(k);
+        return (a.join(' '));
+    } else {
+        return (re.match(/.{1,2}/g)).join(' ');
+    }
+}
+//solve({PartyList:[3,1,1,4],PartyMax:4})
 
 // CaseParser
 class CaseParser {
@@ -24,9 +50,8 @@ class CaseParser {
 
             case 'rows': {
 
-                const p = line.split(' ').map(a => +a);
-                this.PartyList = p.map((a, i) => [PS[i], a]);
-                this.PartyMax = Math.max(p);
+                this.PartyList = line.split(' ').map(a => +a);
+                this.PartyMax = Math.max(this.PartyList);
 
                 this.state = 'done'
                 break
@@ -113,31 +138,6 @@ function main() {
 function processCases(ans) {
     for (let index = 0; index < ans.length; index++) {
         console.log(`Case #${index + 1}: ${ans[index]}`)
-    }
-}
-
-/***
- * solve
- */
-function solve(v) {
-    const arr = v.PartyList;
-    const max = v.PartyMax;
-    var re = '';
-    for (var i = max; i > 0; i--) {
-        for (var j = 0; j < arr.length; j++) {
-            if (arr[j][1] >= i) {
-                re += arr[j][0];
-            }
-        }
-    }
-    var a = [];
-    if (re.length % 2 == 1) {
-        a.push[re[0]];
-        re = re.substr(1, re.length - 1)
-        a.concat(re.match(/.{1,2}/g));
-        return (a.join(' '));
-    } else {
-        return (re.match(/.{1,2}/g)).join(' ');
     }
 }
 
