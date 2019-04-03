@@ -59,11 +59,9 @@ class CaseParser {
             }
         }
     }
-
     isComplete() {
         return (this.state === 'done')
     }
-
     getCase() {
         return {
             PartyList: this.PartyList,
