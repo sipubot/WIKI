@@ -70,7 +70,7 @@ class CaseParser {
     }
 }
 // InteractiveResultParser
-class IRParser {
+class IAParser {
     constructor(caseNumber) {
         this.caseNo = caseNumber
 
@@ -81,7 +81,6 @@ class IRParser {
     readline(line) {
         switch (this.state) {
             case 'onreceive': {
-
                 this.Result = line;
                 //this.state = 'next1'
                 this.state = 'done';
@@ -113,7 +112,7 @@ class ProblemParser {
         this.state = 't'
         //init first Case with number 1
         this.caseParser = new CaseParser(1)
-        this.caseResultParser = {}
+        this.caseResultParser = null
     }
     readline(line) {
         switch (this.state) {
@@ -150,7 +149,7 @@ class ProblemParser {
                 if (this.caseParser.isComplete()) {
                     console.log(solve(this.caseParser.getCase()));
                     this.state = 'interactionResult';
-                    this.caseResultParser = new IRParser(1 + this.currentT);
+                    this.caseResultParser = new IAParser(1 + this.currentT);
                 }
             }
             case 'interactionResult': {
