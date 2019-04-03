@@ -15,17 +15,14 @@ function solve(v) {
             }
         }
     }
-    var a = [];
     if (re.length % 2 == 1) {
+        var a = [];
         a.push(re[0]);
         re = re.substr(1, re.length - 1)
-        var k = re.match(/.{1,2}/g);
-        a = a.concat(k);
-        return (a.join(' '));
+        a = a.concat(re.match(/.{1,2}/g));
+        return a.join(' ');
     } else {
-        var an = re.match(/.{1,2}/g);
-        console.log(an);
-        return an.join(' ');
+        return re.match(/.{1,2}/g).join(' ');
     }
 }
 //solve({PartyList:[3,1,1,4],PartyMax:4})
@@ -95,7 +92,6 @@ class ProblemParser {
                 this.caseParser.readline(line);
 
                 if (this.caseParser.isComplete()) {
-                    console.log(this.caseParser.getCase());
                     this.casesResult.push(solve(this.caseParser.getCase()))
                     this.currentT += 1
                     this.caseParser = new CaseParser(this.currentT + 1)
