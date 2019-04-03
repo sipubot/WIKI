@@ -165,6 +165,8 @@ class ProblemParser {
                     if (checkResult(this.caseResultParser.getResult())) {
                         this.currentT += 1;
                     }
+                    ////when alway counting Test
+                    //this.currentT += 1;
                     this.state = 'interaction';
                     this.caseParser = new CaseParser(this.currentT + 1);
                 }
