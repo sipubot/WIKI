@@ -218,7 +218,3 @@ function main() {
 if (!module.parent) {
     main();
 }
-module.exports = {
-    solve,
-    CaseParser
-};
