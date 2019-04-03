@@ -1,3 +1,4 @@
+'use strict'
 //init
 const PS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
 /***
