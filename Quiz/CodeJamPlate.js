@@ -182,7 +182,7 @@ class ProblemParser {
     }
 }
 // processCases
-function processCases(ans) {
+function printResult(ans) {
     //answer All printing
     for (let index = 0; index < ans.length; index++) {
         console.log(`Case #${index + 1}: ${ans[index]}`)
@@ -204,9 +204,9 @@ function main() {
         }
     }).on('close', () => {
         ////processing all case
-        //processCases(solve(problemParser.getCases()));
+        //printResult(solve(problemParser.getCases()));
         ////just printing Result
-        processCases(problemParser.getResult());
+        printResult(problemParser.getResult());
         process.exit(0)
     });
 }
