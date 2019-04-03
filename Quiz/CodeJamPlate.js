@@ -150,7 +150,7 @@ class ProblemParser {
                 if (this.caseParser.isComplete()) {
                     console.log(solve(this.caseParser.getCase()));
                     this.state = 'interactionResult';
-                    this.caseResultParser = new IRParser(1);
+                    this.caseResultParser = new IRParser(1 + this.currentT);
                 }
             }
             case 'interactionResult': {
