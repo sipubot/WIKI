@@ -1,3 +1,12 @@
+//https://www.codewars.com/kata/rot13/solutions/javascript/me/best_practice
+function rot13(str) {
+  var input = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'.split('');
+  var output = 'NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm'.split('');
+  var key = {};
+  input.map((a,i)=>{key[a]=output[i]});
+  
+  return str.split('').map(a=>key[a]?key[a]:a).join('')
+}
 //https://www.codewars.com/kata/path-finder-number-3-the-alpinist/train/javascript
 function pathFinder(area) {
   area = area.split('\n').map(a => a.split('').map(n => +n));
