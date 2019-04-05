@@ -9,15 +9,15 @@ function solve(v) {
     let m = v.Member;
     let re = s;
     while (m > 1) {
-        re = Math.floor(re / 2);
+        re = re >>> 1;
         m--;
     }
 
-    let odd = re % 2 === 1;
+    let odd = re & 1;
     let l = 0;
     let r = 0;
-    l = Math.floor(re * 0.5);
-    r = Math.floor(re * 0.5);
+    l = re >>> 1;
+    r = re >>> 1;
     if (!odd) {
         r = r > 0 ? r - 1 : r;
     }
