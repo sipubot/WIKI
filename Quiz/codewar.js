@@ -1,3 +1,26 @@
+//https://www.codewars.com/kata/5550d638a99ddb113e0000a2/solutions/javascript
+function josephus(items,k){
+  //your code here
+  var i = -1, ii = 0;
+  var rarr = [...Array(items.length)].map(a=>-1);
+  var c = 0, chk = items.length;
+  var sp =0;
+  while(c<chk ) {
+    i = (i+1) % chk;
+    if (rarr[i] === -1) {
+      ii++;
+    }
+    if (ii == k) {
+      rarr[i] = c;
+      c++;
+      ii = 0;
+    }
+    sp++;
+  }
+  var re = [...Array(chk)];
+  rarr.map((a,i)=> {re[a] = items[i];});
+  return re;
+}
 //https://www.codewars.com/kata/insert-dashes/train/javascript
 function insertDash(num) {
    //code me
