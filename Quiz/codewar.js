@@ -1,3 +1,13 @@
+//https://www.codewars.com/kata/insert-dashes/train/javascript
+function insertDash(num) {
+   //code me
+   return (''+num).split('').reduce((s,a)=>{
+     if (+s[s.length-1] % 2 === 1 && +a % 2=== 1) {
+       a="-"+a;
+     }
+     return s + a;
+   });
+}
 //https://www.codewars.com/kata/rot13/solutions/javascript/me/best_practice
 function rot13(str) {
   var input = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'.split('');
