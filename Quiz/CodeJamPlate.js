@@ -1,32 +1,11 @@
 'use strict'
+/*** isolate interative */
+function IAmain() {
+}
 /***
  * solve
  */
 function solve(v) {
-}
-var status = 'lo_hi'
-function IAprocess(line) {
-    if (status === 'lo_hi') {
-        lo_hi = line.split(' ');
-        head = parseInt(lo_hi[0]) + 1;
-        tail = parseInt(lo_hi[1]);
-        status = 'num_tries';
-    } else if (status === 'num_tries') {
-        num_tries = line; // not used.
-        expect = 'solve';
-        mid = parseInt((head + tail) / 2);
-        console.log(mid);
-    } else if (status === 'solve') {
-        if (line === 'CORRECT') {
-            status = 'lo_hi';
-            return true;
-        } else {
-            line === 'TOO_SMALL' ? head = mid + 1 : tail = mid - 1;
-            mid = parseInt((head + tail) / 2);
-            console.log(mid);
-        }
-    }
-    return false;
 }
 // CaseParser
 class CaseParser {
@@ -107,12 +86,6 @@ class ProblemParser {
                 }
                 break;
             }
-            case 'interaction': {
-                //case by case interactive
-                if (IAprocess(line)) {
-                    this.currentT += 1
-                }
-            }
         }
         if (this.currentT === this.t) {
             this.state += '_done';
@@ -165,4 +138,5 @@ function main() {
 }
 if (!module.parent) {
     main();
+    //IAmain();
 }
