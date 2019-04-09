@@ -12,20 +12,22 @@ function IAmain() {
         switch (OnState) {
             case 'begin': {
                 TotalCase = parseInt(line);
-                CaseCounter = 0;
                 OnState = 'lo_hi';
+                break;
             }
             case 'lo_hi': {
                 lo_hi = line.split(' ');
                 head = parseInt(lo_hi[0]) + 1;
                 tail = parseInt(lo_hi[1]);
                 OnState = 'num_tries';
+                break;
             }
             case 'num_tries': {
                 var on = line; // not used.
                 mid = parseInt((head + tail) / 2);
                 console.log(mid);
                 OnState = 'solve';
+                break;
             }
             case 'solve': {
                 if (line === 'CORRECT') {
@@ -36,7 +38,7 @@ function IAmain() {
                     mid = parseInt((head + tail) / 2);
                     console.log(mid);
                 }
-
+                break;
             }
         }
     }).on('close', function () {
