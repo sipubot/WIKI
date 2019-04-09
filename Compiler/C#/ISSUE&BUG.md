@@ -58,9 +58,19 @@ Update-Database -ConfigurationTypeName [프로젝트네임스페이스].Migratio
     }
   ```
   - 다음의 코드에서 조건을 만족하는 값을 포인터로 넘겨준다고 해도 바로 브레이크 포인트를 작동 시키지 않게된다.
-  - 해결 방법을 찾으면 적어두자
   - [예제](https://docs.microsoft.com/en-us/dotnet/standard/parallel-programming/task-cancellation)는 중간에 멈추지 않음을 확인
-  
+  ```c#
+    while(option) {
+      if (Moniter.Enter(obj)) {
+        //option = Config or Fileread
+      }
+    }
+  ```
+  - 쓰레드 사용시 while(true) 사용하면 그대로 닫힌(closed) process가 되고 프로세스내에 참조를 하게 되면 경합으로 인해 프리징이 발생 
+  - Monitor 나 lock 모두 제대로 동작 하지 않았다.
+  - 파일에서 설정을 읽어 오는 절차를 추가하거나 혹은 참인 조건이 발생할 경우만 쓰레드가 동작되고 재실행 하도록 변경 (쓰레드 재실행)
+  - Task가 Thread 보다 생성 비용이 높으므로 Thread 제어가 이루어 졌다면 굳이 Task를 사용할 필요는 없음
+    
 ## aspx 관련 정리
 
 ### 시작 메소드는 자체정의되어있음
