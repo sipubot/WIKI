@@ -1,6 +1,44 @@
 'use strict'
 /*** isolate interative */
 function IAmain() {
+    var readline = require('readline');
+    var rl = readline.createInterface(process.stdin, process.stdout);
+    var TotalCase = 0;
+    var CheckCase = 'CORRECT';
+    var CaseDoneCount = 0;
+    var OnState = 'begin';
+    //init v 
+    var lo_hi, head, tail, mid;
+    rl.on('line', function (line) {
+        switch (OnState) {
+            case 'begin': {
+                TotalCase = parseInt(line);
+                OnState = 'state1';
+                break;
+            }
+            case 'state1': {
+                //on low high check
+                OnState = 'state2';
+                break;
+            }
+            case 'state2': {
+                //response
+                OnState = 'solve';
+                break;
+            }
+            case 'solve': {
+                //check result and CaseCheck
+                if (line === CheckCase) {
+                    ++CaseDoneCount === TotalCase ? rl.close() : 0;
+                    OnState = 'state1';
+                }
+                break;
+            }
+        }
+    }).on('close', function () {
+        process.exit(0);
+    });
+
 }
 /***
  * solve
