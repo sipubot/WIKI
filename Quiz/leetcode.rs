@@ -1,4 +1,71 @@
 impl Solution {
+    pub fn is_one_bit_character(bits: Vec<i32>) -> bool {
+        let mut i = 0;
+        while i < bits.len() - 1 {
+            i += bits[i] as usize + 1;
+        }
+        i == bits.len() - 1
+    }
+    pub fn image_smoother(m: Vec<Vec<i32>>) -> Vec<Vec<i32>> {
+        let y = m.len();
+        let x = m[0].len();
+        let mut cm = m.clone();
+
+        for i in 0..y {
+            for j in 0..x {
+                let mut count = 0;
+                let mut sum = 0;
+
+                let ys = cmp::max(i as i32 - 1, 0);
+                let yl = cmp::min(i as i32 + 2, y as i32);
+                let xs = cmp::max(j as i32 - 1, 0);
+                let xl = cmp::min(j as i32 + 2, x as i32);
+
+                for ni in ys..yl {
+                    for nj in xs..xl {
+                        sum += cm[ni as usize][nj as usize] & 0xFF;
+                        count += 1;
+                    }
+                }
+                match count {
+                    0 => {
+                        cm[i][j] = 0;
+                    }
+                    _ => {
+                        cm[i][j] |= ((sum as f32 / count as f32).floor() as i32) << 8;
+                        //println!("{:?}", (sum as f32 / count as f32));
+                    }
+                }
+            }
+        }
+        for i in 0..y {
+            for j in 0..x {
+                cm[i][j] >>= 8;
+            }
+        }
+        return cm;
+    }
+    pub fn two_sum(nums: Vec<i32>, target: i32) -> Vec<i32> {
+        if nums.len() < 2 {
+            return vec![];
+        }
+        let mut positions = HashMap::with_capacity(nums.len());
+        for (i, num) in nums.iter().enumerate() {
+            let search = target - num;
+            if let Some(second_pos) = positions.get(&search) {
+                return vec![*second_pos as i32, i as i32];
+            }
+            positions.insert(*num, i);
+        }
+        vec![]
+    }
+    pub fn find_lu_slength(a: String, b: String) -> i32 {
+        if a == b {
+            -1
+        } else {
+            std::cmp::max(a.len(), b.len()) as i32
+        }
+    }
     pub fn next_greatest_letter(letters: Vec<char>, target: char) -> char {
         let mut re = letters[0];
         for i in 0..letters.len() {
