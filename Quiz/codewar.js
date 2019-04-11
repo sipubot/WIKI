@@ -1,3 +1,12 @@
+//https://www.codewars.com/kata/lost-number-in-number-sequence/train/javascript
+function findDeletedNumber(arr, mixArr) {
+  // your code
+  var re = new Set();
+  arr.map(a=>{re.add(a)});
+  mixArr.map(a=>{re.delete(a)});
+  var an = Array.from(re)[0]
+  return an ? an : 0;
+}
 //https://www.codewars.com/kata/adding-useful-functional-functionality-to-javascript-arrays/train/javascript
 Array.range = function(start, count) {
   return [...Array(count)].map((a,i)=>i+start);
