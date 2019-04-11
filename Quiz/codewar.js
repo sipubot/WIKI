@@ -1,3 +1,11 @@
+//https://www.codewars.com/kata/adding-useful-functional-functionality-to-javascript-arrays/train/javascript
+Array.range = function(start, count) {
+  return [...Array(count)].map((a,i)=>i+start);
+}
+
+Array.prototype.sum = function() {
+  return this.reduce((s,a)=>s+a,0);
+}
 //https://www.codewars.com/kata/5550d638a99ddb113e0000a2/solutions/javascript
 function josephus(items,k){
   //your code here
