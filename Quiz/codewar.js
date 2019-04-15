@@ -1,3 +1,35 @@
+//https://www.codewars.com/kata/breadcrumb-generator/train/javascript
+function generateBC(url, separator) {
+  //your code here
+  var WORD = ["the","of","in","from","by","with","and", "or", "for", "to", "at", "a"];
+  if (url.indexOf("//")>-1) {
+    var t = url.split("//");
+    url = t[1];
+  }
+  if (url[url.length-1] === '/') { url = url.slice(0,url.length-1); }
+  var re = ['<a href="/">HOME</a>'];
+  var uarr = url.split('/');
+  var apart = "/";
+
+  var lpart = uarr[uarr.length-1].split(/[#?&]/);
+  var lcf = lpart[0].split('.');
+  if (lcf[0] === 'index') { 
+    uarr.pop(); 
+    lcf = [uarr[uarr.length-1]];
+  }
+  if (uarr.length === 1) { return `<span class="active">HOME</span>`; }
+  for (var i = 1; i < uarr.length-1; i++) {
+    apart += uarr[i] + "/";
+    uarr[i] = uarr[i].length > 30 ? uarr[i].split('-').filter(a=>WORD.indexOf(a)===-1).map(a=>a[0]).join('') : uarr[i].split('-').join(' ');
+    uarr[i] = uarr[i].toUpperCase();
+    re.push(`<a href="${apart}">${uarr[i]}</a>`);
+  }
+  lcf = lcf[0].length > 30 ? lcf[0].split('-').filter(a=>WORD.indexOf(a)===-1).map(a=>a[0]).join('') : lcf[0].split('-').join(' ').toUpperCase();
+  lcf = lcf.toUpperCase();
+  var lp = `<span class="active">${lcf}</span>`;
+  re.push(lp);
+  return re.join(separator);
+}
 //https://www.codewars.com/kata/537e18b6147aa838f600001b/solutions/javascript
 /**
  * @param {String} str - inital string
