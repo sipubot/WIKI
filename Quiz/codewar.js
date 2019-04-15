@@ -1,3 +1,31 @@
+//https://www.codewars.com/kata/multiplying-numbers-as-strings/train/javascript
+function multiply(a, b) {
+  var aarr = a.split('').reverse().map(a=>+a);
+  var barr = b.split('').reverse().map(a=>+a);
+  var rearr = [...Array(a.length + b.length + 2)].map(a=>0);
+  aarr.map((a,i)=>{
+    barr.map((b,j)=>{
+      var c = b * a;
+      rearr[i+j] += c;
+      if (rearr[i+j] > 10) {
+        rearr[i+j+1] += ~~(rearr[i+j] / 10);
+        rearr[i+j] %= 10;
+      }
+    });
+  });
+  while (rearr.some(a=>a>9)) {
+    rearr.map((a,i)=> {
+      if (a>9) {
+        rearr[i+1] += ~~(rearr[i] / 10);
+        rearr[i] %= 10;
+      }
+    });
+  }
+  while (rearr[rearr.length-1] === 0) {
+    rearr.pop();
+  }
+  return rearr.length === 0 ? "0" : rearr.reverse().map(a=>''+a).join('')  
+}
 //https://www.codewars.com/kata/52ec24228a515e620b0005ef/solutions/javascript
 var memo = [];
 
