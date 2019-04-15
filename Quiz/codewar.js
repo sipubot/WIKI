@@ -1,3 +1,61 @@
+//https://www.codewars.com/kata/537e18b6147aa838f600001b/solutions/javascript
+/**
+ * @param {String} str - inital string
+ * @param {Number} len - line length
+ */
+var justify = function(str, len) {
+  // Your code goes here
+  var sarr = str.split(' ');
+  var line = [];
+  var lines = [];
+  var tl = 0;
+  
+  for (var i = 0; i < sarr.length; i++) {
+    if ((line.length)+tl+sarr[i].length > len) {
+      var mline = "";
+      if (line.length === 1) {
+        mline = line;
+      } else {
+        var c = line.length-1;
+        var cs = len - tl;
+        var gap = [...Array(c)].map(a=>0);
+        for (var si = 0; si < cs; si++) {
+          gap[si%c] += 1;
+        }
+        for (var si = 0; si < gap.length; si++) {
+          mline += line[si] + ' '.repeat(gap[si]);
+        }
+        mline += line[si];
+      }
+      lines.push(mline);
+      line = [sarr[i]];
+      tl = sarr[i].length;
+    } else {
+      line.push(sarr[i])
+      tl += sarr[i].length;
+    }
+  }
+  
+  if ((line.length-1)+tl > len) {
+    var mline = "";
+    var lw = line.pop();
+    var c = line.length-1;
+    var cs = len - tl - lw.length;
+    var gap = [...Array(c)].map(a=>0);
+    for (var si = 0; si < cs; si++) {
+      gap[si%c] += 1;
+    }
+    for (var si = 0; si < gap.length; si++) {
+      mline += line[si] + ' '.repeat(gap[si]);
+    }
+    mline += line[si];
+    lines.push(mline);
+    lines.push(lw);
+  } else {
+    lines.push(line.join(' '));
+  }
+  return lines.join('\n')
+};
 //https://www.codewars.com/kata/lost-number-in-number-sequence/train/javascript
 function findDeletedNumber(arr, mixArr) {
   // your code
