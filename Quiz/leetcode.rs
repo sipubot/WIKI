@@ -1,4 +1,22 @@
 impl Solution {
+    pub fn min_cost_climbing_stairs(cost: Vec<i32>) -> i32 {
+        let len = cost.len();
+
+        if len < 3 {
+            return 0;
+        }
+
+        let mut dp:Vec<i32> = vec![];
+        
+        dp.push(cost[0]);
+        dp.push(cost[1]);
+
+        for i in 2..len {
+            dp.push(cmp::min(dp[i-1], dp[i-2])+cost[i]);
+        }
+
+        return cmp::min(dp[len-2],dp[len-1]);
+    }
     pub fn is_one_bit_character(bits: Vec<i32>) -> bool {
         let mut i = 0;
         while i < bits.len() - 1 {
