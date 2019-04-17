@@ -44,6 +44,8 @@ struct Node<T> {
 ## macro 문법 
 
 > meta 프로그래밍 기능 이라고 봐도 무방하다. 
+>
+> 역시나 이부분은 러스트를 다 마치고 난 이후에 하는 것으로 재귀는 나중에 파보자.
 
 - 문법이 기존의 rust 문법과는 다르다는게 주요함 선언 방법은 매우 간단하다. macro_rules! 를 이용해 매크로 이름을 선언한뒤 정의
 - 기본 문법은 다음과 같다.
@@ -55,4 +57,46 @@ struct Node<T> {
         (/*패턴부*/) => (/*표현부*/)
     }
     //기존 모나드를 생각했을때 다음과 같은 문법은 정확히 일치한다고 볼수 있다. 단 패턴에 따라 여러개로 나뉘는 부분은 생소할수 있으므로 주의
+    //기존 사용중인 vec! 매크로는 다음과 같다
+    macro_rules! vec {
+        ( $( $x:expr ),* ) => {
+            {
+                let mut temp_vec = Vec::new();
+                $(
+                    temp_vec.push($x);
+                )*
+                temp_vec
+            }
+        };
+    }
+    macro_rules! write_html {
+        ($w:expr, ) => (());
+
+        ($w:expr, $e:tt) => (write!($w, "{}", $e));
+
+        ($w:expr, $tag:ident [ $($inner:tt)* ] $($rest:tt)*) => {{
+            write!($w, "<{}>", stringify!($tag));
+            write_html!($w, $($inner)*);
+            write!($w, "</{}>", stringify!($tag));
+            write_html!($w, $($rest)*);
+        }};
+    }
+    //html 출력 :tt :expr 등의 문법이 있는데 아직 찾지 못했다. 
+    fn main() {
+        use std::fmt::Write;
+        let mut out = String::new();
+
+        write_html!(&mut out,
+            html[
+                head[title["Macros guide"]]
+                body[h1["Macros are the best!"]]
+            ]);
+
+        assert_eq!(out,
+            "<html><head><title>Macros guide</title></head>\
+             <body><h1>Macros are the best!</h1></body></html>");
+    }
 ```
+- [각 부분의 명령어 설명](https://danielkeep.github.io/tlborm/book/mbe-macro-rules.html#captures);
+
+
