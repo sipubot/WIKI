@@ -39,7 +39,11 @@
       node <filename.js>
     ```
 
+## three js
 
+  - 이제는 하나의 플랫폼으로 봐야할 정도로 많이 성정 한듯
+  - [슬라이드로 공부](http://davidscottlyons.com/threejs-intro/)
+  - 3D 그래픽 관련해서는 가장 잘 설명 되어 있는 거 같음 기초적인 부분도 다 나와 있음
 
 ## 책관련 잡담
 
