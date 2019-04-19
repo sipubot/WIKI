@@ -1,4 +1,20 @@
 impl Solution {
+    pub fn remove_outer_parentheses(s: String) -> String {
+        let mut re = String::new();
+        let mut depth = 0;
+        for c in s.chars() {
+            if c == ')' {
+                depth -= 1;
+            }
+            if depth != 0 {
+                re.push_str(&c.to_string());
+            }
+            if c == '(' {
+                depth += 1;
+            }
+        }
+        re
+    }
     pub fn min_cost_climbing_stairs(cost: Vec<i32>) -> i32 {
         let len = cost.len();
 
