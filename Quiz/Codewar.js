@@ -1,3 +1,9 @@
+//https://www.codewars.com/kata/530e15517bc88ac656000716/solutions/javascript
+function rot13(message) {
+  var a = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+  var b = "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM"
+  return message.replace(/[a-z]/gi, c => b[a.indexOf(c)])
+}
 //https://www.codewars.com/kata/5b180e9fedaa564a7000009a/solutions/javascript
 function solve(s){
     //..
