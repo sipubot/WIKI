@@ -1,3 +1,16 @@
+//https://www.codewars.com/kata/5b180e9fedaa564a7000009a/solutions/javascript
+function solve(s){
+    //..
+    var l = s.match(/[a-z]/g);
+    var u = s.match(/[A-Z]/g);
+    
+    if ((l ? l.length:0) < (u ? u.length : 0))
+    {
+      return s.toUpperCase();
+    } else {
+      return s.toLowerCase();
+    }
+}
 //https://www.codewars.com/kata/multiplying-numbers-as-strings/train/javascript
 function multiply(a, b) {
   var aarr = a.split('').reverse().map(a=>+a);
