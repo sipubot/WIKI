@@ -1,3 +1,67 @@
+//https://www.codewars.com/kata/battleship-field-validator/train/javascript
+function validateBattlefield(field) {
+  // write your magic here
+  console.log(field)
+  var chk = [[-1,-1],[-1,0],[-1,1],[0,-1],[0,1],[1,-1],[1,0],[1,-1]];
+  function matchp (pos) { 
+    var re = true; 
+    var patt = [
+      '00000000',
+      '01000000',
+      '00000010',
+      '01000010',
+      '00001000',
+      '00010000',
+      '00011000'
+    ];
+    var fi = chk.map(a=>field[pos[0]+a[0]][pos[1]+a[1]]).join('');
+    
+    return patt.indexOf(fi) > -1 ? true : false;
+  }
+
+  var re = true;
+  field.unshift([...Array(field[0].length+2)].map(a=>0));
+  field.push([...Array(field[0].length+2)].map(a=>0));
+  field = field.map(a=>{
+    a.push(0);
+    a.unshift(0);
+    return a;    
+  });
+  field.map((a,y)=>a.map((b,x)=>{
+    if (b === 1) {
+      if (matchp([y,x]) === false) {
+        re = false;
+      }
+    }
+  }));
+  
+  
+  field = field.map(a=> {
+    var f = a.join('');
+    f = f.split('1111').join('ffff');
+    f = f.split('111').join('ttt');
+    f = f.split('11').join('rr');
+    return f.split('');
+  });
+  field[0].map((a,x)=>{
+    var f = field.map(xx=>xx[x]).join('');
+    f = f.split('1111').join('ffff');
+    f = f.split('111').join('ttt');
+    f = f.split('11').join('rr');
+    f.split('').map((c,i)=>{
+      field[i][x] = c;  
+    });
+  });
+  var so = field.reduce((s,a)=>s.concat(a),[]);
+  if (so.filter(a=>a==='f').length === 4 
+  && so.filter(a=>a==='t').length === 6
+  && so.filter(a=>a==='r').length === 6
+  && so.filter(a=>a==='1').length === 4 ) {
+    return re;
+  } else {
+    return false;
+  }
+}
 //https://www.codewars.com/kata/530e15517bc88ac656000716/solutions/javascript
 function rot13(message) {
   var a = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
