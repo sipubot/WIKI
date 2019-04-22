@@ -1,3 +1,14 @@
+//https://www.codewars.com/kata/katastrophe/train/javascript
+function strongEnough(earthquake, age) {
+//your code here
+  var agearr = [...Array(age+1)];
+  agearr[0] = 1000;
+  for (var i = 1; i < agearr.length; i++) {
+    agearr[i] = agearr[i-1] - agearr[i-1]*0.01;
+  }
+  var re = earthquake.reduce((s,a)=>s*a.reduce((ss,aa)=>ss+aa,0),1);
+  return re < agearr[age] ? "Safe!" : "Needs Reinforcement!";
+}
 //https://www.codewars.com/kata/battleship-field-validator/train/javascript
 function validateBattlefield(field) {
   // write your magic here
