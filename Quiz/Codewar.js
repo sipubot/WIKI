@@ -1,3 +1,5 @@
+//https://www.codewars.com/kata/additionless-addition/train/javascript
+const add = (x,y) => y ? add(x^y,(x&y)<<1) : x;
 //https://www.codewars.com/kata/subtract-big-numbers/train/javascript
 function subtract(a, b)
 {
