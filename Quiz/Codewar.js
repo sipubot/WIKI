@@ -1,3 +1,53 @@
+//https://www.codewars.com/kata/subtract-big-numbers/train/javascript
+function subtract(a, b)
+{
+  function neg(ar, br) {
+    if (ar.length < br.length) {
+      return true;
+    }
+    if (ar.length === br.length) {
+      for (var i = ar.length-1; i >-1; i--) {
+        if ( ar[i] < br[i] ) {
+          return true;
+        }
+        if ( ar[i] > br[i] ) {
+          break;
+        }
+      }
+    }
+    return false;
+  }
+  var aarr = a.split(''); while(aarr[0]==='0') { aarr.shift();}
+  var barr = b.split(''); while(barr[0]==='0') { barr.shift();}
+  aarr = aarr.map(a=>+a).reverse(); 
+  barr = barr.map(a=>+a).reverse();
+  var len = Math.max(aarr.length, barr.length);
+  var re = [...Array(len)].map(a=>0);
+  var n = false;
+  if (neg(aarr, barr)) {
+    var t = barr;
+    barr = aarr
+    aarr = t;
+    n = true;
+  }
+  for (var i = 0 ; i < re.length ; i++) {
+    re[i] = aarr[i] - (barr[i]?barr[i]:0);
+    if (re[i] < 0) {
+      if (aarr[i+1] !== undefined) {
+        aarr[i+1] -= 1;
+        re[i] += 10;
+      } else {
+        aarr.push(0);
+        aarr[i+1] -= 1;
+        re[i] += 10;
+      }
+    }
+  }
+  re = re.reverse();
+  while(re[0] === 0) {re.shift(); } 
+  re = re.length === 0? [0] : re;
+  return (n?'-':'')+ re.join('')
+}
 //https://www.codewars.com/kata/katastrophe/train/javascript
 function strongEnough(earthquake, age) {
 //your code here
