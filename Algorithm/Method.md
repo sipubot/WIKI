@@ -219,6 +219,22 @@ function decode(s,idx) {
 }
 ```
 
+### 비트 연산
+
+비트연산으로 덧셈 하기 
+```javascript
+function add (x, y) {
+    while (y != 0)
+    {
+        var carry = x & y;  
+        x = x ^ y; 
+        y = carry << 1;
+    }
+    
+    return x;
+}
+```
+
 ## 암호화 관련 
 
 암호화 기법에서 가장 많이 쓰는 메서드는 바로 gcd 이다. 모듈러 연산이라고 부르는 이것은 소수를 기반으로 해서 비트 연산으로 문자열을 인코딩 하게 되면
