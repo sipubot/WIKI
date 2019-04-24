@@ -1,3 +1,15 @@
+//https://www.codewars.com/kata/josephus-survivor/train/javascript
+function josephusSurvivor(n,k){
+  //your code here
+  var arr = [...Array(n)].map((a,i)=>i+1);
+  var i = 0, j = 1;
+  while (arr.length > 1) {
+    i += k-1;
+    i %= arr.length;
+    arr.splice(i,1);
+  }
+  return arr[0];
+}
 //https://www.codewars.com/kata/additionless-addition/train/javascript
 const add = (x,y) => y ? add(x^y,(x&y)<<1) : x;
 //https://www.codewars.com/kata/subtract-big-numbers/train/javascript
