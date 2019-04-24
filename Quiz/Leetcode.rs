@@ -1,4 +1,22 @@
 impl Solution {
+    pub fn largest_sum_after_k_negations(a: Vec<i32>, k: i32) -> i32 {
+        let mut sorta = a.clone();
+        let mut kv = k;
+        sorta.sort();
+        let mut min = i32::max_value();
+        let mut i = 0 as usize;
+        while kv > 0 {
+            sorta[i as usize] = -1 * sorta[i];
+            min = cmp::min(min, sorta[i]);
+            i += 1;
+            if sorta[i] > min {
+                i -= 1;
+            }
+            kv -= 1;
+        }
+
+        return sorta.into_iter().sum();
+    }
     pub fn remove_outer_parentheses(s: String) -> String {
         let mut re = String::new();
         let mut depth = 0;
