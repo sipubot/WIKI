@@ -1,26 +1,23 @@
 //https://www.codewars.com/kata/packing-your-backpack/train/javascript
 function packBagpack(scores, weights, capacity) {
-    var score = 0;
+    var re = 0;
     var permArr = [], usedChars = [];
     var iarr = [...Array(scores.length)].map((a,i)=>i);
     //console.log(scores, weights, capacity);
-    function permute(input) {
-      var i, ch;
-      for (i = 0; i < input.length; i++) {
-        ch = input.splice(i, 1)[0];
-        usedChars.push(ch);
-        if (usedChars.reduce((s,a)=>s+weights[a],0) <= capacity) {
-          var sc = usedChars.slice(0,usedChars.length).reduce((s,a)=>s+scores[a],0);
-          score = score < sc ? sc : score;
-        }
-        permute(input);
-        input.splice(i, 0, ch);
-        usedChars.pop();
+    function dp (arr, w, p, idx) {
+      if (w <= capacity) {
+        arr.map((a,i)=>{
+          var m = arr.slice();
+          var aa = m.splice(i,1);
+          dp(m, w + weights[aa], p + scores[aa], aa);
+        });
+      } else {
+        re = re < p - scores[idx] ? p - scores[idx] : re;
       }
-    };
-    permute(iarr);
+    }
+    dp(iarr, 0, 0, -1);
     
-    return score;   
+    return re;   
 }
 //https://www.codewars.com/kata/whats-my-golf-score/train/javascript
 function golfScoreCalculator(parList, scoreList){
