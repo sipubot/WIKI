@@ -1,3 +1,10 @@
+//https://www.codewars.com/kata/whats-my-golf-score/train/javascript
+function golfScoreCalculator(parList, scoreList){
+  var a = parList.split('');
+  var b = scoreList.split('');
+  var re = a.map((s,i) => (+s) - (+b[i]));
+  return -re.reduce((s,p)=>s+p,0);
+}
 //https://www.codewars.com/kata/josephus-survivor/train/javascript
 function josephusSurvivor(n,k){
   //your code here
