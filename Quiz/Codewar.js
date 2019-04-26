@@ -1,3 +1,14 @@
+//https://www.codewars.com/kata/simple-fun-number-395-fibonacci-digit-sequence/train/javascript
+function find(a,b,n){
+  //coding and coding..
+  var re = ''+a+b;
+  if (n === 0) { return a }
+  if (a + b === 0 ) { return a+b }   
+  while (re.length <= n) {
+    re = re + (+re[re.length-2]+(+re[re.length-1]));
+  }
+  return +re[n]
+}
 //https://www.codewars.com/kata/5ca6c0a2783dec001da025ee/solutions/javascript
 function numBlocks(w, l, h) {
   return w * l * h + (w + l) * h * (h - 1n) / 2n + h * (h - 1n) * (2n * h - 1n) / 6n;
