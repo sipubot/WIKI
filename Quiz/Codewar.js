@@ -1,3 +1,27 @@
+//https://www.codewars.com/kata/vigenere-cipher-helper/train/javascript
+function VigenèreCipher(key, abc) {
+  this.encode = function (str) {
+    //...
+    var h = str.split('');
+    var s = h.map((a,i)=>{
+      if (abc.indexOf(a) === -1) { return a; }
+      var idx = (abc.indexOf(a) + abc.indexOf(key[i%key.length]) ) % abc.length;
+      return abc[idx];
+    });
+    return s.join('')
+  };
+  this.decode = function (str) {
+    //...
+    var h = str.split('');
+    var s = h.map((a,i)=>{
+      if (abc.indexOf(a) === -1) { return a; }
+      var idx = (abc.indexOf(a) - abc.indexOf(key[i%key.length]) ) % abc.length;
+      idx = idx < 0 ? idx + abc.length : idx;
+      return abc[idx];
+    });
+    return s.join('')
+  };
+}
 //https://www.codewars.com/kata/546d15cebed2e10334000ed9/solutions/javascript
 function solveExpression(exp) {
   var re = -1;
