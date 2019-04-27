@@ -1,3 +1,38 @@
+
+//https://www.codewars.com/kata/decode-the-morse-code-advanced/train/javascript
+var decodeBits = function(bits){
+    bits = bits.replace(/^0+/, '')
+    bits = bits.replace(/0+$/, '')
+    //console.log(bits);
+    var zbit = bits.match(/[0]+/gi);
+    var obit = bits.match(/[1]+/gi);
+    if (!zbit) { return obit ? '.' : '';}
+    var zbitcode = Array.from(new Set(zbit.map(a=>a.length)));
+    var obitcode = Array.from(new Set(obit.map(a=>a.length)));
+    var bitlen = Array.from(new Set(zbitcode.concat(obitcode)));
+    obitcode.sort((a,b)=>a-b);
+    bitlen.sort((a,b)=>a-b);
+    //console.log(bitlen, obitcode);
+    // morse
+    var dot = ['1'.repeat(obitcode[0] ? obitcode[0] : bitlen[0])];//'.';
+    var bar = ['1'.repeat(obitcode[1] ? obitcode[1] : bitlen[1] ? bitlen[1] : bitlen[0]*2)];// '-';
+    var word = ['0'.repeat(obitcode[0]*2)];// '|';
+    //console.log(dot,bar)
+    var mbit = bits.split(bar).join('-');
+    mbit = mbit.split(dot).join('.');
+    mbit = mbit.split(word).join('|');
+    mbit = mbit.split('0').join('');
+    //console.log(mbit);
+    return mbit;
+}
+
+var decodeMorse = function(morseCode){
+    //console.log(MORSE_CODE)
+    // ToDo: Accept dots, dashes and spaces, return human-readable message
+    var a = morseCode.split('|||');
+    var re = a.map(b=>b.split('|').map(c=>MORSE_CODE[c]).join('')).join(' ')
+    return re;
+}
 //https://www.codewars.com/kata/the-observed-pin/train/javascript
 function getPINs(observed) {
   // TODO: This is your job, detective!
