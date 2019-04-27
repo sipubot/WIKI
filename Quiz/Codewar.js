@@ -1,3 +1,20 @@
+//https://www.codewars.com/kata/546d15cebed2e10334000ed9/solutions/javascript
+function solveExpression(exp) {
+  var re = -1;
+  for (var i = 0; i < 10; i++) {
+    if (exp.indexOf(''+i)> -1) { continue; }
+    if (exp.indexOf('??') > -1 && i === 0) { continue; }
+    var mk = exp.split('?').join(i);
+    mk = mk.split('=').join('===');
+    mk = mk.split('--').join('+');
+    if (mk.indexOf('++')>-1) { break; }
+    if (eval(mk)) {
+      re = i;
+      break;
+    }
+  }
+  return re;
+}
 //https://www.codewars.com/kata/most-frequently-used-words-in-a-text/train/javascript
 function topThreeWords(text) {
   var arr = text.match(/[a-zA-Z']+/g);
