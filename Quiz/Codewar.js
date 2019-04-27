@@ -1,4 +1,54 @@
 
+//https://www.codewars.com/kata/conways-game-of-life-unlimited-edition/train/javascript
+function getGeneration(cells, generations){
+  var cc = JSON.stringify(cells);
+  cc = JSON.parse(cc);
+  console.log(cells, generations);
+  function check(y,x) {
+    var pos = [
+      [y-1,x-1],
+      [y-1,x],
+      [y-1,x+1],
+      [y,x-1],
+      [y,x+1],
+      [y+1,x-1],
+      [y+1,x],
+      [y+1,x+1],
+    ];
+    pos = pos.filter(a=>0 <= a[0] && cc.length > a[0]);
+    pos = pos.filter(a=>0 <= a[1] && cc[0].length > a[1]);
+    if (cc[y][x]===1) {
+      return pos.reduce((s,a)=>s+cc[a[0]][a[1]],0) === 3 || pos.reduce((s,a)=>s+cc[a[0]][a[1]],0) === 2
+    } else {
+      return pos.reduce((s,a)=>s+cc[a[0]][a[1]],0) === 3
+    }
+  }
+  function rezero(arr) {
+    while (arr[0].some(a=>a===1)=== false) {
+      arr.shift();
+    }
+    while (arr[arr.length-1].some(a=>a===1)===false) {
+      arr.pop();
+    }
+    while (!arr.some(a=>a[0]===1)) {
+      arr = arr.map(a=>{a.shift(); return a});
+    }
+    while (!arr.some(a=>a[a.length-1]===1)) {
+      arr = arr.map(a=>{a.pop(); return a});
+    }
+    return arr;
+  }
+  for (var i = 0; i < generations; i++) {
+      cc = cc.map(a=>{a.unshift(0);a.push(0);return a});
+      var z = [...Array(cc[0].length)].fill(0);
+      cc.push(z); cc.unshift(z);
+      
+      var t = cc.map((a,y)=>a.map((b,x)=>check(y,x)?1:0));
+      cc = rezero(t);
+      //console.log(htmlize(cc));
+  }
+  return cc 
+}
 //https://www.codewars.com/kata/decode-the-morse-code-advanced/train/javascript
 var decodeBits = function(bits){
     bits = bits.replace(/^0+/, '')
