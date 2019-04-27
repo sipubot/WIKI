@@ -1,4 +1,16 @@
-
+//https://www.codewars.com/kata/most-frequently-used-words-in-a-text/train/javascript
+function topThreeWords(text) {
+  var arr = text.match(/[a-zA-Z']+/g);
+  if (arr === null) return [];
+  arr = arr.map(a=>a.toLowerCase()).filter(a=>/[a-z]/.test(a[0]));
+  var h = {};
+  arr.map(a=>{
+    h[a] = h[a] ? h[a]+1 : 1;
+  });
+  var re = Object.entries(h);
+  re.sort((a,b)=>b[1]-a[1]);
+  return re.length > 2 ? re.slice(0,3).map(a=>a[0]) : re.map(a=>a[0])
+}
 //https://www.codewars.com/kata/conways-game-of-life-unlimited-edition/train/javascript
 function getGeneration(cells, generations){
   var cc = JSON.stringify(cells);
