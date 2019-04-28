@@ -1,3 +1,14 @@
+//https://www.codewars.com/kata/58539230879867a8cd00011c/solutions/javascript
+function findChildren(dancingBrigade){
+  var kk = {};
+  dancingBrigade.toLowerCase().split('').map(a=>{
+    kk[a] = kk[a] ? kk[a]+1 : 1;
+  });
+  var re = Object.entries(kk);
+  re = re.sort((a,b)=> a[0]>b[0]);
+  re = re.map(a=>a[0].toUpperCase()+a[0].repeat(a[1]-1)).join('');
+  return re
+};
 //https://www.codewars.com/kata/if-you-can-read-this-dot-dot-dot/train/javascript
 function to_nato(words) {
 	// Go code
