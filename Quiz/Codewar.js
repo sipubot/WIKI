@@ -1,3 +1,11 @@
+//https://www.codewars.com/kata/if-you-can-read-this-dot-dot-dot/train/javascript
+function to_nato(words) {
+	// Go code
+  var nato = "Alfa, Bravo, Charlie, Delta, Echo, Foxtrot, Golf, Hotel, India, Juliett, Kilo, Lima, Mike, November, Oscar, Papa, Quebec, Romeo, Sierra, Tango, Uniform, Victor, Whiskey, Xray, Yankee, Zulu"
+  nato = nato.split(', ');
+  var w = words.match(/[a-zA-Z!?.]/gi).map(a=>a.toUpperCase())
+  return w.map(a=>nato[a.charCodeAt(0)-65] ? nato[a.charCodeAt(0)-65]:a).join(' ')
+}
 //https://www.codewars.com/kata/vigenere-cipher-helper/train/javascript
 function VigenèreCipher(key, abc) {
   this.encode = function (str) {
