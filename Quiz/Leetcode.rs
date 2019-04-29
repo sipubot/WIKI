@@ -1,4 +1,27 @@
 impl Solution {
+    pub fn rotate_string(a: String, b: String) -> bool {
+        if a == b {
+            return true;
+        }
+        if a.len() != b.len() {
+            return false;
+        }
+        let mb = b.clone();
+        let mut preceding = String::from("");
+        let mut s_idx = 0;
+        for c in a.chars() {
+            if c == b.chars().next().unwrap() {
+                let st = &a[s_idx..a.len()].to_string();
+                let lt = &a[0..s_idx].to_string();
+                if format!("{}{}", st, lt) == mb {
+                    return true;
+                }
+            }
+            preceding.push(c);
+            s_idx += 1;
+        }
+        return false;
+    }
     pub fn smallest_range_i(a: Vec<i32>, k: i32) -> i32 {
         let mv = a.clone().into_iter().max().unwrap() - a.into_iter().min().unwrap() - (2 * k);
         cmp::max(0, mv)
