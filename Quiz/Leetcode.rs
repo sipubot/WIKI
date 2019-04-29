@@ -1,4 +1,8 @@
 impl Solution {
+    pub fn smallest_range_i(a: Vec<i32>, k: i32) -> i32 {
+        let mv = a.clone().into_iter().max().unwrap() - a.into_iter().min().unwrap() - (2 * k);
+        cmp::max(0, mv)
+    }
     pub fn largest_sum_after_k_negations(a: Vec<i32>, k: i32) -> i32 {
         let mut sorta = a.clone();
         let mut kv = k;
