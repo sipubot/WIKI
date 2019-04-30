@@ -1,23 +1,24 @@
 impl Solution {
     pub fn subdomain_visits(cpdomains: Vec<String>) -> Vec<String> {
-        let mut hashdomain = HashMap::new();
-        let mut respond = vec![];
-        for a in cpdomains {
-            let t: Vec<String> = a.split(" ").map(|a| a.to_string()).collect();
-            let num: i32 = t[0].parse().unwrap();
-            let mut domain: Vec<String> = t[1].split(".").map(|a| a.to_string()).collect();
-            let mut key: String = domain.pop().unwrap();
-            *hashdomain.entry(key.to_owned()).or_insert(0) += num;
-            while domain.len() > 0 {
-                let t2 = domain.pop().unwrap();
-                key = format!("{}.{}", t2, key.to_owned());
-                *hashdomain.entry(key.to_owned()).or_insert(0) += num;
+        use std::collections::HashMap;
+        let mut subdomain_counts: HashMap<String, i32> = HashMap::new();
+
+        for cpdomain in cpdomains {
+            let mut iter = cpdomain.split_whitespace();
+            let count = iter.next().unwrap().parse::<i32>().unwrap();
+            let subdomains: Vec<&str> = iter.next().unwrap().split('.').collect();
+            let l = subdomains.len();
+            for i in 0..l {
+                let domain = subdomains[i..l].join(".");
+                *subdomain_counts.entry(domain.to_string()).or_insert(0) += count;
             }
         }
-        for (v, k) in hashdomain {
-            respond.push(format!("{} {}", k.to_string(), v));
+
+        let mut cpdomains = Vec::with_capacity(subdomain_counts.len());
+        for (k, v) in subdomain_counts {
+            cpdomains.push(v.to_string() + " " + &k);
         }
-        respond
+        cpdomains
     }
     pub fn rotate_string(a: String, b: String) -> bool {
         if a == b {
