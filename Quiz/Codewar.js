@@ -1,3 +1,7 @@
+//https://www.codewars.com/kata/57f625992f4d53c24200070e/solutions/javascript
+function bingo(ticket, win){
+   return win <= ticket.filter(a=>a[0].split('').map(b=>b.charCodeAt(0)).indexOf(a[1])>-1).length ? "Winner!" : "Loser!"
+}
 //https://www.codewars.com/kata/english-beggars/train/javascript
 function beggars(values, n){
   var out = Array.from("0".repeat(n)).map(Number)
