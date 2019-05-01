@@ -1,3 +1,15 @@
+//https://www.codewars.com/kata/integer-depth/train/javascript
+function computeDepth (x){
+  var dep = new Set();
+  var i = 1, v = x;
+  while (dep.size < 10) {
+    var t =  (''+v).split('');
+    t.map(a=>dep.add(a));
+    i++;
+    v += x;
+  }
+  return i-1;
+}
 //https://www.codewars.com/kata/reverse-every-other-word-in-the-string/train/javascript
 function reverse(str){
   //WRITE SOME MAGIC
