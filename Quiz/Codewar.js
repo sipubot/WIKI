@@ -1,3 +1,21 @@
+//https://www.codewars.com/kata/english-beggars/train/javascript
+function beggars(values, n){
+  //your code here
+  var re = [];
+  if (n===0) return [];
+  if ( values.length  >= n) {
+    var k = Math.round(values.length / n);
+    while (values.length > 0) {
+      k = k > values.length ? values.length : k;
+      var t = values.splice(0,k).reduce((s,a)=>s+a,0);
+      re.push(t);
+    }
+    return re.reverse();
+  } else {
+    var add = [[...Array(n-values.length)]].map(a=>0); 
+    return values.concat(add);
+  }
+}
 //https://www.codewars.com/kata/58539230879867a8cd00011c/solutions/javascript
 function findChildren(dancingBrigade){
   var kk = {};
