@@ -1,3 +1,18 @@
+https://www.codewars.com/kata/least-common-multiple/train/javascript
+var lcm = function () {
+	var gcd = function(a, b) {
+	    if ( ! b) {return a;}
+	    return gcd(b, a % b);
+	};
+  // TODO: Program me
+  var args = Array.from(arguments);
+  var lcv = 1;
+  while (args.length > 0) {
+    var p = args.pop();
+    lcv = Math.abs(lcv * p) / gcd(p, lcv);
+  }
+  return lcv;
+};
 //https://www.codewars.com/kata/integer-depth/train/javascript
 function computeDepth (x){
   var dep = new Set();
