@@ -157,8 +157,13 @@ function gauss(A, x) {
   on_pattern = chklife(on_pattern, map); //on여부를 체크하고 on 패턴을 다시 리턴한다.
   }
   ```
+### 최소 공배수
 
-### 유클리드 호제법 O(n)
+```javascript 
+var lcm =((a, b)=> Math.abs(a * b) / gcd(a, b));
+```
+
+### 최대 공약수
 
 >두 수나 다항식의 최대 공약수를 구하는 알고리즘
 
