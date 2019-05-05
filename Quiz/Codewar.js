@@ -1,3 +1,16 @@
+//https://www.codewars.com/kata/next-version/train/javascript
+function nextVersion(version){
+  //TODO : find the next version
+  var str = version.split('.').reverse().map(a=>+a);
+  str[0]++;
+  for(var i =0; i < str.length-1; i++) {
+    if ( str[i] >= 10) {
+      str[i+1]++;
+      str[i] %= 10;
+    }
+  }
+  return str.reverse().join('.')
+}
 https://www.codewars.com/kata/least-common-multiple/train/javascript
 var lcm = function () {
 	var gcd = function(a, b) {
