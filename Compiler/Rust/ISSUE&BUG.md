@@ -81,3 +81,19 @@ let mut c1 = 1;
 	c1 += 1;
 }
 ```
+
+## simple macro
+```rust
+macro_rules! add {
+    // TODO
+    ($($x:expr),*) => {
+        {
+            let mut sum = 0;
+            $(
+                sum += $x;
+            )*
+            sum
+        }
+    };
+}
+```
