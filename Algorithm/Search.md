@@ -339,17 +339,6 @@ permutations = function(arr){
   };
   return permute(arr);
 };
-//rojjeta code
-function perm(list, ret)
-{
-    for (var i = 0; i < list.length; i++) {
-        var x = list.splice(i, 1);
-        ret.push(x);
-        perm(list, ret);
-        ret.pop();
-        list.splice(i, 0, x);
-    }
-}
 ```
 
 ### 제곱수의 합
