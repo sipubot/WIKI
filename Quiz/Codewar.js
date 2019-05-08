@@ -1,3 +1,30 @@
+
+//https://www.codewars.com/kata/5869848f2d52095be20001d1/solutions/javascript
+function peacefulYard(yard, minDistance) {
+    // your code here
+    var ym = yard.map(a=>a.split(''));
+    //console.log(ym)
+    var cats = [];
+    ym.map((a,y)=>a.map((b,x)=>{
+      if (b!=='-') {
+        cats.push([y,x]);
+      }
+    }));
+    if (cats.length <= 1) return true; 
+    var dis = true;
+    for (var i = 0; i < cats.length; i++) {
+      for( var j = i+1; j < cats.length; j++) {
+        var ydis = cats[i][0] - cats[j][0];
+        ydis = ydis*ydis;
+        var xdis = cats[i][1] - cats[j][1];
+        xdis = xdis*xdis;
+        if (Math.sqrt(ydis+xdis) < minDistance) {
+          dis = false;
+        }
+      }
+    }
+    return dis;
+}
 //https://www.codewars.com/kata/next-version/train/javascript
 function nextVersion(version){
   //TODO : find the next version
