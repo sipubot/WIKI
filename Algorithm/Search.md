@@ -319,14 +319,29 @@ kSubsetPermutations([1,2,3,4,5], 3);
 
 >경우의 수 순열 (순서가 필요할 경우)
 ```javascript
+permutations = function(arr){
+  var permArr = [],
+      usedChars = [];
+
+  function permute(input) {
+    var i, ch;
+    for (i = 0; i < input.length; i++) {
+      ch = input.splice(i, 1)[0];
+      usedChars.push(ch);
+      if (input.length == 0) {
+        permArr.push(usedChars.slice());
+      }
+      permute(input);
+      input.splice(i, 0, ch);
+      usedChars.pop();
+    }
+    return permArr;
+  };
+  return permute(arr);
+};
 //rojjeta code
 function perm(list, ret)
 {
-    if (list.length == 0) {
-        var row = document.createTextNode(ret.join(' ') + '\n');
-        d.appendChild(row);
-        return;
-    }
     for (var i = 0; i < list.length; i++) {
         var x = list.splice(i, 1);
         ret.push(x);
