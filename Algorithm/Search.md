@@ -109,6 +109,79 @@ function navigate(numberOfIntersections, roads, start, finish) {
 }
 
 ```
+```javascript
+//rojjeta code 
+const dijkstra = (edges,source,target) => {
+    const Q = new Set(),
+          prev = {},
+          dist = {},
+          adj = {}
+ 
+    const vertex_with_min_dist = (Q,dist) => {
+        let min_distance = Infinity,
+            u = null
+ 
+        for (let v of Q) {
+            if (dist[v] < min_distance) {
+                min_distance = dist[v]
+                u = v
+            }
+        }
+        return u
+    }
+ 
+    for (let i=0;i<edges.length;i++) {
+        let v1 = edges[i][0], 
+            v2 = edges[i][1],
+            len = edges[i][2]
+ 
+        Q.add(v1)
+        Q.add(v2)
+ 
+        dist[v1] = Infinity
+        dist[v2] = Infinity
+ 
+        if (adj[v1] === undefined) adj[v1] = {}
+        if (adj[v2] === undefined) adj[v2] = {}
+ 
+        adj[v1][v2] = len
+        adj[v2][v1] = len
+    }
+ 
+    dist[source] = 0
+ 
+    while (Q.size) {
+        let u = vertex_with_min_dist(Q,dist),
+            neighbors = Object.keys(adj[u]).filter(v=>Q.has(v)) //Neighbor still in Q 
+ 
+        Q.delete(u)
+ 
+        if (u===target) break //Break when the target has been found
+ 
+        for (let v of neighbors) {
+            let alt = dist[u] + adj[u][v]
+            if (alt < dist[v]) {
+                dist[v] = alt
+                prev[v] = u
+            }
+        }
+    }
+ 
+    {
+        let u = target,
+        S = [u],
+        len = 0
+ 
+        while (prev[u] !== undefined) {
+            S.unshift(prev[u])
+            len += adj[u][prev[u]]
+            u = prev[u]
+        }
+        return [S,len]
+    }   
+}
+```
+
 ## 최대합 찾기 (Kadane's Algorithm)
 
 > maximum subarray problem is the task of finding a contiguous subarray with the largest sum
@@ -246,26 +319,22 @@ kSubsetPermutations([1,2,3,4,5], 3);
 
 >경우의 수 순열 (순서가 필요할 경우)
 ```javascript
-permutations = function(arr){
-  var permArr = [],
-      usedChars = [];
-
-  function permute(input) {
-    var i, ch;
-    for (i = 0; i < input.length; i++) {
-      ch = input.splice(i, 1)[0];
-      usedChars.push(ch);
-      if (input.length == 0) {
-        permArr.push(usedChars.slice());
-      }
-      permute(input);
-      input.splice(i, 0, ch);
-      usedChars.pop();
+//rojjeta code
+function perm(list, ret)
+{
+    if (list.length == 0) {
+        var row = document.createTextNode(ret.join(' ') + '\n');
+        d.appendChild(row);
+        return;
     }
-    return permArr;
-  };
-  return permute(arr);
-};
+    for (var i = 0; i < list.length; i++) {
+        var x = list.splice(i, 1);
+        ret.push(x);
+        perm(list, ret);
+        ret.pop();
+        list.splice(i, 0, x);
+    }
+}
 ```
 
 ### 제곱수의 합
