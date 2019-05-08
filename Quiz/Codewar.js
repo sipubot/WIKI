@@ -1,4 +1,8 @@
-
+//https://www.codewars.com/kata/array-squareup-b/train/javascript
+function squareUp(n) {
+    if(n === 0) return []
+    return [...Array(n)].map((a,i)=>[...Array(n)].map((b,j)=>j<=i?j+1:0).reverse()).reduce((s,a)=>s.concat(a));
+}
 //https://www.codewars.com/kata/5869848f2d52095be20001d1/solutions/javascript
 function peacefulYard(yard, minDistance) {
     // your code here
