@@ -148,6 +148,7 @@ var maxProfit = function(prices) {
 
 ### 팩토리얼
 
+> 가지수를 찾을 때 많이 사용됨
 ```javascript
 //for memoization
 var f = [];
@@ -163,6 +164,7 @@ function factorial (n) {
 
 ### 조합
 
+> 경우의 수 
 ```javascript
   var f = [];
   function factorial (n) {
@@ -238,6 +240,32 @@ function combinations(arr, k){
     return ret;
 }
 kSubsetPermutations([1,2,3,4,5], 3);
+```
+
+### 순열 
+
+>경우의 수 순열 (순서가 필요할 경우)
+```javascript
+permutations = function(arr){
+  var permArr = [],
+      usedChars = [];
+
+  function permute(input) {
+    var i, ch;
+    for (i = 0; i < input.length; i++) {
+      ch = input.splice(i, 1)[0];
+      usedChars.push(ch);
+      if (input.length == 0) {
+        permArr.push(usedChars.slice());
+      }
+      permute(input);
+      input.splice(i, 0, ch);
+      usedChars.pop();
+    }
+    return permArr;
+  };
+  return permute(arr);
+};
 ```
 
 ### 제곱수의 합
