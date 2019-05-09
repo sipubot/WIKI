@@ -1,3 +1,15 @@
+//https://www.codewars.com/kata/triangle-waveform/train/javascript
+function triangleWave(length,depth,offset) {
+  var re = [...Array(depth)].map(a=>" ".repeat(length).split(''));
+  depth--;
+  var t = depth * 2;
+  var os = offset % t;
+  var pos = [...Array(length)].map((a,i)=>Math.abs(((os+i)%t) - depth));
+  pos.map((a,i)=>{
+    re[a][i] = "*";
+  });
+  return  re.map(a=>a.join('')).join('\n');
+}
 //https://www.codewars.com/kata/array-squareup-b/train/javascript
 function squareUp(n) {
     if(n === 0) return []
