@@ -1,3 +1,39 @@
+//https://www.codewars.com/kata/texting-with-an-old-school-mobile-phone/train/javascript
+const sendMessage = message => {
+  var buttons = [
+    ".,?!","abc","def",
+    "ghi","jkl","mno",
+    "pqrs","tuv","wxyz",
+    " ","'-+=","#",
+  ];
+  var numbuttons = "1234567890";
+  // Start typing here
+  var marr = message.split('');
+  var cases = false;
+  var re = ""
+  for (var i = 0; i < marr.length; ) {
+    if (re.indexOf("##") > -1) { return false; }
+    //
+    var a = marr[i];
+    if (cases) { a = a === a.toLowerCase() ? a.toUpperCase() : a.toLowerCase(); }
+    if (buttons.some(b=>b.indexOf(a)>-1) || numbuttons.indexOf(a) > -1) {
+      buttons.map((b,n)=>{
+        if (b.indexOf(a) > -1) {
+          var count = b.indexOf(a)+1;
+          var num = n+1; 
+          num = num === 10 ? 0 : num === 11 ? "*" : num;
+          re += (re[re.length-1] === (''+num) ? " " : "") + (''+num).repeat(count);
+        }
+      });
+      if (numbuttons.indexOf(a) > -1) { re += a+"-"; }
+      i++;
+    } else {
+      cases = !cases;
+      re += "#";
+    }
+  }
+  return re;
+}
 //https://www.codewars.com/kata/triangle-waveform/train/javascript
 function triangleWave(length,depth,offset) {
   var re = [...Array(depth)].map(a=>" ".repeat(length).split(''));
