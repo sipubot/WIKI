@@ -4,9 +4,9 @@ const sendMessage = message => {
     ".,?!","abc","def",
     "ghi","jkl","mno",
     "pqrs","tuv","wxyz",
-    " ","'-+=","#",
+    " ","'-+=","",
   ];
-  var numbuttons = "1234567890";
+  var numbuttons = "1234567890*#";
   // Start typing here
   var marr = message.split('');
   var cases = false;
