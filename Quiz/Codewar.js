@@ -25,7 +25,7 @@ const sendMessage = message => {
           re += (re[re.length-1] === (''+num) ? " " : "") + (''+num).repeat(count);
         }
       });
-      if (numbuttons.indexOf(a) > -1) { re += a+"-"; }
+      if (numbuttons.indexOf(a) > -1) { re += (re[re.length-1] === (''+a) ? " " : "") + a+"-"; }
       i++;
     } else {
       cases = !cases;
