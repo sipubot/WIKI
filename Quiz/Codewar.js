@@ -1,3 +1,19 @@
+//https://www.codewars.com/kata/word-segmentation-maxmatch/train/javascript
+function maxMatch(sentence){
+    // Happy coding :)
+    var t = sentence.length;
+    var re = [];
+    while(sentence.length > 0) {
+      if (VALID_WORDS.has(sentence.slice(0,t)) || t === 1) {
+        re.push(sentence.slice(0,t));
+        sentence = sentence.slice(t);
+        t = sentence.length;
+      } else {
+        t--;
+      }
+    }
+    return re;
+}
 //https://www.codewars.com/kata/texting-with-an-old-school-mobile-phone/train/javascript
 const sendMessage = message => {
   var buttons = [
