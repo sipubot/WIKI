@@ -1,3 +1,18 @@
+//https://www.codewars.com/kata/simple-simple-simple-string-expansion/train/javascript
+function stringExpansion(s) {
+  // Good luck!
+  var sarr = s.split('');
+  var repeater = 1;
+  var re = [];
+  for ( var i = 0; i < sarr.length; i++) {
+    if( /[0-9]/.test(sarr[i])) {
+      repeater = +sarr[i];
+    } else {
+      re.push(sarr[i].repeat(repeater));
+    }
+  }
+  return re.join('');
+}
 //https://www.codewars.com/kata/word-segmentation-maxmatch/train/javascript
 function maxMatch(sentence){
     // Happy coding :)
