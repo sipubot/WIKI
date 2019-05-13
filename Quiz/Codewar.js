@@ -1,3 +1,18 @@
+//https://www.codewars.com/kata/offload-your-work/train/javascript
+function workNeeded(projectMinutes, freelancers) {
+  var pm = [Math.floor(projectMinutes/60), projectMinutes % 60];
+  var dm = freelancers.reduce((s,a)=>[s[0] + a[0],s[1] + a[1]],[0,0]);
+  dm[0] += Math.floor(dm[1] / 60);
+  dm[1] = dm[1] % 60;
+  var rm = [pm[0]-dm[0],pm[1]-dm[1]];
+  rm[0] = rm[1] < 0 ? rm[0] - 1 : rm[0];
+  rm[1] = rm[1] < 0 ? rm[1]+60 : rm[1]; 
+  if ( rm[0]<0 || rm.every(a=>a===0) ) {
+    return "Easy Money!";
+  } else {
+    return `I need to work ${rm[0]} hour(s) and ${rm[1]} minute(s)`;
+  }
+}
 //https://www.codewars.com/kata/simple-simple-simple-string-expansion/train/javascript
 function stringExpansion(s) {
   // Good luck!
