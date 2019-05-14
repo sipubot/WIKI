@@ -1,3 +1,7 @@
+//https://www.codewars.com/kata/51edd51599a189fe7f000015/solutions/javascript
+var solution = function(firstArray, secondArray) {
+  return firstArray.map((a,i)=> Math.pow(secondArray[i]-a,2)).reduce((s,a)=>s+a,0)/firstArray.length;
+}
 //https://www.codewars.com/kata/51e8241aed85d42c810002aa/solutions/javascript/me/best_practice
 var wordWrap = function (str) {
   // code goes here
