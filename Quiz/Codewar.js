@@ -1,3 +1,15 @@
+//https://www.codewars.com/kata/51e8241aed85d42c810002aa/solutions/javascript/me/best_practice
+var wordWrap = function (str) {
+  // code goes here
+  var re = [];
+  while (str.length > 0) {
+    var sl = str.length < 25 ? str.length : str[25] === " " ? 25 : 24;
+    var part = str.slice(0,sl);
+    str = str.slice(sl);
+    re.push(str === "" ? part : str[0] === " " ? part : part+'-');
+  }
+  return re.join('\n');
+};
 //https://www.codewars.com/kata/offload-your-work/train/javascript
 function workNeeded(projectMinutes, freelancers) {
   var pm = [Math.floor(projectMinutes/60), projectMinutes % 60];
