@@ -45,3 +45,84 @@
 - 타입반환시 메서드, 제너릭 등의 기본적 구분은 한다.
 - 타입을 바로 스트링 형식으로 리턴하지는 않음 (비교하거나 내장 프로퍼티를 거쳐야 한다 Is~ 로 시작
 - typeof() 기본 함수를 사용하여 비교 한다.
+```c#
+//Custom 객체를 반환 해서 생성하는 방법
+namespace MyNamespace
+{
+    using System;
+    using System.Diagnostics;
+
+    public class Class1
+    {
+        public void Run()
+        {
+            // 네임스페이스와 클래스명 함께
+            Type customerType = Type.GetType("MyNamespace.Customer");
+
+            // Type으로부터 클래스 객체 생성
+            object obj = Activator.CreateInstance(customerType);
+
+            // 생성된 객체 사용예
+            string name = ((Customer)obj).Name;
+            Debug.WriteLine(name);  // No name
+        }
+    }
+
+    public class Customer
+    {
+        public Customer()
+        {
+            this.Name = "No name";
+        }
+        public int Id { get; set; }
+        public string Name { get; set; }
+    }
+}
+//Generic 타입일때 (일반적인 자료형)
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+
+public class Class2
+{
+    public Class2()
+    {
+        MyFilter<int> filter = new MyFilter<int>();
+        Run(filter);
+    }
+
+    public void Run(object filter)
+    {
+        // Type명 비교
+        if (filter.GetType().Name == typeof(MyFilter<>).Name)
+        {
+            // Generic의 T 파라미터 타입 가져오기 : int
+            Type genArgType = filter.GetType().GetGenericArguments()[0];
+
+            // MyFilter<>에 int를 적용하여 실제 타입 확정
+            Type actualType = typeof(MyFilter<>).MakeGenericType(genArgType);
+
+            // 실제 타입으로부터 객체 생성
+            object obj = Activator.CreateInstance(actualType, true);
+
+            Debug.WriteLine(obj.GetType().Name); //MyFilter`1
+        }
+    }
+}
+
+public class MyFilter<T>  where T : struct
+{
+    private List<T> _elements;        
+
+    public MyFilter()
+    {
+        _elements = new List<T>();
+    }
+
+    public MyFilter(List<T> elements)
+    {
+        _elements = elements;
+    }
+}
+
+```
