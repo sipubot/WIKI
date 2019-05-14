@@ -34,3 +34,14 @@
 - Contains(val) : function (val) { return Array.some(a=>a===val)}
 - DefaultIfEmpty :
 - Distinct() : Array.filter((a,i)=>Array.indexOf(a)===i);
+
+## Reflection 관련
+
+> 말그대로 반사 하는 메서드
+
+[문서](https://docs.microsoft.com/ko-kr/dotnet/csharp/programming-guide/concepts/reflection)
+참고할 점 
+- [문서](https://docs.microsoft.com/ko-kr/dotnet/framework/reflection-and-codedom/emitting-dynamic-methods-and-assemblies)
+- 타입반환시 메서드, 제너릭 등의 기본적 구분은 한다.
+- 타입을 바로 스트링 형식으로 리턴하지는 않음 (비교하거나 내장 프로퍼티를 거쳐야 한다 Is~ 로 시작
+- typeof() 기본 함수를 사용하여 비교 한다.
