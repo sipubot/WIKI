@@ -1,3 +1,20 @@
+//https://www.codewars.com/kata/object-extend/train/javascript
+var extend = function() {
+  if (typeof(arguments) !== 'object') { return null }
+  if ( arguments === undefined || arguments === null)  { return null }
+  var ent = Object.values(arguments).filter(a=>typeof(a)=== 'object' && Array.isArray(a)=== false);
+  if (ent.length === 0) { return null; }
+  
+  var re = {};
+  ent.map(a=>{
+    Object.entries(a).map(k=>{
+      if (re[k[0]] === undefined) {
+        re[k[0]] = k[1];
+      }
+    });
+  });
+  return re;
+}
 //https://www.codewars.com/kata/51edd51599a189fe7f000015/solutions/javascript
 var solution = function(firstArray, secondArray) {
   return firstArray.map((a,i)=> Math.pow(secondArray[i]-a,2)).reduce((s,a)=>s+a,0)/firstArray.length;
