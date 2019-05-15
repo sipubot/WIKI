@@ -231,6 +231,15 @@ var SIPU = (function (SIPU, $, undefined) {
 
 >객체 속성 삭제 금지
 
+### Object.assign()
+
+> 객체 머징
+```javascript
+function extend(...args) {
+  return Object.assign({}, ...args.filter(Object.isObject).reverse());
+}
+```
+
 ## Array
 
 ### Array.prototype.reduce() ***
