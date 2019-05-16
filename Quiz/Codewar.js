@@ -1,3 +1,20 @@
+//https://www.codewars.com/kata/return-substring-instance-count-2/train/javascript
+function searchSubstr( fullText, searchText, allowOverlap ){
+  if ( allowOverlap == undefined) { allowOverlap = true; }
+  if ( fullText.length === 0 || searchText.length === 0 ) { return 0; }
+  var count = 0;
+  if (allowOverlap) {
+    for (var i = 0; i <= fullText.length - searchText.length ; i++) {
+      console.log(fullText.slice(i,searchText.length+i));
+      if (fullText.slice(i,searchText.length+i) === searchText) {
+        count++;
+      }
+    }
+  } else {
+    count = fullText.split(searchText).length - 1;
+  }
+  return count;
+}
 //https://www.codewars.com/kata/object-extend/train/javascript
 var extend = function() {
   if (typeof(arguments) !== 'object') { return null }
