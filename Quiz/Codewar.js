@@ -1,3 +1,40 @@
+//https://www.codewars.com/kata/sum-of-two-squares/train/javascript
+function allSquaredPairs(num) {
+  // max(num) === 2147483647
+  var n = Math.sqrt(num);
+  var re = [];
+  var reset = new Set();
+  var flip = true;
+  var min = 0;
+  var max = Math.floor(n);
+  
+  while (min <= max) {
+    if (flip) {
+      var m = Math.sqrt(num - (min * min));
+      var arr = [min, m].sort((a,b)=>a-b);
+      if (m % 1 === 0 && !reset.has(arr.join())) {
+        reset.add(arr.join());
+        max = m;
+        re.push([min,max]);
+        flip = false;
+      }
+      min++;
+    } else {
+      var n = Math.sqrt(num - (max * max));
+      var arr = [n, max].sort((a,b)=>a-b);
+      if (n % 1 === 0 && !reset.has(arr.join())) {
+        reset.add(arr.join());
+        min = n;
+        re.push([min,max]);
+        flip = false;
+      }
+      max--;
+    }
+  }
+  return re;
+  // Return every unique pair of numbers [a,b] where (a * a) + (b * b) = num;
+  // return value will be a two-dimensional array [[]]
+}
 //https://www.codewars.com/kata/return-substring-instance-count-2/train/javascript
 function searchSubstr( fullText, searchText, allowOverlap ){
   if ( allowOverlap == undefined) { allowOverlap = true; }
