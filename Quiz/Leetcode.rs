@@ -1,4 +1,26 @@
 impl Solution {
+    pub fn merge(intervals: Vec<Vec<i32>>) -> Vec<Vec<i32>> {
+        let mut re = vec![];
+        let mut vi = intervals;
+        if vi.len() == 0 {
+            return re;
+        }
+        vi.sort_by(|a, b| a[1].cmp(&b[1]));
+        vi.sort_by(|a, b| a[0].cmp(&b[0]));
+        let mut pre = vi[0].to_owned();
+        for curr in vi {
+            if curr[0] <= pre[1] {
+                let p1 = pre[1].to_owned();
+                let c1 = curr[1].to_owned();
+                pre[1] = cmp::max(p1, c1);
+            } else {
+                re.push(pre.to_owned());
+                pre = curr.to_owned();
+            }
+        }
+        re.push(pre.to_owned());
+        re
+    }
     pub fn is_valid_sudoku(board: Vec<Vec<char>>) -> bool {
         let partbox = vec![
             vec![0, 0],
