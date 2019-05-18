@@ -1,3 +1,22 @@
+//https://www.codewars.com/kata/5227129b316b56d50d0003b7/solutions/javascript
+function flattenTwoLevels(array) {
+  function dep(arr, dp) {
+    if (dp > 0) {
+      var c = [];
+      arr.map(a=>{
+        if (Array.isArray(a)) {
+          c = c.concat(dep(a,dp+1));
+        } else {
+          c.push(a);
+        }
+      });
+      return c;
+    } else {
+      return arr.map(a=>Array.isArray(a) ? dep(a,dp+1) : a);
+    }
+  }
+  return dep(array, 0);
+}
 //https://www.codewars.com/kata/sum-of-two-squares/train/javascript
 function allSquaredPairs(num) {
   // max(num) === 2147483647
