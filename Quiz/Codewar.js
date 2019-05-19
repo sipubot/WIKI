@@ -1,3 +1,7 @@
+//https://www.codewars.com/kata/grab-csv-columns/train/javascript
+function csvColumns(csv, indices){
+  return csv.split('\n').map(a=>a.split(',').filter((b,i)=>indices.some(c=>c===i)).join()).filter(a=>a.length!==0).join("\n");
+}
 //https://www.codewars.com/kata/5227129b316b56d50d0003b7/solutions/javascript
 function flattenTwoLevels(array) {
   function dep(arr, dp) {
