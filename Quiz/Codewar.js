@@ -1,3 +1,10 @@
+//https://www.codewars.com/kata/52aaf51822e82a808100066b/solutions/javascript
+function replaceAll(input, find, replace) {
+  // ...
+  if (input === "" && find === "") { return replace }
+  if (find === "") { return replace+input.split("").join(replace)+replace }
+  return input.split(find).join(replace)
+}
 //https://www.codewars.com/kata/grab-csv-columns/train/javascript
 function csvColumns(csv, indices){
   return csv.split('\n').map(a=>a.split(',').filter((b,i)=>indices.some(c=>c===i)).join()).filter(a=>a.length!==0).join("\n");
