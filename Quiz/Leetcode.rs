@@ -1,4 +1,15 @@
 impl Solution {
+    pub fn can_jump(nums: Vec<i32>) -> bool {
+        use std::cmp;
+        let mut max = nums[0];
+        for i in 1..nums.len() {
+            if (max as usize) < i {
+                return false;
+            }
+            max = cmp::max(nums[i] + i as i32, max);
+        }
+        true
+    }
     pub fn merge(intervals: Vec<Vec<i32>>) -> Vec<Vec<i32>> {
         let mut re = vec![];
         let mut vi = intervals;
