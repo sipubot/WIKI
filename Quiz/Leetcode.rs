@@ -1,4 +1,14 @@
 impl Solution {
+    pub fn unique_paths(m: i32, n: i32) -> i32 {
+        let mut dp = vec![vec![1; n as usize]; m as usize];
+        for y in 1..m {
+            for x in 1..n {
+                dp[y as usize][x as usize] =
+                    dp[(y - 1) as usize][x as usize] + dp[y as usize][(x - 1) as usize];
+            }
+        }
+        dp[(m - 1) as usize][(n - 1) as usize]
+    }
     pub fn can_jump(nums: Vec<i32>) -> bool {
         use std::cmp;
         let mut max = nums[0];
