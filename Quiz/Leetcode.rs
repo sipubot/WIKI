@@ -1,4 +1,11 @@
 impl Solution {
+    pub fn count_bits(num: i32) -> Vec<i32> {
+        let mut re = vec![0; (num + 1) as usize];
+        for i in 1..(num + 1) as usize {
+            re[i] = re[(i - 1) & i] + 1;
+        }
+        re
+    }
     pub fn unique_paths(m: i32, n: i32) -> i32 {
         let mut dp = vec![vec![1; n as usize]; m as usize];
         for y in 1..m {
