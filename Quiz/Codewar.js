@@ -1,3 +1,8 @@
+//https://www.codewars.com/kata/escape-html-markup/train/javascript
+var escapeHTML = function(str) {
+    // TODO: your code
+    return str.split("<").join("&lt;").split(">").join("&gt;").split("\"").join("&quot;")
+};
 //https://www.codewars.com/kata/52aaf51822e82a808100066b/solutions/javascript
 function replaceAll(input, find, replace) {
   // ...
