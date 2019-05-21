@@ -1,3 +1,11 @@
+//https://www.codewars.com/kata/sort-sentence-pseudo-alphabetically/train/javascript
+function sort(sentence){
+  //...
+  var re = sentence.split(' ').map(a=>a.replace(/[^a-zA-Z0-9]/gi,""));
+  var low = re.filter(a=>/[a-z0-9]/.test(a[0])).sort(); 
+  var upper = re.filter(a=>/[A-Z]/.test(a[0])).sort((a,b)=>a<b);
+  return low.concat(upper).join(' ');
+}
 //https://www.codewars.com/kata/escape-html-markup/train/javascript
 var escapeHTML = function(str) {
     // TODO: your code
