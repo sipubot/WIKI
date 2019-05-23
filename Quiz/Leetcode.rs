@@ -1,4 +1,21 @@
 impl Solution {
+    pub fn daily_temperatures(t: Vec<i32>) -> Vec<i32> {
+        let mut result = vec![0 as i32; t.len()];
+        for i in (0..t.len()).rev() {
+            let mut j = i + 1;
+            while j < t.len() && t[j] <= t[i] {
+                if result[j] > 0 {
+                    j = result[j] as usize + j;
+                } else {
+                    j = t.len();
+                }
+            }
+            if j < t.len() {
+                result[i] = (j - i) as i32;
+            }
+        }
+        result
+    }
     pub fn sort_colors(nums: &mut Vec<i32>) {
         let mut temp;
         let mut low = 0;
