@@ -1,3 +1,17 @@
+//https://www.codewars.com/kata/poker-cards-reducer/train/javascript
+function reduceCards(input){
+  if (input === null || input === undefined) return null;
+  if (!Array.isArray(input)) return null;
+  if (input.length === 0) return [];
+  //write function body
+  var c = ['c','d','h','s'];
+  var n = ['A','2','3','4','5','6','7','8','9','T','J','Q','K'];
+  if (typeof(input[0]) === "string") {
+    return input.map(a=>a[0]).sort((a,b)=>n.indexOf(a) -n.indexOf(b));
+  } else {
+    return input.map(a=>a%13).sort((a,b)=>a-b);
+  }
+}
 //https://www.codewars.com/kata/poker-cards-encoder-slash-decoder/train/javascript
 function cardsConverter(input){
   //write function body
