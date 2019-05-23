@@ -1,4 +1,33 @@
 impl Solution {
+    pub fn sort_colors(nums: &mut Vec<i32>) {
+        let mut temp;
+        let mut low = 0;
+        let mut mid = 0;
+        let mut high = nums.len() - 1;
+        if nums.len() == 1 {
+            return;
+        }
+        while mid <= high {
+            if nums[mid] == 0 {
+                temp = nums[low];
+                nums[low] = nums[mid];
+                nums[mid] = temp;
+                low += 1;
+                mid += 1;
+            } else if nums[mid] == 1 {
+                mid += 1;
+            } else if nums[mid] == 2 {
+                temp = nums[high];
+                nums[high] = nums[mid];
+                nums[mid] = temp;
+                if high - 1 < 1 as usize {
+                    break;
+                } else {
+                    high -= 1;
+                }
+            }
+        }
+    }
     pub fn count_bits(num: i32) -> Vec<i32> {
         let mut re = vec![0; (num + 1) as usize];
         for i in 1..(num + 1) as usize {
