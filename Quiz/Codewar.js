@@ -1,3 +1,26 @@
+//https://www.codewars.com/kata/poker-cards-encoder-slash-decoder/train/javascript
+function cardsConverter(input){
+  //write function body
+  var c = ['c','d','h','s'];
+  var n = ['A','2','3','4','5','6','7','8','9','T','J','Q','K'];
+  if (input === null || input === undefined) return null;
+  if (!Array.isArray(input)) return null;
+  if (input.length === 0) return [];
+  
+  if (typeof(input[0]) === "number") {
+    input.sort((a,b)=>a-b);
+    return input.map(a=>{
+      var ci = Math.floor(a / 13);
+      var ni = a % 13;
+      return n[ni]+c[ci];
+    });
+  } else {
+    return input.map(a=>{
+      var cc = a.split('');
+      return 13*(c.indexOf(cc[1])) + n.indexOf(cc[0]);
+    }).sort((a,b)=>a-b);
+  }
+}
 //https://www.codewars.com/kata/sort-sentence-pseudo-alphabetically/train/javascript
 function sort(sentence){
   //...
