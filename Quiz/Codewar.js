@@ -1,3 +1,21 @@
+//https://www.codewars.com/kata/difference-of-2/train/javascript
+function twosDifference(input){
+ //Enter your solution here
+ var max = input.length - 1;
+ var i = 0, re = [];
+ input.sort((a,b)=>a-b);
+ while (i < input.length-1) {
+   var t = [];
+   if (input.indexOf(input[i]+2)>-1) {
+     var p = input.indexOf(input[i]+2);
+     t.push(input[i]);
+     t.push(input[p]);
+     re.push(t);
+   }
+   i++;
+ }
+ return re;
+}
 //https://www.codewars.com/kata/poker-cards-reducer/train/javascript
 function reduceCards(input){
   if (input === null || input === undefined) return null;
