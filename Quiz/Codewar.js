@@ -1,3 +1,19 @@
+//https://www.codewars.com/kata/largest-product-in-a-series/train/javascript
+function greatestProduct(input) {
+  // todo
+  var ns = input.split('').map(a=>+a);
+  var max = 0;
+  var temp = ns.slice(0,5);
+  for (var i = 5; i < ns.length ; i++) {
+    var t = temp.reduce((s,a)=>s*a);
+    if (t > max) {
+      max = t;
+    }
+    temp.shift();
+    temp.push(ns[i]);
+  }
+  return max > temp.reduce((s,a)=>s*a) ? max : temp.reduce((s,a)=>s*a);
+}
 //https://www.codewars.com/kata/difference-of-2/train/javascript
 function twosDifference(input){
  //Enter your solution here
