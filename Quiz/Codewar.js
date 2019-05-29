@@ -1,3 +1,16 @@
+//https://www.codewars.com/kata/fibonacci-reloaded/train/javascript
+function fib(n) {
+    n--;
+    var a = 0, b = 1, c;
+    if (n < 3) {
+        if (n < 0) return fib(-n);
+        if (n === 0) return 0;
+        return 1;
+    }
+    while (--n)
+        c = a + b, a = b, b = c;
+    return c;
+}
 //https://www.codewars.com/kata/largest-product-in-a-series/train/javascript
 function greatestProduct(input) {
   // todo
