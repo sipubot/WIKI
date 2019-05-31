@@ -20,13 +20,16 @@ WantedBy=multi-user.target
 
 ## 등록
 
+```bash
 systemctl daemon-reload
 systemctl enable sipu_server
 systemctl start sipu_server
-
+```
 # 기타 명령어들
 
+```bash
 sudo systemctl status sipu_server
-sudo systemctl restart jupyterNotebook
-sudo systemctl stop jupyterNotebook
-sudo systemctl disable jupyterNotebook
+sudo systemctl restart sipu_server
+sudo systemctl stop sipu_server
+sudo systemctl disable sipu_server
+```
