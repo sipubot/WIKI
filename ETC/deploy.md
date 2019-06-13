@@ -1,4 +1,33 @@
-#간단히 틀만 잡아둠.
+# ubuntu
+
+## enviroment.sh
+
+- ssh 설치는 제외 
+```bash
+echo "update ubuntu"
+echo "ufw install"
+echo "ufw set"
+echo "cargo install"
+echo "git install"
+echo "caddy install"
+echo "set caddy"
+echo "set rustc"
+echo "set cargo"
+echo "set git"
+
+echo "make deploy folder"
+echo "make server folder"
+echo "set caddy"
+echo "copy to caddyservice"
+echo "init caddyservice"
+echo "copy to deploy bash"
+echo "bash start"
+#echo "copy to serverservice"
+#echo "init server"
+```
+
+
+## deploy.sh
 
 ```bash
 echo "path move"
