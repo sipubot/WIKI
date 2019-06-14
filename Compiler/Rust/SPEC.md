@@ -22,6 +22,60 @@ pub fn string_to_str ( _v : String ) -> &str {
     
 ```
 
+## iteraion(monad)
+
+- Vec 연산이 아무래도 많을거고 거기에 쓸수 있는 다양한 메서드들 또한 존재함 (javascript 와도 가장 닮아 있는 부분이 아닐까.)
+- 모나드라는 개념을 알아두면 도움이 될듯 하다.
+
+```rust
+let mut test_vec = [];
+test_vec.iter().empty::<i32>(); // return None;
+test_vec.iterate() // f:&T→T
+test_vec.repeat() // https://doc.rust-lang.org/std/iter/fn.repeat.html (값을 반복해서 보내준다 )
+test_vec.repeat_call() 
+test_vec.unfold() // https://docs.rs/itertools/0.8.0/itertools/fn.unfold.html
+test_vec.batching()
+
+//자주 쓸것들
+test_vec.chunks(3) // n개 단위로 끊어 줌
+test_vec.iter().collect() // make a vec again (need type)
+test_vec.iter().collect_vec() // simple to vec
+test_vec.iter().dedup() // Remove duplicates from sections of consecutive identical elements (it need sort())
+test_vec.iter().eq(|a| a > 10 ) // true or false in vec
+test_vec.iter().filter(|a| a== 1) // same js
+test_vec.filter_map(|a| a > 10) // no need iter()
+test_vec.into_iter().flatten().collect() // remove multi dimension
+test_vec.iter().map() // same js
+test_vec.merge(vec![a,a,a]) // same js concat
+test_vec.iter().rev() // same js reverse
+test_vec.into_iter().sorted() // sort() 
+test_vec.into_iter().sorted_by(|a,b| cmp(a,b)) // using method to sort
+test_vec.iter().take(3) // slice(0, 3)
+test_vec.into_iter().take_while(|x| x > 0) // if break in false
+test_vec.into_iter().unique() // map -> set -> map
+test_vec.into_iter().unique_by(|a| somemethod(a)) // unique by method
+test_vec.iter().unziq()
+//need sample 
+let a = [(1, 2), (3, 4)];
+let (left, right): (Vec<_>, Vec<_>) = a.iter().cloned().unzip();
+assert_eq!(left, [1, 3]);
+assert_eq!(right, [2, 4]);
+
+test_vec.iter().zip(vec![a,a,a]) // opposite unzip think
+test_vec.iter().any(|a|a>0) // same some js
+test_vec.iter().count() // same js length
+test_vec.iter().find(|a| a == 2) // return value not true or false
+test_vec.iter().find_position() // return index of vec
+test_vec.iter().fold( startvalue,|s,a| s + a) // same js reduce 
+test_vec.iter().join("str") // same js join
+test_vec.iter().max() // 
+test_vec.iter().max_by(|a,b| method(x,y)) // https://doc.rust-lang.org/std/iter/trait.Iterator.html#method.max_by
+test_vec.iter().min() //
+test_vec.iter().position(|a| a == 1) // same js indexOf
+test_vec.iter().sum() // all add inteager type only
+
+```
+
 ## 재귀 함수 관련
 
 > 러스트는 모든 명령어 처리를 스택을 기준으로 동작하기 때문에 재귀 함수의 경우 '크기'에 대한 측정이 불가능 하다 따라서 graph 나 node 같은 계층 구조를 가지는 구조에 대해선 Box를 이용하여 참조메모리 사이즈를 기준으로 만들어 메모리 사이즈를 기준으로 동작하게 된다. (이것도 엄밀히 말해선 크기 예측 불가이지만 어쨌든 안정성을 위해 최대의 구현 방법)
