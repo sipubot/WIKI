@@ -1,3 +1,23 @@
+//https://www.codewars.com/kata/52b4d1be990d6a2dac0002ab/solutions/javascript
+var maxZeroSequence = function(arr) {
+  // write your magic here
+  var sum = arr.reduce((s,a)=>s+a,0);
+  if (sum === 0) {
+    return arr;
+  }
+  for (var i = 1; i < arr.length -1; i++) {
+    var psum = sum - arr.slice(arr.length - i).reduce((s,a)=>s+a,0);
+    for (var z = 0; z <= i; z++) {
+      if (psum === 0) {
+        return arr.slice(z,arr.length+z-i);
+      } else {
+        psum -= arr[z];
+        psum += arr[arr.length+z-i];
+      }
+    }
+  }
+  return [];
+}
 //https://www.codewars.com/kata/fibonacci-reloaded/train/javascript
 function fib(n) {
     n--;
