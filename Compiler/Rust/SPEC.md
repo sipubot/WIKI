@@ -25,6 +25,7 @@ pub fn string_to_str ( _v : String ) -> &str {
 ## iteraion(monad)
 
 - Vec 연산이 아무래도 많을거고 거기에 쓸수 있는 다양한 메서드들 또한 존재함 (javascript 와도 가장 닮아 있는 부분이 아닐까.)
+- iteration 확장 ext 를 참조해야 쓸수 있는 기능들이 있음 (기본 제공 기능은 숙지하는게 좋지)
 - 모나드라는 개념을 알아두면 도움이 될듯 하다.
 
 ```rust
