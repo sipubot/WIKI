@@ -1,4 +1,14 @@
-
+//https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii/
+var removeDuplicates = function(nums) {
+    for (var i = 0; i < nums.length-2; ) {
+        if ( nums[i] === nums[i+2]) {
+            nums.splice(i,1);
+        } else {
+            i++;
+        }
+    }
+    return nums.length
+};
 // https://leetcode.com/submissions/detail/217966989/
 var countBinarySubstrings = function(s) {
     var ans = 0, prev = 0, cur = 1;
