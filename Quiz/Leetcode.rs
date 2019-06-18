@@ -1,4 +1,17 @@
 impl Solution {
+    pub fn remove_duplicates(nums: &mut Vec<i32>) -> i32 {
+        if nums.len() <= 2 {
+            return nums.len() as i32;
+        }
+        let mut tar = 2; 
+        for i in 2..nums.len() {
+            if nums[tar-2] != nums[i] {
+                nums[tar] = nums[i];
+                tar += 1;
+            }
+        }
+        return tar as i32;
+    }
     pub fn daily_temperatures(t: Vec<i32>) -> Vec<i32> {
         let mut result = vec![0 as i32; t.len()];
         for i in (0..t.len()).rev() {
