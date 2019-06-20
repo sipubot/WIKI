@@ -1,4 +1,12 @@
 impl Solution {
+    pub fn gray_code(n: i32) -> Vec<i32> {
+        let mut re: Vec<i32> = vec![];
+        let count = (2 as i32).pow(n as u32);
+        for i in 0..count as usize {
+            re.push((i as i32) ^ (i as i32 >> 1));
+        }
+        re
+    }
     pub fn remove_duplicates(nums: &mut Vec<i32>) -> i32 {
         if nums.len() <= 2 {
             return nums.len() as i32;
