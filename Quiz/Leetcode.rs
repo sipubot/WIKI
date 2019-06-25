@@ -1,4 +1,21 @@
 impl Solution {
+    pub fn change(amount: i32, coins: Vec<i32>) -> i32 {
+        if amount == 0 {
+            return 1;
+        }
+        if coins.len() == 0 {
+            return 0;
+        }
+        let mut dp = vec![0; (amount + 1) as usize];
+        dp[0] = 1;
+        for i in 0..(coins.len() as usize)  {
+            for j in coins[i]..amount+1 {
+                let pos = j - coins[i];
+                dp[j as usize] += dp[pos as usize];
+            }
+        }
+        dp[amount as usize]
+    }
     pub fn gray_code(n: i32) -> Vec<i32> {
         let mut re: Vec<i32> = vec![];
         let count = (2 as i32).pow(n as u32);
