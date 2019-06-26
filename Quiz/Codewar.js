@@ -1,3 +1,8 @@
+//https://www.codewars.com/kata/cumulative-triangle/train/javascript
+function cumulativeTriangle(n) {
+  // your mission, should you choose to accept it...
+  return n * (n * n + 1) / 2;
+}
 //https://www.codewars.com/kata/52b4d1be990d6a2dac0002ab/solutions/javascript
 var maxZeroSequence = function(arr) {
   // write your magic here
