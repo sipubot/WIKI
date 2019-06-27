@@ -1,26 +1,28 @@
 //https://www.codewars.com/kata/zonk-game/train/javascript
 function getScore(dice){ 
-  var d = [0,0,0,0,0,0]
+  var psum = 0;
+  var d = [0,0,0,0,0,0];
   dice.map(a=>{
     d[a-1]++;
   });
   if (d.every(a=>a===1)) { return 1000; }
   if (d.filter(a=>a===2).length === 3) { return 750;}
-  if (d.some(a=>a>2)) { 
-    var max = Math.max(...d);
-    var m = max - 2;
+  d = d.map((a,i)=>{ 
+    if (a < 3) {
+      return a;
+    }
     var p = 0;
-    if (d.indexOf(max) === 0) {
+    if (i === 0) {
       p = 1000;
     } else {
-      p = (d.indexOf(max) + 1) * 100;
+      p = (i + 1) * 100;
     }
-    return p * m;
-  }
-  if (d[0] > 0) { return 100 * d[0]; }
-  if (d[4] > 0) { return 50 * d[4]; }
- 
-  return "Zonk";
+    psum += p * (a-2);
+    return 0;
+  });
+  if (d[0] > 0) { psum += 100 * d[0]; }
+  if (d[4] > 0) { psum += 50 * d[4]; }
+  return psum > 0 ? psum : "Zonk";
 }
 //https://www.codewars.com/kata/cumulative-triangle/train/javascript
 function cumulativeTriangle(n) {
