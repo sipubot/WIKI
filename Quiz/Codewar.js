@@ -1,3 +1,27 @@
+//https://www.codewars.com/kata/zonk-game/train/javascript
+function getScore(dice){ 
+  var d = [0,0,0,0,0,0]
+  dice.map(a=>{
+    d[a-1]++;
+  });
+  if (d.every(a=>a===1)) { return 1000; }
+  if (d.filter(a=>a===2).length === 3) { return 750;}
+  if (d.some(a=>a>2)) { 
+    var max = Math.max(...d);
+    var m = max - 2;
+    var p = 0;
+    if (d.indexOf(max) === 0) {
+      p = 1000;
+    } else {
+      p = (d.indexOf(max) + 1) * 100;
+    }
+    return p * m;
+  }
+  if (d[0] > 0) { return 100 * d[0]; }
+  if (d[4] > 0) { return 50 * d[4]; }
+ 
+  return "Zonk";
+}
 //https://www.codewars.com/kata/cumulative-triangle/train/javascript
 function cumulativeTriangle(n) {
   // your mission, should you choose to accept it...
