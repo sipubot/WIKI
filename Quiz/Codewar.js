@@ -1,3 +1,18 @@
+//https://www.codewars.com/kata/554a44516729e4d80b000012/solutions/javascript
+function nbMonths(spo, spn, sm, pm){
+  //your code here
+  var count = 0;
+  var ratio = 1 - (pm * 0.01);
+  var m = 1;
+  while ((spo * m) - (spn * m) + count * sm < 0) {
+    if (count % 2 === 1) {
+      ratio -= 0.005;      
+    }
+    m *= ratio;
+    count++;
+  }
+  return [count, Math.round((spo * m) - (spn * m) + count * sm)];
+}
 //https://www.codewars.com/kata/zonk-game/train/javascript
 function getScore(dice){ 
   var psum = 0;
