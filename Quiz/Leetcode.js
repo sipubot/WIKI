@@ -1,3 +1,15 @@
+//https://www.codewars.com/kata/matrix-transpose/train/javascript
+function transpose(matrix) {
+  var m = [];
+  matrix[0].map((a,x)=>{
+    var l = [];
+    matrix.map((b,y)=> {
+      l.push(matrix[y][x]);
+    });
+    m.push(l);
+  });
+  return m;
+}
 //https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii/
 var removeDuplicates = function(nums) {
     for (var i = 0; i < nums.length-2; ) {
