@@ -1,3 +1,21 @@
+//https://www.codewars.com/kata/rotate-an-array-matrix/train/javascript
+function rotate(matrix, direction) {
+  var m = [];
+  if (direction === "clockwise") {
+    matrix[0].map((a,i)=>{
+      var  l = [];
+      matrix.map(aa=>{l.push(aa[i]);});
+      m.push(l.reverse());
+    });
+  } else {
+    matrix[0].map((a,i)=>{
+      var  l = [];
+      matrix.map(aa=>{l.push(aa[matrix[0].length-i-1]);});
+      m.push(l);
+    });
+  }
+  return m;
+}
 //https://www.codewars.com/kata/5263c5d011f4233c9d000561/solutions/javascript
 function getLines(line){
   // code me please?
