@@ -1,3 +1,17 @@
+//https://www.codewars.com/kata/count-9-s-from-1-to-n/train/javascript
+function number9(n){
+  var ns = (''+n).split('');
+  var count = 0;
+  for (var i = 0 ; i < ns.length; i++) {
+    if (ns[i] === '9')  {
+      if (i === ns.length - 1) { count += 1;} else {
+        count += +(ns.slice(i+1).join(''))+1; 
+      }
+    }
+    count += (+ns[i])*(10**(ns.length-i-2))*(ns.length-i-1);
+  }
+  return count;
+}
 //https://www.codewars.com/kata/rotate-an-array-matrix/train/javascript
 function rotate(matrix, direction) {
   var m = [];
