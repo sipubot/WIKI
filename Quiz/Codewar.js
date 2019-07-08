@@ -1,3 +1,31 @@
+//https://www.codewars.com/kata/5263c5d011f4233c9d000561/solutions/javascript
+function getLines(line){
+  // code me please?
+  var l = [];
+  if ( isNaN(line) ) { return -1; }
+  if ( line < 1 ) { return -1; }
+  if ( line >= 1 ) { l = ["1"]; }
+  
+  while(line > 1) {
+    line--;
+    var sl = l[l.length-1].split('');
+    var n = sl[0];
+    var c = 1; 
+    var pr = "";
+    for (var i = 1; i < sl.length; i++) {
+      if (n !== sl[i]) {
+        pr += ''+c+n;
+        n = sl[i];
+        c = 1;
+      } else {
+        c++; 
+      }
+    }
+    pr += c+n;
+    l.push(pr);
+  }
+  return l.join(',');
+}
 //https://www.codewars.com/kata/554a44516729e4d80b000012/solutions/javascript
 function nbMonths(spo, spn, sm, pm){
   //your code here
