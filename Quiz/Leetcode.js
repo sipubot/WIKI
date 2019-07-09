@@ -1,3 +1,14 @@
+//https://www.codewars.com/kata/a-string-of-sorts/train/javascript
+function sortString(string,ordering) {
+  var o = ordering.split('');
+  var s = string.split('');
+  var re = "";
+  o.map(a=>{
+    re += s.filter(c=>c===a).join('');
+    s = s.map(c=> c === a ? "" : c);
+  });
+  return re+s.join('');
+}
 //https://www.codewars.com/kata/matrix-transpose/train/javascript
 function transpose(matrix) {
   var m = [];
