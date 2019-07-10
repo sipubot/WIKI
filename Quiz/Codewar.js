@@ -1,3 +1,23 @@
+//https://www.codewars.com/kata/number-hashtag/train/javascript
+function getHashtags(post) {
+  var w = post.split(' ');
+  var re = [];
+  w.map(a=>{
+    if (a[0] !== '#') {
+      return;
+    }
+    var retag = a.split('');
+    while( retag[0] === '#') {
+      retag.shift();
+    }
+    var tag = retag.join('');
+    if (tag.length === 0) { return; }
+    if (/^[a-zA-Z]*$/.test(tag)) {
+      re.push(tag);
+    }
+  });
+  return re;
+}
 //https://www.codewars.com/kata/count-9-s-from-1-to-n/train/javascript
 function number9(n){
   var ns = (''+n).split('');
