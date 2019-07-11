@@ -1,3 +1,18 @@
+//https://www.codewars.com/kata/square-matrix-multiplication/train/javascript
+function matrixMultiplication(a, b){
+    var mul = [];
+    var len = a.length;
+    for(var i=0; i<len; i++){
+        var row = [];
+        for(var j=0; j<len; j++){
+            var x = 0;
+            for(var k=0; k<len; k++) x += a[i][k]*b[k][j];
+            row.push(x);
+        }
+        mul.push(row);
+    }
+    return mul;
+}
 //https://www.codewars.com/kata/number-hashtag/train/javascript
 function getHashtags(post) {
   var w = post.split(' ');
