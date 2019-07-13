@@ -1,3 +1,31 @@
+//https://www.codewars.com/kata/data-compression-using-run-length-encoding/train/javascript
+function encode(input) {
+  var s = input.split('');
+  var t = s[0];
+  var c = 1;
+  var re = [];
+  for(var i = 1; i < s.length; i++) {
+    if (s[i] !== t) {
+      re.push(''+c+t);
+      t = s[i];
+      c = 1;
+    } else {
+      c++;
+    }
+  }
+  re.push(''+c+t);
+  return re.join('');
+}
+
+function decode(input) {
+  var s = input.match(/[A-Z]/g);
+  var n = input.match(/[0-9]+/g);
+  var re = [];
+  for(var i = 0; i < s.length; i++) {
+    re.push(s[i].repeat(+n[i]));
+  }
+  return re.join('');
+}
 //https://www.codewars.com/kata/numerical-palindrome-number-4/train/javascript
 function palindrome(num) { 
   function pa(num) {
