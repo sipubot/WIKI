@@ -1,3 +1,21 @@
+//https://www.codewars.com/kata/numerical-palindrome-number-4/train/javascript
+function palindrome(num) { 
+  function pa(num) {
+    if(num < 10) { return false; }
+    return (''+num) === (''+num).split('').reverse().join('');
+  }
+  if (!Number.isInteger(num)) {
+    return 'Not valid';
+  }
+  if (num < 0) {
+    return 'Not valid';
+  }
+  var n = 0;
+  while(!(pa(num-n)||pa(num+n))) {
+    n++;
+  }
+  return pa(num-n) ? num-n : num+n
+}
 //https://www.codewars.com/kata/square-matrix-multiplication/train/javascript
 function matrixMultiplication(a, b){
     var mul = [];
