@@ -1,3 +1,24 @@
+//https://www.codewars.com/kata/numerical-palindrome-number-3-dot-5/train/javascript
+function palindrome(num){ 
+  if (!Number.isInteger(num) || num < 0) { return "Not valid" }
+  if (num < 10) { return "No palindromes found" }
+  function ispal(s) {
+    if (+s < 10) { return false; }
+    return +(s.split('').reverse().join('')) === (+s);
+  }
+  var s = ''+num;
+  var re = new Set();
+  for (var i = 2; i < s.length+1; i++) {
+    for (var ii = 0; ii < s.length - i + 1; ii++) {
+      var t = s.slice(ii,ii+i);
+      if ( ispal(t) ) {
+        re.add(+t);
+      }
+    }
+  }
+  if (Array.from(re).length === 0) { return "No palindromes found";}
+  return Array.from(re).sort((a,b)=> a-b);
+}
 //https://www.codewars.com/kata/numerical-palindrome-number-3/train/javascript
 function palindrome(num) { 
   function ispal(s) {
