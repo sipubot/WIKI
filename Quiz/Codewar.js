@@ -3,8 +3,13 @@ function palindrome(num){
   if (!Number.isInteger(num) || num < 0) { return "Not valid" }
   if (num < 10) { return "No palindromes found" }
   function ispal(s) {
-    if (+s < 10) { return false; }
-    return +(s.split('').reverse().join('')) === (+s);
+    var sn = s.split('');
+    while (sn[0] === '0' && sn[sn.length-1] === '0') {
+      sn.shift();
+      sn.pop();
+    }
+    if (+(sn.join()) < 10) { return false; }
+    return +(sn.join('')) === +(sn.reverse().join('')) ;
   }
   var s = ''+num;
   var re = new Set();
