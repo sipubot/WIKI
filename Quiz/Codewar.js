@@ -1,3 +1,22 @@
+//https://www.codewars.com/kata/numerical-palindrome-number-3/train/javascript
+function palindrome(num) { 
+  function ispal(s) {
+    return s.split('').reverse().join('') === s;
+  }
+  if (!Number.isInteger(num) || num < 0) { return "Not valid"}
+  if (num < 10) { return 0 }
+  var s = ''+num;
+  var re = 0;
+  for (var i = 2; i < s.length+1; i++) {
+    for (var ii = 0; ii < s.length - i + 1; ii++) {
+      var t = s.slice(ii,ii+i);
+      if ( ispal(t) ) {
+        re++;
+      }
+    }
+  }
+  return re;
+}
 //https://www.codewars.com/kata/data-compression-using-run-length-encoding/train/javascript
 function encode(input) {
   var s = input.split('');
