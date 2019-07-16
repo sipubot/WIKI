@@ -1,37 +1,4 @@
-//https://www.codewars.com/kata/the-most-sacred-of-days/train/javascript
-function blackFriday(year) {
-  var dayOfWeek = new Date(`${year}-11-01`).getDay();
-  var aday;
-  if (dayOfWeek < 5) {
-    aday = (5-dayOfWeek) + 22;
-  } else {
-    aday = (-dayOfWeek + 5) + 29;
-  }
-  return aday;
-}
-//https://www.codewars.com/kata/a-string-of-sorts/train/javascript
-function sortString(string,ordering) {
-  var o = ordering.split('');
-  var s = string.split('');
-  var re = "";
-  o.map(a=>{
-    re += s.filter(c=>c===a).join('');
-    s = s.map(c=> c === a ? "" : c);
-  });
-  return re+s.join('');
-}
-//https://www.codewars.com/kata/matrix-transpose/train/javascript
-function transpose(matrix) {
-  var m = [];
-  matrix[0].map((a,x)=>{
-    var l = [];
-    matrix.map((b,y)=> {
-      l.push(matrix[y][x]);
-    });
-    m.push(l);
-  });
-  return m;
-}
+
 //https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii/
 var removeDuplicates = function(nums) {
     for (var i = 0; i < nums.length-2; ) {
