@@ -1,3 +1,25 @@
+//https://www.codewars.com/kata/52dd72494367608ac1000416/solutions/javascript
+const isPrime = num => {
+    for(let i = 2, s = Math.sqrt(num); i <= s; i++)
+        if(num % i === 0) return false; 
+    return num > 1;
+}
+
+function getPrimes(start, finish) {
+  // ...
+  var re =[];
+  if (start > finish) {
+    var t = finish;
+    finish = start;
+    start = t;
+  }
+  for (var i = start > 0 ? start : 1; i <=  finish; i++) {
+    if (isPrime(i)) {
+      re.push(i);
+    }
+  }
+  return re;
+}
 //https://www.codewars.com/kata/the-most-sacred-of-days/train/javascript
 function blackFriday(year) {
   var dayOfWeek = new Date(`${year}-11-01`).getDay();
