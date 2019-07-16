@@ -1,3 +1,14 @@
+//https://www.codewars.com/kata/the-most-sacred-of-days/train/javascript
+function blackFriday(year) {
+  var dayOfWeek = new Date(`${year}-11-01`).getDay();
+  var aday;
+  if (dayOfWeek < 5) {
+    aday = (5-dayOfWeek) + 22;
+  } else {
+    aday = (-dayOfWeek + 5) + 29;
+  }
+  return aday;
+}
 //https://www.codewars.com/kata/a-string-of-sorts/train/javascript
 function sortString(string,ordering) {
   var o = ordering.split('');
