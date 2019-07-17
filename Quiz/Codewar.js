@@ -1,3 +1,36 @@
+//https://www.codewars.com/kata/strings-mix/train/javascript
+function mix(s1, s2) {
+  // your code
+  var abc = 'abcdefghijklmnopqrstuvwxyz'.split('');
+  var hs1 = {};
+  var hs2 = {};
+  abc.map(a=> { hs1[a] = s1.split(a).length-1;});
+  abc.map(a=> { hs2[a] = s2.split(a).length-1;});
+  var max = Math.max(...Object.entries(hs2).map(a=>a[1]).concat(Object.entries(hs1).map(a=>a[1])));
+  var re = [];
+  var done = new Set();
+  for(var i = max; i > 1; i--) {
+    var win1 = [];
+    var win2 = [];
+    var tie = [];
+    abc.map(a=>{
+      if (hs1[a] === i && hs2[a] === i && !done.has(a)) {
+        tie.push('=:'+(a.repeat(i)));
+        done.add(a);
+      } else if (hs1[a] === i && !done.has(a)) {
+        win1.push('1:'+(a.repeat(i)));
+        done.add(a);
+      } else if (hs2[a] === i && !done.has(a)) {
+        win2.push('2:'+(a.repeat(i)));
+        done.add(a);
+      }
+    });
+    re = re.concat(win1);
+    re = re.concat(win2);
+    re = re.concat(tie);
+  }
+  return re.join('/');
+}
 //https://www.codewars.com/kata/52dd72494367608ac1000416/solutions/javascript
 const isPrime = num => {
     for(let i = 2, s = Math.sqrt(num); i <= s; i++)
