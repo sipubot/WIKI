@@ -1,3 +1,12 @@
+///https://www.codewars.com/kata/help-the-bookseller/train/javascript
+function stockList(a, b){
+  var pm = {};
+  a.map(a=> a.split(' ')).map(a=>{pm[a[0][0]] = pm[a[0][0]] ? pm[a[0][0]] + (+a[1]) : (+a[1])});
+  if (Object.entries(pm).length === 0) { return '' }
+  var re = [];
+  b.map(a=> {re.push(`(${a} : ${pm[a]?pm[a]:0})`)});
+  return re.join(' - ');
+}
 //https://www.codewars.com/kata/strings-mix/train/javascript
 function mix(s1, s2) {
   // your code
