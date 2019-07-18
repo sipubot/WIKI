@@ -1,3 +1,13 @@
+//https://www.codewars.com/kata/playing-with-passphrases/train/javascript
+function playPass(s, n) {
+    var abc = 'abcdefghijklmnopqrstuvwxyz';
+    var ns = '0123456789';
+    var st = s.toLowerCase().split('');
+    return st.map((a,i)=> 
+      abc.indexOf(a) > -1 ? 
+        (i % 2 === 0  ? abc[(abc.indexOf(a)+n)%abc.length].toUpperCase() : abc[(abc.indexOf(a)+n)%abc.length]) 
+      : (ns.indexOf(a) > -1 ? ''+(9-(+a)): a)).reverse().join('');
+}
 ///https://www.codewars.com/kata/help-the-bookseller/train/javascript
 function stockList(a, b){
   var pm = {};
