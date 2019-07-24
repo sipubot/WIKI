@@ -1,3 +1,76 @@
+//https://www.codewars.com/kata/connect-four-1/train/javascript
+function whoIsWinner(piecesPositionList){
+  var winner = "Draw";
+  var board = [...new Array(6)].map(a=>[...new Array(7)].fill('-'));
+  var col = { 'A':0,'B':1,'C':2,'D':3,'E':4,'F':5,'G':6};
+  var cross = [4,5,6,6,5,4];
+  var pos = [5,5,5,5,5,5,5];
+  function winline(line) {
+      //console.log(line);
+      if (line.join('').indexOf('YYYY') > -1) {
+          return "Yellow"; 
+      }
+      if (line.join('').indexOf('RRRR') > -1) {
+          return "Red";
+      }
+      return "";
+  }
+  function check4 ()  {
+    var done = false;
+    // =
+    board.map(a=>{
+      var d = winline(a);
+      if(d !== '') {
+        done = d;
+      }
+    });
+    // ||
+    board[0].map((a,i)=>{
+      var d = winline(board.map(b=>b[i]));
+      if(d !== '') {
+        done = d;
+      }
+    });
+    
+    // xx
+    for (var i = 0; i < 6; i++) {
+      var test = [];
+      var test2 = [];
+      if ( 3 > i) {
+        for (var j = 0; j < 6-i; j++) {
+          test.push(board[j+i][j]);
+          test2.push(board[j+i][6-j]);
+        }
+      } else {
+        for (var j = 0; j < 1+i; j++) {
+          test.push(board[i-j][j]);
+          test2.push(board[i-j][6-j]);
+        }
+      }
+      var d = winline(test);
+      var d2 = winline(test2);
+      if (d !== '' || d2 !== '') {
+        done = d+d2;
+        break;
+      }
+    }
+    return done;
+  }
+
+  for (var ii = 0; ii < piecesPositionList.length ; ii++) {
+    var c = piecesPositionList[ii].split('_');
+    var cc = col[c[0]];
+    board[pos[cc]][cc] = c[1][0];
+    pos[cc]--;
+    var an = check4();
+    if (an) {
+      winner = an;
+      break;
+    }
+  }
+  //console.log(board);
+  return winner;
+}
 //https://www.codewars.com/kata/playing-with-passphrases/train/javascript
 function playPass(s, n) {
     var abc = 'abcdefghijklmnopqrstuvwxyz';
