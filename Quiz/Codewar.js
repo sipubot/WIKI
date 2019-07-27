@@ -1,3 +1,19 @@
+//https://www.codewars.com/kata/counting-change-combinations/javascript
+var countChange = function(money, coins) {
+  // your implementation here
+  var moneyarr = [...new Array(money+1)].map(a=>0);
+  coins = coins.sort((a,b)=> a-b);
+  moneyarr[0] = 1;
+  coins.map(a=>{
+    for (var i = 1; i <= money; i++) {
+      if (i >= a) {
+        moneyarr[i] += moneyarr[i-a];
+      }
+    }
+  });
+  return moneyarr[money]
+}
+
 //https://www.codewars.com/kata/connect-four-1/train/javascript
 function whoIsWinner(piecesPositionList){
   var winner = "Draw";
