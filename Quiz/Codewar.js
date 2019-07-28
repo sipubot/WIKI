@@ -1,3 +1,21 @@
+//https://www.codewars.com/kata/56baeae7022c16dd7400086e/solutions/javascript
+function phone(strng, num) {
+    // your code
+    var sl = strng.split('\n');
+    var idxs = sl.reduce((s,a,i)=> a.indexOf(num)>-1?s.concat([i]):s,[]);
+    if (idxs.length > 1 || idxs.length < 1)  {
+      return idxs.length === 0 ? `Error => Not found: ${num}` : `Error => Too many people: ${num}`
+    }
+    var ns = sl[idxs[0]].indexOf('<');
+    var ne = sl[idxs[0]].indexOf('>');
+    var name = sl[idxs[0]].slice(ns+1,ne);
+    var phone = num;
+    var add = sl[idxs[0]].split(`<${name}>`).join('').split(`+${phone}`).join('').split(/[!:?$\/*,;]/g).join('').split('_').join(' ');
+    while(add.indexOf('  ')>-1) {
+      add = add.split('  ').join(' ');
+    }
+    return `Phone => ${phone}, Name => ${name}, Address => ${add.trim()}`
+}
 //https://www.codewars.com/kata/counting-change-combinations/javascript
 var countChange = function(money, coins) {
   // your implementation here
