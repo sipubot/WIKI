@@ -1,3 +1,135 @@
+//https://www.codewars.com/kata/ranking-poker-hands/train/javascript
+var Result = { "win": 1, "loss": 2, "tie": 3 }
+
+function getRank(card) {
+  var cardorder = ["2","3","4","5","6","7","8","9","T","J","Q","K","A"];
+  var shapeorder = ['H','D','C','S'];
+  var rank = { "RF" : 0,  "SF" : 1,  "FC" : 2,  "FH" : 3,  "FL" : 4,  "ST" : 5,  "TC" : 6,  "TP" : 7,  "PA" : 8,  "HI" : 9};
+  
+  var cs = card;
+  console.log(cs)
+  cs = cs.sort((a,b)=>cardorder.indexOf(a[0]) - cardorder.indexOf(b[0]));
+  var ns = cs.map(a=>cardorder.indexOf(a[0]));
+  if (cs.reduce((s,a)=>s+a[0],'') === 'TJQKA' && cs.every(a=>a[1]===cs[0][1])) {
+    return [rank.RF, shapeorder[cs[0][1]]];
+  }
+  if (ns.every((a,i)=>a-i===ns[0]) && cs.every(a=>a[1]===cs[0][1])) {
+    return [rank.SF, ns.reduce((s,a)=>Math.max(s,a),-1)];
+  }
+  if (cs.filter(a=>a[0]===cs[2][0]).length === 4) {
+    return [rank.FC, cardorder.indexOf(cs[2][0])];
+  }
+  //full
+  if (cs.filter(a=>a[0]===cs[2][0]).length === 3) {
+    if (cs[2][0] === cs[0][0]) {
+      if (cs.filter(a=>a[0]===cs[4][0]).length === 2) {
+        return [rank.FH, cardorder.indexOf(cs[2][0]),cardorder.indexOf(cs[4][0])];
+      }
+    } else {
+      if (cs.filter(a=>a[0]===cs[0][0]).length === 2) {
+        return [rank.FH, cardorder.indexOf(cs[2][0]),cardorder.indexOf(cs[0][0])];
+      }
+    }
+  }
+  //flus
+  if (cs.every(a=>a[1]===cs[0][1])) {
+    return [rank.FL, ns.reduce((s,a)=>Math.max(s,a),-1)];
+  }
+  if (ns.every((a,i)=>a-i===ns[0])) {
+    return [rank.ST, ns.reduce((s,a)=>Math.max(s,a),-1)];
+  }
+  var co = {};
+  var col = [];
+  var mx = -1;
+  cs.map(a=>{
+    co[a[0]] = co[a[0]] ? co[a[0]] + 1 : 1;
+    if (co[a[0]] > 1) {
+      mx = Math.max(mx, cardorder.indexOf(a[0]))
+    }
+  });
+  Object.entries(co).map(a=>{
+    col.push(a[1]);
+  });
+  col = col.sort((a,b)=>a-b);
+  if (col.join('') === '113') {
+    return [rank.TC, mx];
+  }
+  if (col.join('') === '122') {
+    return [rank.TP, mx];
+  }
+  if (col.join('') === '1112') {
+    return [rank.PA, mx];
+  }
+  return [rank.HI, -1];
+}
+
+function getHighCard(card) {
+  var cardorder = ["2","3","4","5","6","7","8","9","T","J","Q","K","A"];
+  var shapeorder = ['H','D','C','S'];
+  var mx = card.reduce((s,a)=>Math.max(s,cardorder.indexOf(a[0])),0);
+  var c = card.filter(a=>a[0] === cardorder[mx])[0];
+  return [mx,shapeorder.indexOf(c)];
+}
+
+function compareHigh(a1, a2) {
+  a1 = a1.map(a=>a[0])
+  a2 = a2.map(a=>a[0])
+  var a1s = a1.filter(a=>a2.indexOf(a)===-1);
+  var a2s = a2.filter(a=>a1.indexOf(a)===-1);
+  if (a1s.length === 0) { return Result.tie}
+  var a1h = getHighCard(a1s);
+  var a2h = getHighCard(a2s);
+  if (a1h[0] > a2h[0]) {
+    return Result.win
+  } else {
+    return Result.loss
+  }
+  
+}
+
+function PokerHand(hand) {
+  this.cards = hand.split(' ');
+  this.rank = getRank(this.cards)
+  this.hicard = getHighCard(this.cards)
+}
+
+PokerHand.prototype.compareWith = function(hand){
+    var otherrank = hand.rank;
+    var otherhi = hand.hicard;
+    console.log(this.rank ,otherrank);
+    if (this.rank[0] === otherrank[0]) {
+      if (this.rank[0] === 1 || this.rank[0] === 2 || this.rank[0] === 4 || this.rank[0] === 5 || this.rank[0] === 6 || this.rank[0] === 7 || this.rank[0] === 8) {
+        //console.log(this.rank,otherrank)
+        if (this.rank[1] === otherrank[1]) {
+          return compareHigh(this.cards, hand.cards);
+        }
+        return this.rank[1] > otherrank[1] ? Result.win : Result.loss; 
+      }
+      if (this.rank[0] === 3 ) {
+        if (this.rank[1] === otherrank[1]) {
+          if (this.rank[2] === otherrank[2]) {
+            return compareHigh(this.cards, hand.cards);
+          } else {
+            return this.rank[2] > otherrank[2] ? Result.win : Result.loss; 
+          }
+        } else {
+          return this.rank[1] > otherrank[1] ? Result.win : Result.loss; 
+        }
+      }
+      if (this.rank[0] === 9) {
+        if (this.hicard[0] === otherhi[0]) {
+          return compareHigh(this.cards, hand.cards);
+          
+        } else {
+          return this.hicard[0] > otherhi[0] ? Result.win : Result.loss;
+        }
+      } else {
+        return Result.tie;
+      }
+    } else {
+      return this.rank[0] < otherrank[0] ? Result.win : Result.loss;
+    }
+}
 //https://www.codewars.com/kata/56baeae7022c16dd7400086e/solutions/javascript
 function phone(strng, num) {
     // your code
