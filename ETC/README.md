@@ -11,6 +11,7 @@
 - [대용량 시스템 설계](https://www.cs.cornell.edu/projects/ladis2009/talks/dean-keynote-ladis2009.pdf)
 - [POP3](https://github.com/sipubot/WIKI/blob/master/ETC/POP3.md)
 - [문자열 알고리즘](http://igm.univ-mlv.fr/~mac/REC/text-algorithms.pdf)
+- [SSE](https://hpbn.co/server-sent-events-sse/) : server 에서 stream을 이용해서 이벤트 보내기. (소켓통신과 유사 하지만 )
 
 ## 그외
 
