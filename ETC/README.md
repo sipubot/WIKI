@@ -10,6 +10,7 @@
 - [메모리 동작 구조](https://lwn.net/Articles/250967/)
 - [대용량 시스템 설계](https://www.cs.cornell.edu/projects/ladis2009/talks/dean-keynote-ladis2009.pdf)
 - [POP3](https://github.com/sipubot/WIKI/blob/master/ETC/POP3.md)
+- [문자열 알고리즘](http://igm.univ-mlv.fr/~mac/REC/text-algorithms.pdf)
 
 ## 그외
 
