@@ -1,3 +1,66 @@
+//https://www.codewars.com/kata/586e6d4cb98de09e3800014f/
+function VendingMachine(items, money) {
+  // Code Here
+  this.items = items;
+  this.money = money;
+  
+  this.getName = function (c) {
+    if (this.items.filter(a=>a.code === c).length === 0) {
+      return false;
+    }
+    return this.items.filter(a=>a.code === c)[0].name
+  }
+  
+  this.checkPrice = function (n,input) {
+    return this.items.filter(a=>a.name === n)[0].price <= input
+  }
+  
+  this.checkStocks = function (n,input) {
+    return this.items.filter(a=>a.name === n)[0].quantity > 0
+  }
+  
+  this.changeOk = function (n, i) {
+    var c = i - this.items.filter(a=>a.name === n)[0].price;
+    return c <= this.money;
+  }
+  
+  this.Done = function (n, i) {
+    var p = 0;
+    this.items.map(a=>{
+      if (a.name === n) {
+        a.quantity -= 1;
+        this.money += a.price;
+        p = a.price;
+        return a;
+      } else {
+        return a;
+      }
+    })
+    return i - p;
+  }
+};
+
+VendingMachine.prototype.vend = function (selection, itemMoney){
+  // Code Here
+  selection = selection.toUpperCase();
+  if (!this.getName(selection)) {
+    return `Invalid selection! : Money in vending machine = ${(this.money).toFixed(2)}`
+  }
+  var name = this.getName(selection);
+  if (!this.checkPrice(name,itemMoney)) {
+    return "Not enough money!";
+  }
+  if (!this.checkStocks(name,itemMoney)) {
+    return `${name}: Out of stock!`;
+  }
+  if (!this.changeOk(name,itemMoney)) {
+    return "Not enough money!";
+  }
+  var r = this.Done(name,itemMoney);
+  if (r === 0) {return `Vending ${name}`;}
+  return `Vending ${name} with ${r.toFixed(2)} change.`
+  
+};
 //https://www.codewars.com/kata/ranking-poker-hands/train/javascript
 var Result = { "win": 1, "loss": 2, "tie": 3 }
 
