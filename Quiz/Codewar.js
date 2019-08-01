@@ -1,3 +1,13 @@
+//https://www.codewars.com/kata/complete-the-pattern-number-16/train/javascript
+function pattern(n){
+  if (n <= 0) return '';
+  var output=[...new Array(n)].map((a,i)=>{
+    var k = [...new Array(i+1)].map((_,ii)=>(n-ii)%10).join('');
+    return `${k}${(''+((n-i)%10)).repeat(n-k.length)}`
+  });
+    // Happy Coding ^_^
+  return output.join('\n');
+}
 //https://www.codewars.com/kata/586e6d4cb98de09e3800014f/
 function VendingMachine(items, money) {
   // Code Here
