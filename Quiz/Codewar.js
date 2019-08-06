@@ -1,3 +1,22 @@
+//https://www.codewars.com/kata/land-perimeter/train/javascript
+function landPerimeter(arr) {
+  var maps = arr.map(a=>`O${a}O`.split(''));
+  maps.push([...new Array(maps[0].length)].map(a=>'O'));
+  maps.unshift([...new Array(maps[0].length)].map(a=>'O'));
+  function expand(y,x) {
+    maps[y][x] = '-';
+    return (maps[y-1][x]==='O'?1:0) + (maps[y+1][x]==='O'?1:0) + (maps[y][x-1]==='O'?1:0) + (maps[y][x+1]==='O'?1:0)
+  }
+  var sum = 0;
+  for (var i = 0; i<maps.length; i++) {
+    for (var ii = 0; ii< maps[0].length; ii++) {
+      if (maps[i][ii] === 'X') {
+        sum += expand(i,ii);
+      }
+    }
+  }
+  return `Total land perimeter: ${sum}`;
+}
 //https://www.codewars.com/kata/complete-the-pattern-number-16/train/javascript
 function pattern(n){
   if (n <= 0) return '';
