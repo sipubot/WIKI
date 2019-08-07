@@ -1,3 +1,42 @@
+//https://www.codewars.com/kata/battle-ships-sunk-damaged-or-not-touched/train/javascript
+function damagedOrSunk (board, attacks){
+  var ships = [];
+  var max = 0;
+  board.map((a,y)=>a.map((b,x)=>{ if (max < b) { max = b; } }));
+  ships = [...new Array(max)].map((kk,i)=>{
+    var sh = [];
+    board.map((a,y)=>a.map((b,x)=>{ 
+      if (b === i+1) {
+        sh.push(`${y},${x}`)
+      }
+    }));
+    return sh;
+  });
+  var attacksfix = attacks.map(a=>[board.length-a[1],a[0]-1]);
+  attacksfix.map(a=>{
+    var bom = a.join();
+    ships = ships.map(s=> s.map(sp=> sp === bom ? 'X': sp));
+  });
+  
+  var re = {
+    sunk : 0,
+    damaged : 0,
+    notTouched : 0,
+    points : 0
+  };
+  ships.map(a=>{
+    if (a.every(sp=>sp==='X')) {
+      re.sunk++;
+      re.points += 1;
+    } else if (a.some(sp=>sp==='X')) {
+      re.damaged++;
+      re.points += 0.5;
+    } 
+  });
+  re.notTouched = attacks.length - ships.reduce((s,a)=>s+a.filter(bb=>bb==='X').length,0);
+  console.log(board, attacks,attacksfix,ships);
+  return re;
+}
 //https://www.codewars.com/kata/land-perimeter/train/javascript
 function landPerimeter(arr) {
   var maps = arr.map(a=>`O${a}O`.split(''));
