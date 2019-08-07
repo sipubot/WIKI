@@ -12,7 +12,7 @@ function damagedOrSunk (board, attacks){
     }));
     return sh;
   });
-  var attacksfix = attacks.map(a=>[board.length-a[1],a[0]-1]);
+  var attacksfix = attacks.map(a=>[board.length - (a[1]%board.length === 0 ? a[1] : a[1]%board.length),(a[0]%board.length === 0 ? a[0] : a[0]%board.length)-1]);
   attacksfix.map(a=>{
     var bom = a.join();
     ships = ships.map(s=> s.map(sp=> sp === bom ? 'X': sp));
@@ -31,10 +31,11 @@ function damagedOrSunk (board, attacks){
     } else if (a.some(sp=>sp==='X')) {
       re.damaged++;
       re.points += 0.5;
-    } 
+    } else {
+      re.notTouched++
+    }
   });
-  re.notTouched = attacks.length - ships.reduce((s,a)=>s+a.filter(bb=>bb==='X').length,0);
-  console.log(board, attacks,attacksfix,ships);
+  re.points -= re.notTouched * 1;
   return re;
 }
 //https://www.codewars.com/kata/land-perimeter/train/javascript
