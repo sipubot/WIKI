@@ -1,3 +1,13 @@
+//https://www.codewars.com/kata/595910299197d929a10005ae/solutions/javascript
+function pizzaRewards(customers, minOrders, minPrice) {
+  var re = [];
+  Object.entries(customers).map(a=>{
+    if (a[1].filter(o=>o>=minPrice).length >= minOrders) {
+      re.push(a[0])
+    }
+  });
+  return re;
+}
 //https://www.codewars.com/kata/battle-ships-sunk-damaged-or-not-touched/train/javascript
 function damagedOrSunk (board, attacks){
   var ships = [];
