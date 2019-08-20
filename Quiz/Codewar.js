@@ -1,3 +1,33 @@
+//https://www.codewars.com/kata/528aa29bd8a0399fc5000cae/solutions/javascript
+function darkRoom(direction) {
+    // Your master screams the direction of the crotch kick
+    this.d = direction;
+    this.calle = 0;
+    this.re = 'CROTCH KICK';
+    this.once = false;
+    
+    var that = this;
+    
+    function local(a) {
+      that.calle++;
+      if (a === 1) {
+        if (that.once === true) {
+          that.re = 'CROTCH KICK';
+        }
+        if (that.d === that.calle && that.once === false) {
+          that.once = true;
+          that.re = 'BLOCK';
+        }
+        if (that.once === false) {
+          that.once = true;
+        }
+      }
+      return local;
+     
+    }
+    local.end = function () { return that.re }
+  return local
+};
 //https://www.codewars.com/kata/595910299197d929a10005ae/solutions/javascript
 function pizzaRewards(customers, minOrders, minPrice) {
   var re = [];
