@@ -1,3 +1,6 @@
+//https://www.codewars.com/kata/5298a7b37edba9043200047b/solutions/javascript
+const compose = (...fs) => (x) => fs.reduceRight((a, f) => f(a), x);
+const pipeline = (x, ...fs) => compose(...fs.reverse())(x);
 //https://www.codewars.com/kata/528aa29bd8a0399fc5000cae/solutions/javascript
 function darkRoom(direction) {
     // Your master screams the direction of the crotch kick
