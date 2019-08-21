@@ -1,3 +1,8 @@
+//https://www.codewars.com/kata/how-the-grinch-almost-ended-christmas/train/javascript
+function prioritizeMissiles(missiles){
+  //TODO 
+  return missiles.sort((a,b)=>(a.distance / a.speed)-(b.distance / b.speed)).map(a=>a.name)
+}
 //https://www.codewars.com/kata/5298a7b37edba9043200047b/solutions/javascript
 const compose = (...fs) => (x) => fs.reduceRight((a, f) => f(a), x);
 const pipeline = (x, ...fs) => compose(...fs.reverse())(x);
