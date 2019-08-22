@@ -1,3 +1,20 @@
+//https://www.codewars.com/kata/find-all-array-values-that-fall-within-a-given-difference/train/javascript
+class GroupByDifference {
+  find(nums) {
+    var sarr = this.arr.sort((a,b)=>a-b);
+    var re = new Set();
+    for (var i = 0; i < sarr.length-1; i++) {
+      if (sarr[i+1] - sarr[i] <= nums) {
+        re.add(i);
+        re.add(i+1);
+      }
+    }
+    return sarr.filter((a,i)=>re.has(i))
+  }
+  constructor(arr) {
+    this.arr = arr;
+  }
+}
 //https://www.codewars.com/kata/533c46b140aafec05b000d31/solutions/javascript
 function translate(sentence) {
   var sarr = sentence.split(' ');
