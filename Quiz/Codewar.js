@@ -1,3 +1,17 @@
+//https://www.codewars.com/kata/533c46b140aafec05b000d31/solutions/javascript
+function translate(sentence) {
+  var sarr = sentence.split(' ');
+  return sarr.map(a=>{
+    var sa = a.split(/[aeiouAEIOU]/)[0];
+    var last = a.match(/\W+/) === null ? "" : a.match(/\W+/).filter(a=>a!=='')[0];
+    var mid = a.replace(sa,'').match(/[A-Za-z]/g).join('');
+    if ( sa !== '' && sa[0] === sa[0].toUpperCase()) {
+      mid = mid[0].toUpperCase() + mid.slice(1);
+      sa = sa.toLowerCase();
+    }
+    return `${mid}${sa===''?'w':sa}ay${last}`
+  }).join(' ')
+};
 //https://www.codewars.com/kata/how-the-grinch-almost-ended-christmas/train/javascript
 function prioritizeMissiles(missiles){
   //TODO 
