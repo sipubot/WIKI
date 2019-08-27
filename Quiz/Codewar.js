@@ -1,6 +1,7 @@
 //https://www.codewars.com/kata/alphabetized/train/javascript
 function alphabetized(s) {
   var arr = s.match(/[A-Za-z]/g);
+  if (arr === null) return '';
   var abc = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
   var re = ''
   abc.split('').map(a=>{
