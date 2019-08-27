@@ -1,3 +1,14 @@
+//https://www.codewars.com/kata/alphabetized/train/javascript
+function alphabetized(s) {
+  var arr = s.match(/[A-Za-z]/g);
+  var abc = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  var re = ''
+  abc.split('').map(a=>{
+    var t = arr.filter(b=>b.toUpperCase() === a);
+    re += t.join('');
+  })
+  return re;
+}
 //https://www.codewars.com/kata/string-transformer/train/javascript
 function stringTransformer(str) {
   // Your code here
