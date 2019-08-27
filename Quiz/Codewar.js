@@ -1,3 +1,8 @@
+//https://www.codewars.com/kata/string-transformer/train/javascript
+function stringTransformer(str) {
+  // Your code here
+  return str.split(' ').reverse().map(a=> a.split('').map(b=> b===b.toUpperCase() ? b.toLowerCase() : b.toUpperCase() ).join('')).join(' ')
+}
 //https://www.codewars.com/kata/street-fighter-2-character-selection-part-2/train/javascript
 function superStreetFighterSelection(fighters, pos, moves){
   function mover (d) {
