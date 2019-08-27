@@ -1,3 +1,17 @@
+//https://www.codewars.com/kata/5d23d89906f92a00267bb83d/solutions/javascript
+function getOrder(input) {
+  var arr = "Burger Fries Chicken Pizza Sandwich Onionrings Milkshake Coke".split(' ');
+  var re = [];
+  input = input.toLowerCase();
+  arr.map(a=>{
+    var item = a.toLowerCase();
+    while(input.indexOf(item)>-1) {
+      re.push(a)
+      input = input.replace(item,'');
+    }
+  });
+  return re.join(' ');
+}
 //https://www.codewars.com/kata/find-all-array-values-that-fall-within-a-given-difference/train/javascript
 class GroupByDifference {
   find(nums) {
