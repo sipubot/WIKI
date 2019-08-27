@@ -1,3 +1,40 @@
+//https://www.codewars.com/kata/street-fighter-2-character-selection-part-2/train/javascript
+function superStreetFighterSelection(fighters, pos, moves){
+  function mover (d) {
+    if (d === 'right') {
+      pos[1] = (pos[1]+1) % fighters[0].length;
+      while (fighters[pos[0]][pos[1]] === '') {
+        pos[1] = (pos[1]+1) % fighters[0].length;
+      }
+    }
+    if (d === 'left') {
+      pos[1] = pos[1] === 0 ? fighters[0].length -1 : pos[1]-1; 
+      while (fighters[pos[0]][pos[1]] === '') {
+        pos[1] = pos[1] === 0 ? fighters[0].length -1 : pos[1]-1;
+      }
+    }
+    if (d === 'up') {
+      if (pos[0] > 0) {
+        if (fighters[pos[0]-1][pos[1]] !== '') {
+          pos = [pos[0]-1,pos[1]]
+        }
+      }
+    }
+    if (d === 'down') {
+      if (pos[0] < fighters.length-1) {
+        if (fighters[pos[0]+1][pos[1]] !== '') {
+          pos = [pos[0]+1,pos[1]]
+        }
+      }
+    }
+  }
+  var re = [];
+  for (var i = 0; i< moves.length; i++) {
+    mover(moves[i])
+    re.push(fighters[pos[0]][pos[1]])
+  }
+  return re;
+}
 //https://www.codewars.com/kata/5d23d89906f92a00267bb83d/solutions/javascript
 function getOrder(input) {
   var arr = "Burger Fries Chicken Pizza Sandwich Onionrings Milkshake Coke".split(' ');
