@@ -1,3 +1,43 @@
+//https://www.codewars.com/kata/convert-all-the-cases/train/javascript
+function changeCase(identifier, targetCase){
+  var rearr = [];
+  var type = [0,0,0];
+  if (identifier.indexOf('-')>-1) {
+    rearr = identifier.split('-');
+    type[0] = 1;
+  }
+  if (identifier.indexOf('_')>-1) {
+    rearr = identifier.split('_');
+    type[1] = 1;
+  }
+  if (/[A-Z]/g.test(identifier)) {
+    var t = identifier.split('');
+    var tparr = [];
+    for (var i = 0; i < t.length ; i++) {
+      if (/[A-Z]/g.test(t[i])) {
+        rearr.push(tparr.join(''))
+        tparr = [];
+        tparr.push(t[i].toLowerCase());
+      } else {
+        tparr.push(t[i]);
+      }
+    }
+    rearr.push(tparr.join(''));
+    type[2] = 1;
+  }
+  if (type.filter(a=>a===1).length > 1) { return undefined }
+  if (targetCase === 'snake') {
+    return rearr.join('_');
+  }
+  if (targetCase === 'camel') {
+    return rearr.map((a,i)=>i === 0 ? a : a[0].toUpperCase()+a.slice(1)).join('');
+  }
+  if (targetCase === 'kebab') {
+    return rearr.join('-');
+  }
+  return undefined;
+}
+
 //https://www.codewars.com/kata/alphabetized/train/javascript
 function alphabetized(s) {
   var arr = s.match(/[A-Za-z]/g);
