@@ -1,4 +1,14 @@
 impl Solution {
+    pub fn num_jewels_in_stones(j: String, s: String) -> i32 {
+        let mut count = 0;
+        let jv:Vec<char> = j.chars().collect();
+        let sv:Vec<char> = s.chars().collect();
+        for c in jv {
+            let r = sv.to_vec();
+            count += r.into_iter().filter(|x| *x == c).collect::<Vec<char>>().len() as i32;
+        }
+        count
+    }
     pub fn change(amount: i32, coins: Vec<i32>) -> i32 {
         if amount == 0 {
             return 1;
