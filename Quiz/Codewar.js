@@ -1,7 +1,9 @@
 //https://www.codewars.com/kata/convert-all-the-cases/train/javascript
 function changeCase(identifier, targetCase){
-  var rearr = [];
+  var rearr = [identifier];
   var type = [0,0,0];
+  if (identifier.indexOf(' ')>-1) { return undefined }
+  
   if (identifier.indexOf('-')>-1) {
     rearr = identifier.split('-');
     type[0] = 1;
@@ -12,6 +14,7 @@ function changeCase(identifier, targetCase){
   }
   if (/[A-Z]/g.test(identifier)) {
     var t = identifier.split('');
+    rearr = [];
     var tparr = [];
     for (var i = 0; i < t.length ; i++) {
       if (/[A-Z]/g.test(t[i])) {
@@ -37,7 +40,6 @@ function changeCase(identifier, targetCase){
   }
   return undefined;
 }
-
 //https://www.codewars.com/kata/alphabetized/train/javascript
 function alphabetized(s) {
   var arr = s.match(/[A-Za-z]/g);
