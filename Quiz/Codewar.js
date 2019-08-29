@@ -1,3 +1,16 @@
+// https://www.codewars.com/kata/543b9113def6343e43000875/solutions/javascript
+function cantor(n){
+  var l = 1
+  while (n > l * (l + 1) * 0.5 ) {
+    l++;
+  }
+  var nth = l * (l + 1) * 0.5 - n;
+  if (l % 2 === 0) {
+    return `${l-nth}/${nth+1}`
+  } else {
+    return `${nth+1}/${l-nth}`
+  }
+}
 //https://www.codewars.com/kata/convert-all-the-cases/train/javascript
 function changeCase(identifier, targetCase){
   var rearr = [identifier];
