@@ -1,3 +1,14 @@
+//https://www.codewars.com/kata/whats-in-a-name/train/javascript
+function nameInStr(str, name){
+  var i = 0;
+  str.split('').map(a=>{
+    if (i === name.length) {
+    } else if (name[i].toLowerCase() === a) {
+      i++;
+    }
+  });
+  return name.length === i
+}
 //https://www.codewars.com/kata/find-heavy-ball-level-ubermaster/train/javascript
 function findBall(scales, ball_count) {
   var barr = [...new Array(ball_count)].map((a,i)=>i);
