@@ -1,3 +1,25 @@
+//https://www.codewars.com/kata/find-heavy-ball-level-ubermaster/train/javascript
+function findBall(scales, ball_count) {
+  var barr = [...new Array(ball_count)].map((a,i)=>i);
+  while(barr.length > 1) {
+    var cut = Math.ceil(barr.length/3);
+    var left = barr.slice(0,cut);
+    var right = barr.slice(cut,cut*2);
+    var oth = barr.slice(cut*2);
+    switch (scales.getWeight(left, right)) {
+      case 1 : 
+        barr = right;
+      break;
+      case -1 : 
+        barr = left;
+      break;
+      case 0 : 
+        barr = oth;
+      break;
+    }
+  }
+  return barr[0]
+}
 // https://www.codewars.com/kata/543b9113def6343e43000875/solutions/javascript
 function cantor(n){
   var l = 1
