@@ -1,3 +1,20 @@
+//https://www.codewars.com/kata/55fd4919ce2a1d7c0d0000f3/solutions/javascript
+function hasTwoCubeSums(n) {
+	var k = Math.ceil(Math.pow(n,1/3));
+  var re = new Set();
+  for (var i = 1; i <= k; i++) {
+    var r = Math.pow(n - (i ** 3),1/3);
+    r = Math.round(r);
+    if (r ** 3 + i ** 3 === n) {
+      re.add(r);
+      re.add(i);
+    }
+    if (re.size >= 4 ){
+      return true;
+    }
+  }
+  return false
+}
 //https://www.codewars.com/kata/whats-in-a-name/train/javascript
 function nameInStr(str, name){
   var i = 0;
