@@ -1,3 +1,19 @@
+//https://www.codewars.com/kata/530045e3c7c0f4d3420001af/solutions/javascript
+function lookSay(number){
+  //TODO
+  var n = (''+number).split('');
+  var re = [];
+  for (var i = 0; i < n.length; i++) {
+    var c = 1;
+    while (n[i] === n[i+1]) {
+      i++;
+      c++;
+    }
+    re.push(c)
+    re.push(+n[i]);
+  }
+  return +(re.join(''))
+}
 //https://www.codewars.com/kata/55fd4919ce2a1d7c0d0000f3/solutions/javascript
 function hasTwoCubeSums(n) {
 	var k = Math.ceil(Math.pow(n,1/3));
