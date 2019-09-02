@@ -1,3 +1,47 @@
+//https://www.codewars.com/kata/langtons-ant/train/javascript
+function ant(grid, column, row, n, dir = 0) {
+  var re = grid;
+  var pos = [column, row];
+  function mover(d, mc) {
+    if(mc === n) return;
+    d = re[pos[0]][pos[1]] === 1 ? (d+1)%4 : (d+3)%4;
+    if (d === 0) {
+      if (pos[0] === 0) {
+        re.unshift([...new Array(re[0].length)].map(a=>0));
+        re[pos[0]+1][pos[1]] = re[pos[0]+1][pos[1]] === 1 ? 0 : 1;
+      } else {
+        re[pos[0]][pos[1]] = re[pos[0]][pos[1]] === 1 ? 0 : 1;
+        pos[0] -= 1;
+      }
+    }
+    if (d === 1) {
+      re[pos[0]][pos[1]] = re[pos[0]][pos[1]] === 1 ? 0 : 1;
+      if (pos[1] === re[0].length - 1) {
+        re = re.map(a=>a.concat([0]));
+      }
+      pos[1] += 1;
+    }
+    if (d === 2) {
+      re[pos[0]][pos[1]] = re[pos[0]][pos[1]] === 1 ? 0 : 1;
+      if (pos[0] === re.length-1) {
+        re.push([...new Array(re[0].length)].map(a=>0));
+      }
+      pos[0] += 1;
+    }
+    if (d === 3) {
+      if (pos[1] === 0) {
+        re = re.map(a=>[0].concat(a));
+        re[pos[0]][pos[1]+1] = re[pos[0]][pos[1]+1] === 1 ? 0 : 1;
+      } else {
+        re[pos[0]][pos[1]] = re[pos[0]][pos[1]] === 1 ? 0 : 1;
+        pos[1] -= 1;
+      }
+    }
+    return mover(d, mc+1);
+  }
+  mover(dir, 0);
+  return re;
+}
 //https://www.codewars.com/kata/530045e3c7c0f4d3420001af/solutions/javascript
 function lookSay(number){
   //TODO
