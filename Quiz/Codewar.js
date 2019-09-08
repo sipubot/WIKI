@@ -1,3 +1,13 @@
+// https://www.codewars.com/kata/53c8b29750fe70e4a2000610/solutions/javascript
+const ArrayComprehension = ({ generator = '' }) => {
+    let result = generator.match(/(?:(\d+),)?(\d+)\.\.(\d+)/)
+    if (result) {
+        let [, step, from, to] = result.map(Number)
+        if (step)[step, from] = [from - step, step]
+        else step = 1
+        return Array.from({ length: Math.floor((to - from) / step + 1) }, (_, i) => i * step + from)
+    } else return JSON.parse(`[${generator}]`)
+}
 //https://www.codewars.com/kata/langtons-ant/train/javascript
 function ant(grid, column, row, n, dir = 0) {
   var re = grid;
