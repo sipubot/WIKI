@@ -1,3 +1,33 @@
+//https://www.codewars.com/kata/prime-number-decompositions/train/javascript
+function getAllPrimeFactors(n) { 
+  var factor = 2;
+  var re = [];
+  if (n % 1 !== 0) return [];
+  if (n === 1) return [1];
+  if (n === 2) return [2];
+  if (3 > n) return re;
+  while (n !== 1) {
+    if (n % factor === 0) {
+      n /= factor;
+      re.push(factor)
+    } else {
+      factor += 1;
+    }
+  }
+  return re;
+}
+
+function getUniquePrimeFactorsWithCount(n) { 
+  var fs = getAllPrimeFactors(n);
+  var fa = [...new Set(fs)];
+  var fca = fa.map(a=>fs.filter(b=>b===a).length);
+  return [fa, fca];
+}
+
+function getUniquePrimeFactorsWithProducts(n) { 
+  var re = getUniquePrimeFactorsWithCount(n);
+  return re[0].map((a,i)=>a**re[1][i]);
+}
 // https://www.codewars.com/kata/53c8b29750fe70e4a2000610/solutions/javascript
 const ArrayComprehension = ({ generator = '' }) => {
     let result = generator.match(/(?:(\d+),)?(\d+)\.\.(\d+)/)
