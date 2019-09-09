@@ -1,3 +1,8 @@
+//https://www.codewars.com/kata/530e259c7bc88a4ab9000754/solutions/javascript
+function tetrahedron(size) {
+  var re = [...new Array(size)].map((a,i)=> (i+1)*(i+2)*0.5).reduce((s,a)=>s+a,0);
+  return re
+}
 //https://www.codewars.com/kata/prime-number-decompositions/train/javascript
 function getAllPrimeFactors(n) { 
   var factor = 2;
