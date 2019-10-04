@@ -1,3 +1,5 @@
+//https://www.codewars.com/kata/515f51d438015969f7000013/solutions/javascript/
+const pyramid =(n)=> [...new Array(n)].map((a,i)=>[...new Array(i+1)].fill(1));
 //https://www.codewars.com/kata/530e259c7bc88a4ab9000754/solutions/javascript
 function tetrahedron(size) {
   var re = [...new Array(size)].map((a,i)=> (i+1)*(i+2)*0.5).reduce((s,a)=>s+a,0);
