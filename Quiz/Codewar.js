@@ -1,3 +1,19 @@
+// https://www.codewars.com/kata/529cd9c409a361b676000021/solutions/javascript
+function decimalPlaces(n) {
+  var add = 0;
+  if ((''+n).indexOf('e-') !== -1) {
+    var c = (''+n).split('e-');
+    add = +c[1];
+    if (c[0].indexOf('.')!== -1) {
+      add += c[0].split('.')[1].length;
+    }
+  } else {
+    if ((''+n).indexOf('.')!== -1) {
+      add += (''+n).split('.')[1].length;
+    }
+  }
+  return add;
+}
 //https://www.codewars.com/kata/515f51d438015969f7000013/solutions/javascript/
 const pyramid =(n)=> [...new Array(n)].map((a,i)=>[...new Array(i+1)].fill(1));
 //https://www.codewars.com/kata/530e259c7bc88a4ab9000754/solutions/javascript
