@@ -1,3 +1,28 @@
+// https://www.codewars.com/kata/529fdef7488f509b81000061/
+function solve(input){
+  var ops = input.split('\n');
+  ops = ops.map(a=>{
+    var p = a.split(' ');
+    var ml = Math.max(p[0].length, p[1].length);
+    p[0] = '0'.repeat(ml-p[0].length) + p[0];
+    p[1] = '0'.repeat(ml-p[1].length) + p[1];
+    return p.map(b=>b.split('').map(c=>+c).reverse())
+  });
+  var re = ops.map(a=>{
+    var carry = 0;
+    var af = 0;
+    a[0].map((b,i)=>{
+      if (a[0][i] + a[1][i] + af > 9) {
+        af = 1;
+        carry += 1; 
+      } else {
+        af = 0;
+      }
+    }); 
+    return carry;    
+  });
+  return re.map(a=>a === 0 ? `No carry operation` : `${a} carry operations`).join('\n');
+}
 // https://www.codewars.com/kata/529cd9c409a361b676000021/solutions/javascript
 function decimalPlaces(n) {
   var add = 0;
