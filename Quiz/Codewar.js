@@ -1,3 +1,16 @@
+// https://www.codewars.com/kata/52a0f488852a85c723000aca/
+function palindromize(number){
+  var count = 0;
+  while (count < 1000) {
+    var rnum = +((''+number).split('').reverse().join(''));
+    if (number === rnum) {
+      break;
+    }
+    number += rnum;
+    count++;
+  }
+  return `${count} ${number}`;
+}
 // https://www.codewars.com/kata/529fdef7488f509b81000061/
 function solve(input){
   var ops = input.split('\n');
