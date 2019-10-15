@@ -1,3 +1,19 @@
+//https://www.codewars.com/kata/pretty-date/train/javascript
+function toPretty(seconds){
+  var sec = [60,3600,86400,604800,31449600];
+  var name = ['second','minute','hour','day','week'];
+  if (seconds === 0) return 'just now'
+  var i = 0;
+  while (seconds > sec[i]) {
+    i++;
+  }
+  var t = seconds;
+  if (i > 0) {
+    t = Math.floor(t/sec[i-1]);
+  }
+  var s = t === 1 ? i === 2 ? 'an' : 'a' : t;
+  return `${s} ${name[i]}${t===1?'':'s'} ago`
+}
 // https://www.codewars.com/kata/52a0f488852a85c723000aca/
 function palindromize(number){
   var count = 0;
