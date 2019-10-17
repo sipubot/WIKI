@@ -1,3 +1,8 @@
+//https://www.codewars.com/kata/5442e4fc7fc447653a0000d5/solutions/javascript
+var greatestDistance = function(data) {
+  var matches = data.map((a,i)=>data.lastIndexOf(a)-i);
+  return Math.max(...matches)
+};
 //https://www.codewars.com/kata/pretty-date/train/javascript
 function toPretty(seconds){
   var sec = [60,3600,86400,604800,31449600];
