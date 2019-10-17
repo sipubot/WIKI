@@ -1,3 +1,11 @@
+//https://www.codewars.com/kata/54341ff882b0fdec9c000011/solutions/javascript
+function max(data, accessor) {
+  if (accessor !== undefined) {
+    var arr = data.map(a=>accessor(a));
+    return Math.max(...arr)
+  } 
+  return Math.max(...data);
+}
 //https://www.codewars.com/kata/5442e4fc7fc447653a0000d5/solutions/javascript
 var greatestDistance = function(data) {
   var matches = data.map((a,i)=>data.lastIndexOf(a)-i);
