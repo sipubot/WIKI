@@ -1,3 +1,36 @@
+//https://www.codewars.com/kata/number-dot-prototype-dot-todecimal/train/javascript
+Number.prototype.toDecimal = function() { 
+  var num = ''+this;
+  if (num.indexOf('e') !== -1)  {
+    var re = num.split('e');
+    var add = +re[1];
+    var n = re[0];
+    if (n.indexOf('.') === -1) {
+      return add > 0 ? `${n}${'0'.repeat(add)}` : (+n > 0) ? `0.${'0'.repeat((add*-1)-1)}${n}` : `-0.${'0'.repeat((add*-1)-1)}${n.slice(1)}`
+    } else {
+      var i = n.indexOf('.');
+      var nss = n.split('.');
+      if (add > 0) {
+        if (nss[1].length === add) {
+          return nss.join('')
+        } else if (nss[1].length < add) {
+          return nss.join('') + '0'.repeat(add-nss[1].length);
+        } else if (nss[1].length > add) {
+          var ge = nss[1].length - add;
+          return nss[0] + nss[1].slice(0,add) + '.' + nss[1].slice(add);
+        }
+      } else {
+          if (+nss[0] < 0) {
+            return '-0.' + '0'.repeat((-1*add)-1) + nss[0].slice(1) + nss[1];
+          } else {
+            return '0.' + '0'.repeat((-1*add)-1) + nss[0] + nss[1];
+          }
+      }
+    }
+  } else {
+    return (''+this)
+  }
+};
 //https://www.codewars.com/kata/54341ff882b0fdec9c000011/solutions/javascript
 function max(data, accessor) {
   if (accessor !== undefined) {
