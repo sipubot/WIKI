@@ -1,3 +1,18 @@
+// https://www.codewars.com/kata/52f51502053125863c0009d7/
+function calculateOptimalFare(D, T, V1, R, V2) {
+	let hours = T/60;
+	let kmPerHr = D / hours;
+	if (V2 >= kmPerHr) {
+		return R = 0.00
+	} else if (V1 >= kmPerHr) {
+    // kmPerHr = rat * V1 + (1-rat) * V2
+		var ratio = (kmPerHr - V2) / (V1 - V2);
+		var re = (ratio * R * V1) * hours;
+		return re.toFixed(2);
+	} else if (kmPerHr > V2 && kmPerHr > V1) {
+		return "Won't make it!"
+	};
+}
 //https://www.codewars.com/kata/number-dot-prototype-dot-todecimal/train/javascript
 Number.prototype.toDecimal = function() { 
   var num = ''+this;
