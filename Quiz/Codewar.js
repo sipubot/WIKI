@@ -1,3 +1,17 @@
+// https://www.codewars.com/kata/sierpinskis-gasket/train/javascript
+function sierpinski(n) {
+  var re = ['L'];
+  function rep(re, n) {
+    if (n === 0) return re;
+    var alen = re.length
+    var len = re[re.length-1].length+1;
+    for(var i = 0; i < alen; i++) {
+      re.push(`${re[i]}${' '.repeat(len-re[i].length)}${re[i]}`);
+    }
+    return rep(re,n-1);
+  }
+  return rep(re,n).join('\n')
+}
 // https://www.codewars.com/kata/53ea07c9247bc3fcaa00084d/
 function lookAndSay(data,len){
   var ds = data.split('');
