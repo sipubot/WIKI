@@ -1,3 +1,27 @@
+// https://www.codewars.com/kata/53ea07c9247bc3fcaa00084d/
+function lookAndSay(data,len){
+  var ds = data.split('');
+  var re = [];
+  while (re.length < len) {
+    var count = 0;
+    var c = ds[0];
+    var an = ''
+    while(ds.length > 0) {
+      var t = ds.shift();
+      if (c == t) {
+        count++;
+      } else {
+        an += count + c;
+        c = t;
+        count = 1;
+      }
+    }
+    an += count + c;
+    re.push(an)
+    ds = an.split('');
+  }
+  return re;
+}
 // https://www.codewars.com/kata/52f51502053125863c0009d7/
 function calculateOptimalFare(D, T, V1, R, V2) {
 	let hours = T/60;
