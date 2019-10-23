@@ -1,3 +1,27 @@
+//https://www.codewars.com/kata/bracket-duplicates/train/javascript
+function stringParse(string){
+  if (typeof string !== "string") return 'Please enter a valid string'
+  var tt = string.split('');
+  var count = 0, open = false, t = '';
+  for(var i = 0; i < tt.length; i++) {
+    if (tt[i] !== t) {
+      t = tt[i];
+      count = 1;
+      if (open) {
+        tt[i] = ']' + tt[i] ;
+        open = false;
+      }
+    } else {
+      count++;
+      if (count > 2 && open === false) {
+        tt[i] = '[' + tt[i];
+        open = true;
+      }
+    }
+  }
+  if (open) tt[tt.length-1] += ']';
+  return tt.join('')
+}
 // https://www.codewars.com/kata/sierpinskis-gasket/train/javascript
 function sierpinski(n) {
   var re = ['L'];
