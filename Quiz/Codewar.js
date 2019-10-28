@@ -1,3 +1,66 @@
+// https://www.codewars.com/kata/simple-image-processing-part-i-edges-feature-growing-and-shrinking
+function work(arr, x, y, t, v) {
+  var mm = [[-1,-1],[-1,0],[-1,1],[0,-1],[0,1],[1,-1],[1,0],[1,1]];
+  mm = mm.map(a=>[y+a[0],x+a[1]]).filter(a=>-1<a[0]&&arr.length>a[0]&&-1<a[1]&&arr[0].length>a[1]);
+  mm.map(a=>{ if (arr[a[0]][a[1]]===t) {arr[a[0]][a[1]] = v;} });
+}
+
+function outerEdgesOf(tarr){
+  var arr = JSON.parse(JSON.stringify(tarr));
+  arr.map((ar,y)=>{
+    ar.map((a,x)=>{
+      if (a === 0) {
+        work(arr,x,y,1,2);
+      }
+    });
+  });
+  arr.map((ar,y)=>{
+    ar.map((a,x)=>{
+      if (a === 2) {
+        work(arr,x,y,0,3);
+      }
+    });
+  });
+  return arr.map(a=>a.map(b=> b===3 ? 1 : 0))
+}
+function innerEdgesOf(tarr){
+  var arr = JSON.parse(JSON.stringify(tarr));
+  arr.map((ar,y)=>{
+    ar.map((a,x)=>{
+      if (a === 0) {
+        work(arr,x,y,1,2);
+      }
+    });
+  });
+  return arr.map(a=>a.map(b=> b===2 ? 1 : 0))
+}
+function grow(tarr){
+  var arr = JSON.parse(JSON.stringify(tarr));
+  arr.map((ar,y)=>{
+    ar.map((a,x)=>{
+      if (a === 1) {
+        work(arr,x,y,0,2);
+      }
+    });
+  });
+  return arr.map(a=>a.map(b=> b===2 ? 1 : b))
+}
+function shrink(tarr){
+  var arr = JSON.parse(JSON.stringify(tarr));
+  arr.map((ar,y)=>{
+    ar.map((a,x)=>{
+      if (a === 0) {
+        work(arr,x,y,1,2);
+      }
+    });
+  });
+  return arr.map(a=>a.map(b=> b===2 ? 0 : b))
+}
+// https://www.codewars.com/kata/simple-linear-regression-cost-function-machine-learning
+{
+  var an = trainingSet.reduce((s,a)=>(s+((theta1+a[0]*theta2)-a[1])**2),0) * (1/(2 *trainingSet.length))
+  return Math.round(an*1000)/1000
+} 
 //https://www.codewars.com/kata/bracket-duplicates/train/javascript
 function stringParse(string){
   if (typeof string !== "string") return 'Please enter a valid string'
