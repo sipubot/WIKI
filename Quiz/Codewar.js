@@ -1,3 +1,22 @@
+//https://www.codewars.com/kata/5416ce834c2460b4d300042d/solutions/javascript
+function bin2gray(bits){
+  var cbit = bits.slice(0);
+  cbit.pop();
+  cbit.unshift(0);
+  return bits.map((a,i)=>a^cbit[i])
+}
+
+function gray2bin(gray){
+  var cbit = gray.slice(0);
+  var len = gray.length, count = 0;
+  while (count < len) {
+      gray.pop()
+      gray.unshift(0)
+      cbit = cbit.map((a,i)=>a^gray[i]);
+      count++;
+  }  
+  return cbit
+}
 // https://www.codewars.com/kata/simple-image-processing-part-i-edges-feature-growing-and-shrinking
 function work(arr, x, y, t, v) {
   var mm = [[-1,-1],[-1,0],[-1,1],[0,-1],[0,1],[1,-1],[1,0],[1,1]];
