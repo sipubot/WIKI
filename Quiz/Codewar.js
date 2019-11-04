@@ -1,3 +1,21 @@
+//https://www.codewars.com/kata/52d43d5515be7cbc92000611/
+function allLeavesAtSameLevel(node) {
+  var dep = [];
+  if (node === undefined) return true;
+  function findlevel(l, n) {
+    if (n.left === undefined && n.rigjt === undefined) {
+      dep.push(l);
+    }
+    if (n.left) {
+      findlevel(l+1,n.left);
+    }
+    if (n.right) {
+      findlevel(l+1,n.right);
+    }
+  }
+  findlevel(0,node);
+  return dep.every(a=>a<=1) || dep.every(a=>a === dep[0])
+}
 //https://www.codewars.com/kata/5416ce834c2460b4d300042d/solutions/javascript
 function bin2gray(bits){
   var cbit = bits.slice(0);
