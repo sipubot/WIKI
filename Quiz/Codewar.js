@@ -1,3 +1,16 @@
+//https://www.codewars.com/kata/5361372e700d2a9627000cf1
+function KamaSutraCipher(key) {
+  this.ekey = key.map(a=>a[0]).join('') + key.map(a=>a[1]).join('');
+  this.dkey = key.map(a=>a[1]).join('') + key.map(a=>a[0]).join('');
+  
+  this.encode = function (str) {
+    return str.split('').map(a=>this.ekey.indexOf(a) === -1 ? a : this.dkey[this.ekey.indexOf(a)]).join('')
+  };
+  this.decode = function (str) {
+    return str.split('').map(a=>this.dkey.indexOf(a) === -1 ? a : this.ekey[this.dkey.indexOf(a)]).join('')
+  }
+}
+
 //https://www.codewars.com/kata/52d43d5515be7cbc92000611/
 function allLeavesAtSameLevel(node) {
   var dep = [];
