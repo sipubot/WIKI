@@ -1,3 +1,8 @@
+//https://www.codewars.com/kata/52a7099f8a4d9604bb000472/
+function sevenSegmentNumber(number) {
+  var an = ['1111101','1010000','0110111','1010111','1011010','1001111','1101111','1010001','1111111','1011111'];
+  return parseInt(an[number],2)
+}
 //https://www.codewars.com/kata/5361372e700d2a9627000cf1
 function KamaSutraCipher(key) {
   this.ekey = key.map(a=>a[0]).join('') + key.map(a=>a[1]).join('');
