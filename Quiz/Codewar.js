@@ -1,3 +1,8 @@
+//https://www.codewars.com/kata/area-of-a-shape/
+function area_of_the_shape(f) {
+  var points = [...new Array(998001)].map((a,i)=>[Math.ceil((i+1)/999)/1000,((i+1)%999)/1000]);
+  return points.reduce((s,a)=>s+ f(a[0],a[1]),0) / 998001;
+}
 //https://www.codewars.com/kata/52a7099f8a4d9604bb000472/
 function sevenSegmentNumber(number) {
   var an = ['1111101','1010000','0110111','1010111','1011010','1001111','1101111','1010001','1111111','1011111'];
