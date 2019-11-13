@@ -1,3 +1,14 @@
+//https://www.codewars.com/kata/baby-magpies/
+var child = function(bird1, bird2) {
+  var an = bird1.split('').reduce((s,a,i)=>s+(a===bird2[i]?0:1),0)
+  return an <= 2 && an > 0;
+}
+
+var grandchild = function(bird1, bird2) {
+  if(bird1.length === 1) return bird1 === bird2
+  return bird1.split('').reduce((s,a,i)=>s+(a===bird2[i]?0:1),0) <= 4;
+}
+
 //https://www.codewars.com/kata/anagram-difference/
 function anagramDifference(w1,w2){
   var wa1 = w1.split('');
