@@ -1,3 +1,18 @@
+//https://www.codewars.com/kata/anagram-difference/
+function anagramDifference(w1,w2){
+  var wa1 = w1.split('');
+  var wa2 = w2.split('');
+  var count = 0;
+  wa1.map(a=>{
+    var sn = wa2.indexOf(a);
+    if (sn !== -1) {
+      count++;
+      wa2.splice(sn,1);
+    }
+  });
+  return wa1.length - count + wa2.length
+}
+
 //https://www.codewars.com/kata/area-of-a-shape/
 function area_of_the_shape(f) {
   var points = [...new Array(998001)].map((a,i)=>[Math.ceil((i+1)/999)/1000,((i+1)%999)/1000]);
