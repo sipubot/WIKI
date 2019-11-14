@@ -1,3 +1,12 @@
+//https://www.codewars.com/kata/58983deb128a54b530000be6/
+function bracesStatus(string){
+  var br = '([{}])';
+  var an = string.split('').filter(a=>br.indexOf(a) > -1).join('');
+  while (an.indexOf('()') > -1 || an.indexOf('[]') > -1 || an.indexOf('{}') > -1) {
+    an = an.split('()').join('').split('[]').join('').split('{}').join('');
+  }
+  return an.length === 0;  
+}
 //https://www.codewars.com/kata/baby-magpies/
 var child = function(bird1, bird2) {
   var an = bird1.split('').reduce((s,a,i)=>s+(a===bird2[i]?0:1),0)
