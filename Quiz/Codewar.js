@@ -1,3 +1,12 @@
+https://www.codewars.com/kata/count-letters-in-a-string/
+function countLetters (string) {
+  var re = {};
+  if (typeof string !== 'string') return null
+  var k = string.toLowerCase().split('')
+    .filter(a=>/[a-z]/.test(a))
+    .map((s,a)=>{re[s] = re[s] ? re[s]+1 : 1})
+  return re;
+}
 //https://www.codewars.com/kata/58983deb128a54b530000be6/
 function bracesStatus(string){
   var br = '([{}])';
