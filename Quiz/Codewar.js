@@ -1,3 +1,25 @@
+//https://www.codewars.com/kata/decompose-a-number/train/javascript
+function decompose(num) {
+  var re = [];
+  var n = 2;
+  var t = true;
+  while(num > n && t) {
+    var k = n;
+    var c = 0;
+    while (k <= num) {
+      k *= n;
+      c++;
+    }
+    if (c > 1) {
+      num -= n ** c;
+      re.push(c);
+    } else {
+      t = false;
+    }
+    n++;
+  }
+  return [re, num]
+}
 https://www.codewars.com/kata/count-letters-in-a-string/
 function countLetters (string) {
   var re = {};
