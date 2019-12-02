@@ -1,3 +1,7 @@
+//https://www.codewars.com/kata/5a3ddf58e1ce0e6f8f000030/
+function thatUnitesUs(array1, array2, n) {
+  return [...new Set(array1.concat(array2))].sort().slice(0,n)
+}
 //https://www.codewars.com/kata/decompose-a-number/train/javascript
 function decompose(num) {
   var re = [];
