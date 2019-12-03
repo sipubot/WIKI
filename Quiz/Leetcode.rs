@@ -1,4 +1,16 @@
 impl Solution {
+    pub fn reach_number(target: i32) -> i32 {
+        let mut t = target.abs();
+        let mut k = 0;
+        while t > 0 {
+            k += 1;
+            t -= k;
+        }
+        match t % 2 {
+            0 => k,
+            _ => k + 1 + k % 2
+        }
+    }
     pub fn num_jewels_in_stones(j: String, s: String) -> i32 {
         let mut count = 0;
         let jv:Vec<char> = j.chars().collect();
