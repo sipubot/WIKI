@@ -1,3 +1,7 @@
+//https://www.codewars.com/kata/598057c8d95a04f33f00004e/
+function range(startNum, endNum)   { 
+  return [...Array(endNum-startNum-1).keys()].map(a=>a+startNum+1)
+};  
 //https://www.codewars.com/kata/5a3ddf58e1ce0e6f8f000030/
 function thatUnitesUs(array1, array2, n) {
   return [...new Set(array1.concat(array2))].sort().slice(0,n)
