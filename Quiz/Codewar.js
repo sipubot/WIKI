@@ -1,3 +1,7 @@
+//https://www.codewars.com/kata/find-array/train/javascript
+function findArray(arr1, arr2){
+  return arr2.reduce((s,a)=>s.concat(arr1[a]!==undefined?[arr1[a]]:[]),[])
+}
 //https://www.codewars.com/kata/598057c8d95a04f33f00004e/
 function range(startNum, endNum)   { 
   return [...Array(endNum-startNum-1).keys()].map(a=>a+startNum+1)
