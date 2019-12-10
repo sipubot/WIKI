@@ -1,3 +1,11 @@
+//https://www.codewars.com/kata/ga-de-ry-po-lu-ki-cypher-vol-2/
+function encode(str,key) 
+{
+  var ke1 = key + key.toUpperCase();
+  var re = str.split('')
+  .map(a=> ke1.indexOf(a) > -1 ? ke1[ke1.indexOf(a) % 2 === 0 ? ke1.indexOf(a) + 1 : ke1.indexOf(a) - 1 ] : a )
+  return re.join('');   
+}
 //https://www.codewars.com/kata/find-array/train/javascript
 function findArray(arr1, arr2){
   return arr2.reduce((s,a)=>s.concat(arr1[a]!==undefined?[arr1[a]]:[]),[])
