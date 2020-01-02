@@ -1,3 +1,5 @@
+// https://www.codewars.com/kata/54f9f4d7c41722304e000bbb
+const money_value = s => +s.replace(/\s|\$/g, '') || 0
 //https://www.codewars.com/kata/ga-de-ry-po-lu-ki-cypher-vol-2/
 function encode(str,key) 
 {
