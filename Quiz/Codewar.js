@@ -1,3 +1,9 @@
+//https://www.codewars.com/kata/5832db03d5bafb7d96000107/solutions/javascript
+function lottery(str){
+  var re = str.match(/[0-9]/gi);
+  if (re === null) { return "One more run!" }
+  return Array.from(new Set(re)).join("")
+}
 // https://www.codewars.com/kata/54f9f4d7c41722304e000bbb
 const money_value = s => +s.replace(/\s|\$/g, '') || 0
 //https://www.codewars.com/kata/ga-de-ry-po-lu-ki-cypher-vol-2/
