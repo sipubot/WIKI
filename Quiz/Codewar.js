@@ -1,3 +1,8 @@
+//https://www.codewars.com/kata/5d5a7525207a674b71aa25b5/train/javascript
+function oddRow(n) {
+  var k = (n-1) * (n) * 0.5;
+  return [...new Array(n)].map((a,i)=>2*k+1+(i*2))
+}
 //https://www.codewars.com/kata/5832db03d5bafb7d96000107/solutions/javascript
 function lottery(str){
   var re = str.match(/[0-9]/gi);
