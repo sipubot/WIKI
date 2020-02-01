@@ -1,3 +1,9 @@
+//https://www.codewars.com/kata/550cc572b9e7b563be00054f/
+function SJF(jobs, index){
+  var v =jobs[index];
+  var re = jobs.filter(a=> a< v).concat(jobs.slice(0,index).filter(a=>a===v));
+  return re.reduce((s,a)=>s+a,0) + v
+}
 //https://www.codewars.com/kata/5d5a7525207a674b71aa25b5/train/javascript
 function oddRow(n) {
   var k = (n-1) * (n) * 0.5;
