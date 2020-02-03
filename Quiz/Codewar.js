@@ -1,3 +1,7 @@
+//https://www.codewars.com/kata/583ebb9328a0c034490001ba/solutions/javascript
+function duplicateElements(m, n) {
+    return m.some(a=>n.some(b=>a===b))
+}
 //https://www.codewars.com/kata/550cc572b9e7b563be00054f/
 function SJF(jobs, index){
   var v =jobs[index];
