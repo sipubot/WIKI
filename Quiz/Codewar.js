@@ -1,3 +1,8 @@
+//https://www.codewars.com/kata/57a03b8872292dd851000069/train/javascript
+function nthSmallest(arr, n) {
+  var re = Array.from(new Set(arr)).sort((a,b)=>a-b)[n-1];
+  return re !== undefined ? re : null
+}
 //https://www.codewars.com/kata/583ebb9328a0c034490001ba/solutions/javascript
 function duplicateElements(m, n) {
     return m.some(a=>n.some(b=>a===b))
