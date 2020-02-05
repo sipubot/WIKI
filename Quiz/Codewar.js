@@ -1,3 +1,7 @@
+//https://www.codewars.com/kata/582aafca2d44a4a4560000e7/
+function keepOrder(ary, val) {
+  return ary.filter(a=>a<val).length
+}
 //https://www.codewars.com/kata/57a03b8872292dd851000069/train/javascript
 function nthSmallest(arr, n) {
   var re = Array.from(new Set(arr)).sort((a,b)=>a-b)[n-1];
