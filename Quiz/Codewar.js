@@ -1,3 +1,7 @@
+//https://www.codewars.com/kata/586efc2dcf7be0f217000619/train/javascript
+function reverseSlice(str) {
+  return [...new Array(str.length)].map((a,i)=>str.split('').reverse().slice(i).join(''));
+}
 //https://www.codewars.com/kata/582aafca2d44a4a4560000e7/
 function keepOrder(ary, val) {
   return ary.filter(a=>a<val).length
