@@ -1,3 +1,10 @@
+//https://www.codewars.com/kata/5596700a386158e3aa000011/train/javascript
+function BinaryPyramid(m,n){
+  return [...new Array(n-m+1)].map((a,i)=>i+m)
+    .map(a=>a.toString(2))
+    .reduce((s,a)=>s+(+a),0)
+    .toString(2)
+}
 //https://www.codewars.com/kata/586efc2dcf7be0f217000619/train/javascript
 function reverseSlice(str) {
   return [...new Array(str.length)].map((a,i)=>str.split('').reverse().slice(i).join(''));
