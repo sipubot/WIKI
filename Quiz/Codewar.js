@@ -1,3 +1,14 @@
+//https://www.codewars.com/kata/58644e8ddf95f81a38001d8d
+function box(cc){
+  return [...new Array(cc)]
+    .map((a,i)=>{
+      if (i === 0 || i === cc-1) {
+        return '-'.repeat(cc)
+      } else {
+        return `-${' '.repeat(cc-2)}-`
+      }
+    });
+}
 //https://www.codewars.com/kata/5596700a386158e3aa000011/train/javascript
 function BinaryPyramid(m,n){
   return [...new Array(n-m+1)].map((a,i)=>i+m)
