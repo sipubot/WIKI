@@ -1,3 +1,21 @@
+//https://www.codewars.com/kata/588f3e0dfa74475a2600002a/train/javascript
+function possibilities(str) {
+  var len = str.split('?').length - 1;
+  var ans = [];
+  if (len >= 1) {
+    ans = [...new Array(2 ** len)].map((a,i)=>i.toString(2).padStart(len,'0'))
+  }
+  var re = [];
+  for (var i = 0; i < ans.length; i++) {
+    var k = str;
+    ans[i].split('').map(a=>{
+        k = k.replace("?",a);
+    });
+    re.push(k);
+  }
+ 
+  return re;
+};
 //https://www.codewars.com/kata/58644e8ddf95f81a38001d8d
 function box(cc){
   return [...new Array(cc)]
