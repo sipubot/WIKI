@@ -1,8 +1,14 @@
+//https://www.codewars.com/kata/58c9322bedb4235468000019/
+function isVeryEvenNumber(n) {
+  while ((''+n).length>1) {
+    n = (''+n).split('').reduce((s,a)=>s+(+a),0)
+  }
+  return n % 2 === 0;
+}
 //https://www.codewars.com/kata/5785cd91a1b8d5c06e000007/train/javascript
 function reOrdering(text){
   var aa = text.split(' ');
-  return aa.filter(a=>/[A-Z]/.test(a[0])).concat(aa.filter(a=>!/[A-Z]/.test(a[0]))).join(' ')
-  
+  return aa.filter(a=>/[A-Z]/.test(a[0])).concat(aa.filter(a=>!/[A-Z]/.test(a[0]))).join(' ') 
 }
 //https://www.codewars.com/kata/588f3e0dfa74475a2600002a/train/javascript
 function possibilities(str) {
