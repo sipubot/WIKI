@@ -1,3 +1,10 @@
+//https://www.codewars.com/kata/5609fd5b44e602b2ff00003a/
+function process2Arrays(arr1, arr2) {
+  var c = arr1.length + arr2.length - [...new Set(arr1.concat(arr2))].length
+  var a1 = arr1.length - c;
+  var a2 = arr2.length - c;
+  return [c,a1+a2,a1,a2];
+}
 //https://www.codewars.com/kata/5825792ada030e9601000782/train/javascript
 function zipWith(fn,a0,a1) {
   var ml = Math.min(a0.length, a1.length)
