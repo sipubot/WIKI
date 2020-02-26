@@ -1,3 +1,10 @@
+//https://www.codewars.com/kata/596e91b48c92ceff0c00001f/
+function wordsToHex(words) {
+  return words.split(' ').map(a=>{
+    var part = a.slice(0,3).split('');
+    return '#'+part.map(b=>b.charCodeAt(0).toString(16)).join('').padEnd(6,'0')
+  });
+}
 //https://www.codewars.com/kata/5609fd5b44e602b2ff00003a/
 function process2Arrays(arr1, arr2) {
   var c = arr1.length + arr2.length - [...new Set(arr1.concat(arr2))].length
