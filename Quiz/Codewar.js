@@ -1,3 +1,7 @@
+//https://www.codewars.com/kata/55cc20eb943f1d8b11000045/train/javascript
+function x(n) {
+   return [...Array(n)].map((a,x)=>[...Array(n)].map((b,i)=>i===x ? 1 : i + x + 1 === n ? 1 : 0))
+}
 //https://www.codewars.com/kata/589e4d646642d144a90000d8/
 function runningAverage() {
   this.val = 0 
