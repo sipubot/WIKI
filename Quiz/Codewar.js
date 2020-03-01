@@ -1,3 +1,14 @@
+//https://www.codewars.com/kata/589e4d646642d144a90000d8/
+function runningAverage() {
+  this.val = 0 
+  this.count = 0;
+  var that = this;
+  return function (a) {
+    that.val = a + that.val;
+    that.count += 1;
+    return Math.round(this.val * 100 / this.count)/100;
+  }
+}
 //https://www.codewars.com/kata/596e91b48c92ceff0c00001f/
 function wordsToHex(words) {
   return words.split(' ').map(a=>{
