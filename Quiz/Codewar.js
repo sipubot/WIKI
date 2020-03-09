@@ -1,3 +1,8 @@
+//https://www.codewars.com/kata/5e4217e476126b000170489b/
+function polydivisible(x) {
+  var re = [...Array((''+x).length)].map((a,i)=>+((''+x).slice(0,i+1)));
+  return re.every((a,i)=>(a/(i+1))%1===0)
+}
 //https://www.codewars.com/kata/55cc20eb943f1d8b11000045/train/javascript
 function x(n) {
    return [...Array(n)].map((a,x)=>[...Array(n)].map((b,i)=>i===x ? 1 : i + x + 1 === n ? 1 : 0))
