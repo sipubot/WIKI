@@ -1,3 +1,17 @@
+//https://www.codewars.com/kata/57ebdf1c2d45a0ecd7002cd5/
+function insideOut(x){
+  return x.split(' ').map(a=>{
+    var t = a.split('');
+    var mid = Math.floor(t.length * 0.5);
+    var f, m, e;
+    if (t.length < 4) return a;
+    f = t.slice(0,mid).reverse().join('');
+    m = t.length % 2 === 0 ? '' : t[mid];
+    e = t.length % 2 === 0 ? t.slice(mid) : t.slice(mid+1)
+    e = e.reverse().join('');
+    return `${f}${m}${e}`;
+  }).join(' ')
+}
 //https://www.codewars.com/kata/5e4217e476126b000170489b/
 function polydivisible(x) {
   var re = [...Array((''+x).length)].map((a,i)=>+((''+x).slice(0,i+1)));
