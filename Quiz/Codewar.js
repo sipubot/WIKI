@@ -1,3 +1,31 @@
+//https://www.codewars.com/kata/5af4119888214326b4000019/
+function amidakuji(ar){
+  var node = ar.map(a=>a.split('').map(b=>b==='1' ? true : false));
+  var len = node[0].length + 1;
+  var re = [...new Array(len)];
+  for (var i = 0 ; i < len; i++) {
+    var pos = i;
+    for (var k = 0; k< node.length; k++) {
+      if (pos === 0) {
+        if (node[k][pos]) {
+          pos++;
+        }
+      } else if (pos === node[k].length){
+        if (node[k][pos-1]) {
+          pos--;
+        }
+      } else {
+        if (node[k][pos]) {
+          pos++; 
+        } else if (node[k][pos-1]) {
+          pos--;
+        }
+      }
+    }
+    re[pos] = i;
+  }
+  return re;
+}
 //https://www.codewars.com/kata/57ebdf1c2d45a0ecd7002cd5/
 function insideOut(x){
   return x.split(' ').map(a=>{
