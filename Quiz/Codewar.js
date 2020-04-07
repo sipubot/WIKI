@@ -1,3 +1,9 @@
+//https://www.codewars.com/kata/5a972f30ba1bb5a2590000a0/solutions/javascript
+const matrixSquareUp = b => {
+  return [...new Array(b)]
+    .map((a,i)=>[...new Array(b)]
+      .map((c,ii)=>ii+i>=b-1?''+(b-ii):'x'))
+}
 //https://www.codewars.com/kata/5af4119888214326b4000019/
 function amidakuji(ar){
   var node = ar.map(a=>a.split('').map(b=>b==='1' ? true : false));
