@@ -1,3 +1,31 @@
+//https://www.codewars.com/kata/5700af83d1acef83fd000048/solutions/javascript
+function sc(apple2,n){
+  var apple = apple2.slice(0);
+  function call(c) {
+    if (c==0) return
+    var aa = [];
+    apple.map((a,y)=>a.map((b,x)=>{
+      if (b==='V') aa.push([y,x]);
+    }));
+    aa.map(a=>{
+      if (a[0] > 0) {
+        apple[a[0]-1][a[1]] = "V";
+      }
+      if (a[1] > 0) {
+        apple[a[0]][a[1]-1] = "V";
+      }
+      if (a[0] < apple.length-1) {
+        apple[a[0]+1][a[1]] = "V";
+      }
+      if (a[1] < apple[0].length-1) {
+        apple[a[0]][a[1]+1] = "V";
+      }
+    });
+    return call(c-1)
+  }
+  call(n);
+  return apple
+}
 //https://www.codewars.com/kata/5a972f30ba1bb5a2590000a0/solutions/javascript
 const matrixSquareUp = b => {
   return [...new Array(b)]
