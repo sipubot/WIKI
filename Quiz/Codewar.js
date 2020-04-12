@@ -1,3 +1,9 @@
+//https://www.codewars.com/kata/5800b6568f7ddad2c10000ae/train/javascript
+function simplify(number){
+  var re = (''+number).split('');
+  return re.map((a,i)=>a!=='0'?i<re.length-1?`${a}*1${"0".repeat(re.length-i-1)}`:a:"")
+    .filter(a=>a!=='').join('+')
+}
 //https://www.codewars.com/kata/5d41e16d8bad42002208fe1a/train/javascript
 function moreZeros(s){
   s = [...new Set(s.split(''))].join('')
