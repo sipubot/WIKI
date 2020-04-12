@@ -1,3 +1,10 @@
+//https://www.codewars.com/kata/5d41e16d8bad42002208fe1a/train/javascript
+function moreZeros(s){
+  s = [...new Set(s.split(''))].join('')
+  return s.split('').filter(a=>
+    a.charCodeAt(0).toString(2).split('').filter(d=>d==='0').length * 2 > a.charCodeAt(0).toString(2).length
+  )
+}
 //https://www.codewars.com/kata/5700af83d1acef83fd000048/solutions/javascript
 function sc(apple2,n){
   var apple = apple2.slice(0);
