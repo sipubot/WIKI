@@ -1,3 +1,19 @@
+//https://www.codewars.com/kata/52672d961283975bd70002b0/solutions/javascript
+function predict(candidates, polls) {
+  // your code here
+  var tow = polls.reduce((s,a)=>s+a[1],0);
+  var re = {}; candidates.map(a=>{re[a] = 0;});
+  polls.map(a=>{
+    a[0].map((b,i)=>{
+      re[candidates[i]] += b * (a[1] / tow);
+    })
+  });
+  Object.keys(re).map(a=>{
+   
+    re[a] = Math.round(re[a]*10)/10;
+  });
+  return re;
+} 
 //https://www.codewars.com/kata/5800b6568f7ddad2c10000ae/train/javascript
 function simplify(number){
   var re = (''+number).split('');
