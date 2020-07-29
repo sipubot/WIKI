@@ -1,3 +1,14 @@
+//https://www.codewars.com/kata/5a1060d3502672a75d00013d
+function canStillWin(table, racesRemaining) {
+  var can = racesRemaining * 25;
+  var max = Math.max(...Object.values(table));
+  var ent = Object.entries(table).filter(a=>a[1]>= max-can);
+  var names = ent.map(a=>a[0]);
+  if (names.length === 1) return `${names[0]} has already won the championship!`
+  names.sort();
+  var last = names.pop();
+  return `${names.join(', ')} and ${last} can still win the championship.`
+}
 //https://www.codewars.com/kata/52672d961283975bd70002b0/solutions/javascript
 function predict(candidates, polls) {
   // your code here
