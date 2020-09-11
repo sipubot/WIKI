@@ -1,3 +1,9 @@
+//https://www.codewars.com/kata/5836dce6966f8d1d43000007/solutions/javascript
+function redarr(arr) {
+  var obj = {};
+  Array.from(new Set(arr)).sort().map((a,i)=>{obj[''+i]=a})
+  return obj
+}
 //https://www.codewars.com/kata/5a1060d3502672a75d00013d
 function canStillWin(table, racesRemaining) {
   var can = racesRemaining * 25;
