@@ -1,3 +1,15 @@
+//https://www.codewars.com/kata/5f6d120d40b1c900327b7e22/solutions/javascript
+function leaderboardSort(o_leaderboard, changes) {
+  var leaderboard = o_leaderboard.slice(0);
+  changes.map(a=>{
+    var q = a.split(' ');
+    var idx  = leaderboard.indexOf(q[0]);
+    var m = leaderboard.splice(idx, 1);
+    idx = idx - (+q[1]);
+    leaderboard.splice(idx, 0, m[0]);
+  });
+  return leaderboard
+}
 //https://www.codewars.com/kata/5836dce6966f8d1d43000007/solutions/javascript
 function redarr(arr) {
   var obj = {};
