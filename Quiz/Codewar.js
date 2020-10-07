@@ -1,3 +1,11 @@
+//https://www.codewars.com/kata/5b6db1acb118141f6b000060/solutions/javascript
+function recycle(array) {
+  var a = array.filter(a=> a.material == "paper" || a.secondMaterial == "paper" ).map(a=>a.type);
+  var b = array.filter(a=> a.material == "glass" || a.secondMaterial == "glass" ).map(a=>a.type);
+  var c = array.filter(a=> a.material == "organic" || a.secondMaterial == "organic" ).map(a=>a.type);
+  var d = array.filter(a=> a.material == "plastic" || a.secondMaterial == "plastic" ).map(a=>a.type);
+  return [a,b,c,d]
+}
 //https://www.codewars.com/kata/5f6d120d40b1c900327b7e22/solutions/javascript
 function leaderboardSort(o_leaderboard, changes) {
   var leaderboard = o_leaderboard.slice(0);
