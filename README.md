@@ -41,4 +41,4 @@
 - 취미 생활 복구 
 - 좀더 자기 생각을 정리할 시간을 늘리자.
 
-![Stat](https://github.com/sipubot/WIKI/blob/master/statics.PNG)
+
