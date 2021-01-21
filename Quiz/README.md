@@ -3,9 +3,6 @@
 - [Leetcode](https://leetcode.com)
     예제의 수준이 높고 기본적인 내용과 인터뷰용 질문들이 많이 포함 되어 있음 (2019.02 현재 질문량이 많아지고 오류가 많아지고 있음)
 
-- [CodeWars](https://www.codewars.com)
-    예제가 많고 랭킹 시스템이라 경쟁심을 자극함 (문제 제출이 특정인에 몰려 있는 경향)
-
 - [Codeforce](http://codeforces.com/)
     계정 만들어서 첫 submit  in out 관련 예제가 많지 않아서 하기 힘들다. codejam과 같은 in out 그리고 문제 입출력도 유사하니 도움되는건 있을듯
 
