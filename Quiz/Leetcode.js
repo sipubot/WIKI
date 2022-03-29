@@ -582,3 +582,24 @@ var canConstruct = function(ransomNote, magazine) {
     });
     return oldMagazineLength == magazine.length +ransomNoteArr.length
 };
+
+//https://leetcode.com/explore/learn/card/recursion-i/255/recursion-memoization/1662/
+/**
+ * @param {number} n
+ * @return {number}
+ */
+ var climbStairs = function(n) {
+    
+    let obj = {
+        0: 0,
+        1: 1,
+        2: 2,
+    };
+    //n 번째의 합에 n+1 n+2 의 결과는 이전의 경우의 수의 합이므로     
+    for (let i=3; i <=n; i++) {
+        
+        obj[i] = obj[i-1] + obj[i-2];
+    }
+    
+    return obj[n];
+};
