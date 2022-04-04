@@ -1,4 +1,33 @@
 
+/**
+ * https://leetcode.com/problems/find-common-characters/submissions/
+ * 
+ */
+ var commonChars = function(words) {
+    var al = "abcdefghijklmnopqrstuvwxyz".split('');
+    var idx = 0;
+    var re = [];
+    var wdlen = words.length;
+    var wd = words.map(a=>a.split('').sort());
+    while (wd.some(v=>v.length > 0)) {
+        var ct = 0
+        wd = wd.map(a=>{
+            if (a[0] == al[idx]) {
+                ct++;
+                a.shift();
+                return a;
+            } else {
+                return a;
+            }
+        });
+        if (ct === 0) {
+            idx++;
+        } else if (ct == wdlen) {
+            re.push(al[idx]);
+        }
+    }
+    return re;
+};
 //https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii/
 var removeDuplicates = function(nums) {
     for (var i = 0; i < nums.length-2; ) {
