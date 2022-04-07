@@ -1,4 +1,33 @@
+/**
+ * https://leetcode.com/problems/container-with-most-water/submissions/
+ * @param {*} H 
+ * @returns 
+ */
+const maxArea = (H) => {
+    let left = 0, right = H.length - 1, max = 0;
+    while (left < right) {
+      max = Math.max(max, Math.min(H[left], H[right]) * (right - left));
+      if (H[left] < H[right]) left++; // Left is smaller, try a new left line
+      else right--; // Right is smaller, try a new right line
+    }
+    return max;
+  };
 
+/** https://leetcode.com/problems/partition-array-into-three-parts-with-equal-sum/
+ * @param {number[]} arr
+ * @return {boolean}
+ */
+ var canThreePartsEqualSum = function(arr) {
+    var sum = arr.reduce((s,a)=>s+a,0);
+    var harf = sum * 0.5;
+    if (Math.round(harf)!== harf) return false;
+    sum = 0;
+    for (var i = 0; sum <= harf; i++) {
+        sum += arr[i];
+    }
+    if (sum == harf) {return true;}
+    else  {return false;}
+}
 /**
  * https://leetcode.com/problems/find-common-characters/submissions/
  * 
