@@ -1,4 +1,68 @@
 /**
+ * Definition for a binary tree node.
+ * function TreeNode(val, left, right) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.left = (left===undefined ? null : left)
+ *     this.right = (right===undefined ? null : right)
+ * }
+ */
+/**
+ * @param {number} n
+ * @return {TreeNode[]}
+ */
+ var generateTrees = function(n) {
+    if (n == 1)  return 1;
+    var c = 1;
+    while (n >= c) {
+        n = n - c;
+        c++;
+    }
+
+    if (n == 0) return 1;
+    else {
+        var re = 1;
+        while (n > 0) {
+            n--;
+            re = re * c;
+            c--;
+        }
+        return re;
+    }
+    
+};
+
+var kthGrammar = function (N, K) {
+    if (N == 1) return 0;
+    if (K % 2 == 0) return kthGrammar(N - 1, K / 2) == 0 ? 1 : 0;
+    else return kthGrammar(N - 1, (K + 1) / 2) == 0 ? 0 : 1;
+  };
+
+/** https://leetcode.com/problems/shuffle-the-array/
+ * @param {number[]} nums
+ * @param {number} n
+ * @return {number[]}
+ */
+ var shuffle = function(nums, n) {
+    var rem = nums.length - n;
+    var re = [];
+    for (var i = 0; i < Math.max(n,rem); i++) {
+        if (nums[i]) {
+            re.push(nums[i]);
+        }
+        if (nums[i+n]) {
+            re.push(nums[i+n]);
+        }
+    }
+    return re;
+};
+/** https://leetcode.com/problems/build-array-from-permutation
+ * @param {number[]} nums
+ * @return {number[]}
+ */
+ var buildArray = function(nums) {
+    return nums.map((a,i)=>nums[a])
+};              
+/**
  * https://leetcode.com/problems/container-with-most-water/submissions/
  * @param {*} H 
  * @returns 
