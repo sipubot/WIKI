@@ -1,3 +1,29 @@
+/** https://leetcode.com/explore/learn/card/queue-stack/239/conclusion/1393/
+ * @param {number[][]} image
+ * @param {number} sr
+ * @param {number} sc
+ * @param {number} newColor
+ * @return {number[][]}
+ */
+ var floodFill = function(image, sr, sc, newColor) {
+    var visited = new Array(image.length).fill([]).map(() => new Array(image[0].length).fill(false));
+
+    function go(y, x, value, newvalue) {
+        if (x < 0 || y < 0 || y > image.length -1 || x > image[0].length ) {return};
+        if (visited[y][x]) return;
+        visited[y][x] = true;
+        if (image[y][x] === value) {
+            image[y][x] = newvalue;
+            go(y-1,x,v, newvalue);
+            go(y,x-1,v, newvalue);
+            go(y+1,x,v, newvalue);
+            go(y,x+1,v, newvalue);
+        }
+    }
+    var v = image[sr][sc];
+    go(sr,sc, v, newColor);
+    return image;
+};
 /**
  * Definition for a binary tree node.
  * function TreeNode(val, left, right) {
