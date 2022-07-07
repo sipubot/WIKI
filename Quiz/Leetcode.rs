@@ -1,4 +1,11 @@
 impl Solution {
+    //https://leetcode.com/explore/learn/card/fun-with-arrays/521/introduction/3240/
+    pub fn sorted_squares(nums: Vec<i32>) -> Vec<i32> {
+        let mut re = nums.iter().map(|x| x * x).collect::<Vec<i32>>();
+        re.sort();
+        re
+    }
+
     pub fn reach_number(target: i32) -> i32 {
         let mut t = target.abs();
         let mut k = 0;
