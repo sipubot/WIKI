@@ -1,3 +1,56 @@
+
+/**https://leetcode.com/explore/learn/card/fun-with-arrays/521/introduction/3237/
+ * @param {number[]} nums
+ * @return {number}
+ */
+ var findNumbers = function(nums) {
+    return nums.filter(_=> (""+_).length % 2 === 0).length
+};
+
+/** https://leetcode.com/explore/learn/card/queue-stack/239/conclusion/1391/
+ * @param {number[][]} rooms
+ * @return {boolean}
+ */
+ var canVisitAllRooms = function(rooms) {
+    var re = new Array(rooms.length).fill(false);
+    function visi(pos) {
+        if (re[pos]) {
+            return;
+        } else {
+            re[pos] = true;
+            rooms[pos].map(_=>{
+                visi(_);
+            })
+        }
+    }
+    visi(0);
+    return re.every(_=>_==true);
+};
+
+/** https://leetcode.com/explore/learn/card/queue-stack/230/usage-stack/1363/
+ * @param {number[]} temperatures
+ * @return {number[]}
+ * [73,74,75,71,69,72,76,73]
+ * [69,71,72,73,73,74,75,76]
+ */
+ var dailyTemperatures = function(temperatures) {
+    var re = new Array(temperatures.length).fill(0);
+    var __ = [];
+    for (var i = 0; i < temperatures.length; i++) {
+        __ = __.filter((_)=>{
+            if(temperatures[_] < temperatures[i]) {
+                re[_] = i - _;
+                return false;
+            } else {
+                return true;
+            }
+        });
+        __.push(i);
+    }
+    return re;
+};
+
+
 /** https://leetcode.com/explore/learn/card/queue-stack/239/conclusion/1393/
  * @param {number[][]} image
  * @param {number} sr
