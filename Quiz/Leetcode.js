@@ -1,4 +1,11 @@
 
+/**https://leetcode.com/explore/featured/card/top-interview-questions-easy/92/array/578/
+ * @param {number[]} nums
+ * @return {boolean}
+ */
+ var containsDuplicate = function(nums) {
+    return nums.some((_,i)=>nums.indexOf(_)!== i)
+};
 /**https://leetcode.com/explore/learn/card/fun-with-arrays/521/introduction/3237/
  * @param {number[]} nums
  * @return {number}
