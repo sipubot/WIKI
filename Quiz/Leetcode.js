@@ -1,4 +1,14 @@
 
+/**https://leetcode.com/explore/learn/card/fun-with-arrays/527/searching-for-items-in-an-array/3250/
+ * @param {number[]} arr
+ * @return {boolean}
+ */
+ var checkIfExist = function(arr) {
+    var dub = arr.map(a=>a*2)
+    
+    return arr.some((b,i)=>dub.indexOf(b)>-1 && dub.indexOf(b) != i);
+};
+
 /**https://leetcode.com/explore/featured/card/top-interview-questions-easy/92/array/578/
  * @param {number[]} nums
  * @return {boolean}

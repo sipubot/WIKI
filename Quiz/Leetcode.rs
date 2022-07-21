@@ -1,4 +1,18 @@
 impl Solution {
+    //https://leetcode.com/explore/learn/card/fun-with-arrays/525/inserting-items-into-an-array/3245/   
+    pub fn duplicate_zeros(arr: &mut Vec<i32>) {
+        let n = arr.len();
+        let mut i = 0;
+        while i < n {
+            if arr[i] == 0 {
+                arr.insert(i + 1, 0);
+                arr.remove(n);
+                i += 1;
+            }
+            i += 1;
+        }
+    }
+
     //https://leetcode.com/explore/learn/card/fun-with-arrays/521/introduction/3240/
     pub fn sorted_squares(nums: Vec<i32>) -> Vec<i32> {
         let mut re = nums.iter().map(|x| x * x).collect::<Vec<i32>>();
