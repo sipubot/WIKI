@@ -2,11 +2,12 @@
 
 >자료구조로 탐색성능을 높이는 것은 자료구조에서 찾을것
 
-## 일치 
+## 일치
 
 ### 부분 트리 일치 찾기
 
-> 연산 기호와 재귀를 확실히 이해할것 
+> 연산 기호와 재귀를 확실히 이해할것
+
 ```javascript
  var isSubtree = function(s, t) {
    if (!s) return !t;
@@ -109,6 +110,7 @@ function navigate(numberOfIntersections, roads, start, finish) {
 }
 
 ```
+
 ```javascript
 //rojjeta code 
 const dijkstra = (edges,source,target) => {
@@ -185,13 +187,14 @@ const dijkstra = (edges,source,target) => {
 ## 최대합 찾기 (Kadane's Algorithm)
 
 > maximum subarray problem is the task of finding a contiguous subarray with the largest sum
-> 단순히 생각해서 부분합이 양수일경우 전체합은 더 커진다는 사실을 바탕으로 O(n)으로 계산하는것 
+> 단순히 생각해서 부분합이 양수일경우 전체합은 더 커진다는 사실을 바탕으로 O(n)으로 계산하는것
 
 - [WIKI](https://en.wikipedia.org/wiki/Maximum_subarray_problem)
 - [참조](https://www.techiedelight.com/maximum-subarray-problem-kadanes-algorithm/)
 - [참조2](http://theoryofprogramming.com/2016/10/21/dynamic-programming-kadanes-algorithm/)
 
 ### 최대합을 구할경우
+
 ```python
 def max_subarray(A):
     max_ending_here = max_so_far = A[0]
@@ -200,7 +203,9 @@ def max_subarray(A):
         max_so_far = max(max_so_far, max_ending_here)
     return max_so_far
 ```
+
 ### 차합을 구할경우
+
 ```javascript
 var maxProfit = function(prices) {
     let maxProfit = 0;
@@ -222,6 +227,7 @@ var maxProfit = function(prices) {
 ### 팩토리얼
 
 > 가지수를 찾을 때 많이 사용됨
+
 ```javascript
 //for memoization
 var f = [];
@@ -237,7 +243,8 @@ function factorial (n) {
 
 ### 조합
 
-> 경우의 수 
+> 경우의 수
+
 ```javascript
   var f = [];
   function factorial (n) {
@@ -315,9 +322,10 @@ function combinations(arr, k){
 kSubsetPermutations([1,2,3,4,5], 3);
 ```
 
-### 순열 
+### 순열
 
 >경우의 수 순열 (순서가 필요할 경우)
+
 ```javascript
 permutations = function(arr){
   var permArr = [],
@@ -346,6 +354,7 @@ permutations = function(arr){
 > 모든 제곱수를 4번 조합하면 모든 자연수를 표현 할수 있다.
 
 - 따라서 다음의 방법으로 몇번의 조합으로 그 수가 표현되는지는 다음과 같이 찾을수 있음
+
 ```javascript
 function sumOfSquares(n) { 
   if (Math.sqrt(n) % 1 === 0) return 1;

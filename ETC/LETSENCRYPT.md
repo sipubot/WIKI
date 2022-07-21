@@ -2,13 +2,19 @@
 
 > 드디어 톰캣 서버를 버리고 (?) 윈도우 플랫폼을 버리고 리눅스로 옮겨감.
 
-## Caddy 
+## iptime 이슈로 인한 인증 불가
 
-- 윈도우에선 443으로 인증이 불가능해서 let's encrypt 매번 실패 했는데 이제는 리눅스니까 편하게 리버스 프록시겸 인증 서버를 만들었다. 
+- 이제 더이상 https 작업은 안하는걸로
+- 어쩔수 없음 개인홈페이지에 궂이 보안을 더 신경 쓸이유가.
+
+## Caddy
+
+- 윈도우에선 443으로 인증이 불가능해서 let's encrypt 매번 실패 했는데 이제는 리눅스니까 편하게 리버스 프록시겸 인증 서버를 만들었다.
 - 톰캣 설정은 놔두고 캐디만 추가 해서 적음
-- [링크](https://caddyserver.com/download) 에서 캐디 다운 
+- [링크](https://caddyserver.com/download) 에서 캐디 다운
   - 추가적으로 hook.service를 골라야 linux service로 등록하기 편하니 받는게 좋음
   - 개인사용은 무료
+
   ```bash
     # 압축을 풀고
     tar -xzf caddy*.tar.gz caddy
@@ -21,7 +27,9 @@
     # 설정 파일 지정하기 (서비스로 쓰려면 필수적)
     caddy -conf ../path/to/Caddyfile
   ```
+
   - caddy file example
+
   ```sh
     ## 왠지 난감하고 힘든 설정들이 있어 보이지만
     proxy from to... {
@@ -52,6 +60,7 @@
     proxy localhost(내부 서버 ip)  hostname(외부 dns)
     #면 간단하게 설정 끝
   ```
+
   - 이외의 설정은 [링크](https://caddyserver.com/docs)를 참조하자.
 
 ## Lets Encrypt for tomcat server

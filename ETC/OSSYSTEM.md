@@ -2,9 +2,9 @@
 
 ## OS 시스템 관련 정리
 
-> gfg 에서 본 내용들을 정리하기 항목 목차를 분류하지 않는 이유는 전체적인 맥락과 돌아가는 방식을 이해하기 위해 
+> gfg 에서 본 내용들을 정리하기 항목 목차를 분류하지 않는 이유는 전체적인 맥락과 돌아가는 방식을 이해하기 위해
 
-os 시스템이라는게 결국 cpu, ram, disk 기타 하드웨어를 어떻게 액세스 시키고 동작시키냐에 대한 방법 or 체계를 의미함 거기에 gui니 cgi니 하는 인터페이스를 추가시켜서 동작 시키는게 유저단이고 실질적으로는 커널이라는 부분에서 모든 처리를 맡게됨 
+os 시스템이라는게 결국 cpu, ram, disk 기타 하드웨어를 어떻게 액세스 시키고 동작시키냐에 대한 방법 or 체계를 의미함 거기에 gui니 cgi니 하는 인터페이스를 추가시켜서 동작 시키는게 유저단이고 실질적으로는 커널이라는 부분에서 모든 처리를 맡게됨
 
 커널은 크게 두 분류
 
@@ -17,7 +17,7 @@ os 시스템이라는게 결국 cpu, ram, disk 기타 하드웨어를 어떻게 
 
 - First Come First Serve (FCFS): Simplest scheduling algorithm that schedules according to arrival times of processes.
 - Shortest Job First(SJF): Process which have the shortest burst time are scheduled first.
-- Longest Job First(LJF): It is similar to SJF scheduling algorithm. 
+- Longest Job First(LJF): It is similar to SJF scheduling algorithm.
 - Shortest Remaining Time First(SRTF): It is preemptive mode of SJF algorithm in which jobs are schedule according to shortest remaining time.
 - Longest Remaining Time First(LRTF): It is preemptive mode of LJF algorithm in which we give priority to the process having largest burst time remaining.
 - Round Robin Scheduling: Each process is assigned a fixed time in cyclic way.
@@ -25,7 +25,6 @@ os 시스템이라는게 결국 cpu, ram, disk 기타 하드웨어를 어떻게 
 - Highest Response Ratio Next (HRRN) In this scheduling, processes with highest response ratio is scheduled. This algorithm avoids starvation.
 
 등등 자세한것은 위키검색등을 참조 할것. 핵심적인것은 효율적인 처리를 위한 방법들이란 점이고 어떤 프로세스를 처리하냐 얼마나 많이 처리하냐 cpu 수는 어떻게 되냐 등등 여러 조건에 의해 최적화가 가능하다는 점이다.
-
 
 ## line breaker
 

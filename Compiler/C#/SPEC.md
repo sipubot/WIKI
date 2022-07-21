@@ -1,6 +1,7 @@
-# 스펙 정리 
+# 스펙 정리
 
 >(필요하거나 알아야할것들만 전체적 정리는 하지 않기로 그런건 책으로 나와 있으니 혹은 언어개발이 아닌이상 할수도 없고)
+>C#을 좋아하지만 RUST에 좀더 집중하고 싶은 상황임
 
 ## STL (표준 템플릿 라이브러리)
 
@@ -40,11 +41,13 @@
 > 말그대로 반사 하는 메서드
 
 [문서](https://docs.microsoft.com/ko-kr/dotnet/csharp/programming-guide/concepts/reflection)
-참고할 점 
+참고할 점
+
 - [문서](https://docs.microsoft.com/ko-kr/dotnet/framework/reflection-and-codedom/emitting-dynamic-methods-and-assemblies)
 - 타입반환시 메서드, 제너릭 등의 기본적 구분은 한다.
 - 타입을 바로 스트링 형식으로 리턴하지는 않음 (비교하거나 내장 프로퍼티를 거쳐야 한다 Is~ 로 시작
 - typeof() 기본 함수를 사용하여 비교 한다.
+
 ```c#
 //Custom 객체를 반환 해서 생성하는 방법
 namespace MyNamespace

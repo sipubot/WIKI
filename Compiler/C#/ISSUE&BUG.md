@@ -1,6 +1,6 @@
 # 정리
 
-## c#
+## C#
 
 > 2019년에 집중적으로 보고 있음.
 
@@ -46,8 +46,10 @@ Update-Database -ConfigurationTypeName [프로젝트네임스페이스].Migratio
 
 - Monitor 나 lock 을 쓸경우 String 이나 int 값은 느슨한 참조를 하는 객체라 참조가 깨질 가능성이 있다고 함 반드시 강한 참조를 가진 객체로 지정할것
 
-### c#은 컴파일 언어에 가까울뿐 완전한 컴파일 언어는 아니다.
-- 테스크 쓰레드 사용시 컴파일 이후 동작에서 코드그대로 동작하지 않을 수 있음 
+### c#은 컴파일 언어에 가까울뿐 완전한 컴파일 언어는 아니다
+
+- 테스크 쓰레드 사용시 컴파일 이후 동작에서 코드그대로 동작하지 않을 수 있음
+
   ```c#
     while(true) 
     {
@@ -57,8 +59,10 @@ Update-Database -ConfigurationTypeName [프로젝트네임스페이스].Migratio
       ...
     }
   ```
+
   - 다음의 코드에서 조건을 만족하는 값을 포인터로 넘겨준다고 해도 바로 브레이크 포인트를 작동 시키지 않게된다.
   - [예제](https://docs.microsoft.com/en-us/dotnet/standard/parallel-programming/task-cancellation)는 중간에 멈추지 않음을 확인
+
   ```c#
     while(option) {
       if (Moniter.Enter(obj)) {
@@ -66,11 +70,12 @@ Update-Database -ConfigurationTypeName [프로젝트네임스페이스].Migratio
       }
     }
   ```
-  - 쓰레드 사용시 while(true) 사용하면 그대로 닫힌(closed) process가 되고 프로세스내에 참조를 하게 되면 경합으로 인해 프리징이 발생 
+
+  - 쓰레드 사용시 while(true) 사용하면 그대로 닫힌(closed) process가 되고 프로세스내에 참조를 하게 되면 경합으로 인해 프리징이 발생
   - Monitor 나 lock 모두 제대로 동작 하지 않았다.
   - 파일에서 설정을 읽어 오는 절차를 추가하거나 혹은 참인 조건이 발생할 경우만 쓰레드가 동작되고 재실행 하도록 변경 (쓰레드 재실행)
   - Task가 Thread 보다 생성 비용이 높으므로 Thread 제어가 이루어 졌다면 굳이 Task를 사용할 필요는 없음
-    
+
 ## aspx 관련 정리
 
 ### 시작 메소드는 자체정의되어있음
@@ -84,4 +89,3 @@ protected void Page_Load(object sender, EventArgs e)
 ### 글로벌 변수는 반드시  초기값을 부여할것
 
 ## 비주얼 스튜디오 내장 mvc 프레임워크 관련 (아마도 nuget 이야기가 대부분이겠지.)
-

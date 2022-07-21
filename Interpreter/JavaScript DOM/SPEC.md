@@ -234,6 +234,7 @@ var SIPU = (function (SIPU, $, undefined) {
 ### Object.assign()
 
 > 객체 머징
+
 ```javascript
 function extend(...args) {
   return Object.assign({}, ...args.filter(Object.isObject).reverse());

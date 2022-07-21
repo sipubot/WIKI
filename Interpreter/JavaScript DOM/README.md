@@ -31,25 +31,26 @@
 
   윈도우 환경 기준 (visual studio code)
   
-  - nodejs 다운 받아 설치하기
-  - nodejs visual studio run time enviroment (설치는 안해도 되지는 모르겠음)
-  - 추가 확장 설치 : javascript es6 snippets, Eslint
-  - JS 소스 파일이 있는 곳에서 실행 하면 가능
+- nodejs 다운 받아 설치하기
+- nodejs visual studio run time enviroment (설치는 안해도 되지는 모르겠음)
+- 추가 확장 설치 : javascript es6 snippets, Eslint
+- JS 소스 파일이 있는 곳에서 실행 하면 가능
+
     ```cmd
       node <filename.js>
     ```
 
 ## three js
 
-  - 이제는 하나의 플랫폼으로 봐야할 정도로 많이 성정 한듯
-  - [슬라이드로 공부](http://davidscottlyons.com/threejs-intro/)
-  - 3D 그래픽 관련해서는 가장 잘 설명 되어 있는 거 같음 기초적인 부분도 다 나와 있음
+- 이제는 하나의 플랫폼으로 봐야할 정도로 많이 성정 한듯
+- [슬라이드로 공부](http://davidscottlyons.com/threejs-intro/)
+- 3D 그래픽 관련해서는 가장 잘 설명 되어 있는 거 같음 기초적인 부분도 다 나와 있음
 
 ## konva js
 
-  - canvas용 프레임 워크 하나를 찾다가 선택 나쁘지 않아 보임
-  - fabric도 고려 해봤는데 파티션 나눠진게 별로다 D3가 그렇게 망했지.
-  - 어쨌든 konva를 이용한 무언가를 하나 하려고 한다. 
+- canvas용 프레임 워크 하나를 찾다가 선택 나쁘지 않아 보임
+- fabric도 고려 해봤는데 파티션 나눠진게 별로다 D3가 그렇게 망했지.
+- 어쨌든 konva를 이용한 무언가를 하나 하려고 한다.
 
 ## 책관련 잡담
 

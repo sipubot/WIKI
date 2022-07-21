@@ -8,11 +8,11 @@
     사이트 레이아웃 문제 + 문제 난이도가 있어서 접근성이 많이 떨이지는 중
 
 - [CodeJam](https://codingcompetitions.withgoogle.com/codejam)
-    2년째 안하는중 바쁜건 핑계지
+    3년째 안하는중 바쁜건 핑계지
 
 - [프로그래머스](https://programmers.co.kr)
     의미없어짐 역시 외국 사이트가 답이다.
 
 - [GeekforGeek](https://www.geeksforgeeks.org/)
-    퀴즈사이트 라기 보단 커리큘럼 사이트에 가깝지만 실전보다는 이론부분이 충실함 영어만 가능하다면 이곳에서 공부를. 
-    leetcode의 커리큘럼이 좋아져서 여기보단 leetcode에 가서 정석으로 배우는게 나을듯 싶다. 
+    퀴즈사이트 라기 보단 커리큘럼 사이트에 가깝지만 실전보다는 이론부분이 충실함 영어만 가능하다면 이곳에서 공부를.
+    leetcode의 커리큘럼이 좋아져서 여기보단 leetcode에 가서 정석으로 배우는게 나을듯 싶다.

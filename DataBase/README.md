@@ -22,3 +22,4 @@
 - [Mssql](https://www.microsoft.com/ko-kr/server-cloud/products/sql-server/overview.aspx)
   - azure를 쓸 경우가 아니면 손댈 필요 없는 DB 모든 기능이 다 불만족 스럽지만 서버와의 호환성 때문에 쓴다.
 - [mariadb](https://mariadb.org/) - 순위권밖이라 끼워 넣기 묘하네
+- [redis](https://redis.io/) - 이걸 DB로 봐야할지 좀 모호하지만 많이들 쓰고 있는 메모리 DB이므로 추가 (미들웨어는 왠만하면 다들 레디스를 쓰는 추세같음)

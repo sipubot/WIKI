@@ -1,4 +1,4 @@
-# BOM 이란 무엇인가.
+# BOM 이란 무엇인가
 
 >Browser Object Model.
 
@@ -10,7 +10,8 @@
 
 내장 함수 만약 서명기한이 지나거나 서명되지 않은 https 일경우 false 리턴
 >지원되는 브라우저는 mdn [참조](https://developer.mozilla.org/en-US/docs/Web/API/Window/isSecureContext)
-```javascript 
+
+```javascript
   // 브라우저 사이트 ssl 체크 관련
   var isSSL = window.isSecureContext;
   // 
@@ -19,7 +20,8 @@
 ### 단순히 사이트내의 데이터를 갱신하려고 할때 (이미지 or 파일들)
 
 >예제를 참고 할것
-```javascript 
+
+```javascript
 const myImage = document.querySelector('img');
 
 let myRequest = new Request('flowers.jpg');
@@ -39,7 +41,8 @@ fetch(myRequest)
 
 ### 해당 노드에 정의된 스타일 알아보기
 
->유용할 듯 
+>유용할 듯
+
 ```html
  <style>
   h3::after {

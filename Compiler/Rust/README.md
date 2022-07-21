@@ -16,6 +16,7 @@
 - cargo 실행시 백트래킹 하는법 --backtrace
 - 멀티 쓰레드를 위한 [crossbeam](https://docs.rs/crossbeam/0.7.1/crossbeam/)
 - 간단하게 모나드를 실행 하는 법 [좀더 살펴보기](https://rust-lang-nursery.github.io/rust-cookbook/concurrency/parallel.html)
+
   ```rust
   extern crate rayon;
 

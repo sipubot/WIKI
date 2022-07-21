@@ -2,7 +2,8 @@
 
 ## enviroment.sh
 
-- ssh 설치는 제외 
+- ssh 설치는 제외
+
 ```bash
 echo "update ubuntu"
 echo "ufw install"
@@ -25,7 +26,6 @@ echo "bash start"
 #echo "copy to serverservice"
 #echo "init server"
 ```
-
 
 ## deploy.sh
 
