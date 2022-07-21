@@ -1,4 +1,22 @@
 
+/**https://leetcode.com/explore/learn/card/fun-with-arrays/527/searching-for-items-in-an-array/3251/
+ * @param {number[]} arr
+ * @return {boolean}
+ */
+ var validMountainArray = function(arr) {
+    if (arr.length < 3 ) return false
+    var diff = new Array(arr.length-1).fill(0);
+    diff = diff.map((_,i)=>  arr[i+1] - arr[i])
+    
+    if (diff.indexOf(0) > -1) return false;
+    const isN = (element) => element < 0;
+    var ni = diff.findIndex(isN);
+    
+    var before = diff.slice(0,ni);
+    var after = diff.slice(ni);
+    if (before.length == 0 || after.length == 0) return false;
+    return !after.some(a=>a>0) && !before.some(a=>a<0);
+};
 /**https://leetcode.com/explore/learn/card/fun-with-arrays/527/searching-for-items-in-an-array/3250/
  * @param {number[]} arr
  * @return {boolean}
