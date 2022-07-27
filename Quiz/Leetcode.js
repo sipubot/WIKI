@@ -1,4 +1,27 @@
 
+/**https://leetcode.com/submissions/detail/758521032/?from=explore&item_id=3260
+ * @param {number[]} nums
+ * @return {number[]}
+ */
+ var sortArrayByParity = function(nums) {
+    var j = nums.length -1, i = 0;
+    var swap = 0;
+    while (i < j) {
+        if (nums[j] % 2 == 0) {
+            
+        } else {
+            j--;
+        }
+        if (nums[i] % 2 == 1) {
+            swap = nums[j];
+            nums[j] = nums[i];
+            nums[i] = swap;
+        } else {
+            i++;
+        }
+    }
+    return nums;
+};
 /**https://leetcode.com/explore/learn/card/fun-with-arrays/527/searching-for-items-in-an-array/3251/
  * @param {number[]} arr
  * @return {boolean}
