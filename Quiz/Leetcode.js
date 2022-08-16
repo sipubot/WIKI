@@ -1,4 +1,23 @@
-
+/**https://leetcode.com/submissions/detail/774719297/?from=explore&item_id=3270
+ * @param {number[]} nums
+ * @return {number[]}
+ */
+ var findDisappearedNumbers = function(nums) {
+    
+    var find = new Array(Math.max(nums.length)).fill(0);
+    find = find.map((a,i)=>i+1);
+    nums.map(a=>{find[a-1] = 0;});
+    return find.filter(a=>a!=0);
+};
+/**https://leetcode.com/submissions/detail/770808910/?from=explore&item_id=3228
+ * @param {number[]} heights
+ * @return {number}
+ */
+ var heightChecker = function(heights) {
+    var ori = heights.slice(0);
+    heights.sort((a,b)=>a-b);
+    return ori.filter((a,i)=>heights[i] != a).length
+};
 /**https://leetcode.com/submissions/detail/758521032/?from=explore&item_id=3260
  * @param {number[]} nums
  * @return {number[]}
