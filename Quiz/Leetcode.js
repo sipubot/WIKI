@@ -1,3 +1,38 @@
+/**https://leetcode.com/explore/featured/card/top-interview-questions-easy/127/strings/881/
+ * @param {string} s
+ * @return {number}
+ */
+ var firstUniqChar = function(s) {
+    var c = s.split('');
+    var count = {};
+    c.map(a=>{
+        if (count[a]) {
+            count[a] += 1;
+        } else {
+            count[a] = 1;
+        }
+        
+    });
+    return c.map(a=>count[a]).indexOf(1);
+};
+
+/**https://leetcode.com/explore/interview/card/top-interview-questions-easy/92/array/546/
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number[]}
+ * 조합
+ */
+ var twoSum = function(nums, target) {
+    var re = [];
+    for (var i = 0; i < nums.length ; i++) {
+        for (var j = i+1; j < nums.length; j++) {
+            if (nums[i] + nums[j] == target) {
+                re = [i,j];
+            }
+        }
+    }
+    return re;
+};
 /**https://leetcode.com/submissions/detail/774719297/?from=explore&item_id=3270
  * @param {number[]} nums
  * @return {number[]}
