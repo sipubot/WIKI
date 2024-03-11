@@ -9,9 +9,11 @@
 
 - [CodeJam](https://codingcompetitions.withgoogle.com/codejam)
     3년째 안하는중 바쁜건 핑계지
+    >코드잼 이벤트 종료 되었음 이제는 안뽑는거 같다. 
 
 - [프로그래머스](https://programmers.co.kr)
     의미없어짐 역시 외국 사이트가 답이다.
+    > 문제가 충실한지 모르겠다. 최근에는 카피 문제가 많이 는거 같기도 하고
 
 - [GeekforGeek](https://www.geeksforgeeks.org/)
     퀴즈사이트 라기 보단 커리큘럼 사이트에 가깝지만 실전보다는 이론부분이 충실함 영어만 가능하다면 이곳에서 공부를.
