@@ -305,7 +305,7 @@ function decompose(num) {
   }
   return [re, num]
 }
-https://www.codewars.com/kata/count-letters-in-a-string/
+//https://www.codewars.com/kata/count-letters-in-a-string/
 function countLetters (string) {
   var re = {};
   if (typeof string !== 'string') return null
@@ -2107,7 +2107,7 @@ function nextVersion(version){
   }
   return str.reverse().join('.')
 }
-https://www.codewars.com/kata/least-common-multiple/train/javascript
+//https://www.codewars.com/kata/least-common-multiple/train/javascript
 var lcm = function () {
 	var gcd = function(a, b) {
 	    if ( ! b) {return a;}
@@ -4586,7 +4586,7 @@ function ipToNum(ip) {
 function numToIp(num) {
   return ("00000000000000000000000000000000" + (num.toString(2))).substr(-32).match(/.{1,8}/g).map(a => parseInt(a, 2)).join('.');
 }
-https://www.codewars.com/kata/common-bit-twiddles/train/javascript
+//https://www.codewars.com/kata/common-bit-twiddles/train/javascript
 function isEven(n) {
   return n >> 1 << 1 === n
 }
